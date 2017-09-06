@@ -123,6 +123,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         alunoAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Female.png"))); // NOI18N
         alunoAdd.setText("Adicionar");
+        alunoAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alunoAddActionPerformed(evt);
+            }
+        });
         alunos.add(alunoAdd);
 
         jMenuBar1.add(alunos);
@@ -217,6 +222,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         about.setVisible(true);
         
     }//GEN-LAST:event_aboutActionPerformed
+
+    private void alunoAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoAddActionPerformed
+        TelaAddAluno addaluno = new TelaAddAluno();
+        fundo.add(addaluno);
+        addaluno.setVisible(true);
+        
+    }//GEN-LAST:event_alunoAddActionPerformed
 
     /**
      * @param args the command line arguments
