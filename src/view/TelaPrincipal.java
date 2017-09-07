@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author areznla
@@ -16,6 +18,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         initComponents();
+        TelaLogin login = new TelaLogin(this, true);
+        login.setVisible(true);
     }
 
     /**
@@ -29,8 +33,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         fundo = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        file = new javax.swing.JMenu();
         logout = new javax.swing.JMenuItem();
+        exit = new javax.swing.JMenuItem();
         User = new javax.swing.JMenu();
         addUser = new javax.swing.JMenuItem();
         removeUser = new javax.swing.JMenuItem();
@@ -53,8 +58,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         fundo.setBackground(new java.awt.Color(153, 153, 255));
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
-        jMenu1.setText("Sistema");
+        file.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
+        file.setText("Sistema");
 
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
         logout.setText("Logout");
@@ -63,9 +68,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 logoutActionPerformed(evt);
             }
         });
-        jMenu1.add(logout);
+        file.add(logout);
 
-        jMenuBar1.add(jMenu1);
+        exit.setText("Sair");
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
+        file.add(exit);
+
+        jMenuBar1.add(file);
 
         User.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Person.png"))); // NOI18N
         User.setText("Usuarios");
@@ -186,12 +199,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
+            .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 928, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+                .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -200,9 +213,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
-        Login login = new Login();
+        TelaLogin login = new TelaLogin(this, true);
+        this.setVisible(false);
         login.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_logoutActionPerformed
 
     private void addUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserActionPerformed
@@ -263,6 +277,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         gerenaluno.setVisible(true);
     }//GEN-LAST:event_alunoGerenActionPerformed
 
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+       int i = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja finalizar o programa?",
+                "CADaster - Fechar",JOptionPane.YES_NO_OPTION);
+        if(i==JOptionPane.YES_OPTION){
+            dispose();
+        }
+        
+    }//GEN-LAST:event_exitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -272,6 +295,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -309,12 +334,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem alunoPesq;
     private javax.swing.JMenu alunos;
     private javax.swing.JMenuItem editUser;
+    private javax.swing.JMenuItem exit;
+    private javax.swing.JMenu file;
     private javax.swing.JMenuItem funcAdm;
     private javax.swing.JMenuItem funcProf;
     private javax.swing.JMenuItem funcUtil;
     private javax.swing.JMenu funcionarios;
     private javax.swing.JDesktopPane fundo;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem logout;
     private javax.swing.JMenuItem removeUser;
