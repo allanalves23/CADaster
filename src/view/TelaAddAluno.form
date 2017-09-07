@@ -7,6 +7,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
+    <Property name="iconifiable" type="boolean" value="true"/>
     <Property name="maximizable" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="true"/>
     <Property name="title" type="java.lang.String" value="CADaster - Adicionar aluno"/>
@@ -234,9 +235,9 @@
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jRadioButton3" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -471,9 +472,9 @@
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jRadioButtonGin" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonGin2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonGin2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -946,9 +947,9 @@
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jLabel46" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jRadioButtonTec" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonTec2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonTec2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
