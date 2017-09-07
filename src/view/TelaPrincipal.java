@@ -18,6 +18,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         initComponents();
+        this.setExtendedState(this.MAXIMIZED_BOTH);
+        this.setVisible(true);
         TelaLogin login = new TelaLogin(this, true);
         login.setVisible(true);
     }
