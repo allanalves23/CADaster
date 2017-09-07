@@ -113,14 +113,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         alunoGeren.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Notes.png"))); // NOI18N
         alunoGeren.setText("Gerenciar");
+        alunoGeren.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alunoGerenActionPerformed(evt);
+            }
+        });
         alunos.add(alunoGeren);
 
         alunoPesq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Text preview.png"))); // NOI18N
         alunoPesq.setText("Pesquisar");
+        alunoPesq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alunoPesqActionPerformed(evt);
+            }
+        });
         alunos.add(alunoPesq);
 
         alunoDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
         alunoDel.setText("Excluir");
+        alunoDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alunoDelActionPerformed(evt);
+            }
+        });
         alunos.add(alunoDel);
 
         alunoAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Female.png"))); // NOI18N
@@ -217,8 +232,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_searchUserActionPerformed
 
     private void aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutActionPerformed
-        Sobre about = new Sobre();
-        fundo.add(about);
+        Sobre sobre = new Sobre();
+        fundo.add(sobre);
         about.setVisible(true);
         
     }//GEN-LAST:event_aboutActionPerformed
@@ -229,6 +244,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         addaluno.setVisible(true);
         
     }//GEN-LAST:event_alunoAddActionPerformed
+
+    private void alunoDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoDelActionPerformed
+       TelaDelAluno delaluno = new TelaDelAluno();
+       fundo.add(delaluno);
+       delaluno.setVisible(true);
+    }//GEN-LAST:event_alunoDelActionPerformed
+
+    private void alunoPesqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoPesqActionPerformed
+        TelaPesqAluno pesqaluno = new TelaPesqAluno();
+        fundo.add(pesqaluno);
+        pesqaluno.setVisible(true);
+    }//GEN-LAST:event_alunoPesqActionPerformed
+
+    private void alunoGerenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoGerenActionPerformed
+        TelaGerenciaAluno gerenaluno = new TelaGerenciaAluno();
+        fundo.add(gerenaluno);
+        gerenaluno.setVisible(true);
+    }//GEN-LAST:event_alunoGerenActionPerformed
 
     /**
      * @param args the command line arguments
