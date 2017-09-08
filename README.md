@@ -1,4 +1,5 @@
-﻿﻿# CADaster	![ImagemLogo](https://i.imgur.com/zxzwGDl.png "CADasterLogo")
+# CADaster	
+![ImagemLogo](https://i.imgur.com/zxzwGDl.png "CADasterLogo")
 
 Sistema de cadastro academico.
 
