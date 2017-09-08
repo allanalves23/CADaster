@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 ﻿﻿# CADaster	![ImagemLogo](https://i.imgur.com/zxzwGDl.png "CADasterLogo")
+=======
+<<<<<<< HEAD
+﻿# CADaster	![ImagemLogo](https://i.imgur.com/zxzwGDl.png "CADasterLogo")
+>>>>>>> e4921037761daa6b92523501267516023f337ec9
 Sistema de cadastro academico.
 
 Projeto realizado somente por mim e sem fins lucrativos, apenas acadêmicos.
@@ -26,4 +31,9 @@ O sistema está sendo criado no NETBEANS em sua atual versão(8.2) e atualmente 
 sistema java. Não há previsão de entrega do software tendo em mente que o projeto é realizado apenas para conhecimento próprio
 e não há garantia de finalização do projeto.
 =======
+<<<<<<< HEAD
 
+=======
+#CADaster
+>>>>>>> 0119116326326332e62082a7851e800c261ca974
+>>>>>>> e4921037761daa6b92523501267516023f337ec9
