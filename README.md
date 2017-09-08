@@ -1,4 +1,4 @@
-# CADaster
+﻿# CADaster
 Sistema de cadastro academico.
-Projeto realizado por somente uma pessoa e sem fins lucrativos, apenas acadêmicos.
+Projeto realizado somente por mim e sem fins lucrativos, apenas acadêmicos.
 

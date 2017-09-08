@@ -155,7 +155,6 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setResizable(true);
         setTitle("CADaster - Adicionar aluno");
 
         alunos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Primario [1-4 ano]", "Ginasio [5-9 ano]", "Ensino Medio [1-3 ano]", "Tecnico" }));
@@ -527,7 +526,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         alunoEMLayout.setVerticalGroup(
             alunoEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, alunoEMLayout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
+                .addContainerGap(43, Short.MAX_VALUE)
                 .addGroup(alunoEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(alunoEMLayout.createSequentialGroup()
                         .addGroup(alunoEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -582,13 +581,12 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                         .addComponent(campoNascEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(alunoEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(alunoEMLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(alunoEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jRadioButtonEM)
                             .addComponent(jRadioButtonEM2))
-                        .addContainerGap(81, Short.MAX_VALUE))
+                        .addContainerGap(84, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, alunoEMLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(alunoEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnExitEM)
