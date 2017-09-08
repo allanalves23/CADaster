@@ -20,8 +20,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(this.MAXIMIZED_BOTH);
         this.setVisible(true);
-        TelaLogin login = new TelaLogin(this, true);
-        login.setVisible(true);
+       // TelaLogin login = new TelaLogin(this, true);
+        //login.setVisible(true);
     }
 
     /**
@@ -72,6 +72,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         file.add(logout);
 
+        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/quit.png"))); // NOI18N
         exit.setText("Sair");
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,6 +170,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         funcProf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/teacher.png"))); // NOI18N
         funcProf.setText("Professor");
+        funcProf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funcProfActionPerformed(evt);
+            }
+        });
         funcionarios.add(funcProf);
 
         funcAdm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/User group.png"))); // NOI18N
@@ -250,8 +256,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutActionPerformed
         Sobre sobre = new Sobre();
         fundo.add(sobre);
-        about.setVisible(true);
-        
+        sobre.setVisible(true);
     }//GEN-LAST:event_aboutActionPerformed
 
     private void alunoAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoAddActionPerformed
@@ -287,6 +292,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_exitActionPerformed
+
+    private void funcProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcProfActionPerformed
+        TelaProfessor prof = new TelaProfessor();
+        fundo.add(prof);
+        prof.setVisible(true);
+    }//GEN-LAST:event_funcProfActionPerformed
 
     /**
      * @param args the command line arguments
