@@ -1,4 +1,4 @@
-﻿# CADaster	![ImagemLogo](https://i.imgur.com/zxzwGDl.png "CADasterLogo")
+﻿﻿# CADaster	![ImagemLogo](https://i.imgur.com/zxzwGDl.png "CADasterLogo")
 Sistema de cadastro academico.
 
 Projeto realizado somente por mim e sem fins lucrativos, apenas acadêmicos.
@@ -25,3 +25,5 @@ ter como seus registros, também é possivel visualizar e deletar cadastros.
 O sistema está sendo criado no NETBEANS em sua atual versão(8.2) e atualmente utilizo meu tempo livre para a modulação deste
 sistema java. Não há previsão de entrega do software tendo em mente que o projeto é realizado apenas para conhecimento próprio
 e não há garantia de finalização do projeto.
+=======
+
