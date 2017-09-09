@@ -16,6 +16,14 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
     /**
      * Creates new form TelaProfessor
      */
+    private static TelaProfessor tela;
+    
+    public static TelaProfessor getAbrir(){
+      if(tela==null){
+          tela=new TelaProfessor();
+      }  
+      return tela;
+    }
     public TelaProfessor() {
         initComponents();
     }

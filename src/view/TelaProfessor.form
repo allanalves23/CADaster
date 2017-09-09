@@ -191,7 +191,7 @@
                                   <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                      <Component id="campoArea" pref="99" max="32767" attributes="0"/>
+                                      <Component id="campoArea" pref="0" max="32767" attributes="0"/>
                                       <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="campoMateria" alignment="0" max="32767" attributes="0"/>
                                       <Component id="btnConfirm" min="-2" max="-2" attributes="0"/>

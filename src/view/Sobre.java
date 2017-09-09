@@ -14,6 +14,15 @@ public class Sobre extends javax.swing.JInternalFrame {
     /**
      * Creates new form Sobre
      */
+    private static Sobre tela;
+    
+    public static Sobre getAbrir(){
+        if(tela==null){
+            tela=new Sobre();
+            
+        }
+        return tela;
+    }
     public Sobre() {
         initComponents();
     }

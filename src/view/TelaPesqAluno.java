@@ -14,6 +14,14 @@ public class TelaPesqAluno extends javax.swing.JInternalFrame {
     /**
      * Creates new form TelaPesqAluno
      */
+    private static TelaPesqAluno tela;
+    
+    public static TelaPesqAluno getAbrir(){
+        if(tela==null){
+            tela=new TelaPesqAluno();
+        }
+        return tela;
+    }
     public TelaPesqAluno() {
         initComponents();
     }

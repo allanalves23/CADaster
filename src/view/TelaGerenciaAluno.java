@@ -10,10 +10,20 @@ package view;
  * @author allan
  */
 public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
-
+    
     /**
      * Creates new form TelaGerenciaAluno
      */
+    private static TelaGerenciaAluno tela;
+    
+    public static TelaGerenciaAluno getAbrir(){
+        if(tela==null){
+            tela= new TelaGerenciaAluno(); 
+        }
+        return tela;
+    }
+   
+    
     public TelaGerenciaAluno() {
         initComponents();
     }
@@ -43,6 +53,23 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setTitle("CADaster - Modificar aluno");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosed(evt);
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         panelPesq.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar aluno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
@@ -169,6 +196,10 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
+       
+    }//GEN-LAST:event_formInternalFrameClosed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

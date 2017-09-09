@@ -14,6 +14,15 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
     /**
      * Creates new form TelaDelAluno
      */
+    private static TelaDelAluno tela;
+    
+    public static TelaDelAluno getAbrir(){
+        if(tela==null){
+            tela=new TelaDelAluno();
+            
+        }
+        return tela;
+    }
     public TelaDelAluno() {
         initComponents();
     }

@@ -14,6 +14,16 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
     /**
      * Creates new form TelaPesquisa
      */
+    
+    private static TelaPesquisa tela;
+    
+    public static TelaPesquisa getAbrir(){
+        if(tela==null){
+            tela=new TelaPesquisa();
+            
+        }
+        return tela;
+    }
     public TelaPesquisa() {
         initComponents();
     }

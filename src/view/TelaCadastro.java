@@ -5,6 +5,8 @@
  */
 package view;
 
+
+
 /**
  *
  * @author areznla
@@ -14,10 +16,21 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     /**
      * Creates new form TelaCadastro
      */
+    
+    private static TelaCadastro telaCad;
+    
+    public static TelaCadastro getAbrir(){
+        if(telaCad==null){
+            telaCad=new TelaCadastro();
+        }
+        return telaCad;
+    }
+    
     public TelaCadastro() {
         initComponents();
+        
     }
-    Usuario u = new Usuario();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

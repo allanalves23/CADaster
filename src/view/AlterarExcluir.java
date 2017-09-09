@@ -18,6 +18,20 @@ public class AlterarExcluir extends javax.swing.JInternalFrame {
     /**
      * Creates new form AlterarExcluir
      */
+    
+    private static AlterarExcluir tela;
+    
+    public static AlterarExcluir getAbrir(boolean control){
+        if(tela==null){
+            tela=new AlterarExcluir();
+            tela.setControl(control);
+        }
+        
+        return tela;
+    }
+    
+    
+    //Controle para mostrar os panels no cardlayout[baixo]
     private boolean control;
 
     public AlterarExcluir(boolean control) {
@@ -31,10 +45,11 @@ public class AlterarExcluir extends javax.swing.JInternalFrame {
     public void setControl(boolean control) {
         this.control = control;
     }
+    //Controle para mostrar os panels no cardlayout[cima]
     public AlterarExcluir() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
