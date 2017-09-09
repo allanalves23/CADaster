@@ -7,6 +7,7 @@ package view;
 
 import javax.swing.JOptionPane;
 import utilitarios.UmaJanelaApenas;
+import javax.swing.JInternalFrame;
 
 
 /**
@@ -19,9 +20,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
      * Creates new form TelaPrincipal
      */
     //Flags dos jInternalFrames
-    public boolean flagAdm=false;
-    public boolean flagProf=false;
-    public boolean flagGerAluno=false;
     
     UmaJanelaApenas controle;
     
@@ -248,11 +246,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_addUserActionPerformed
 
     private void removeUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserActionPerformed
-        controle.abrirJanela(AlterarExcluir.getAbrir(true));
+        controle.abrirJanela(true,AlterarExcluir.getAbrir(true));
     }//GEN-LAST:event_removeUserActionPerformed
 
     private void editUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUserActionPerformed
-        controle.abrirJanela(AlterarExcluir.getAbrir(false));
+        controle.abrirJanela(false,AlterarExcluir.getAbrir(false));
     }//GEN-LAST:event_editUserActionPerformed
 
     private void searchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchUserActionPerformed

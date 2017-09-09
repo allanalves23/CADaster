@@ -22,9 +22,10 @@ public class AlterarExcluir extends javax.swing.JInternalFrame {
     private static AlterarExcluir tela;
     
     public static AlterarExcluir getAbrir(boolean control){
+        
         if(tela==null){
             tela=new AlterarExcluir();
-            tela.setControl(control);
+            
         }
         
         return tela;
@@ -33,11 +34,7 @@ public class AlterarExcluir extends javax.swing.JInternalFrame {
     
     //Controle para mostrar os panels no cardlayout[baixo]
     private boolean control;
-
-    public AlterarExcluir(boolean control) {
-        this.control = control;
-    }
-
+  
     public boolean isControl() {
         return control;
     }
@@ -48,6 +45,7 @@ public class AlterarExcluir extends javax.swing.JInternalFrame {
     //Controle para mostrar os panels no cardlayout[cima]
     public AlterarExcluir() {
         initComponents();
+        
     }
     
     /**
@@ -380,18 +378,11 @@ public class AlterarExcluir extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_metBuscaActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-         if(this.isControl()){
-            CardLayout excluir = (CardLayout) telaOption.getLayout();
-            excluir.show(telaOption, "excluir");
-        }else{
-            CardLayout alterar = (CardLayout) telaOption.getLayout();
-            alterar.show(telaOption, "alterar");
-        }
-
+      
     }//GEN-LAST:event_formInternalFrameActivated
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-    //metodo gerado de maneira errada e impossibilitado de ser excluido pelo NetBeans  
+       
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -404,7 +395,6 @@ public class AlterarExcluir extends javax.swing.JInternalFrame {
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;

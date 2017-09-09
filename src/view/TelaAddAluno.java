@@ -41,7 +41,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
 
         alunoTransferido = new javax.swing.ButtonGroup();
         remanescentePrimario = new javax.swing.ButtonGroup();
-        telaMain = new javax.swing.JPanel();
+        fundoOp = new javax.swing.JPanel();
         panelAction = new javax.swing.JPanel();
         alunos = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
@@ -1039,22 +1039,22 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
 
         panelFundo.add(alunoPrimario, "primario");
 
-        javax.swing.GroupLayout telaMainLayout = new javax.swing.GroupLayout(telaMain);
-        telaMain.setLayout(telaMainLayout);
-        telaMainLayout.setHorizontalGroup(
-            telaMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(telaMainLayout.createSequentialGroup()
+        javax.swing.GroupLayout fundoOpLayout = new javax.swing.GroupLayout(fundoOp);
+        fundoOp.setLayout(fundoOpLayout);
+        fundoOpLayout.setHorizontalGroup(
+            fundoOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fundoOpLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(panelAction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, telaMainLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoOpLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        telaMainLayout.setVerticalGroup(
-            telaMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(telaMainLayout.createSequentialGroup()
+        fundoOpLayout.setVerticalGroup(
+            fundoOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fundoOpLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(panelAction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
@@ -1066,11 +1066,11 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telaMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(fundoOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telaMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(fundoOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getAccessibleContext().setAccessibleDescription("");
@@ -1225,6 +1225,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
     private javax.swing.JTextField campoRespGin;
     private javax.swing.JTextField campoRespTec;
     private javax.swing.JComboBox<String> cursoTecnico1;
+    private javax.swing.JPanel fundoOp;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JFormattedTextField jFormattedTextField3;
@@ -1299,6 +1300,5 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panelAction;
     private javax.swing.JPanel panelFundo;
     private javax.swing.ButtonGroup remanescentePrimario;
-    private javax.swing.JPanel telaMain;
     // End of variables declaration//GEN-END:variables
 }
