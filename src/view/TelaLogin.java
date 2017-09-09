@@ -5,6 +5,7 @@
  */
 package view;
 
+import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -79,6 +80,18 @@ public class TelaLogin extends javax.swing.JDialog {
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEntrarActionPerformed(evt);
+            }
+        });
+
+        campoSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                campoSenhaKeyPressed(evt);
+            }
+        });
+
+        campoLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                campoLoginKeyPressed(evt);
             }
         });
 
@@ -222,13 +235,7 @@ public class TelaLogin extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-
-        if(campoLogin.getText().equals("root")&&campoSenha.getText().equals("123")){
-            this.dispose();
-        }else{
-            mensagemErro.setIcon(new ImageIcon(getClass().getResource("../imagens/About.png")));
-            mensagemErro.setText("Usuário ou senha inválidos");
-        }
+        verificarLogin(campoLogin.getText(), new String(campoSenha.getPassword()));
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -238,6 +245,26 @@ public class TelaLogin extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnSairActionPerformed
 
+    private void campoSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoSenhaKeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            verificarLogin(campoLogin.getText(), new String(campoSenha.getPassword()));
+        }
+    }//GEN-LAST:event_campoSenhaKeyPressed
+
+    private void campoLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoLoginKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            verificarLogin(campoLogin.getText(), new String(campoSenha.getPassword()));
+        }
+    }//GEN-LAST:event_campoLoginKeyPressed
+
+    private void verificarLogin(String login, String senha){
+        if(login.equals("root") && senha.equals("123")){
+            this.dispose();
+        }else{
+            mensagemErro.setText("Login ou senha invalidos");
+            mensagemErro.setIcon(new ImageIcon(getClass().getResource("../imagens/About.png")));
+        }
+    }
     /**
      * @param args the command line arguments
      */
