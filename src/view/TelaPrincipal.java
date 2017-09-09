@@ -6,6 +6,8 @@
 package view;
 
 import javax.swing.JOptionPane;
+import utilitarios.UmaJanelaApenas;
+
 
 /**
  *
@@ -16,12 +18,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form TelaPrincipal
      */
+    //Flags dos jInternalFrames
+    public boolean flagAdm=false;
+    public boolean flagProf=false;
+    public boolean flagGerAluno=false;
+    
+    UmaJanelaApenas controle;
+    
     public TelaPrincipal() {
         initComponents();
-        this.setExtendedState(this.MAXIMIZED_BOTH);
+        this.setExtendedState(TelaPrincipal.MAXIMIZED_BOTH);
         this.setVisible(true);
-       // TelaLogin login = new TelaLogin(this, true);
-        //login.setVisible(true);
+        TelaLogin login = new TelaLogin(this, true);
+        login.setVisible(true);
+        this.controle=new UmaJanelaApenas(fundo);
+        
     }
 
     /**
@@ -179,6 +190,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         funcAdm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/User group.png"))); // NOI18N
         funcAdm.setText("Administração");
+        funcAdm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funcAdmActionPerformed(evt);
+            }
+        });
         funcionarios.add(funcAdm);
 
         funcUtil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/funcionario.png"))); // NOI18N
@@ -222,66 +238,43 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         TelaLogin login = new TelaLogin(this, true);
-        this.setVisible(false);
         login.setVisible(true);
         
     }//GEN-LAST:event_logoutActionPerformed
 
     private void addUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserActionPerformed
-        TelaCadastro cadUser = new TelaCadastro();
-        fundo.add(cadUser);
-        cadUser.setVisible(true);
+        controle.abrirJanela(TelaCadastro.getAbrir());
     }//GEN-LAST:event_addUserActionPerformed
 
     private void removeUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserActionPerformed
-        AlterarExcluir delAlt = new AlterarExcluir();
-        delAlt.setControl(true);
-        fundo.add(delAlt);
-        delAlt.setVisible(true);
+        controle.abrirJanela(AlterarExcluir.getAbrir(true));
     }//GEN-LAST:event_removeUserActionPerformed
 
     private void editUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUserActionPerformed
-        AlterarExcluir altDel = new AlterarExcluir();
-        altDel.setControl(false);
-        fundo.add(altDel);
-        altDel.setVisible(true);
+        controle.abrirJanela(AlterarExcluir.getAbrir(false));
     }//GEN-LAST:event_editUserActionPerformed
 
     private void searchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchUserActionPerformed
-        TelaPesquisa pesq = new TelaPesquisa();
-        fundo.add(pesq);
-        pesq.setVisible(true);
+        controle.abrirJanela(TelaPesquisa.getAbrir());
     }//GEN-LAST:event_searchUserActionPerformed
 
     private void aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutActionPerformed
-        Sobre sobre = new Sobre();
-        fundo.add(sobre);
-        sobre.setVisible(true);
+        controle.abrirJanela(Sobre.getAbrir());
     }//GEN-LAST:event_aboutActionPerformed
-
     private void alunoAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoAddActionPerformed
-        TelaAddAluno addaluno = new TelaAddAluno();
-        fundo.add(addaluno);
-        addaluno.setVisible(true);
-        
+        controle.abrirJanela(TelaAddAluno.getAbrir());
     }//GEN-LAST:event_alunoAddActionPerformed
 
     private void alunoDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoDelActionPerformed
-       TelaDelAluno delaluno = new TelaDelAluno();
-       fundo.add(delaluno);
-       delaluno.setVisible(true);
+       controle.abrirJanela(TelaDelAluno.getAbrir());
     }//GEN-LAST:event_alunoDelActionPerformed
 
     private void alunoPesqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoPesqActionPerformed
-        TelaPesqAluno pesqaluno = new TelaPesqAluno();
-        fundo.add(pesqaluno);
-        pesqaluno.setVisible(true);
+        controle.abrirJanela(TelaPesqAluno.getAbrir());
     }//GEN-LAST:event_alunoPesqActionPerformed
 
     private void alunoGerenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoGerenActionPerformed
-        TelaGerenciaAluno gerenaluno = new TelaGerenciaAluno();
-        fundo.add(gerenaluno);
-        gerenaluno.setVisible(true);
+        controle.abrirJanela(TelaGerenciaAluno.getAbrir());
     }//GEN-LAST:event_alunoGerenActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
@@ -294,10 +287,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_exitActionPerformed
 
     private void funcProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcProfActionPerformed
-        TelaProfessor prof = new TelaProfessor();
-        fundo.add(prof);
-        prof.setVisible(true);
+        controle.abrirJanela(TelaProfessor.getAbrir());
     }//GEN-LAST:event_funcProfActionPerformed
+
+    private void funcAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcAdmActionPerformed
+        controle.abrirJanela(TelaAdministracao.getAbrir());
+         
+    }//GEN-LAST:event_funcAdmActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,22 +313,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaPrincipal().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new TelaPrincipal().setVisible(true);
         });
     }
 
