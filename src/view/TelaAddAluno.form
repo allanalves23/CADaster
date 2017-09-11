@@ -34,24 +34,24 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="fundoOp" alignment="0" max="32767" attributes="0"/>
+          <Component id="fundo" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="fundoOp" alignment="0" max="32767" attributes="0"/>
+          <Component id="fundo" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="fundoOp">
+    <Container class="javax.swing.JPanel" name="fundo">
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="panelAction" min="-2" max="-2" attributes="0"/>
+                  <Component id="panelAcao" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
@@ -65,8 +65,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="panelAction" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="131" max="32767" attributes="0"/>
+                  <Component id="panelAcao" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="35" max="32767" attributes="0"/>
                   <Component id="panelFundo" min="-2" pref="366" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -74,7 +74,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="panelAction">
+        <Container class="javax.swing.JPanel" name="panelAcao">
 
           <Layout>
             <DimensionLayout dim="0">
@@ -82,8 +82,8 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                          <Component id="alunos" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTIpoaluno" min="-2" max="-2" attributes="0"/>
+                          <Component id="tipoAluno" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -93,16 +93,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTIpoaluno" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="alunos" min="-2" max="-2" attributes="0"/>
+                      <Component id="tipoAluno" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JComboBox" name="alunos">
+            <Component class="javax.swing.JComboBox" name="tipoAluno">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="5">
@@ -115,13 +115,13 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alunosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tipoAlunoActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel17">
+            <Component class="javax.swing.JLabel" name="lblTIpoaluno">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Cantarell" size="15" style="1"/>
@@ -135,7 +135,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="alunoGinasio">
+            <Container class="javax.swing.JPanel" name="panelGinasio">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -158,75 +158,62 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblNomeGin" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="lblCPFGin" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblNascGin" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="campoNascGin" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="campoCPFGin" alignment="0" pref="184" max="32767" attributes="0"/>
+                                              <Component id="lblMatriculaGin" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="campoMatGin" alignment="0" pref="184" max="32767" attributes="0"/>
+                                              <Component id="campoNomeGin" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="293" max="-2" attributes="0"/>
-                                                  <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="lblRespGin" min="-2" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                          <Component id="lblNomepaiGin" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="campoMaeGin" pref="194" max="32767" attributes="0"/>
+                                                          <Component id="campoPaiGin" alignment="0" max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="campoRespGin" alignment="0" min="-2" pref="191" max="-2" attributes="0"/>
+                                                      <Component id="lblNomemaeGin" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jLabel34" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="campoNascGin" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="campoCPFGin" alignment="0" pref="184" max="32767" attributes="0"/>
-                                                      <Component id="jLabel29" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="campoMatGin" alignment="0" pref="184" max="32767" attributes="0"/>
-                                                      <Component id="campoNomeGin" alignment="0" max="32767" attributes="0"/>
-                                                  </Group>
+                                                  <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
-                                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                                  <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
-                                                                  <Component id="campoMaeGin" pref="194" max="32767" attributes="0"/>
-                                                                  <Component id="campoPaiGin" alignment="0" max="32767" attributes="0"/>
-                                                              </Group>
-                                                              <Component id="campoRespGin" alignment="0" min="-2" pref="191" max="-2" attributes="0"/>
-                                                          </Group>
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="rBtnsimGin" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                                                          <Component id="rBtnnaoGin" min="-2" max="-2" attributes="0"/>
                                                       </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Group type="102" attributes="0">
-                                                                  <Component id="jRadioButtonGin" min="-2" max="-2" attributes="0"/>
-                                                                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                                                                  <Component id="jRadioButtonGin2" min="-2" max="-2" attributes="0"/>
-                                                              </Group>
-                                                              <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
+                                                      <Component id="lblAlunoTransfGin" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
-                                          <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="jLabel52" min="-2" max="-2" attributes="0"/>
-                                          </Group>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="btnExitGin" min="-2" pref="92" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="rBtnsim2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="rBtnnao2" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="lblPrimarioGin" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblInfoGin" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="13" max="32767" attributes="0"/>
-                          <Component id="btnSubmitGin" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
+                          <EmptySpace pref="433" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -235,9 +222,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel52" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNomeGin" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblPrimarioGin" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNomemaeGin" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -249,47 +236,36 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                          <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblCPFGin" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="campoCPFGin" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblMatriculaGin" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="campoMatGin" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNascGin" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="campoNascGin" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="84" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="btnSubmitGin" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="btnExitGin" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jLabel36" min="-2" pref="31" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                          <EmptySpace pref="50" max="32767" attributes="0"/>
+                                          <Component id="lblInfoGin" min="-2" pref="31" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNomepaiGin" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                           <Component id="campoPaiGin" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblRespGin" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="campoRespGin" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblAlunoTransfGin" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jRadioButtonGin2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jRadioButtonGin" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                                              <Component id="rBtnnaoGin" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="rBtnsimGin" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace pref="131" max="32767" attributes="0"/>
                                       </Group>
@@ -298,8 +274,8 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rBtnsim2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rBtnnao2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -309,37 +285,37 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel29">
+                <Component class="javax.swing.JLabel" name="lblMatriculaGin">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Matricula *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel30">
+                <Component class="javax.swing.JLabel" name="lblRespGin">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Respons&#xe1;vel *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel31">
+                <Component class="javax.swing.JLabel" name="lblNascGin">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Data de Nascimento *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel32">
+                <Component class="javax.swing.JLabel" name="lblNomepaiGin">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nome Pai"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel33">
+                <Component class="javax.swing.JLabel" name="lblNomemaeGin">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nome M&#xe3;e"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel34">
+                <Component class="javax.swing.JLabel" name="lblCPFGin">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="CPF"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel35">
+                <Component class="javax.swing.JLabel" name="lblNomeGin">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nome *"/>
                   </Properties>
@@ -373,28 +349,12 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnSubmitGin">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Confirmar Cadastro"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSubmitGinActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="btnExitGin">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Sair"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExitGinActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel36">
+                <Component class="javax.swing.JLabel" name="lblInfoGin">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="* Dados obrigat&#xf3;rios para realizar o cadastro"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonGin">
+                <Component class="javax.swing.JRadioButton" name="rBtnsimGin">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="alunoTransferido"/>
@@ -402,12 +362,12 @@
                     <Property name="text" type="java.lang.String" value="Sim"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel37">
+                <Component class="javax.swing.JLabel" name="lblAlunoTransfGin">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Aluno Transferido?"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonGin2">
+                <Component class="javax.swing.JRadioButton" name="rBtnnaoGin">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="alunoTransferido"/>
@@ -415,15 +375,15 @@
                     <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonGin2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rBtnnaoGinActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel52">
+                <Component class="javax.swing.JLabel" name="lblPrimarioGin">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Remanescente prim&#xe1;rio"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+                <Component class="javax.swing.JRadioButton" name="rBtnsim2">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="remanescentePrimario"/>
@@ -431,10 +391,10 @@
                     <Property name="text" type="java.lang.String" value="Sim"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rBtnsim2ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+                <Component class="javax.swing.JRadioButton" name="rBtnnao2">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="remanescentePrimario"/>
@@ -444,7 +404,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="alunoEM">
+            <Container class="javax.swing.JPanel" name="panelEM">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -469,13 +429,13 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblNascEM" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="campoNascEM" max="32767" attributes="0"/>
-                                          <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNomeEM" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblCPFEM" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="campoCPFEM" alignment="0" pref="184" max="32767" attributes="0"/>
-                                          <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblMatriculaEM" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="campoMatEM" alignment="0" pref="184" max="32767" attributes="0"/>
                                           <Component id="campoNomeEM" alignment="0" max="32767" attributes="0"/>
                                       </Group>
@@ -484,30 +444,30 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="campoMaeEM" alignment="0" min="-2" pref="254" max="-2" attributes="0"/>
                                       <Component id="campoPaiEM" alignment="0" min="-2" pref="254" max="-2" attributes="0"/>
-                                      <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblNomepaiEM" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblRespEM" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="campoRespEM" alignment="0" min="-2" pref="254" max="-2" attributes="0"/>
-                                      <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblAlunoTransfEM" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblNomemaeEM" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                          <Component id="jRadioButtonEM" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rBtnsimEM" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jRadioButtonEM2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rBtnnaoEM" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblCEPEM" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jLabel49" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField5" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jFormattedTextField3" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                                          <Component id="lblEnderecoEM" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="campoEnderecoEM" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblBairroEM" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="campoBairroEM" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="campoCEPEM" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
-                                          <Component id="jLabel51" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblAnoEM" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="anoEM" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -515,12 +475,8 @@
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="340" max="32767" attributes="0"/>
-                                  <Component id="btnExitEM" min="-2" pref="92" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                                  <Component id="btnSubmitEM" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
+                                  <Component id="lblInfoEM" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="463" pref="897" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -529,31 +485,31 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="43" max="32767" attributes="0"/>
+                          <EmptySpace pref="21" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNomemaeEM" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="campoMaeEM" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                                          <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNomepaiEM" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="campoPaiEM" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblRespEM" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblCEPEM" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jFormattedTextField3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="campoCEPEM" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jLabel49" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblEnderecoEM" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextField5" min="-2" max="-2" attributes="0"/>
+                                          <Component id="campoEnderecoEM" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblBairroEM" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -564,30 +520,30 @@
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextField6" min="-2" max="-2" attributes="0"/>
+                                          <Component id="campoBairroEM" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblAnoEM" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="anoEM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblAlunoTransfEM" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNomeEM" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="campoNomeEM" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCPFEM" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                                   <Component id="campoCPFEM" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblMatriculaEM" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="campoMatEM" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNascEM" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="campoNascEM" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -595,18 +551,14 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jRadioButtonEM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonEM2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rBtnsimEM" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rBtnnaoEM" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="84" max="32767" attributes="0"/>
+                                  <EmptySpace pref="61" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel26" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                      <Component id="btnExitEM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnSubmitEM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="lblInfoEM" min="-2" pref="31" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -614,37 +566,37 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel19">
+                <Component class="javax.swing.JLabel" name="lblMatriculaEM">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Matricula *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel20">
+                <Component class="javax.swing.JLabel" name="lblRespEM">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Respons&#xe1;vel *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel21">
+                <Component class="javax.swing.JLabel" name="lblNascEM">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Data de Nascimento *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel22">
+                <Component class="javax.swing.JLabel" name="lblNomepaiEM">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nome Pai"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel23">
+                <Component class="javax.swing.JLabel" name="lblNomemaeEM">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nome M&#xe3;e"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel24">
+                <Component class="javax.swing.JLabel" name="lblCPFEM">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="CPF *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel25">
+                <Component class="javax.swing.JLabel" name="lblNomeEM">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nome *"/>
                   </Properties>
@@ -678,28 +630,12 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnSubmitEM">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Confirmar Cadastro"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSubmitEMActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="btnExitEM">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Sair"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExitEMActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel26">
+                <Component class="javax.swing.JLabel" name="lblInfoEM">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="* Dados obrigat&#xf3;rios para realizar o cadastro"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonEM">
+                <Component class="javax.swing.JRadioButton" name="rBtnsimEM">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="alunoTransferido"/>
@@ -707,7 +643,7 @@
                     <Property name="text" type="java.lang.String" value="Sim"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonEM2">
+                <Component class="javax.swing.JRadioButton" name="rBtnnaoEM">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="alunoTransferido"/>
@@ -715,41 +651,41 @@
                     <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonEM2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rBtnnaoEMActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel27">
+                <Component class="javax.swing.JLabel" name="lblAlunoTransfEM">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Aluno Transferido?"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel48">
+                <Component class="javax.swing.JLabel" name="lblCEPEM">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="CEP *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField3">
+                <Component class="javax.swing.JFormattedTextField" name="campoCEPEM">
                   <Properties>
                     <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                       <Format format="#####-###" subtype="-1" type="5"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel49">
+                <Component class="javax.swing.JLabel" name="lblEnderecoEM">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Endereco *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField5">
+                <Component class="javax.swing.JTextField" name="campoEnderecoEM">
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel10">
+                <Component class="javax.swing.JLabel" name="lblBairroEM">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Bairro"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField6">
+                <Component class="javax.swing.JTextField" name="campoBairroEM">
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel51">
+                <Component class="javax.swing.JLabel" name="lblAnoEM">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ano"/>
                   </Properties>
@@ -771,7 +707,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="alunoTecnico">
+            <Container class="javax.swing.JPanel" name="panelTecnico">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -793,69 +729,65 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel43" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNomeTec" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCPFTec" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNascTec" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="campoNomeTec" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="campoNascTec" alignment="0" max="32767" attributes="0"/>
                                   <Component id="campoCPFTec" alignment="0" pref="184" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jLabel38" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMatriculaTec" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="campoMatTec" alignment="0" min="-2" pref="184" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel42" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblNomemaeTec" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="campoMaeTec" alignment="0" min="-2" pref="254" max="-2" attributes="0"/>
                                       <Component id="campoPaiTec" alignment="0" min="-2" pref="254" max="-2" attributes="0"/>
-                                      <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel39" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblNomepaiTec" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblRespTec" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="campoRespTec" alignment="0" min="-2" pref="254" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel46" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblAlunotransfTec" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="bolsaAluno1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                              <Component id="tipoBolsaTec" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblBolsaTec" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
-                                  <Component id="jRadioButtonTec" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rBtnsimTec" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="jRadioButtonTec2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rBtnnaoTec" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPCentTec" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="122" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel47" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jFormattedTextField2" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="lblCEPTec" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblEnderecoTec" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoEnderecoTec" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblBairroTec" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoBairroTec" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="campoCEPTec" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                              <Component id="cursoTecnico1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCursoTec" min="-2" max="-2" attributes="0"/>
+                              <Component id="tipoCursotecnico" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblInfoTec" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnExitTec" min="-2" pref="92" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                          <Component id="btnSubmitTec" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="296" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -866,8 +798,8 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel42" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblNomeTec" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblNomemaeTec" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -875,35 +807,35 @@
                                       <Component id="campoNomeTec" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNomepaiTec" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="campoPaiTec" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblRespTec" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="campoRespTec" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCEPTec" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jFormattedTextField2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoCEPTec" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  <Component id="jLabel47" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblEnderecoTec" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoEnderecoTec" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblBairroTec" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoBairroTec" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                  <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblMatriculaTec" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="campoMatTec" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCPFTec" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="campoCPFTec" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -911,45 +843,41 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                  <Component id="jLabel46" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAlunotransfTec" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jRadioButtonTec" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonTec2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rBtnsimTec" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Component id="rBtnnaoTec" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCursoTec" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="cursoTecnico1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tipoCursotecnico" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                          <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNascTec" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="campoNascTec" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblBolsaTec" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="bolsaAluno1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="tipoBolsaTec" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblPCentTec" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="83" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel45" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                      <Component id="btnExitTec" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnSubmitTec" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <EmptySpace pref="46" max="32767" attributes="0"/>
+                                  <Component id="lblInfoTec" min="-2" pref="31" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -958,37 +886,37 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel38">
+                <Component class="javax.swing.JLabel" name="lblMatriculaTec">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Matricula *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel39">
+                <Component class="javax.swing.JLabel" name="lblRespTec">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Respons&#xe1;vel *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel40">
+                <Component class="javax.swing.JLabel" name="lblNascTec">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Data de Nascimento *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel41">
+                <Component class="javax.swing.JLabel" name="lblNomepaiTec">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nome Pai"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel42">
+                <Component class="javax.swing.JLabel" name="lblNomemaeTec">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nome M&#xe3;e"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel43">
+                <Component class="javax.swing.JLabel" name="lblCPFTec">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="CPF *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel44">
+                <Component class="javax.swing.JLabel" name="lblNomeTec">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nome *"/>
                   </Properties>
@@ -1025,28 +953,12 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnSubmitTec">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Confirmar Cadastro"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSubmitTecActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="btnExitTec">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Sair"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExitTecActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel45">
+                <Component class="javax.swing.JLabel" name="lblInfoTec">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="* Dados obrigat&#xf3;rios para realizar o cadastro"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonTec">
+                <Component class="javax.swing.JRadioButton" name="rBtnsimTec">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="alunoTransferido"/>
@@ -1054,12 +966,12 @@
                     <Property name="text" type="java.lang.String" value="Sim"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel46">
+                <Component class="javax.swing.JLabel" name="lblAlunotransfTec">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Aluno Transferido? *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonTec2">
+                <Component class="javax.swing.JRadioButton" name="rBtnnaoTec">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="alunoTransferido"/>
@@ -1067,15 +979,15 @@
                     <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonTec2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rBtnnaoTecActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel11">
+                <Component class="javax.swing.JLabel" name="lblCursoTec">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Curso *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="cursoTecnico1">
+                <Component class="javax.swing.JComboBox" name="tipoCursotecnico">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="5">
@@ -1091,17 +1003,17 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel12">
+                <Component class="javax.swing.JLabel" name="lblBolsaTec">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Bolsa *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel13">
+                <Component class="javax.swing.JLabel" name="lblPCentTec">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="%"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="bolsaAluno1">
+                <Component class="javax.swing.JComboBox" name="tipoBolsaTec">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="7">
@@ -1119,35 +1031,35 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel16">
+                <Component class="javax.swing.JLabel" name="lblCEPTec">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="CEP *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField2">
+                <Component class="javax.swing.JFormattedTextField" name="campoCEPTec">
                   <Properties>
                     <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                       <Format format="#####-###" subtype="-1" type="5"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel47">
+                <Component class="javax.swing.JLabel" name="lblEnderecoTec">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Endereco *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField3">
+                <Component class="javax.swing.JTextField" name="campoEnderecoTec">
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel9">
+                <Component class="javax.swing.JLabel" name="lblBairroTec">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Bairro"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField4">
+                <Component class="javax.swing.JTextField" name="campoBairroTec">
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="alunoPrimario">
+            <Container class="javax.swing.JPanel" name="panelPrimario">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -1169,56 +1081,52 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNome" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCPF" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNasc" min="-2" max="-2" attributes="0"/>
                               <Component id="campoNasc" alignment="0" max="32767" attributes="0"/>
                               <Component id="campoCPF" alignment="0" pref="184" max="32767" attributes="0"/>
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMatricula" min="-2" max="-2" attributes="0"/>
                               <Component id="campoMat" pref="184" max="32767" attributes="0"/>
                               <Component id="campoNome" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNomemae" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="campoMae" alignment="0" min="-2" pref="254" max="-2" attributes="0"/>
                               <Component id="campoPai" alignment="0" min="-2" pref="254" max="-2" attributes="0"/>
-                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNomepai" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblResp" min="-2" max="-2" attributes="0"/>
                               <Component id="campoResp" min="-2" pref="254" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rBtnsim" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rBtnnap" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblAlunoTrasf" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="129" max="32767" attributes="0"/>
+                          <EmptySpace pref="223" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" max="32767" attributes="0"/>
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jFormattedTextField1" alignment="0" pref="170" max="32767" attributes="0"/>
+                                  <Component id="lblCEP" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblEndereco" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoEndereco" max="32767" attributes="0"/>
+                                  <Component id="lblBairro" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoBairro" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="campoCEP" alignment="0" pref="170" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="jLabel50" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAno" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="anoPrimario" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tipoAno" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblInfo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnExit" min="-2" pref="92" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                          <Component id="btnSubmit" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1229,8 +1137,8 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblNomemae" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1240,106 +1148,95 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblCPF" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="campoCPF" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblMatricula" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="campoMat" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNasc" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="campoNasc" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNomepai" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="campoPai" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblResp" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="campoResp" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblAlunoTrasf" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jRadioButton3" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
-                                              <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
+                                              <Component id="rBtnsim" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
+                                              <Component id="rBtnnap" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCEP" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jFormattedTextField1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoCEP" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblEndereco" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoEndereco" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblBairro" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoBairro" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="anoPrimario" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel50" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tipoAno" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblAno" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="84" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnSubmit" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnExit" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel18" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <EmptySpace pref="50" max="32767" attributes="0"/>
+                          <Component id="lblInfo" min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel3">
+                <Component class="javax.swing.JLabel" name="lblMatricula">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Matricula *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel8">
+                <Component class="javax.swing.JLabel" name="lblResp">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Respons&#xe1;vel *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel4">
+                <Component class="javax.swing.JLabel" name="lblNasc">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Data de Nascimento *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel7">
+                <Component class="javax.swing.JLabel" name="lblNomepai">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nome Pai"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel6">
+                <Component class="javax.swing.JLabel" name="lblNomemae">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nome M&#xe3;e"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel5">
+                <Component class="javax.swing.JLabel" name="lblCPF">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="CPF"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel2">
+                <Component class="javax.swing.JLabel" name="lblNome">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nome *"/>
                   </Properties>
@@ -1373,28 +1270,12 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnSubmit">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Confirmar Cadastro"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSubmitActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="btnExit">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Sair"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExitActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel18">
+                <Component class="javax.swing.JLabel" name="lblInfo">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="* Dados obrigat&#xf3;rios para realizar o cadastro"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+                <Component class="javax.swing.JRadioButton" name="rBtnsim">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="alunoTransferido"/>
@@ -1402,12 +1283,12 @@
                     <Property name="text" type="java.lang.String" value="Sim"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel28">
+                <Component class="javax.swing.JLabel" name="lblAlunoTrasf">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Aluno Transferido?"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton4">
+                <Component class="javax.swing.JRadioButton" name="rBtnnap">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="alunoTransferido"/>
@@ -1415,41 +1296,41 @@
                     <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton4ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rBtnnapActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel14">
+                <Component class="javax.swing.JLabel" name="lblCEP">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="CEP *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
+                <Component class="javax.swing.JFormattedTextField" name="campoCEP">
                   <Properties>
                     <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                       <Format format="#####-###" subtype="-1" type="5"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel15">
+                <Component class="javax.swing.JLabel" name="lblEndereco">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Endereco *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="campoEndereco">
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel1">
+                <Component class="javax.swing.JLabel" name="lblBairro">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Bairro"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField2">
+                <Component class="javax.swing.JTextField" name="campoBairro">
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel50">
+                <Component class="javax.swing.JLabel" name="lblAno">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ano"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="anoPrimario">
+                <Component class="javax.swing.JComboBox" name="tipoAno">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="6">

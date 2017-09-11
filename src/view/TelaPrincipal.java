@@ -7,7 +7,6 @@ package view;
 
 import javax.swing.JOptionPane;
 import utilitarios.UmaJanelaApenas;
-import javax.swing.JInternalFrame;
 
 
 /**
@@ -43,11 +42,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         fundo = new javax.swing.JDesktopPane();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        file = new javax.swing.JMenu();
+        barraMenu = new javax.swing.JMenuBar();
+        sistema = new javax.swing.JMenu();
         logout = new javax.swing.JMenuItem();
         exit = new javax.swing.JMenuItem();
-        User = new javax.swing.JMenu();
+        usuarios = new javax.swing.JMenu();
         addUser = new javax.swing.JMenuItem();
         removeUser = new javax.swing.JMenuItem();
         editUser = new javax.swing.JMenuItem();
@@ -61,7 +60,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         funcProf = new javax.swing.JMenuItem();
         funcAdm = new javax.swing.JMenuItem();
         funcUtil = new javax.swing.JMenuItem();
-        aboutMaster = new javax.swing.JMenu();
+        sobre = new javax.swing.JMenu();
         about = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,8 +68,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         fundo.setBackground(new java.awt.Color(153, 153, 255));
 
-        file.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
-        file.setText("Sistema");
+        sistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
+        sistema.setText("Sistema");
 
         logout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
@@ -80,7 +79,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 logoutActionPerformed(evt);
             }
         });
-        file.add(logout);
+        sistema.add(logout);
 
         exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/quit.png"))); // NOI18N
         exit.setText("Sair");
@@ -89,12 +88,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 exitActionPerformed(evt);
             }
         });
-        file.add(exit);
+        sistema.add(exit);
 
-        jMenuBar1.add(file);
+        barraMenu.add(sistema);
 
-        User.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Person.png"))); // NOI18N
-        User.setText("Usuarios");
+        usuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Person.png"))); // NOI18N
+        usuarios.setText("Usuarios");
 
         addUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Male.png"))); // NOI18N
         addUser.setText("Cadastrar");
@@ -103,7 +102,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 addUserActionPerformed(evt);
             }
         });
-        User.add(addUser);
+        usuarios.add(addUser);
 
         removeUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Trash.png"))); // NOI18N
         removeUser.setText("Remover");
@@ -112,7 +111,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 removeUserActionPerformed(evt);
             }
         });
-        User.add(removeUser);
+        usuarios.add(removeUser);
 
         editUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Modify.png"))); // NOI18N
         editUser.setText("Editar");
@@ -121,7 +120,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 editUserActionPerformed(evt);
             }
         });
-        User.add(editUser);
+        usuarios.add(editUser);
 
         searchUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         searchUser.setText("Pesquisar");
@@ -130,9 +129,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 searchUserActionPerformed(evt);
             }
         });
-        User.add(searchUser);
+        usuarios.add(searchUser);
 
-        jMenuBar1.add(User);
+        barraMenu.add(usuarios);
 
         alunos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/People.png"))); // NOI18N
         alunos.setText("Alunos");
@@ -173,7 +172,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         alunos.add(alunoAdd);
 
-        jMenuBar1.add(alunos);
+        barraMenu.add(alunos);
 
         funcionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Boss.png"))); // NOI18N
         funcionarios.setText("Funcionarios");
@@ -200,10 +199,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         funcUtil.setText("Serviços Gerais");
         funcionarios.add(funcUtil);
 
-        jMenuBar1.add(funcionarios);
+        barraMenu.add(funcionarios);
 
-        aboutMaster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/About.png"))); // NOI18N
-        aboutMaster.setText("Sobre");
+        sobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/About.png"))); // NOI18N
+        sobre.setText("Sobre");
 
         about.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/About.png"))); // NOI18N
         about.setText("Sobre");
@@ -212,11 +211,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 aboutActionPerformed(evt);
             }
         });
-        aboutMaster.add(about);
+        sobre.add(about);
 
-        jMenuBar1.add(aboutMaster);
+        barraMenu.add(sobre);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(barraMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -246,11 +245,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_addUserActionPerformed
 
     private void removeUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserActionPerformed
-        controle.abrirJanela(true,AlterarExcluir.getAbrir(true));
+        controle.abrirJanela(RemoveUser.getAbrir());
     }//GEN-LAST:event_removeUserActionPerformed
 
     private void editUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUserActionPerformed
-        controle.abrirJanela(false,AlterarExcluir.getAbrir(false));
+        controle.abrirJanela(EditUser.getAbrir());
     }//GEN-LAST:event_editUserActionPerformed
 
     private void searchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchUserActionPerformed
@@ -326,26 +325,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu User;
     private javax.swing.JMenuItem about;
-    private javax.swing.JMenu aboutMaster;
     private javax.swing.JMenuItem addUser;
     private javax.swing.JMenuItem alunoAdd;
     private javax.swing.JMenuItem alunoDel;
     private javax.swing.JMenuItem alunoGeren;
     private javax.swing.JMenuItem alunoPesq;
     private javax.swing.JMenu alunos;
+    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenuItem editUser;
     private javax.swing.JMenuItem exit;
-    private javax.swing.JMenu file;
     private javax.swing.JMenuItem funcAdm;
     private javax.swing.JMenuItem funcProf;
     private javax.swing.JMenuItem funcUtil;
     private javax.swing.JMenu funcionarios;
     private javax.swing.JDesktopPane fundo;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem logout;
     private javax.swing.JMenuItem removeUser;
     private javax.swing.JMenuItem searchUser;
+    private javax.swing.JMenu sistema;
+    private javax.swing.JMenu sobre;
+    private javax.swing.JMenu usuarios;
     // End of variables declaration//GEN-END:variables
 }

@@ -39,34 +39,34 @@ public class TelaAdministracao extends javax.swing.JInternalFrame {
         sexoAdm = new javax.swing.ButtonGroup();
         fundoGeral = new javax.swing.JPanel();
         fundoAcao = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblAcao = new javax.swing.JLabel();
         admAcao = new javax.swing.JComboBox<>();
         fundo = new javax.swing.JPanel();
-        addFunc = new javax.swing.JPanel();
-        campos = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        sexoFemin = new javax.swing.JRadioButton();
-        campoNasc = new javax.swing.JFormattedTextField();
-        campoCPF = new javax.swing.JFormattedTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        sexoMasc = new javax.swing.JRadioButton();
-        jLabel5 = new javax.swing.JLabel();
-        campoNome = new javax.swing.JTextField();
-        campoSetor = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        panelAddfunc = new javax.swing.JPanel();
+        camposAdd = new javax.swing.JPanel();
+        lblNascfunc = new javax.swing.JLabel();
+        lblSetorfunc = new javax.swing.JLabel();
+        rBtnfem = new javax.swing.JRadioButton();
+        campoNascfunc = new javax.swing.JFormattedTextField();
+        campoCPFfunc = new javax.swing.JFormattedTextField();
+        lblCPFfunc = new javax.swing.JLabel();
+        lblEnderecofunc = new javax.swing.JLabel();
+        lblNomefunc = new javax.swing.JLabel();
+        rBtnmasc = new javax.swing.JRadioButton();
+        lblSexofunc = new javax.swing.JLabel();
+        campoNomefunc = new javax.swing.JTextField();
+        setorFunc = new javax.swing.JComboBox<>();
+        campoEnderecofunc = new javax.swing.JTextField();
+        lblCEPfunc = new javax.swing.JLabel();
+        campoCEPfunc = new javax.swing.JFormattedTextField();
+        panelRemoverfunc = new javax.swing.JPanel();
+        camposRem = new javax.swing.JPanel();
+        panelModificarfunc = new javax.swing.JPanel();
+        camposMod = new javax.swing.JPanel();
 
         fundoAcao.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Selecione", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
 
-        jLabel1.setText("Ação");
+        lblAcao.setText("Ação");
 
         admAcao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Adicionar", "Remover", "Modificar" }));
 
@@ -77,7 +77,7 @@ public class TelaAdministracao extends javax.swing.JInternalFrame {
             .addGroup(fundoAcaoLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(fundoAcaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(lblAcao)
                     .addComponent(admAcao, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
@@ -85,7 +85,7 @@ public class TelaAdministracao extends javax.swing.JInternalFrame {
             fundoAcaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoAcaoLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel1)
+                .addComponent(lblAcao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(admAcao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -94,178 +94,201 @@ public class TelaAdministracao extends javax.swing.JInternalFrame {
         fundo.setBorder(null);
         fundo.setLayout(new java.awt.CardLayout());
 
-        jLabel3.setText("Data de Nascimento");
+        camposAdd.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Adicionar Funcionario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
 
-        jLabel4.setText("Setor");
+        lblNascfunc.setText("Data de Nascimento");
 
-        sexoAdm.add(sexoFemin);
-        sexoFemin.setText("Feminino");
+        lblSetorfunc.setText("Setor");
+
+        sexoAdm.add(rBtnfem);
+        rBtnfem.setText("Feminino");
 
         try {
-            campoNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            campoNascfunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
         try {
-            campoCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
+            campoCPFfunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
-        jLabel6.setText("CPF");
+        lblCPFfunc.setText("CPF");
 
-        jLabel7.setText("Endereço");
+        lblEnderecofunc.setText("Endereço");
 
-        jLabel2.setText("Nome");
+        lblNomefunc.setText("Nome");
 
-        sexoAdm.add(sexoMasc);
-        sexoMasc.setText("Masculino");
+        sexoAdm.add(rBtnmasc);
+        rBtnmasc.setText("Masculino");
 
-        jLabel5.setText("Sexo");
+        lblSexofunc.setText("Sexo");
 
-        campoSetor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Comercial", "Administracao", "Servicos gerais", "Gestao de financas" }));
+        setorFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Comercial", "Administracao", "Servicos gerais", "Gestao de financas" }));
 
-        jLabel8.setText("CEP");
+        lblCEPfunc.setText("CEP");
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+            campoCEPfunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
-        jButton1.setText("Confirmar");
-
-        jButton2.setText("Voltar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout camposLayout = new javax.swing.GroupLayout(campos);
-        campos.setLayout(camposLayout);
-        camposLayout.setHorizontalGroup(
-            camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(camposLayout.createSequentialGroup()
+        javax.swing.GroupLayout camposAddLayout = new javax.swing.GroupLayout(camposAdd);
+        camposAdd.setLayout(camposAddLayout);
+        camposAddLayout.setHorizontalGroup(
+            camposAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(camposAddLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(camposLayout.createSequentialGroup()
-                        .addGap(439, 439, 439)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addGroup(camposLayout.createSequentialGroup()
-                        .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(campoSetor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(campoNasc)
-                            .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)
-                        .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(sexoMasc)
-                            .addComponent(sexoFemin)
-                            .addComponent(jLabel6)
-                            .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38)
-                        .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addGroup(camposAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(setorFunc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblSetorfunc)
+                    .addComponent(lblNascfunc)
+                    .addComponent(lblNomefunc)
+                    .addComponent(campoNascfunc)
+                    .addComponent(campoNomefunc, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(camposAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSexofunc)
+                    .addComponent(rBtnmasc)
+                    .addComponent(rBtnfem)
+                    .addComponent(lblCPFfunc)
+                    .addComponent(campoCPFfunc, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(camposAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblCEPfunc)
+                    .addComponent(lblEnderecofunc, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoEnderecofunc)
+                    .addComponent(campoCEPfunc, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
-        camposLayout.setVerticalGroup(
-            camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, camposLayout.createSequentialGroup()
+        camposAddLayout.setVerticalGroup(
+            camposAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, camposAddLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(camposAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNomefunc)
+                    .addComponent(lblSexofunc)
+                    .addComponent(lblEnderecofunc, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sexoMasc)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(camposLayout.createSequentialGroup()
+                .addGroup(camposAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoNomefunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rBtnmasc)
+                    .addComponent(campoEnderecofunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(camposAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(camposAddLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jLabel8)
+                        .addComponent(lblCEPfunc)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(camposLayout.createSequentialGroup()
+                        .addComponent(campoCEPfunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(camposAddLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(camposLayout.createSequentialGroup()
-                                .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(sexoFemin)
-                                    .addComponent(jLabel3))
+                        .addGroup(camposAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(camposAddLayout.createSequentialGroup()
+                                .addGroup(camposAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(rBtnfem)
+                                    .addComponent(lblNascfunc))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(campoNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(campoNascfunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, camposLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, camposAddLayout.createSequentialGroup()
+                                .addComponent(lblCPFfunc)
                                 .addGap(5, 5, 5)))
-                        .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(camposLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
+                        .addGroup(camposAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(camposAddLayout.createSequentialGroup()
+                                .addComponent(lblSetorfunc)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(campoSetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap())
+                                .addComponent(setorFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(campoCPFfunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout addFuncLayout = new javax.swing.GroupLayout(addFunc);
-        addFunc.setLayout(addFuncLayout);
-        addFuncLayout.setHorizontalGroup(
-            addFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addFuncLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelAddfuncLayout = new javax.swing.GroupLayout(panelAddfunc);
+        panelAddfunc.setLayout(panelAddfuncLayout);
+        panelAddfuncLayout.setHorizontalGroup(
+            panelAddfuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAddfuncLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(campos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(camposAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        addFuncLayout.setVerticalGroup(
-            addFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addFuncLayout.createSequentialGroup()
+        panelAddfuncLayout.setVerticalGroup(
+            panelAddfuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAddfuncLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(campos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(camposAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        fundo.add(addFunc, "card2");
+        fundo.add(panelAddfunc, "card2");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout camposRemLayout = new javax.swing.GroupLayout(camposRem);
+        camposRem.setLayout(camposRemLayout);
+        camposRemLayout.setHorizontalGroup(
+            camposRemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 798, Short.MAX_VALUE)
+        );
+        camposRemLayout.setVerticalGroup(
+            camposRemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 323, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout panelRemoverfuncLayout = new javax.swing.GroupLayout(panelRemoverfunc);
+        panelRemoverfunc.setLayout(panelRemoverfuncLayout);
+        panelRemoverfuncLayout.setHorizontalGroup(
+            panelRemoverfuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 810, Short.MAX_VALUE)
+            .addGroup(panelRemoverfuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelRemoverfuncLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(camposRem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 325, Short.MAX_VALUE)
+        panelRemoverfuncLayout.setVerticalGroup(
+            panelRemoverfuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 347, Short.MAX_VALUE)
+            .addGroup(panelRemoverfuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelRemoverfuncLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(camposRem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
-        fundo.add(jPanel2, "card3");
+        fundo.add(panelRemoverfunc, "card3");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout camposModLayout = new javax.swing.GroupLayout(camposMod);
+        camposMod.setLayout(camposModLayout);
+        camposModLayout.setHorizontalGroup(
+            camposModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 786, Short.MAX_VALUE)
+        );
+        camposModLayout.setVerticalGroup(
+            camposModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 323, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout panelModificarfuncLayout = new javax.swing.GroupLayout(panelModificarfunc);
+        panelModificarfunc.setLayout(panelModificarfuncLayout);
+        panelModificarfuncLayout.setHorizontalGroup(
+            panelModificarfuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 810, Short.MAX_VALUE)
+            .addGroup(panelModificarfuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelModificarfuncLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(camposMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 325, Short.MAX_VALUE)
+        panelModificarfuncLayout.setVerticalGroup(
+            panelModificarfuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 347, Short.MAX_VALUE)
+            .addGroup(panelModificarfuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelModificarfuncLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(camposMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
-        fundo.add(jPanel3, "card4");
+        fundo.add(panelModificarfunc, "card4");
 
         javax.swing.GroupLayout fundoGeralLayout = new javax.swing.GroupLayout(fundoGeral);
         fundoGeral.setLayout(fundoGeralLayout);
@@ -303,38 +326,34 @@ public class TelaAdministracao extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel addFunc;
     private javax.swing.JComboBox<String> admAcao;
-    private javax.swing.JFormattedTextField campoCPF;
-    private javax.swing.JFormattedTextField campoNasc;
-    private javax.swing.JTextField campoNome;
-    private javax.swing.JComboBox<String> campoSetor;
-    private javax.swing.JPanel campos;
+    private javax.swing.JFormattedTextField campoCEPfunc;
+    private javax.swing.JFormattedTextField campoCPFfunc;
+    private javax.swing.JTextField campoEnderecofunc;
+    private javax.swing.JFormattedTextField campoNascfunc;
+    private javax.swing.JTextField campoNomefunc;
+    private javax.swing.JPanel camposAdd;
+    private javax.swing.JPanel camposMod;
+    private javax.swing.JPanel camposRem;
     private javax.swing.JPanel fundo;
     private javax.swing.JPanel fundoAcao;
     private javax.swing.JPanel fundoGeral;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblAcao;
+    private javax.swing.JLabel lblCEPfunc;
+    private javax.swing.JLabel lblCPFfunc;
+    private javax.swing.JLabel lblEnderecofunc;
+    private javax.swing.JLabel lblNascfunc;
+    private javax.swing.JLabel lblNomefunc;
+    private javax.swing.JLabel lblSetorfunc;
+    private javax.swing.JLabel lblSexofunc;
+    private javax.swing.JPanel panelAddfunc;
+    private javax.swing.JPanel panelModificarfunc;
+    private javax.swing.JPanel panelRemoverfunc;
+    private javax.swing.JRadioButton rBtnfem;
+    private javax.swing.JRadioButton rBtnmasc;
+    private javax.swing.JComboBox<String> setorFunc;
     private javax.swing.ButtonGroup sexoAdm;
-    private javax.swing.JRadioButton sexoFemin;
-    private javax.swing.JRadioButton sexoMasc;
     // End of variables declaration//GEN-END:variables
 }
