@@ -74,18 +74,21 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
         campoIdprof = new javax.swing.JFormattedTextField();
         fundoModificar = new javax.swing.JPanel();
         panelSearchProf = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        btnConfirmSearch2 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        btnExit2 = new javax.swing.JButton();
-        jLabel15 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        btnConfirmarmod = new javax.swing.JButton();
+        campoNomemod = new javax.swing.JTextField();
+        lblNomemod = new javax.swing.JLabel();
+        btnVoltarmod = new javax.swing.JButton();
+        lblIdprofMod = new javax.swing.JLabel();
+        campoIdprofMod = new javax.swing.JFormattedTextField();
 
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("CADaster - Gerênciar professor");
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentMoved(java.awt.event.ComponentEvent evt) {
+                formComponentMoved(evt);
+            }
+        });
 
         action.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Professor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
@@ -264,7 +267,7 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
                         .addComponent(campoMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(lblNasc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,23 +365,23 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
 
         fundoModificar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gerênciar Professor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
-        jLabel13.setText("Procurar cadastro");
+        panelSearchProf.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Procurar cadastro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
 
-        btnConfirmSearch2.setText("Confirmar");
+        btnConfirmarmod.setText("Confirmar");
 
-        jLabel14.setText("Nome");
+        lblNomemod.setText("Nome");
 
-        btnExit2.setText("Sair");
-        btnExit2.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltarmod.setText("Sair");
+        btnVoltarmod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExit2ActionPerformed(evt);
+                btnVoltarmodActionPerformed(evt);
             }
         });
 
-        jLabel15.setText("Cadastro do professor");
+        lblIdprofMod.setText("Cadastro do professor");
 
         try {
-            jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-###-####")));
+            campoIdprofMod.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-###-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -390,37 +393,34 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
             .addGroup(panelSearchProfLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelSearchProfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
                     .addGroup(panelSearchProfLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(panelSearchProfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel14)
-                            .addComponent(jTextField2)
-                            .addComponent(jLabel15)
-                            .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblNomemod)
+                            .addComponent(campoNomemod)
+                            .addComponent(lblIdprofMod)
+                            .addComponent(campoIdprofMod, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelSearchProfLayout.createSequentialGroup()
-                        .addComponent(btnExit2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnVoltarmod, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnConfirmSearch2)))
+                        .addComponent(btnConfirmarmod)))
                 .addContainerGap())
         );
         panelSearchProfLayout.setVerticalGroup(
             panelSearchProfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSearchProfLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel14)
+                .addGap(45, 45, 45)
+                .addComponent(lblNomemod)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoNomemod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel15)
+                .addComponent(lblIdprofMod)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoIdprofMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addGroup(panelSearchProfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExit2)
-                    .addComponent(btnConfirmSearch2))
+                    .addComponent(btnVoltarmod)
+                    .addComponent(btnConfirmarmod))
                 .addContainerGap())
         );
 
@@ -431,14 +431,14 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
             .addGroup(fundoModificarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(690, Short.MAX_VALUE))
+                .addContainerGap(719, Short.MAX_VALUE))
         );
         fundoModificarLayout.setVerticalGroup(
             fundoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoModificarLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(panelSearchProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         campos.add(fundoModificar, "card4");
@@ -529,30 +529,36 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
+    private void btnVoltarmodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarmodActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnVoltarmodActionPerformed
+
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-       this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
-    private void btnExit2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExit2ActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnExit2ActionPerformed
+    private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
+        this.setLocation(0, 0);
+    }//GEN-LAST:event_formComponentMoved
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel action;
     private javax.swing.JButton btnConfirm;
-    private javax.swing.JButton btnConfirmSearch2;
     private javax.swing.JButton btnConfirmardel;
-    private javax.swing.JButton btnExit2;
+    private javax.swing.JButton btnConfirmarmod;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton btnVoltarmod;
     private javax.swing.JComboBox<String> campoArea;
     private javax.swing.JFormattedTextField campoCPF;
     private javax.swing.JComboBox<String> campoEnsino;
     private javax.swing.JFormattedTextField campoIdprof;
+    private javax.swing.JFormattedTextField campoIdprofMod;
     private javax.swing.JComboBox<String> campoMateria;
     private javax.swing.JFormattedTextField campoNasc;
     private javax.swing.JTextField campoNome;
     private javax.swing.JTextField campoNomedel;
+    private javax.swing.JTextField campoNomemod;
     private javax.swing.JFormattedTextField campoSalario;
     private javax.swing.JPanel campos;
     private javax.swing.JPanel camposRemover;
@@ -560,20 +566,17 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
     private javax.swing.JPanel fundoAdicionar;
     private javax.swing.JPanel fundoModificar;
     private javax.swing.JPanel fundoRemover;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblAcao;
     private javax.swing.JLabel lblArea;
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblEnsino;
     private javax.swing.JLabel lblIdprof;
+    private javax.swing.JLabel lblIdprofMod;
     private javax.swing.JLabel lblMateria;
     private javax.swing.JLabel lblNasc;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNomedel;
+    private javax.swing.JLabel lblNomemod;
     private javax.swing.JLabel lblReal;
     private javax.swing.JLabel lblSalario;
     private javax.swing.JLabel lblSexo;

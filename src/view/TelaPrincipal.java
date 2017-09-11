@@ -26,8 +26,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(TelaPrincipal.MAXIMIZED_BOTH);
         this.setVisible(true);
-        TelaLogin login = new TelaLogin(this, true);
-        login.setVisible(true);
+        //TelaLogin login = new TelaLogin(this, true);
+        //login.setVisible(true);
         this.controle=new UmaJanelaApenas(fundo);
         
     }
@@ -241,38 +241,38 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutActionPerformed
 
     private void addUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserActionPerformed
-        controle.abrirJanela(TelaCadastro.getAbrir());
+        controle.abrirJanela(false,TelaCadastro.getAbrir());
     }//GEN-LAST:event_addUserActionPerformed
 
     private void removeUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserActionPerformed
-        controle.abrirJanela(RemoveUser.getAbrir());
+        controle.abrirJanela(true,RemoveUser.getAbrir());
     }//GEN-LAST:event_removeUserActionPerformed
 
     private void editUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUserActionPerformed
-        controle.abrirJanela(EditUser.getAbrir());
+        controle.abrirJanela(true,EditUser.getAbrir());
     }//GEN-LAST:event_editUserActionPerformed
 
     private void searchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchUserActionPerformed
-        controle.abrirJanela(TelaPesquisa.getAbrir());
+        controle.abrirJanela(true,TelaPesquisa.getAbrir());
     }//GEN-LAST:event_searchUserActionPerformed
 
     private void aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutActionPerformed
-        controle.abrirJanela(Sobre.getAbrir());
+        controle.abrirJanela(false,Sobre.getAbrir());
     }//GEN-LAST:event_aboutActionPerformed
     private void alunoAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoAddActionPerformed
-        controle.abrirJanela(TelaAddAluno.getAbrir());
+        controle.abrirJanela(false,TelaAddAluno.getAbrir());
     }//GEN-LAST:event_alunoAddActionPerformed
 
     private void alunoDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoDelActionPerformed
-       controle.abrirJanela(TelaDelAluno.getAbrir());
+       controle.abrirJanela(true,TelaDelAluno.getAbrir());
     }//GEN-LAST:event_alunoDelActionPerformed
 
     private void alunoPesqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoPesqActionPerformed
-        controle.abrirJanela(TelaPesqAluno.getAbrir());
+        controle.abrirJanela(true,TelaPesqAluno.getAbrir());
     }//GEN-LAST:event_alunoPesqActionPerformed
 
     private void alunoGerenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoGerenActionPerformed
-        controle.abrirJanela(TelaGerenciaAluno.getAbrir());
+        controle.abrirJanela(true,TelaGerenciaAluno.getAbrir());
     }//GEN-LAST:event_alunoGerenActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
@@ -285,11 +285,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_exitActionPerformed
 
     private void funcProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcProfActionPerformed
-        controle.abrirJanela(TelaProfessor.getAbrir());
+        controle.abrirJanela(true,TelaProfessor.getAbrir());
     }//GEN-LAST:event_funcProfActionPerformed
 
     private void funcAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcAdmActionPerformed
-        controle.abrirJanela(TelaAdministracao.getAbrir());
+        controle.abrirJanela(true,TelaAdministracao.getAbrir());
          
     }//GEN-LAST:event_funcAdmActionPerformed
 
