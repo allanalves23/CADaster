@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 
 import javax.swing.JOptionPane;
@@ -26,8 +22,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(TelaPrincipal.MAXIMIZED_BOTH);
         this.setVisible(true);
-        //TelaLogin login = new TelaLogin(this, true);
-        //login.setVisible(true);
+        TelaLogin login = new TelaLogin(this, true);
+        login.setVisible(true);
         this.controle=new UmaJanelaApenas(fundo);
         
     }
@@ -233,47 +229,59 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    //chamada do JDialog para o logout
+    
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         TelaLogin login = new TelaLogin(this, true);
         login.setVisible(true);
         
     }//GEN-LAST:event_logoutActionPerformed
-
+    //Chamada da tela de adicao de usuario
+    
     private void addUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserActionPerformed
         controle.abrirJanela(false,TelaCadastro.getAbrir());
     }//GEN-LAST:event_addUserActionPerformed
-
+    //Chamada da tela de remocao de usuario
+    
     private void removeUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserActionPerformed
         controle.abrirJanela(true,RemoveUser.getAbrir());
     }//GEN-LAST:event_removeUserActionPerformed
-
+    //Chamada da tela de edicao de usuario
+    
     private void editUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUserActionPerformed
         controle.abrirJanela(true,EditUser.getAbrir());
     }//GEN-LAST:event_editUserActionPerformed
-
+    //Chamada da tela de procura de usuario
+    
     private void searchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchUserActionPerformed
         controle.abrirJanela(true,TelaPesquisa.getAbrir());
     }//GEN-LAST:event_searchUserActionPerformed
-
+    //Chamada da tela de sobre o programa
+    
     private void aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutActionPerformed
         controle.abrirJanela(false,Sobre.getAbrir());
     }//GEN-LAST:event_aboutActionPerformed
+    //Chamada da tela de adicionar aluno
+    
     private void alunoAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoAddActionPerformed
         controle.abrirJanela(false,TelaAddAluno.getAbrir());
     }//GEN-LAST:event_alunoAddActionPerformed
-
+    //Chamada da tela de remocao de aluno
+    
     private void alunoDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoDelActionPerformed
        controle.abrirJanela(true,TelaDelAluno.getAbrir());
     }//GEN-LAST:event_alunoDelActionPerformed
+    //Chamada da tela de pesquisar aluno
 
     private void alunoPesqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoPesqActionPerformed
         controle.abrirJanela(true,TelaPesqAluno.getAbrir());
     }//GEN-LAST:event_alunoPesqActionPerformed
+    //Chamada da tela de gerencia de aluno
 
     private void alunoGerenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoGerenActionPerformed
         controle.abrirJanela(true,TelaGerenciaAluno.getAbrir());
     }//GEN-LAST:event_alunoGerenActionPerformed
+    //Chamada do JOptionpane para confirmar a saida do programa
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
        int i = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja finalizar o programa?",
@@ -283,15 +291,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_exitActionPerformed
+    //Chamada da tela de gerenciamento de cadastro de professor
 
     private void funcProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcProfActionPerformed
         controle.abrirJanela(true,TelaProfessor.getAbrir());
     }//GEN-LAST:event_funcProfActionPerformed
-
+    /*Chamada da tela de gerenciamento de casdastro de funcionarios
+      administrativos*/
     private void funcAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcAdmActionPerformed
         controle.abrirJanela(true,TelaAdministracao.getAbrir());
          
     }//GEN-LAST:event_funcAdmActionPerformed
+    
 
     /**
      * @param args the command line arguments
