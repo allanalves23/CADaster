@@ -17,6 +17,8 @@ public class TelaLogin extends javax.swing.JDialog {
 
     /**
      * Creates new form TelaLogin
+     * @param parent
+     * @param modal
      */
     public TelaLogin(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -32,8 +34,7 @@ public class TelaLogin extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        labelLogin = new javax.swing.JPanel();
+        panelLogin = new javax.swing.JPanel();
         lblLogin = new javax.swing.JLabel();
         camposLogin = new javax.swing.JPanel();
         icone = new javax.swing.JLabel();
@@ -49,8 +50,6 @@ public class TelaLogin extends javax.swing.JDialog {
         lblMsg1 = new javax.swing.JLabel();
         lblMsg2 = new javax.swing.JLabel();
 
-        jButton1.setText("jButton1");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("CADaster - Bem vindo");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -64,18 +63,18 @@ public class TelaLogin extends javax.swing.JDialog {
         lblLogin.setFont(new java.awt.Font("Corbel", 1, 30)); // NOI18N
         lblLogin.setText("Login");
 
-        javax.swing.GroupLayout labelLoginLayout = new javax.swing.GroupLayout(labelLogin);
-        labelLogin.setLayout(labelLoginLayout);
-        labelLoginLayout.setHorizontalGroup(
-            labelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(labelLoginLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelLoginLayout = new javax.swing.GroupLayout(panelLogin);
+        panelLogin.setLayout(panelLoginLayout);
+        panelLoginLayout.setHorizontalGroup(
+            panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLoginLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(221, Short.MAX_VALUE))
         );
-        labelLoginLayout.setVerticalGroup(
-            labelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labelLoginLayout.createSequentialGroup()
+        panelLoginLayout.setVerticalGroup(
+            panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLoginLayout.createSequentialGroup()
                 .addGap(0, 18, Short.MAX_VALUE)
                 .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -211,7 +210,7 @@ public class TelaLogin extends javax.swing.JDialog {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 23, Short.MAX_VALUE)
-                        .addComponent(labelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(logoCADaster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -223,7 +222,7 @@ public class TelaLogin extends javax.swing.JDialog {
                     .addComponent(logoCADaster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(labelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(panelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(11, 11, 11)
                 .addComponent(camposLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -295,17 +294,15 @@ public class TelaLogin extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                TelaLogin dialog = new TelaLogin(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            TelaLogin dialog = new TelaLogin(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 
@@ -316,8 +313,6 @@ public class TelaLogin extends javax.swing.JDialog {
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JPanel camposLogin;
     private javax.swing.JLabel icone;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JPanel labelLogin;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblMensagemerro;
     private javax.swing.JLabel lblMsg1;
@@ -326,5 +321,6 @@ public class TelaLogin extends javax.swing.JDialog {
     private javax.swing.JLabel lblUser;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel logoCADaster;
+    private javax.swing.JPanel panelLogin;
     // End of variables declaration//GEN-END:variables
 }

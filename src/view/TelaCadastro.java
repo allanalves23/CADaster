@@ -50,13 +50,13 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         btnCadastrar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         logoNome = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
+        nome = new javax.swing.JLabel();
         campoNome = new javax.swing.JTextField();
         lblTipo = new javax.swing.JLabel();
         cadTipofunc = new javax.swing.JComboBox<>();
         areaTexto = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        descTexto = new javax.swing.JScrollPane();
         textArea = new javax.swing.JTextArea();
 
         setClosable(true);
@@ -83,33 +83,33 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logocSMALL.png"))); // NOI18N
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logocSMALL.png"))); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Cadastro de Usuário");
+        nome.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        nome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nome.setText("Cadastro de Usuário");
 
         javax.swing.GroupLayout logoNomeLayout = new javax.swing.GroupLayout(logoNome);
         logoNome.setLayout(logoNomeLayout);
         logoNomeLayout.setHorizontalGroup(
             logoNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(logoNomeLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(logoNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(logoNomeLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logoNomeLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(21, 21, 21))))
+                        .addContainerGap()
+                        .addComponent(nome))
+                    .addGroup(logoNomeLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(logo)))
+                .addContainerGap())
         );
         logoNomeLayout.setVerticalGroup(
             logoNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(logoNomeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5)
+                .addComponent(logo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -129,7 +129,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         textArea.setRows(5);
         textArea.setWrapStyleWord(true);
         textArea.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(textArea);
+        descTexto.setViewportView(textArea);
 
         javax.swing.GroupLayout areaTextoLayout = new javax.swing.GroupLayout(areaTexto);
         areaTexto.setLayout(areaTextoLayout);
@@ -137,14 +137,14 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             areaTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, areaTextoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
+                .addComponent(descTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
                 .addContainerGap())
         );
         areaTextoLayout.setVerticalGroup(
             areaTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(areaTextoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE))
+                .addComponent(descTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout fundoLayout = new javax.swing.GroupLayout(fundo);
@@ -282,15 +282,15 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JTextField campoNome;
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JPasswordField campoSenha2;
+    private javax.swing.JScrollPane descTexto;
     private javax.swing.JPanel fundo;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblSenha2;
     private javax.swing.JLabel lblTipo;
+    private javax.swing.JLabel logo;
     private javax.swing.JPanel logoNome;
+    private javax.swing.JLabel nome;
     private javax.swing.ButtonGroup sexo;
     private javax.swing.JTextArea textArea;
     // End of variables declaration//GEN-END:variables
