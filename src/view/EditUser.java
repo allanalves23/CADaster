@@ -46,6 +46,8 @@ public class EditUser extends javax.swing.JInternalFrame {
         lblMetbusca = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaCadUser = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -120,17 +122,33 @@ public class EditUser extends javax.swing.JInternalFrame {
                 .addContainerGap(207, Short.MAX_VALUE))
         );
 
+        tabelaCadUser.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Login", "Tipo de conta"
+            }
+        ));
+        jScrollPane1.setViewportView(tabelaCadUser);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(fundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(455, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -164,9 +182,11 @@ public class EditUser extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JPanel fundo;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblMetbusca;
     private javax.swing.JTextField lblTipocampo;
     private javax.swing.JLabel lblTipodado;
     private javax.swing.JComboBox<String> metBusca;
+    private javax.swing.JTable tabelaCadUser;
     // End of variables declaration//GEN-END:variables
 }

@@ -232,14 +232,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     //chamada do JDialog para o logout
     
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
-        TelaLogin login = new TelaLogin(this, true);
+        TelaLogin login = new TelaLogin(this, true); /*Chamada do objeto do tipo
+        jDialog*/
         login.setVisible(true);
         
     }//GEN-LAST:event_logoutActionPerformed
     //Chamada da tela de adicao de usuario
     
     private void addUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserActionPerformed
-        controle.abrirJanela(false,TelaCadastro.getAbrir());
+        controle.abrirJanela(false,TelaCadastro.getAbrir());/*chamada da classe de 
+        abrir janelas*/
     }//GEN-LAST:event_addUserActionPerformed
     //Chamada da tela de remocao de usuario
     

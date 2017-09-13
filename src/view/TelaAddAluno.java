@@ -263,6 +263,11 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         });
 
         btnConfirmaadd.setText("Confirmar");
+        btnConfirmaadd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmaaddActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelGinasioLayout = new javax.swing.GroupLayout(panelGinasio);
         panelGinasio.setLayout(panelGinasioLayout);
@@ -1038,6 +1043,10 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
     private void btnVoltaaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltaaddActionPerformed
           this.dispose();
     }//GEN-LAST:event_btnVoltaaddActionPerformed
+
+    private void btnConfirmaaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmaaddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConfirmaaddActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
