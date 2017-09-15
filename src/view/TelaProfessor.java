@@ -191,7 +191,9 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
             .addGroup(fundoAdicionarLayout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNasc)
+                    .addGroup(fundoAdicionarLayout.createSequentialGroup()
+                        .addComponent(lblEnsino)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(fundoAdicionarLayout.createSequentialGroup()
                         .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNome)
@@ -204,34 +206,30 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
                                 .addComponent(rBtnfem))
                             .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(campoNasc, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(campoCPF, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(campoCPF, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(campoEnsino, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblNasc))))
+                        .addGap(33, 33, 33)
                         .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(fundoAdicionarLayout.createSequentialGroup()
-                                .addGap(108, 108, 108)
                                 .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(fundoAdicionarLayout.createSequentialGroup()
-                                            .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblSalario)
-                                                .addComponent(lblEnsino))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(fundoAdicionarLayout.createSequentialGroup()
-                                            .addComponent(campoSalario)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lblReal)
-                                            .addGap(111, 111, 111)))
-                                    .addComponent(campoEnsino, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(lblMateria)
+                                    .addComponent(lblArea)
+                                    .addComponent(campoArea, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 122, Short.MAX_VALUE))
                             .addGroup(fundoAdicionarLayout.createSequentialGroup()
-                                .addGap(224, 224, 224)
-                                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(76, 76, 76)))
-                        .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblArea)
-                            .addComponent(campoArea, 0, 1, Short.MAX_VALUE)
-                            .addComponent(lblMateria)
-                            .addComponent(campoMateria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnConfirm))))
-                .addGap(188, 188, 188))
+                                .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnConfirm)
+                                    .addGroup(fundoAdicionarLayout.createSequentialGroup()
+                                        .addComponent(campoSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(4, 4, 4)
+                                        .addComponent(lblReal))
+                                    .addComponent(campoMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblSalario))
+                                .addGap(50, 50, 50))))))
         );
         fundoAdicionarLayout.setVerticalGroup(
             fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,46 +237,42 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
                 .addGap(19, 19, 19)
                 .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNome)
-                    .addComponent(lblEnsino)
-                    .addComponent(lblArea))
+                    .addComponent(lblSalario))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoEnsino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fundoAdicionarLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblSexo)
-                            .addComponent(lblSalario))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rBtnmasc)
-                            .addComponent(rBtnfem)
-                            .addComponent(lblReal)
-                            .addComponent(campoSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addComponent(lblCPF))
-                    .addGroup(fundoAdicionarLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(lblMateria)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(campoSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblReal))
+                .addGap(20, 20, 20)
+                .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSexo)
+                    .addComponent(lblMateria))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rBtnmasc)
+                    .addComponent(rBtnfem)
+                    .addComponent(campoMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCPF)
+                    .addComponent(lblArea))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addComponent(lblNasc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fundoAdicionarLayout.createSequentialGroup()
-                        .addComponent(campoNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoAdicionarLayout.createSequentialGroup()
-                        .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnConfirm)
-                            .addComponent(btnVoltar))
-                        .addGap(40, 40, 40))))
+                .addComponent(campoNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(lblEnsino)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(campoEnsino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addGroup(fundoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVoltar)
+                    .addComponent(btnConfirm))
+                .addContainerGap())
         );
 
         campos.add(fundoAdicionar, "card2");
@@ -351,14 +345,14 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
             .addGroup(fundoRemoverLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(camposRemover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(701, Short.MAX_VALUE))
+                .addContainerGap(297, Short.MAX_VALUE))
         );
         fundoRemoverLayout.setVerticalGroup(
             fundoRemoverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoRemoverLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(camposRemover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
 
         campos.add(fundoRemover, "card3");
@@ -431,14 +425,14 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
             .addGroup(fundoModificarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(719, Short.MAX_VALUE))
+                .addContainerGap(315, Short.MAX_VALUE))
         );
         fundoModificarLayout.setVerticalGroup(
             fundoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoModificarLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(panelSearchProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
 
         campos.add(fundoModificar, "card4");
@@ -449,8 +443,8 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(campos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(campos, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(fundoLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(action, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -470,7 +464,10 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -480,54 +477,9 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoEnsinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEnsinoActionPerformed
-       switch(campoEnsino.getSelectedItem().toString()){
-           case "Primario":
-               campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Matematica","Portugues","Ciencias","Geografia","Historia","Ed.Fisica"}));
-               campoMateria.setEnabled(true);
-               break;
-           case "Ginasio":
-               campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Matematica","Portugues","Fisica","Quimica","Ed.Fisica",
-                   "Geografia","Historia","Artes","Ingles","Espanhol"}));
-               campoMateria.setEnabled(true);
-               break;
-           case "Ensino Medio":
-               campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Matematica","Portugues","Fisica","Quimica","Ed.Fisica",
-                   "Geografia","Historia","Ingles","Espanhol","Informatica","Sociologia","Filosofia","Redacao"}));
-               campoMateria.setEnabled(true);
-               break;
-           case "Tecnico":
-               campoArea.setEnabled(true);
-               campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Redes", "Programacao","A. Industrial","Eng. Mecanica"}));
-               
-       }
-    }//GEN-LAST:event_campoEnsinoActionPerformed
-
-    private void campoAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoAreaActionPerformed
-       if(campoArea.getSelectedItem().equals("Redes")){
-                   campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Cabeamento Estruturado","Arquitetura e implementacao",
-                        "Protocolos de comunicacao","Hardware","Sistemas Operacionais","TCP/IP"})); 
-                   campoMateria.setEnabled(true);
-               }else if(campoArea.getSelectedItem().equals("Programacao")){
-                   campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Algoritmos","Arquitetura de computadores",
-                        "Estrutura de dados","Orientacao a Obejetos","Sistemas Operacionais","Desenvolvimento web","Desenvolvimento mobile"}));
-                   campoMateria.setEnabled(true);
-               }else if(campoArea.getSelectedItem().equals("A. Industrial")){
-                    campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Eletronica Analogica","Eletronica Digital",
-                        "Pneumatica","Hidraulica","Fundamentos da mecanica","Eletrotecnica","Eletrecidade Industrial"}));
-                    campoMateria.setEnabled(true);
-               }else if(campoArea.getSelectedItem().equals("Eng. Mecanica")){
-                   campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Fundamentos da mecanica","Mecanica Automotiva",
-                        "Mecanica Avancada","Sistemas automotivos","Arquitetura de motores",}));
-                   campoMateria.setEnabled(true);
-               }else{
-                   campoMateria.setEnabled(false);
-               }
-    }//GEN-LAST:event_campoAreaActionPerformed
-
-    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnVoltarActionPerformed
+    private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
+        this.setLocation(0, 0);
+    }//GEN-LAST:event_formComponentMoved
 
     private void btnVoltarmodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarmodActionPerformed
         this.dispose();
@@ -537,9 +489,54 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
-    private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
-        this.setLocation(0, 0);
-    }//GEN-LAST:event_formComponentMoved
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void campoAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoAreaActionPerformed
+        if(campoArea.getSelectedItem().equals("Redes")){
+            campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Cabeamento Estruturado","Arquitetura e implementacao",
+                "Protocolos de comunicacao","Hardware","Sistemas Operacionais","TCP/IP"}));
+    campoMateria.setEnabled(true);
+    }else if(campoArea.getSelectedItem().equals("Programacao")){
+        campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Algoritmos","Arquitetura de computadores",
+            "Estrutura de dados","Orientacao a Obejetos","Sistemas Operacionais","Desenvolvimento web","Desenvolvimento mobile"}));
+campoMateria.setEnabled(true);
+}else if(campoArea.getSelectedItem().equals("A. Industrial")){
+    campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Eletronica Analogica","Eletronica Digital",
+        "Pneumatica","Hidraulica","Fundamentos da mecanica","Eletrotecnica","Eletrecidade Industrial"}));
+        campoMateria.setEnabled(true);
+        }else if(campoArea.getSelectedItem().equals("Eng. Mecanica")){
+            campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Fundamentos da mecanica","Mecanica Automotiva",
+                "Mecanica Avancada","Sistemas automotivos","Arquitetura de motores",}));
+    campoMateria.setEnabled(true);
+    }else{
+        campoMateria.setEnabled(false);
+        }
+    }//GEN-LAST:event_campoAreaActionPerformed
+
+    private void campoEnsinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEnsinoActionPerformed
+        switch(campoEnsino.getSelectedItem().toString()){
+            case "Primario":
+            campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Matematica","Portugues","Ciencias","Geografia","Historia","Ed.Fisica"}));
+            campoMateria.setEnabled(true);
+            break;
+            case "Ginasio":
+            campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Matematica","Portugues","Fisica","Quimica","Ed.Fisica",
+                "Geografia","Historia","Artes","Ingles","Espanhol"}));
+    campoMateria.setEnabled(true);
+    break;
+    case "Ensino Medio":
+    campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Matematica","Portugues","Fisica","Quimica","Ed.Fisica",
+        "Geografia","Historia","Ingles","Espanhol","Informatica","Sociologia","Filosofia","Redacao"}));
+        campoMateria.setEnabled(true);
+        break;
+        case "Tecnico":
+        campoArea.setEnabled(true);
+        campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Redes", "Programacao","A. Industrial","Eng. Mecanica"}));
+
+        }
+    }//GEN-LAST:event_campoEnsinoActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel action;

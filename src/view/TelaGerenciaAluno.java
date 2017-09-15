@@ -81,7 +81,7 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
 
         lblGrauEnsino.setText("Grau de Ensino");
 
-        grauEnsino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Primario", "Ginasio", "Ensino medio", "Tecnico" }));
+        grauEnsino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qualquer", "Primario", "Ginasio", "Ensino medio", "Tecnico" }));
 
         lblMatricula.setText("Matricula");
 
