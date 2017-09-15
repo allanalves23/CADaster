@@ -49,11 +49,6 @@ public class RemoveUser extends javax.swing.JInternalFrame {
         codCampo = new javax.swing.JTextField();
         lblNome = new javax.swing.JLabel();
         lblCod = new javax.swing.JLabel();
-        panelVerificaruser = new javax.swing.JPanel();
-        lblLogin = new javax.swing.JLabel();
-        loginCampo = new javax.swing.JTextField();
-        lblSenha = new javax.swing.JLabel();
-        senhaCampo = new javax.swing.JPasswordField();
         btnVolta = new javax.swing.JButton();
         btnConfirmar = new javax.swing.JButton();
 
@@ -120,38 +115,6 @@ public class RemoveUser extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelVerificaruser.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Seu Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
-
-        lblLogin.setText("Login usuário");
-
-        lblSenha.setText("Senha");
-
-        javax.swing.GroupLayout panelVerificaruserLayout = new javax.swing.GroupLayout(panelVerificaruser);
-        panelVerificaruser.setLayout(panelVerificaruserLayout);
-        panelVerificaruserLayout.setHorizontalGroup(
-            panelVerificaruserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelVerificaruserLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelVerificaruserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblLogin)
-                    .addComponent(lblSenha)
-                    .addComponent(loginCampo, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
-                    .addComponent(senhaCampo))
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
-        panelVerificaruserLayout.setVerticalGroup(
-            panelVerificaruserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelVerificaruserLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(loginCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSenha)
-                .addGap(18, 18, 18)
-                .addComponent(senhaCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
         btnVolta.setText("Voltar");
         btnVolta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,18 +143,14 @@ public class RemoveUser extends javax.swing.JInternalFrame {
                         .addComponent(btnVolta, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(12, 12, 12)
-                .addComponent(panelVerificaruser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(344, Short.MAX_VALUE))
         );
         fundoLayout.setVerticalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelVerificaruser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelBuscauser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addComponent(panelBuscauser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConfirmar)
                     .addComponent(btnVolta))
@@ -241,13 +200,8 @@ public class RemoveUser extends javax.swing.JInternalFrame {
     private javax.swing.JTextField codCampo;
     private javax.swing.JPanel fundo;
     private javax.swing.JLabel lblCod;
-    private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblSenha;
-    private javax.swing.JTextField loginCampo;
     private javax.swing.JTextField nomeCampo;
     private javax.swing.JPanel panelBuscauser;
-    private javax.swing.JPanel panelVerificaruser;
-    private javax.swing.JPasswordField senhaCampo;
     // End of variables declaration//GEN-END:variables
 }

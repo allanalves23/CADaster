@@ -31,7 +31,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="fundo" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="fundo" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -48,8 +52,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="campos" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="campos" pref="536" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
@@ -159,7 +163,10 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblNasc" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="lblEnsino" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lblNome" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -175,45 +182,40 @@
                                           <Component id="campoNasc" alignment="0" max="32767" attributes="0"/>
                                           <Component id="campoCPF" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
                                       </Group>
-                                  </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                          <Component id="btnVoltar" min="-2" pref="71" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="lblSalario" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="lblEnsino" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="campoSalario" max="32767" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="lblReal" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <Component id="campoEnsino" min="-2" pref="122" max="-2" attributes="0"/>
+                                              <Component id="campoEnsino" min="-2" pref="178" max="-2" attributes="0"/>
+                                              <Component id="lblNasc" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
-                                          <Component id="btnVoltar" min="-2" pref="71" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                                      </Group>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lblArea" min="-2" max="-2" attributes="0"/>
-                                      <Component id="campoArea" pref="0" max="32767" attributes="0"/>
-                                      <Component id="lblMateria" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="campoMateria" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="btnConfirm" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblMateria" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblArea" min="-2" max="-2" attributes="0"/>
+                                              <Component id="campoArea" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="0" pref="122" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="btnConfirm" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="campoSalario" min="-2" pref="152" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                                  <Component id="lblReal" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="campoMateria" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblSalario" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -223,57 +225,49 @@
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblNome" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblEnsino" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblArea" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblSalario" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="campoNome" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="campoEnsino" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="campoSalario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblReal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblSexo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMateria" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="rBtnmasc" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rBtnfem" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="campoMateria" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblCPF" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblArea" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="campoCPF" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="campoArea" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblSexo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblSalario" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="rBtnmasc" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="rBtnfem" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblReal" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="campoSalario" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="lblCPF" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="lblMateria" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="campoMateria" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="campoCPF" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="25" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="lblNasc" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="campoNasc" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnConfirm" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              </Group>
+                          <Component id="campoNasc" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="lblEnsino" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="campoEnsino" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="93" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnConfirm" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -452,7 +446,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="camposRemover" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="701" max="32767" attributes="0"/>
+                          <EmptySpace pref="297" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -461,7 +455,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="camposRemover" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="33" max="32767" attributes="0"/>
+                          <EmptySpace pref="168" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -583,7 +577,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="panelSearchProf" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="719" max="32767" attributes="0"/>
+                          <EmptySpace pref="315" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -592,7 +586,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Component id="panelSearchProf" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="22" max="32767" attributes="0"/>
+                          <EmptySpace pref="154" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
