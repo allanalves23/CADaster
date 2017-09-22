@@ -4,7 +4,7 @@ Sistema de cadastro academico.
 
 Sisteminha sendo criado a fins de estudos com a linguagem Java
 
-Este sisteminha funcionara da seguinte maneira: Existirão usuário que entrarão neste sistema, dependêndo de que tipo se usuário entrar no sistema será bloqueado funcionalidade, gerando uma limitação de modificação de dados.
+Este sisteminha funcionara da seguinte maneira: existirão usuários que entrarão neste sistema, dependendo de que tipo se usuário entrar no sistema, será bloqueado funcionalidades gerando uma limitação de modificação desses dados.
 
 ![Login](https://i.imgur.com/Rb3sera.png "login")
 
