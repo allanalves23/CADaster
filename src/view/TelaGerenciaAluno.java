@@ -39,19 +39,18 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
 
         fundo = new javax.swing.JPanel();
         panelPesq = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblNome = new javax.swing.JLabel();
         campoNome = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        campoEns = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        campoMatri = new javax.swing.JFormattedTextField();
-        btnPesq = new javax.swing.JButton();
+        lblGrauEnsino = new javax.swing.JLabel();
+        grauEnsino = new javax.swing.JComboBox<>();
+        lblMatricula = new javax.swing.JLabel();
+        campoMatricula = new javax.swing.JFormattedTextField();
+        btnPesquisa = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         panelGerencia = new javax.swing.JPanel();
 
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("CADaster - Modificar aluno");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
@@ -70,24 +69,29 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
             public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
             }
         });
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentMoved(java.awt.event.ComponentEvent evt) {
+                formComponentMoved(evt);
+            }
+        });
 
         panelPesq.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar aluno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
-        jLabel1.setText("Nome");
+        lblNome.setText("Nome");
 
-        jLabel2.setText("Grau de Ensino");
+        lblGrauEnsino.setText("Grau de Ensino");
 
-        campoEns.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Primario", "Ginasio", "Ensino medio", "Tecnico" }));
+        grauEnsino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qualquer", "Primario", "Ginasio", "Ensino medio", "Tecnico" }));
 
-        jLabel3.setText("Matricula");
+        lblMatricula.setText("Matricula");
 
         try {
-            campoMatri.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-###-####")));
+            campoMatricula.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-###-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
-        btnPesq.setText("Pesquisar");
+        btnPesquisa.setText("Pesquisar");
 
         btnSair.setText("Sair");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -103,22 +107,21 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
             .addGroup(panelPesqLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                    .addGroup(panelPesqLayout.createSequentialGroup()
+                        .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(grauEnsino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPesquisa))
+                    .addComponent(lblGrauEnsino)
                     .addGroup(panelPesqLayout.createSequentialGroup()
                         .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(lblNome)
                             .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(campoMatri, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelPesqLayout.createSequentialGroup()
-                        .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnSair)
-                            .addComponent(campoEns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnPesq)
-                        .addGap(17, 17, 17)))
+                            .addComponent(lblMatricula)
+                            .addComponent(campoMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         panelPesqLayout.setVerticalGroup(
@@ -126,19 +129,19 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
             .addGroup(panelPesqLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3))
+                    .addComponent(lblNome)
+                    .addComponent(lblMatricula))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoMatri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addComponent(jLabel2)
+                .addComponent(lblGrauEnsino)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoEns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(grauEnsino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPesq)
+                    .addComponent(btnPesquisa)
                     .addComponent(btnSair))
                 .addGap(46, 46, 46))
         );
@@ -201,17 +204,21 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
        
     }//GEN-LAST:event_formInternalFrameClosed
 
+    private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
+       this.setLocation(0, 0);
+    }//GEN-LAST:event_formComponentMoved
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnPesq;
+    private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton btnSair;
-    private javax.swing.JComboBox<String> campoEns;
-    private javax.swing.JFormattedTextField campoMatri;
+    private javax.swing.JFormattedTextField campoMatricula;
     private javax.swing.JTextField campoNome;
     private javax.swing.JPanel fundo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JComboBox<String> grauEnsino;
+    private javax.swing.JLabel lblGrauEnsino;
+    private javax.swing.JLabel lblMatricula;
+    private javax.swing.JLabel lblNome;
     private javax.swing.JPanel panelGerencia;
     private javax.swing.JPanel panelPesq;
     // End of variables declaration//GEN-END:variables

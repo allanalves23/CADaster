@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 
 import javax.swing.JOptionPane;
@@ -19,9 +15,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
      * Creates new form TelaPrincipal
      */
     //Flags dos jInternalFrames
-    public boolean flagAdm=false;
-    public boolean flagProf=false;
-    public boolean flagGerAluno=false;
     
     UmaJanelaApenas controle;
     
@@ -45,11 +38,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         fundo = new javax.swing.JDesktopPane();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        file = new javax.swing.JMenu();
+        barraMenu = new javax.swing.JMenuBar();
+        sistema = new javax.swing.JMenu();
         logout = new javax.swing.JMenuItem();
         exit = new javax.swing.JMenuItem();
-        User = new javax.swing.JMenu();
+        usuarios = new javax.swing.JMenu();
         addUser = new javax.swing.JMenuItem();
         removeUser = new javax.swing.JMenuItem();
         editUser = new javax.swing.JMenuItem();
@@ -63,7 +56,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         funcProf = new javax.swing.JMenuItem();
         funcAdm = new javax.swing.JMenuItem();
         funcUtil = new javax.swing.JMenuItem();
-        aboutMaster = new javax.swing.JMenu();
+        sobre = new javax.swing.JMenu();
         about = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,8 +64,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         fundo.setBackground(new java.awt.Color(153, 153, 255));
 
-        file.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
-        file.setText("Sistema");
+        sistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
+        sistema.setText("Sistema");
 
         logout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
@@ -82,7 +75,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 logoutActionPerformed(evt);
             }
         });
-        file.add(logout);
+        sistema.add(logout);
 
         exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/quit.png"))); // NOI18N
         exit.setText("Sair");
@@ -91,12 +84,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 exitActionPerformed(evt);
             }
         });
-        file.add(exit);
+        sistema.add(exit);
 
-        jMenuBar1.add(file);
+        barraMenu.add(sistema);
 
-        User.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Person.png"))); // NOI18N
-        User.setText("Usuarios");
+        usuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Person.png"))); // NOI18N
+        usuarios.setText("Usuarios");
 
         addUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Male.png"))); // NOI18N
         addUser.setText("Cadastrar");
@@ -105,7 +98,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 addUserActionPerformed(evt);
             }
         });
-        User.add(addUser);
+        usuarios.add(addUser);
 
         removeUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Trash.png"))); // NOI18N
         removeUser.setText("Remover");
@@ -114,7 +107,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 removeUserActionPerformed(evt);
             }
         });
-        User.add(removeUser);
+        usuarios.add(removeUser);
 
         editUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Modify.png"))); // NOI18N
         editUser.setText("Editar");
@@ -123,7 +116,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 editUserActionPerformed(evt);
             }
         });
-        User.add(editUser);
+        usuarios.add(editUser);
 
         searchUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
         searchUser.setText("Pesquisar");
@@ -132,9 +125,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 searchUserActionPerformed(evt);
             }
         });
-        User.add(searchUser);
+        usuarios.add(searchUser);
 
-        jMenuBar1.add(User);
+        barraMenu.add(usuarios);
 
         alunos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/People.png"))); // NOI18N
         alunos.setText("Alunos");
@@ -175,7 +168,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         alunos.add(alunoAdd);
 
-        jMenuBar1.add(alunos);
+        barraMenu.add(alunos);
 
         funcionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Boss.png"))); // NOI18N
         funcionarios.setText("Funcionarios");
@@ -202,10 +195,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         funcUtil.setText("Serviços Gerais");
         funcionarios.add(funcUtil);
 
-        jMenuBar1.add(funcionarios);
+        barraMenu.add(funcionarios);
 
-        aboutMaster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/About.png"))); // NOI18N
-        aboutMaster.setText("Sobre");
+        sobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/About.png"))); // NOI18N
+        sobre.setText("Sobre");
 
         about.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/About.png"))); // NOI18N
         about.setText("Sobre");
@@ -214,11 +207,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 aboutActionPerformed(evt);
             }
         });
-        aboutMaster.add(about);
+        sobre.add(about);
 
-        jMenuBar1.add(aboutMaster);
+        barraMenu.add(sobre);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(barraMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -236,47 +229,61 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    //chamada do JDialog para o logout
+    
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
-        TelaLogin login = new TelaLogin(this, true);
+        TelaLogin login = new TelaLogin(this, true); /*Chamada do objeto do tipo
+        jDialog*/
         login.setVisible(true);
         
     }//GEN-LAST:event_logoutActionPerformed
-
+    //Chamada da tela de adicao de usuario
+    
     private void addUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserActionPerformed
-        controle.abrirJanela(TelaCadastro.getAbrir());
+        controle.abrirJanela(false,TelaCadastro.getAbrir());/*chamada da classe de 
+        abrir janelas*/
     }//GEN-LAST:event_addUserActionPerformed
-
+    //Chamada da tela de remocao de usuario
+    
     private void removeUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserActionPerformed
-        controle.abrirJanela(AlterarExcluir.getAbrir(true));
+        controle.abrirJanela(true,RemoveUser.getAbrir());
     }//GEN-LAST:event_removeUserActionPerformed
-
+    //Chamada da tela de edicao de usuario
+    
     private void editUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUserActionPerformed
-        controle.abrirJanela(AlterarExcluir.getAbrir(false));
+        controle.abrirJanela(true,EditUser.getAbrir());
     }//GEN-LAST:event_editUserActionPerformed
-
+    //Chamada da tela de procura de usuario
+    
     private void searchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchUserActionPerformed
-        controle.abrirJanela(TelaPesquisa.getAbrir());
+        controle.abrirJanela(true,TelaPesquisa.getAbrir());
     }//GEN-LAST:event_searchUserActionPerformed
-
+    //Chamada da tela de sobre o programa
+    
     private void aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutActionPerformed
-        controle.abrirJanela(Sobre.getAbrir());
+        controle.abrirJanela(false,Sobre.getAbrir());
     }//GEN-LAST:event_aboutActionPerformed
+    //Chamada da tela de adicionar aluno
+    
     private void alunoAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoAddActionPerformed
-        controle.abrirJanela(TelaAddAluno.getAbrir());
+        controle.abrirJanela(false,TelaAddAluno.getAbrir());
     }//GEN-LAST:event_alunoAddActionPerformed
-
+    //Chamada da tela de remocao de aluno
+    
     private void alunoDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoDelActionPerformed
-       controle.abrirJanela(TelaDelAluno.getAbrir());
+       controle.abrirJanela(true,TelaDelAluno.getAbrir());
     }//GEN-LAST:event_alunoDelActionPerformed
+    //Chamada da tela de pesquisar aluno
 
     private void alunoPesqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoPesqActionPerformed
-        controle.abrirJanela(TelaPesqAluno.getAbrir());
+        controle.abrirJanela(true,TelaPesqAluno.getAbrir());
     }//GEN-LAST:event_alunoPesqActionPerformed
+    //Chamada da tela de gerencia de aluno
 
     private void alunoGerenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoGerenActionPerformed
-        controle.abrirJanela(TelaGerenciaAluno.getAbrir());
+        controle.abrirJanela(true,TelaGerenciaAluno.getAbrir());
     }//GEN-LAST:event_alunoGerenActionPerformed
+    //Chamada do JOptionpane para confirmar a saida do programa
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
        int i = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja finalizar o programa?",
@@ -286,15 +293,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_exitActionPerformed
+    //Chamada da tela de gerenciamento de cadastro de professor
 
     private void funcProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcProfActionPerformed
-        controle.abrirJanela(TelaProfessor.getAbrir());
+        controle.abrirJanela(true,TelaProfessor.getAbrir());
     }//GEN-LAST:event_funcProfActionPerformed
-
+    /*Chamada da tela de gerenciamento de casdastro de funcionarios
+      administrativos*/
     private void funcAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcAdmActionPerformed
-        controle.abrirJanela(TelaAdministracao.getAbrir());
+        controle.abrirJanela(true,TelaAdministracao.getAbrir());
          
     }//GEN-LAST:event_funcAdmActionPerformed
+    
 
     /**
      * @param args the command line arguments
@@ -309,7 +319,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -328,26 +338,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu User;
     private javax.swing.JMenuItem about;
-    private javax.swing.JMenu aboutMaster;
     private javax.swing.JMenuItem addUser;
     private javax.swing.JMenuItem alunoAdd;
     private javax.swing.JMenuItem alunoDel;
     private javax.swing.JMenuItem alunoGeren;
     private javax.swing.JMenuItem alunoPesq;
     private javax.swing.JMenu alunos;
+    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenuItem editUser;
     private javax.swing.JMenuItem exit;
-    private javax.swing.JMenu file;
     private javax.swing.JMenuItem funcAdm;
     private javax.swing.JMenuItem funcProf;
     private javax.swing.JMenuItem funcUtil;
     private javax.swing.JMenu funcionarios;
     private javax.swing.JDesktopPane fundo;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem logout;
     private javax.swing.JMenuItem removeUser;
     private javax.swing.JMenuItem searchUser;
+    private javax.swing.JMenu sistema;
+    private javax.swing.JMenu sobre;
+    private javax.swing.JMenu usuarios;
     // End of variables declaration//GEN-END:variables
 }

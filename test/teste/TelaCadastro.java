@@ -3,12 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package teste;
 
-import java.util.Arrays;
+import classes.Usuarios;
 import javax.swing.JOptionPane;
-import modelbean.UserBean;
-import modeldao.UserDao;
 
 
 
@@ -22,7 +20,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
      * Creates new form TelaCadastro
      */
     
-    private static TelaCadastro telaCad;//gerenciador de janelas
+    private static TelaCadastro telaCad;
     
     public static TelaCadastro getAbrir(){
         if(telaCad==null){
@@ -235,18 +233,13 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        if(!(Arrays.toString(campoSenha.getPassword()).equals(Arrays.toString(campoSenha2.getPassword())))){
-            JOptionPane.showMessageDialog(null, "As senhas não conferem\nDigite novamente");
+        Usuarios cad = new Usuarios();
+        if(cad.verificar()){
+            cad.inserirUser(campoNome.getText(), new String (campoSenha.getPassword()), cadTipofunc.getSelectedItem().toString());
         }else{
-            UserBean dados = new UserBean();
-            UserDao insBd = new UserDao();
-            dados.setNome(campoNome.getText());
-            dados.setSenha(new String(campoSenha.getPassword()));
-            dados.setPermissao(cadTipofunc.getSelectedItem().toString());
-            
-            insBd.criar(dados);
+            JOptionPane.showMessageDialog(null, "Error");
         }
-     
+        
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
