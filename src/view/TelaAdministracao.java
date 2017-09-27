@@ -278,6 +278,7 @@ public class TelaAdministracao extends javax.swing.JInternalFrame {
         );
 
         fundo.add(panelAddfunc, "adicionar");
+        panelAddfunc.getAccessibleContext().setAccessibleName("");
 
         camposRem.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Remover funcionario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
         camposRem.setForeground(new java.awt.Color(1, 1, 1));
@@ -495,19 +496,24 @@ public class TelaAdministracao extends javax.swing.JInternalFrame {
 
     private void admAcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admAcaoActionPerformed
        //Selecione, Adicionar, Remover, Modificar
-        if(admAcao.getSelectedItem().equals("Adicionar")){
-            CardLayout add = (CardLayout) fundo.getLayout();
-            add.show(fundo, "adicionar");
-        }else if(admAcao.getSelectedItem().equals("Remover")){
-            CardLayout rem = (CardLayout) fundo.getLayout();
-            rem.show(fundo, "remover");
-        }else if(admAcao.getSelectedItem().equals("Modificar")){
-            CardLayout mod = (CardLayout) fundo.getLayout();
-            mod.show(fundo, "modificar");
-        }else{
-            CardLayout add = (CardLayout) fundo.getLayout();
-            add.show(fundo, "adicionar");
+        switch(admAcao.getSelectedItem().toString()){
+            case "Adicionar":
+                CardLayout add = (CardLayout) fundo.getLayout();
+                add.show(fundo, "adicionar");
+                break;
+            case "Remover":
+                CardLayout rem = (CardLayout) fundo.getLayout();
+                rem.show(fundo, "remover");
+                break;
+            case "Modificar":
+                CardLayout mod = (CardLayout) fundo.getLayout();
+                mod.show(fundo, "modificar");
+                break;
+            default:
+                CardLayout add1 = (CardLayout) fundo.getLayout();
+                add1.show(fundo, "adicionar");
         }
+      
         
     }//GEN-LAST:event_admAcaoActionPerformed
 

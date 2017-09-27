@@ -5,9 +5,12 @@
  */
 package view;
 
+import conexaobd.ConnectionFactory;
 import java.awt.event.KeyEvent;
+import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import modeldao.SearchDao;
 
 /**
  *
@@ -34,8 +37,6 @@ public class TelaLogin extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelLogin = new javax.swing.JPanel();
-        lblLogin = new javax.swing.JLabel();
         camposLogin = new javax.swing.JPanel();
         icone = new javax.swing.JLabel();
         lblUser = new javax.swing.JLabel();
@@ -45,10 +46,6 @@ public class TelaLogin extends javax.swing.JDialog {
         lblSenha = new javax.swing.JLabel();
         lblMensagemerro = new javax.swing.JLabel();
         btnSair = new javax.swing.JButton();
-        logoCADaster = new javax.swing.JPanel();
-        logo = new javax.swing.JLabel();
-        lblMsg1 = new javax.swing.JLabel();
-        lblMsg2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("CADaster - Bem vindo");
@@ -60,24 +57,7 @@ public class TelaLogin extends javax.swing.JDialog {
         setResizable(false);
         setType(java.awt.Window.Type.UTILITY);
 
-        lblLogin.setFont(new java.awt.Font("Corbel", 1, 30)); // NOI18N
-        lblLogin.setText("Login");
-
-        javax.swing.GroupLayout panelLoginLayout = new javax.swing.GroupLayout(panelLogin);
-        panelLogin.setLayout(panelLoginLayout);
-        panelLoginLayout.setHorizontalGroup(
-            panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLoginLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(221, Short.MAX_VALUE))
-        );
-        panelLoginLayout.setVerticalGroup(
-            panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLoginLayout.createSequentialGroup()
-                .addGap(0, 18, Short.MAX_VALUE)
-                .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        camposLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "LOGIN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
         icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/loginIcon.png"))); // NOI18N
 
@@ -119,9 +99,9 @@ public class TelaLogin extends javax.swing.JDialog {
         camposLoginLayout.setHorizontalGroup(
             camposLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(camposLoginLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(29, 29, 29)
                 .addComponent(icone)
-                .addGap(77, 77, 77)
+                .addGap(60, 60, 60)
                 .addGroup(camposLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(camposLoginLayout.createSequentialGroup()
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -138,64 +118,26 @@ public class TelaLogin extends javax.swing.JDialog {
             camposLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(camposLoginLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(lblUser)
                 .addGroup(camposLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(camposLoginLayout.createSequentialGroup()
-                        .addComponent(lblUser)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(campoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblSenha)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                        .addComponent(lblMensagemerro, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(icone))
-                .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblMensagemerro, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, camposLoginLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(icone)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(camposLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEntrar)
                     .addComponent(btnSair))
                 .addGap(21, 21, 21))
-        );
-
-        logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logocSMALL.png"))); // NOI18N
-        logo.setLabelFor(logo);
-        logo.setToolTipText("");
-
-        lblMsg1.setFont(new java.awt.Font("Corbel", 0, 12)); // NOI18N
-        lblMsg1.setText("CADaster - Sistema");
-
-        lblMsg2.setFont(new java.awt.Font("Corbel", 0, 12)); // NOI18N
-        lblMsg2.setText("Gerênciamento de cadastros");
-
-        javax.swing.GroupLayout logoCADasterLayout = new javax.swing.GroupLayout(logoCADaster);
-        logoCADaster.setLayout(logoCADasterLayout);
-        logoCADasterLayout.setHorizontalGroup(
-            logoCADasterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(logoCADasterLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(logoCADasterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logoCADasterLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(lblMsg2))
-                    .addGroup(logoCADasterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblMsg1)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logoCADasterLayout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(logo)
-                            .addGap(9, 9, 9))))
-                .addContainerGap())
-        );
-        logoCADasterLayout.setVerticalGroup(
-            logoCADasterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(logoCADasterLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblMsg1)
-                .addGap(3, 3, 3)
-                .addComponent(lblMsg2)
-                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -203,29 +145,16 @@ public class TelaLogin extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(camposLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 23, Short.MAX_VALUE)
-                        .addComponent(panelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(logoCADaster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addGap(118, 118, 118)
+                .addComponent(camposLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logoCADaster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(11, 11, 11)
-                .addComponent(camposLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(camposLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
         );
 
         getAccessibleContext().setAccessibleDescription("");
@@ -236,7 +165,13 @@ public class TelaLogin extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        verificarLogin(campoLogin.getText(), new String(campoSenha.getPassword()));
+        SearchDao sd = new SearchDao();
+        if(sd.procurar(campoLogin.getText(), Arrays.toString(campoSenha.getPassword()))){
+            this.dispose();
+        }else{
+            lblMensagemerro.setText("Login ou senha invalidos");
+            lblMensagemerro.setIcon(new ImageIcon(getClass().getResource("../imagens/About.png")));
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -313,14 +248,8 @@ public class TelaLogin extends javax.swing.JDialog {
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JPanel camposLogin;
     private javax.swing.JLabel icone;
-    private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblMensagemerro;
-    private javax.swing.JLabel lblMsg1;
-    private javax.swing.JLabel lblMsg2;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblUser;
-    private javax.swing.JLabel logo;
-    private javax.swing.JPanel logoCADaster;
-    private javax.swing.JPanel panelLogin;
     // End of variables declaration//GEN-END:variables
 }

@@ -62,7 +62,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CADaster - Gerenciamento Acadêmico [Build 0.2]");
 
-        fundo.setBackground(new java.awt.Color(153, 153, 255));
+        fundo.setBackground(new java.awt.Color(230, 230, 248));
+        fundo.setForeground(new java.awt.Color(1, 1, 1));
 
         sistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
         sistema.setText("Sistema");

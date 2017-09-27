@@ -5,6 +5,7 @@
  */
 package view;
 
+import java.awt.CardLayout;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -95,6 +96,11 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
         lblAcao.setText("Ação");
 
         tipoAcao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Adicionar", "Remover", "Modificar" }));
+        tipoAcao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoAcaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout actionLayout = new javax.swing.GroupLayout(action);
         action.setLayout(actionLayout);
@@ -275,7 +281,7 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        campos.add(fundoAdicionar, "card2");
+        campos.add(fundoAdicionar, "addProf");
 
         fundoRemover.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Remover Professor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
@@ -355,7 +361,7 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
                 .addContainerGap(168, Short.MAX_VALUE))
         );
 
-        campos.add(fundoRemover, "card3");
+        campos.add(fundoRemover, "remProf");
 
         fundoModificar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gerênciar Professor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
@@ -435,7 +441,7 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
                 .addContainerGap(154, Short.MAX_VALUE))
         );
 
-        campos.add(fundoModificar, "card4");
+        campos.add(fundoModificar, "modProf");
 
         javax.swing.GroupLayout fundoLayout = new javax.swing.GroupLayout(fundo);
         fundo.setLayout(fundoLayout);
@@ -537,6 +543,26 @@ campoMateria.setEnabled(true);
 
         }
     }//GEN-LAST:event_campoEnsinoActionPerformed
+
+    private void tipoAcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoAcaoActionPerformed
+        switch (tipoAcao.getSelectedItem().toString()) {
+            case "Adicionar":
+                CardLayout add = (CardLayout) campos.getLayout();
+                add.show(campos, "addProf");
+                break;
+            case "Remover":
+                CardLayout rem = (CardLayout) campos.getLayout();
+                rem.show(campos, "remProf");
+                break;
+            case "Modificar":
+                CardLayout mod = (CardLayout) campos.getLayout();
+                mod.show(campos, "modProf");
+                break;
+            default:
+                CardLayout add1 = (CardLayout) campos.getLayout();
+                add1.show(campos, "addProf");
+        }
+    }//GEN-LAST:event_tipoAcaoActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel action;
