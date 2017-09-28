@@ -1,16 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.awt.CardLayout;
-import javax.swing.JOptionPane;
 
 /**
  *
- * @author areznla
+ * @author allan
  */
 public class TelaAddAluno extends javax.swing.JInternalFrame {
 
@@ -19,11 +13,15 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
      */
     
     private static TelaAddAluno tela;
+    /*variavel estatica para verificar se existe mais de um objeto do mesmo
+    tipo aberto*/ 
     
     public static TelaAddAluno getAbrir(){
         if(tela==null){
             tela=new TelaAddAluno();
         }
+        /*se a tela estiver null, ou seja, se nao estiver nada aberto. Abra uma!
+        Senao matenha a mesma aberta  */
         return tela;
     }
     public TelaAddAluno() {
@@ -1009,22 +1007,33 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rBtnnaoTecActionPerformed
 
+    //Trabalho com os panels atraves do cardLayout
     private void tipoAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoAlunoActionPerformed
-        if(tipoAluno.getSelectedItem().toString().equals("Primario [1-4 ano]")){
-            CardLayout primario = (CardLayout) panelFundo.getLayout();
-            primario.show(panelFundo,"primario");
-        }else if(tipoAluno.getSelectedItem().toString().equals("Ginasio [5-9 ano]")){
-            CardLayout ginasio = (CardLayout) panelFundo.getLayout();
-            ginasio.show(panelFundo, "ginasio");
-        }else if(tipoAluno.getSelectedItem().toString().equals("Ensino Medio [1-3 ano]")){
-            CardLayout ensinoMedio = (CardLayout) panelFundo.getLayout();
-            ensinoMedio.show(panelFundo, "EnsinoMedio");
-        }else if(tipoAluno.getSelectedItem().toString().equals("Tecnico")){
-            CardLayout tecnico = (CardLayout) panelFundo.getLayout();
-            tecnico.show(panelFundo,"tecnico");
-        }else{
-            CardLayout primario = (CardLayout) panelFundo.getLayout();
-            primario.show(panelFundo,"primario");
+        switch (tipoAluno.getSelectedItem().toString()) {
+            case "Primario [1-4 ano]":
+                {
+                    CardLayout primario = (CardLayout) panelFundo.getLayout();
+                    primario.show(panelFundo,"primario");
+                    break;
+                }
+            case "Ginasio [5-9 ano]":
+                CardLayout ginasio = (CardLayout) panelFundo.getLayout();
+                ginasio.show(panelFundo, "ginasio");
+                break;
+            case "Ensino Medio [1-3 ano]":
+                CardLayout ensinoMedio = (CardLayout) panelFundo.getLayout();
+                ensinoMedio.show(panelFundo, "EnsinoMedio");
+                break;
+            case "Tecnico":
+                CardLayout tecnico = (CardLayout) panelFundo.getLayout();
+                tecnico.show(panelFundo,"tecnico");
+                break;
+            default:
+                {
+                    CardLayout primario = (CardLayout) panelFundo.getLayout();
+                    primario.show(panelFundo,"primario");
+                    break;
+                }
         }
     }//GEN-LAST:event_tipoAlunoActionPerformed
 

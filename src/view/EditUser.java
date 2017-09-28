@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author areznla
+ * @author allan
  */
 public class EditUser extends javax.swing.JInternalFrame {
 
@@ -17,12 +12,17 @@ public class EditUser extends javax.swing.JInternalFrame {
      * Creates new form EditUser
      */
     private static EditUser tela;
+    /*variavel estatica para verificar se existe mais de um objeto do mesmo
+    tipo aberto*/    
     
     public static EditUser getAbrir(){
         if(tela==null){
             tela= new EditUser();
         }
         return tela;
+        /*se a tela estiver null, ou seja, se nao estiver nada aberto. Abra uma!
+        Senao matenha a mesma aberta  */
+        
     }
     
     
@@ -153,7 +153,8 @@ public class EditUser extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //Modificar visualização da label enquanto o combo box e selecionado
     private void metBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_metBuscaActionPerformed
         if(metBusca.getSelectedItem().toString().equals("Nome")){
             lblTipodado.setText("Nome: ");
@@ -162,6 +163,7 @@ public class EditUser extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_metBuscaActionPerformed
 
+    //Verificacao do tipo de metodo de busca
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         if(metBusca.getSelectedItem().toString().equals("Selecione")){
             JOptionPane.showMessageDialog(null,"Selecione um método de busca");
@@ -169,10 +171,14 @@ public class EditUser extends javax.swing.JInternalFrame {
         //Implementar o sistema de busca de usuarios.
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    //Metodo de fechar a tela
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
-
+    
+    /*Metodo de definir a posicao do JinternalFrame de maneira fixa (Aplicavel 
+    em janelas maximizadas)
+    */
     private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
         this.setLocation(0, 0);
     }//GEN-LAST:event_formComponentMoved

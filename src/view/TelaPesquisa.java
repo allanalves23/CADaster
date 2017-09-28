@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 import javax.swing.JOptionPane;
 /**
  *
- * @author areznla
+ * @author allan
  */
 public class TelaPesquisa extends javax.swing.JInternalFrame {
 
@@ -16,12 +11,16 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
      */
     
     private static TelaPesquisa tela;
+    /*variavel estatica para verificar se existe mais de um objeto do mesmo
+    tipo aberto*/
     
     public static TelaPesquisa getAbrir(){
         if(tela==null){
             tela=new TelaPesquisa();
             
         }
+        /*se a tela estiver null, ou seja, se nao estiver nada aberto. Abra uma!
+        Senao matenha a mesma aberta  */
         return tela;
     }
     public TelaPesquisa() {
@@ -153,7 +152,7 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //Metodo para mudar a label quando uma categoria no combo box e selecionado
     private void metBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_metBuscaActionPerformed
         if(metBusca.getSelectedItem().toString().equals("Nome")){
             lblTipo.setText("Nome: ");
@@ -161,18 +160,21 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
             lblTipo.setText("ID");
         }
     }//GEN-LAST:event_metBuscaActionPerformed
-
+    //metodo para informar que nao foi selecionado um metodo de busca
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         if(metBusca.getSelectedItem().toString().equals("Selecione")){
             JOptionPane.showMessageDialog(null,"Selecione um método de busca");
         }
         //Implementar o sistema de busca de usuarios.
     }//GEN-LAST:event_btnBuscarActionPerformed
-
+    //fecha a tela
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
+    /* Metodo para definir a posicao fixa do JinternalFrame (Aplicavel 
+    em janelas que estao como default Maximizaveis
+    */
     private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
         this.setLocation(0, 0);
     }//GEN-LAST:event_formComponentMoved

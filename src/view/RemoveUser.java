@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import javax.swing.JOptionPane;
@@ -10,7 +5,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author areznla
+ * @author allan
  */
 public class RemoveUser extends javax.swing.JInternalFrame {
 
@@ -19,6 +14,8 @@ public class RemoveUser extends javax.swing.JInternalFrame {
      */
     
     private static RemoveUser tela;
+    /*variavel estatica para verificar se existe mais de um objeto do mesmo
+    tipo aberto*/ 
     
     public static RemoveUser getAbrir(){
         
@@ -26,9 +23,12 @@ public class RemoveUser extends javax.swing.JInternalFrame {
             tela=new RemoveUser();
             
         }
-        
+        /*se a tela estiver null, ou seja, se nao estiver nada aberto. Abra uma!
+        Senao matenha a mesma aberta  */
         return tela;
     }
+    
+    
     
     public RemoveUser(){
         initComponents();
@@ -174,16 +174,16 @@ public class RemoveUser extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+    //fechar o frame 
     private void btnVoltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltaActionPerformed
         dispose();
     }//GEN-LAST:event_btnVoltaActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        //Verificação de dados no BD e afins
+        //Verificação de dados no BD - A IMPLEMENTAR
         JOptionPane.showMessageDialog(null, "Funcionalidade não implementada");
     }//GEN-LAST:event_btnConfirmarActionPerformed
-
+    
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
       
     }//GEN-LAST:event_formInternalFrameActivated
@@ -191,7 +191,9 @@ public class RemoveUser extends javax.swing.JInternalFrame {
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
        
     }//GEN-LAST:event_formInternalFrameOpened
-
+    /* Metodo para definir a posicao fixa do JinternalFrame (Aplicavel 
+    em janelas que estao como default Maximizaveis
+    */
     private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
         this.setLocation(0, 0);
     }//GEN-LAST:event_formComponentMoved

@@ -9,29 +9,25 @@ import modelbean.UserBean;
 
 /**
  *
- * @author areznla
+ * @author allan
  */
 public class UserDao {
     
-    
+   //Criar um registro de usuarios no banco de dados 
     public void criar(UserBean cad){
-        Connection con = ConnectionFactory.conexao();
-        PreparedStatement stm= null;
-        
+        Connection conn = ConnectionFactory.conexao();
+        String SQL = "INSERT INTO usuario (login,senha,permissao)VALUES(?,?,?)";
         try {
-            stm=con.prepareStatement("INSERT INTO usuario (login,senha,permissao)VALUES(?,?,?)");
-            stm.setString(1,cad.getNome());
-            stm.setString(2,cad.getSenha());
-            stm.setString(3, cad.getPermissao());
+            PreparedStatement pstm= conn.prepareStatement(SQL); 
+            pstm.setString(1,cad.getNome());
+            pstm.setString(2,cad.getSenha());
+            pstm.setString(3,cad.getPermissao());
             
-            stm.executeUpdate();
+            pstm.execute();
             JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");
-            
+            ConnectionFactory.encerrarConexao(conn, pstm);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao realizar o cadastro no Banco\n ID: "+ex);
-        }finally{
-            ConnectionFactory.encerrarConexao(con, stm);
+            JOptionPane.showMessageDialog(null, "Erro ao realizar o cadastro no Banco\n ID: "+ex.getMessage());
         }
-        
     }
 }   

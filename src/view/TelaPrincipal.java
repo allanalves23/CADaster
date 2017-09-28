@@ -7,7 +7,7 @@ import utilitarios.UmaJanelaApenas;
 
 /**
  *
- * @author areznla
+ * @author allan
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
@@ -17,13 +17,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
     //Flags dos jInternalFrames
     
     UmaJanelaApenas controle;
-    
+    /*Variavel do tipo UmaJanela
+    para realizar a verificação da existencia de um mesmo frame
+    aberto.
+    */
     public TelaPrincipal() {
         initComponents();
         this.setExtendedState(TelaPrincipal.MAXIMIZED_BOTH);
         this.setVisible(true);
+        //Tela principal Maximizada
         TelaLogin login = new TelaLogin(this, true);
         login.setVisible(true);
+        //Chamada da tela de login (JDialog)
         this.controle=new UmaJanelaApenas(fundo);
         
     }
@@ -241,48 +246,56 @@ public class TelaPrincipal extends javax.swing.JFrame {
     //Chamada da tela de adicao de usuario
     
     private void addUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserActionPerformed
-        controle.abrirJanela(false,TelaCadastro.getAbrir());/*chamada da classe de 
-        abrir janelas*/
+        controle.abrirJanela(false,TelaCadastro.getAbrir());
+        //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_addUserActionPerformed
     //Chamada da tela de remocao de usuario
     
     private void removeUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserActionPerformed
         controle.abrirJanela(true,RemoveUser.getAbrir());
+        //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_removeUserActionPerformed
     //Chamada da tela de edicao de usuario
     
     private void editUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUserActionPerformed
         controle.abrirJanela(true,EditUser.getAbrir());
+        //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_editUserActionPerformed
     //Chamada da tela de procura de usuario
     
     private void searchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchUserActionPerformed
         controle.abrirJanela(true,TelaPesquisa.getAbrir());
+        //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_searchUserActionPerformed
     //Chamada da tela de sobre o programa
     
     private void aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutActionPerformed
         controle.abrirJanela(false,Sobre.getAbrir());
+        //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_aboutActionPerformed
     //Chamada da tela de adicionar aluno
     
     private void alunoAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoAddActionPerformed
         controle.abrirJanela(false,TelaAddAluno.getAbrir());
+        //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_alunoAddActionPerformed
     //Chamada da tela de remocao de aluno
     
     private void alunoDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoDelActionPerformed
        controle.abrirJanela(true,TelaDelAluno.getAbrir());
+       //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_alunoDelActionPerformed
     //Chamada da tela de pesquisar aluno
 
     private void alunoPesqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoPesqActionPerformed
         controle.abrirJanela(true,TelaPesqAluno.getAbrir());
+        //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_alunoPesqActionPerformed
     //Chamada da tela de gerencia de aluno
 
     private void alunoGerenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoGerenActionPerformed
         controle.abrirJanela(true,TelaGerenciaAluno.getAbrir());
+        //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_alunoGerenActionPerformed
     //Chamada do JOptionpane para confirmar a saida do programa
 
@@ -298,12 +311,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void funcProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcProfActionPerformed
         controle.abrirJanela(true,TelaProfessor.getAbrir());
+        //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_funcProfActionPerformed
     /*Chamada da tela de gerenciamento de casdastro de funcionarios
       administrativos*/
     private void funcAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcAdmActionPerformed
         controle.abrirJanela(true,TelaAdministracao.getAbrir());
-         
+         //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_funcAdmActionPerformed
     
 

@@ -1,13 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
-import conexaobd.ConnectionFactory;
 import java.awt.event.KeyEvent;
-import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modeldao.SearchDao;
@@ -163,36 +156,48 @@ public class TelaLogin extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    //Login com verificação da conta no banco de dados
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         SearchDao sd = new SearchDao();
-        if(sd.procurar(campoLogin.getText(), Arrays.toString(campoSenha.getPassword()))){
+        if(sd.procurar(campoLogin.getText(), new String(campoSenha.getPassword()))){
             this.dispose();
         }else{
             lblMensagemerro.setText("Login ou senha invalidos");
             lblMensagemerro.setIcon(new ImageIcon(getClass().getResource("../imagens/About.png")));
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
-
+    //Sair da aplicação na tela de Login
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         int op = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?","CADaster - Sair",JOptionPane.YES_NO_OPTION);
         if(op==JOptionPane.YES_OPTION){
             System.exit(1);
         }
     }//GEN-LAST:event_btnSairActionPerformed
-
+    //Login com verificação da conta no banco de dados
     private void campoSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoSenhaKeyPressed
         if(evt.getKeyCode()== KeyEvent.VK_ENTER){
-            verificarLogin(campoLogin.getText(), new String(campoSenha.getPassword()));
+             SearchDao sd = new SearchDao();
+            if(sd.procurar(campoLogin.getText(), new String(campoSenha.getPassword()))){
+                this.dispose();
+            }else{
+                lblMensagemerro.setText("Login ou senha invalidos");
+                lblMensagemerro.setIcon(new ImageIcon(getClass().getResource("../imagens/About.png")));
+            }  
         }
     }//GEN-LAST:event_campoSenhaKeyPressed
-
+    //Login com verificação da conta no banco de dados
     private void campoLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoLoginKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            verificarLogin(campoLogin.getText(), new String(campoSenha.getPassword()));
+             SearchDao sd = new SearchDao();
+            if(sd.procurar(campoLogin.getText(), new String(campoSenha.getPassword()))){
+                this.dispose();
+            }else{
+                lblMensagemerro.setText("Login ou senha invalidos");
+                lblMensagemerro.setIcon(new ImageIcon(getClass().getResource("../imagens/About.png")));
+            }
         }
     }//GEN-LAST:event_campoLoginKeyPressed
-
+    //Metodo de login via root - Não implementado
     private void verificarLogin(String login, String senha){
         if(login.equals("root") && senha.equals("123")){
             this.dispose();

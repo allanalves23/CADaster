@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.awt.CardLayout;
@@ -18,11 +13,15 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
      * Creates new form TelaProfessor
      */
     private static TelaProfessor tela;
+    /*variavel estatica para verificar se existe mais de um objeto do mesmo
+    tipo aberto*/ 
     
     public static TelaProfessor getAbrir(){
       if(tela==null){
           tela=new TelaProfessor();
       }  
+      /*se a tela estiver null, ou seja, se nao estiver nada aberto. Abra uma!
+        Senao matenha a mesma aberta  */
       return tela;
     }
     public TelaProfessor() {
@@ -482,23 +481,29 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
+    /* Metodo para definir a posicao fixa do JinternalFrame (Aplicavel 
+    em janelas que estao como default Maximizaveis
+    */
     private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
         this.setLocation(0, 0);
     }//GEN-LAST:event_formComponentMoved
-
+    //fecha a tela
     private void btnVoltarmodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarmodActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnVoltarmodActionPerformed
-
+    //fecha a tela
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
-
+    //fecha a tela
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
-
+    /*Metodo para analisar o tipo de area selecionada - Redes, Programacao
+    A. Industrial e Eng. Mecanica e entregar as materias por area em um comboBox
+    */
     private void campoAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoAreaActionPerformed
         if(campoArea.getSelectedItem().equals("Redes")){
             campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Cabeamento Estruturado","Arquitetura e implementacao",
@@ -520,7 +525,10 @@ campoMateria.setEnabled(true);
         campoMateria.setEnabled(false);
         }
     }//GEN-LAST:event_campoAreaActionPerformed
-
+    
+    /*Metodo para analisar o tipo de gray de ensino e selecionado - Primario, Ginasio
+    Ensino Medio e Tecnico e entregar as materias por tipo em um comboBox
+    */
     private void campoEnsinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEnsinoActionPerformed
         switch(campoEnsino.getSelectedItem().toString()){
             case "Primario":
@@ -530,20 +538,22 @@ campoMateria.setEnabled(true);
             case "Ginasio":
             campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Matematica","Portugues","Fisica","Quimica","Ed.Fisica",
                 "Geografia","Historia","Artes","Ingles","Espanhol"}));
-    campoMateria.setEnabled(true);
-    break;
-    case "Ensino Medio":
-    campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Matematica","Portugues","Fisica","Quimica","Ed.Fisica",
-        "Geografia","Historia","Ingles","Espanhol","Informatica","Sociologia","Filosofia","Redacao"}));
-        campoMateria.setEnabled(true);
-        break;
-        case "Tecnico":
-        campoArea.setEnabled(true);
-        campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Redes", "Programacao","A. Industrial","Eng. Mecanica"}));
+            campoMateria.setEnabled(true);
+            break;
+            case "Ensino Medio":
+            campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Matematica","Portugues","Fisica","Quimica","Ed.Fisica",
+                "Geografia","Historia","Ingles","Espanhol","Informatica","Sociologia","Filosofia","Redacao"}));
+            campoMateria.setEnabled(true);
+            break;
+            case "Tecnico":
+            campoArea.setEnabled(true);
+            campoMateria.setModel(new DefaultComboBoxModel<>(new String[]{"Redes", "Programacao","A. Industrial","Eng. Mecanica"}));
 
         }
     }//GEN-LAST:event_campoEnsinoActionPerformed
 
+    /*Metodo responsavel por apresentar os tipos diferentes de formulario por
+    Categoria seleciona*/
     private void tipoAcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoAcaoActionPerformed
         switch (tipoAcao.getSelectedItem().toString()) {
             case "Adicionar":

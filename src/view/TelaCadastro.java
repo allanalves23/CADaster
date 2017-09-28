@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.util.Arrays;
@@ -10,11 +5,9 @@ import javax.swing.JOptionPane;
 import modelbean.UserBean;
 import modeldao.UserDao;
 
-
-
 /**
  *
- * @author areznla
+ * @author allan
  */
 public class TelaCadastro extends javax.swing.JInternalFrame {
 
@@ -22,12 +15,16 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
      * Creates new form TelaCadastro
      */
     
-    private static TelaCadastro telaCad;//gerenciador de janelas
+    private static TelaCadastro telaCad;
+    /*variavel estatica para verificar se existe mais de um objeto do mesmo
+    tipo aberto*/
     
     public static TelaCadastro getAbrir(){
         if(telaCad==null){
             telaCad=new TelaCadastro();
         }
+        /*se a tela estiver null, ou seja, se nao estiver nada aberto. Abra uma!
+        Senao mantenha a mesma aberta  */
         return telaCad;
     }
     
@@ -207,7 +204,8 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //Cadastro de usuarios
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         if(!(Arrays.toString(campoSenha.getPassword()).equals(Arrays.toString(campoSenha2.getPassword())))){
             JOptionPane.showMessageDialog(null, "As senhas não conferem\nDigite novamente");
@@ -215,23 +213,24 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Um ou mais campos estão em branco");
         
         }else{
-            UserBean dados = new UserBean();
-            UserDao insBd = new UserDao();
+            UserBean dados = new UserBean();//Recebe os dados do formulario e
+            //passa para o DAO
+            UserDao insert = new UserDao(); //DAO criado
             dados.setNome(campoNome.getText());
             dados.setSenha(new String(campoSenha.getPassword()));
             dados.setPermissao(cadTipofunc.getSelectedItem().toString());
             
-            insBd.criar(dados);
+            insert.criar(dados); //Comando para inserção dos dados
         }
      
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
-
+    //fechar a tela
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         dispose();
         
     }//GEN-LAST:event_btnSairActionPerformed
-
+    //Metodo para imprimir uma descrição da categoria conforme o combox
     private void cadTipofuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadTipofuncActionPerformed
         switch(cadTipofunc.getSelectedItem().toString()){
             case "Comum":
@@ -264,7 +263,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_cadTipofuncActionPerformed
-
+    //Metodo para imprimir um "sobre"
     private void btnSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSobreActionPerformed
         textArea.setText("O cadastro de usuario é referênte a adição de Logins "
         +"ao sistema, cada usuario terá um nível de privilégio ao ser adicionado.\n "
