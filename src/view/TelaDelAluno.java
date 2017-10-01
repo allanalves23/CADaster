@@ -35,6 +35,9 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("school?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        usuarioQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT u FROM Usuario u");
+        usuarioList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuarioQuery.getResultList();
         fundo = new javax.swing.JPanel();
         campos = new javax.swing.JPanel();
         campoNome = new javax.swing.JTextField();
@@ -111,7 +114,7 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
             .addGroup(fundoLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(campos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -144,7 +147,10 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnVoltar;
     private javax.swing.JTextField campoNome;
     private javax.swing.JPanel campos;
+    private javax.persistence.EntityManager entityManager;
     private javax.swing.JPanel fundo;
     private javax.swing.JLabel lblNome;
+    private java.util.List<view.Usuario> usuarioList;
+    private javax.persistence.Query usuarioQuery;
     // End of variables declaration//GEN-END:variables
 }

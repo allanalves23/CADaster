@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,7 +26,9 @@ public class  ConnectionFactory {
             
             return DriverManager.getConnection(URL, USER, PASS); //Conectando ao banco
         } catch (ClassNotFoundException | SQLException ex) {
+           JOptionPane.showMessageDialog(null, "O banco de dados esta desligado, por favor ligue o e reinicie o sistema", "Erro", 0);
            throw new RuntimeException("Erro ao realizar a conexão com o banco de dados\n ID: "+ex.getMessage());
+           
         }
     }
     
