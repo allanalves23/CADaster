@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 import modelbean.UserBean;
@@ -69,10 +70,21 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
 
         lblSenha2.setText("Confirmar senha");
 
+        campoSenha2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                campoSenha2KeyPressed(evt);
+            }
+        });
+
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarActionPerformed(evt);
+            }
+        });
+        btnCadastrar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnCadastrarKeyPressed(evt);
             }
         });
 
@@ -89,6 +101,11 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         cadTipofunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadTipofuncActionPerformed(evt);
+            }
+        });
+        cadTipofunc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cadTipofuncKeyPressed(evt);
             }
         });
 
@@ -137,27 +154,28 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             .addGroup(fundoLayout.createSequentialGroup()
                 .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fundoLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
                         .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblLogin)
-                            .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblSenha)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblSenha2)
-                            .addComponent(campoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(campoSenha2, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(lblTipo)
-                            .addComponent(cadTipofunc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(90, 90, 90)
-                .addComponent(areaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
-            .addGroup(fundoLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(btnCadastrar)
+                            .addGroup(fundoLayout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblLogin)
+                                    .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblSenha)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblSenha2)
+                                    .addComponent(campoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(campoSenha2, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(lblTipo)
+                                    .addComponent(cadTipofunc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(90, 90, 90)
+                        .addComponent(areaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fundoLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addComponent(btnCadastrar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         fundoLayout.setVerticalGroup(
@@ -226,7 +244,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         campoSenha.setText("");
         campoSenha2.setText("");
         cadTipofunc.setSelectedItem("Selecione");
-        
+        //Reseta os campos ao terminar de inserir um registro
     }//GEN-LAST:event_btnCadastrarActionPerformed
     //fechar a tela
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -273,6 +291,58 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         +"Selecione os tipos de cadastros existêntes para uma breve explicação."
         +"Mais detalhes consulte a documentação");
     }//GEN-LAST:event_btnSobreActionPerformed
+
+    private void btnCadastrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrarKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastrarKeyPressed
+
+    private void campoSenha2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoSenha2KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if(!(Arrays.toString(campoSenha.getPassword()).equals(Arrays.toString(campoSenha2.getPassword())))){
+                JOptionPane.showMessageDialog(null, "As senhas não conferem\nDigite novamente");
+            }else if(campoNome.getText().equals("") || Arrays.toString(campoSenha.getPassword()).equals("")){
+                JOptionPane.showMessageDialog(null, "Um ou mais campos estão em branco");
+            }else{
+                UserBean dados = new UserBean();//Recebe os dados do formulario e
+                //passa para o DAO
+                UserDao insert = new UserDao(); //DAO criado
+                dados.setNome(campoNome.getText());
+                dados.setSenha(new String(campoSenha.getPassword()));
+                dados.setPermissao(cadTipofunc.getSelectedItem().toString());
+
+                insert.criar(dados); //Comando para inserção dos dados
+            }
+            campoNome.setText("");
+            campoSenha.setText("");
+            campoSenha2.setText("");
+            cadTipofunc.setSelectedItem("Selecione");
+            //Reseta os campos ao terminar de inserir um registro
+        }
+    }//GEN-LAST:event_campoSenha2KeyPressed
+
+    private void cadTipofuncKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cadTipofuncKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if(!(Arrays.toString(campoSenha.getPassword()).equals(Arrays.toString(campoSenha2.getPassword())))){
+                JOptionPane.showMessageDialog(null, "As senhas não conferem\nDigite novamente");
+            }else if(campoNome.getText().equals("") || Arrays.toString(campoSenha.getPassword()).equals("")){
+                JOptionPane.showMessageDialog(null, "Um ou mais campos estão em branco");
+            }else{
+                UserBean dados = new UserBean();//Recebe os dados do formulario e
+                //passa para o DAO
+                UserDao insert = new UserDao(); //DAO criado
+                dados.setNome(campoNome.getText());
+                dados.setSenha(new String(campoSenha.getPassword()));
+                dados.setPermissao(cadTipofunc.getSelectedItem().toString());
+
+                insert.criar(dados); //Comando para inserção dos dados
+            }
+            campoNome.setText("");
+            campoSenha.setText("");
+            campoSenha2.setText("");
+            cadTipofunc.setSelectedItem("Selecione");
+            //Reseta os campos ao terminar de inserir um registro
+        }
+    }//GEN-LAST:event_cadTipofuncKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -136,6 +136,9 @@
         <Component class="javax.swing.JPasswordField" name="campoSenha">
         </Component>
         <Component class="javax.swing.JPasswordField" name="campoSenha2">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoSenha2KeyPressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnCadastrar">
           <Properties>
@@ -143,6 +146,7 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnCadastrarKeyPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnSair">
@@ -173,6 +177,7 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadTipofuncActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cadTipofuncKeyPressed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
