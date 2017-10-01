@@ -222,7 +222,10 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             
             insert.criar(dados); //Comando para inserção dos dados
         }
-     
+        campoNome.setText("");
+        campoSenha.setText("");
+        campoSenha2.setText("");
+        cadTipofunc.setSelectedItem("Selecione");
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
     //fechar a tela

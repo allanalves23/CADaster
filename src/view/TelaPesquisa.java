@@ -1,5 +1,8 @@
 package view;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import modelbean.UserBean;
+import modeldao.SearchDao;
 /**
  *
  * @author allan
@@ -25,6 +28,8 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
     }
     public TelaPesquisa() {
         initComponents();
+        leituraTabela();
+        tabelaResultado.setEnabled(false);
     }
 
     /**
@@ -44,6 +49,12 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
         btnVoltar = new javax.swing.JButton();
         metBusca = new javax.swing.JComboBox<>();
         btnBuscar = new javax.swing.JButton();
+        resultadoBusca = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaResultado = new javax.swing.JTable();
+        todosUsuarios = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabelaPrincipal = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -67,7 +78,7 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
             }
         });
 
-        metBusca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ID", "Nome" }));
+        metBusca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ID", "Login" }));
         metBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 metBuscaActionPerformed(evt);
@@ -122,21 +133,116 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        resultadoBusca.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado da Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
+
+        tabelaResultado.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "LOGIN", "PERMISSAO"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelaResultado.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tabelaResultado);
+        if (tabelaResultado.getColumnModel().getColumnCount() > 0) {
+            tabelaResultado.getColumnModel().getColumn(0).setResizable(false);
+            tabelaResultado.getColumnModel().getColumn(1).setResizable(false);
+            tabelaResultado.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        javax.swing.GroupLayout resultadoBuscaLayout = new javax.swing.GroupLayout(resultadoBusca);
+        resultadoBusca.setLayout(resultadoBuscaLayout);
+        resultadoBuscaLayout.setHorizontalGroup(
+            resultadoBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(resultadoBuscaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        resultadoBuscaLayout.setVerticalGroup(
+            resultadoBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(resultadoBuscaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        todosUsuarios.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Todos os Usuários", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
+
+        tabelaPrincipal.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "LOGIN", "PERMISSAO"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelaPrincipal.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(tabelaPrincipal);
+        if (tabelaPrincipal.getColumnModel().getColumnCount() > 0) {
+            tabelaPrincipal.getColumnModel().getColumn(0).setResizable(false);
+            tabelaPrincipal.getColumnModel().getColumn(1).setResizable(false);
+            tabelaPrincipal.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        javax.swing.GroupLayout todosUsuariosLayout = new javax.swing.GroupLayout(todosUsuarios);
+        todosUsuarios.setLayout(todosUsuariosLayout);
+        todosUsuariosLayout.setHorizontalGroup(
+            todosUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(todosUsuariosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        todosUsuariosLayout.setVerticalGroup(
+            todosUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(todosUsuariosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout fundoLayout = new javax.swing.GroupLayout(fundo);
         fundo.setLayout(fundoLayout);
         fundoLayout.setHorizontalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(campos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(514, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(resultadoBusca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(campos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(todosUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         fundoLayout.setVerticalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(campos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(todosUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(fundoLayout.createSequentialGroup()
+                        .addComponent(campos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(resultadoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 34, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -154,18 +260,51 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
     //Metodo para mudar a label quando uma categoria no combo box e selecionado
     private void metBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_metBuscaActionPerformed
-        if(metBusca.getSelectedItem().toString().equals("Nome")){
-            lblTipo.setText("Nome: ");
+        if(metBusca.getSelectedItem().toString().equals("Login")){
+            lblTipo.setText("Login: ");
         }else if(metBusca.getSelectedItem().toString().equals("ID")){
             lblTipo.setText("ID");
         }
     }//GEN-LAST:event_metBuscaActionPerformed
     //metodo para informar que nao foi selecionado um metodo de busca
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        if(metBusca.getSelectedItem().toString().equals("Selecione")){
-            JOptionPane.showMessageDialog(null,"Selecione um método de busca");
+        switch (metBusca.getSelectedItem().toString()) {
+            case "Selecione":
+                JOptionPane.showMessageDialog(null,"Selecione um método de busca");
+                break;
+            case "ID":
+                {   if(!tabelaResultado.isEnabled()){
+                        tabelaResultado.setEnabled(true);
+                    }
+                    DefaultTableModel model = (DefaultTableModel) tabelaResultado.getModel();
+                    model.setNumRows(0);
+                    SearchDao sd = new SearchDao();
+                    for(UserBean user: sd.procurar(Integer.parseInt(campoTipo.getText()))){
+                        model.addRow(new Object[]{
+                            user.getId(),
+                            user.getNome(),
+                            user.getPermissao()
+                        });
+                    }       break;
+                }
+            default:
+                {   
+                    if(!tabelaResultado.isEnabled()){
+                        tabelaResultado.setEnabled(true);
+                    }
+                    DefaultTableModel model = (DefaultTableModel) tabelaResultado.getModel();
+                    model.setNumRows(0);
+                    SearchDao sd = new SearchDao();
+                    for(UserBean user: sd.procurar(campoTipo.getText())){
+                        model.addRow(new Object[]{
+                            user.getId(),
+                            user.getNome(),
+                            user.getPermissao()
+                        });
+                    }       break;
+                }
         }
-        //Implementar o sistema de busca de usuarios.
+       
     }//GEN-LAST:event_btnBuscarActionPerformed
     //fecha a tela
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -178,7 +317,18 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
     private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
         this.setLocation(0, 0);
     }//GEN-LAST:event_formComponentMoved
-
+    
+    private void leituraTabela(){
+        DefaultTableModel model = (DefaultTableModel) tabelaPrincipal.getModel();
+        SearchDao sd = new SearchDao();
+        for(UserBean user: sd.procurar()){
+            model.addRow(new Object[]{
+                user.getId(),
+                user.getNome(),
+                user.getPermissao()
+            });
+        }
+    }   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
@@ -186,8 +336,14 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
     private javax.swing.JTextField campoTipo;
     private javax.swing.JPanel campos;
     private javax.swing.JPanel fundo;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblMetodobusca;
     private javax.swing.JLabel lblTipo;
     private javax.swing.JComboBox<String> metBusca;
+    private javax.swing.JPanel resultadoBusca;
+    private javax.swing.JTable tabelaPrincipal;
+    private javax.swing.JTable tabelaResultado;
+    private javax.swing.JPanel todosUsuarios;
     // End of variables declaration//GEN-END:variables
 }

@@ -156,6 +156,7 @@ public class RemoveUser extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabelaUsuarios.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaUsuarios);
         if (tabelaUsuarios.getColumnModel().getColumnCount() > 0) {
             tabelaUsuarios.getColumnModel().getColumn(0).setResizable(false);
