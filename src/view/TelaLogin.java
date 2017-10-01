@@ -3,7 +3,7 @@ package view;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import modeldao.SearchDao;
+import modeldao.LoginDao;
 
 /**
  *
@@ -158,8 +158,8 @@ public class TelaLogin extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
     //Login com verificação da conta no banco de dados
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        SearchDao sd = new SearchDao();
-        if(sd.procurar(campoLogin.getText(), new String(campoSenha.getPassword()))){
+        LoginDao ld = new LoginDao();
+        if(ld.login(campoLogin.getText(), new String(campoSenha.getPassword()))){
             this.dispose();
         }else{
             lblMensagemerro.setText("Login ou senha invalidos");
@@ -176,8 +176,8 @@ public class TelaLogin extends javax.swing.JDialog {
     //Login com verificação da conta no banco de dados
     private void campoSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoSenhaKeyPressed
         if(evt.getKeyCode()== KeyEvent.VK_ENTER){
-             SearchDao sd = new SearchDao();
-            if(sd.procurar(campoLogin.getText(), new String(campoSenha.getPassword()))){
+             LoginDao ld = new LoginDao();
+            if(ld.login(campoLogin.getText(), new String(campoSenha.getPassword()))){
                 this.dispose();
             }else{
                 lblMensagemerro.setText("Login ou senha invalidos");
@@ -188,8 +188,8 @@ public class TelaLogin extends javax.swing.JDialog {
     //Login com verificação da conta no banco de dados
     private void campoLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoLoginKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-             SearchDao sd = new SearchDao();
-            if(sd.procurar(campoLogin.getText(), new String(campoSenha.getPassword()))){
+             LoginDao ld = new LoginDao();
+            if(ld.login(campoLogin.getText(), new String(campoSenha.getPassword()))){
                 this.dispose();
             }else{
                 lblMensagemerro.setText("Login ou senha invalidos");
@@ -222,15 +222,11 @@ public class TelaLogin extends javax.swing.JDialog {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        
         //</editor-fold>
 
         /* Create and display the dialog */

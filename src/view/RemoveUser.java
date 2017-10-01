@@ -1,7 +1,10 @@
 package view;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import modelbean.UserBean;
 import modeldao.DeleteDao;
+import modeldao.SearchDao;
 
 
 /**
@@ -33,6 +36,7 @@ public class RemoveUser extends javax.swing.JInternalFrame {
     
     public RemoveUser(){
         initComponents();
+        leituraTabela();
     }
     
     /**
@@ -43,7 +47,6 @@ public class RemoveUser extends javax.swing.JInternalFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("school?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
         usuarioQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT u FROM Usuario u");
@@ -57,7 +60,8 @@ public class RemoveUser extends javax.swing.JInternalFrame {
         btnVolta = new javax.swing.JButton();
         btnConfirmar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabela = new javax.swing.JTable();
+        tabelaUsuarios = new javax.swing.JTable();
+        btnAtualizar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -136,73 +140,69 @@ public class RemoveUser extends javax.swing.JInternalFrame {
             }
         });
 
-        tabela.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Id", "Login", "Permissao"
+                "ID", "LOGIN", "PERMISSAO"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
-            };
             boolean[] canEdit = new boolean [] {
                 false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        tabela.setCellSelectionEnabled(true);
+        jScrollPane1.setViewportView(tabelaUsuarios);
+        if (tabelaUsuarios.getColumnModel().getColumnCount() > 0) {
+            tabelaUsuarios.getColumnModel().getColumn(0).setResizable(false);
+            tabelaUsuarios.getColumnModel().getColumn(1).setResizable(false);
+            tabelaUsuarios.getColumnModel().getColumn(2).setResizable(false);
+        }
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, usuarioList, tabela);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${id}"));
-        columnBinding.setColumnName("Id");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${login}"));
-        columnBinding.setColumnName("Login");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${permissao}"));
-        columnBinding.setColumnName("Permissao");
-        columnBinding.setColumnClass(String.class);
-        bindingGroup.addBinding(jTableBinding);
-        jTableBinding.bind();
-        jScrollPane1.setViewportView(tabela);
+        btnAtualizar.setText("Atualizar Lista");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout fundoLayout = new javax.swing.GroupLayout(fundo);
         fundo.setLayout(fundoLayout);
         fundoLayout.setHorizontalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panelBuscauser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(fundoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoLayout.createSequentialGroup()
                         .addComponent(btnVolta, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41))
+                    .addGroup(fundoLayout.createSequentialGroup()
+                        .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panelBuscauser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 60, 60)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         fundoLayout.setVerticalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addComponent(btnVolta)
+                .addGap(14, 14, 14)
                 .addComponent(panelBuscauser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106)
-                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConfirmar)
-                    .addComponent(btnVolta))
+                .addGap(18, 18, 18)
+                .addComponent(btnConfirmar)
+                .addGap(29, 29, 29)
+                .addComponent(btnAtualizar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(fundoLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -220,13 +220,11 @@ public class RemoveUser extends javax.swing.JInternalFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
     //fechar o frame 
     private void btnVoltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltaActionPerformed
-        dispose();
+        this.dispose();
     }//GEN-LAST:event_btnVoltaActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
@@ -238,16 +236,27 @@ public class RemoveUser extends javax.swing.JInternalFrame {
             int i = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir?", "Confirmação", 0);
             if(i==JOptionPane.YES_OPTION){
                 DeleteDao del = new DeleteDao();
-                del.procurar(id, login);
-                tabela.setVisible(false);
-                tabela.revalidate();
-                tabela.setVisible(true);
+                del.deletar(id, login);
+                leituraTabela();
             }
         }else{
             JOptionPane.showMessageDialog(null, "Dado não existente no banco");
         }
     }//GEN-LAST:event_btnConfirmarActionPerformed
-    
+    //metodo de leitura da tabela
+    private void leituraTabela(){
+             DefaultTableModel model = (DefaultTableModel) tabelaUsuarios.getModel();
+             model.setNumRows(0);
+             SearchDao sd = new SearchDao();
+             for(UserBean user: sd.procurar()){
+                model.addRow(new Object[]{
+                    user.getId(),
+                    user.getNome(),
+                    user.getPermissao()
+                });
+             }
+        
+    }
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
       
     }//GEN-LAST:event_formInternalFrameActivated
@@ -262,7 +271,12 @@ public class RemoveUser extends javax.swing.JInternalFrame {
         this.setLocation(0, 0);
     }//GEN-LAST:event_formComponentMoved
 
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        leituraTabela();
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnVolta;
     private javax.swing.JTextField codCampo;
@@ -273,9 +287,8 @@ public class RemoveUser extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblNome;
     private javax.swing.JTextField nomeCampo;
     private javax.swing.JPanel panelBuscauser;
-    private javax.swing.JTable tabela;
+    private javax.swing.JTable tabelaUsuarios;
     private java.util.List<view.Usuario> usuarioList;
     private javax.persistence.Query usuarioQuery;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

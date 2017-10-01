@@ -5,6 +5,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import modelbean.UserBean;
 
 /**
  *
@@ -15,52 +20,34 @@ public class SearchDao {
     public SearchDao() {
         
     }
-    public boolean procurar(int id, String login){
-        //metodo ao verificar registro para deletar registro do sistema
+    
+    //busca exclusao usuario
+    public List<UserBean> procurar(){
+        //metodo para listar usuarios no jtable
+        List<UserBean> listUsers = new ArrayList<>();
         try {
             Connection conn = ConnectionFactory.conexao();
-            String SQL = "SELECT * FROM usuario WHERE id = ? and login = ?";
-            PreparedStatement pstm = conn.prepareStatement(SQL);
-            pstm.setInt(1, id);
-            pstm.setString(2, login);
-            ResultSet rs = pstm.executeQuery();
+            String SQL = "SELECT * FROM usuario";
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(SQL);
+            
+            
+            
             //Se o dado existir, irá prosseguir para o proximo registro.
-            if(rs.next()){
-                
-                    ConnectionFactory.encerrarConexao(conn, pstm, rs);
-                    return true; 
+            while(rs.next()){
+                    UserBean usuario = new UserBean();
+                    usuario.setId(rs.getInt("id"));
+                    usuario.setNome(rs.getString("login"));
+                    usuario.setPermissao(rs.getString("permissao"));
+                    
+                    listUsers.add(usuario);
                 
             }
+            ConnectionFactory.encerrarConexao(conn, stm, rs);
             
         } catch (SQLException ex) {
-            return false;
+            JOptionPane.showMessageDialog(null, "Erro ler os dados do banco "+ex.getMessage());
         }
-      return false; //caso login ou senha estiver errado
+      return listUsers; //retorno do array dos registros
     } 
-    
-    
-    
-    //Busca de usuarios no banco de dados
-    public boolean procurar(String login, String senha){
-        //metodo para verificar registro ao login do sistema
-        try {
-            Connection conn = ConnectionFactory.conexao();
-            String SQL = "SELECT * FROM usuario WHERE login = ? and senha = ?";
-            PreparedStatement pstm = conn.prepareStatement(SQL);
-            pstm.setString(1, login);
-            pstm.setString(2, senha);
-            ResultSet rs = pstm.executeQuery();
-            //Se o dado existir, irá prosseguir para o proximo registro.
-            if(rs.next()){
-                if(rs.getString("login").equals(login) && rs.getString("senha").equals(senha)){
-                    ConnectionFactory.encerrarConexao(conn, pstm, rs);
-                    return true; //caso o login E senha estiverem corretos
-                }
-            }
-            
-        } catch (SQLException ex) {
-            return false;
-        }
-      return false; //caso login ou senha estiver errado
-    }
 }

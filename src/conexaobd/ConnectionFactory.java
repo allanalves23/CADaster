@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -61,6 +62,18 @@ public class  ConnectionFactory {
         encerrarConexao(conec,stm);
          try{
              if(result!=null){
+                 result.close();
+             }
+         }catch(SQLException ex){
+            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null,ex);
+         }
+    }
+    //encerrar conection de query
+    public static void encerrarConexao(Connection conec, Statement stm, ResultSet result){
+         try{
+             if(conec!=null && stm!=null && result!=null){
+                 conec.close();
+                 stm.close();
                  result.close();
              }
          }catch(SQLException ex){
