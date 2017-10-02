@@ -11,7 +11,7 @@ import modelbean.UserBean;
  *
  * @author allan
  */
-public class UserDao {
+public class InsertDao {
     
    //Criar um registro de usuarios no banco de dados 
     public void criar(UserBean cad){

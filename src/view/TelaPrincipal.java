@@ -258,7 +258,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     //Chamada da tela de edicao de usuario
     
     private void editUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUserActionPerformed
-        controle.abrirJanela(true,EditUser.getAbrir());
+        controle.abrirJanela(false,EditUser.getAbrir());
         //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_editUserActionPerformed
     //Chamada da tela de procura de usuario

@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelbean.UserBean;
@@ -59,6 +60,7 @@ public class RemoveUser extends javax.swing.JInternalFrame {
         lblCod = new javax.swing.JLabel();
         btnVolta = new javax.swing.JButton();
         btnConfirmar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaUsuarios = new javax.swing.JTable();
         btnAtualizar = new javax.swing.JButton();
@@ -95,36 +97,21 @@ public class RemoveUser extends javax.swing.JInternalFrame {
 
         panelBuscauser.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busca usuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
 
+        nomeCampo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nomeCampoKeyPressed(evt);
+            }
+        });
+
+        codCampo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                codCampoKeyPressed(evt);
+            }
+        });
+
         lblNome.setText("Nome");
 
         lblCod.setText("Codigo");
-
-        javax.swing.GroupLayout panelBuscauserLayout = new javax.swing.GroupLayout(panelBuscauser);
-        panelBuscauser.setLayout(panelBuscauserLayout);
-        panelBuscauserLayout.setHorizontalGroup(
-            panelBuscauserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBuscauserLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelBuscauserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblCod, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(codCampo, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                    .addComponent(lblNome)
-                    .addComponent(nomeCampo))
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-        panelBuscauserLayout.setVerticalGroup(
-            panelBuscauserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBuscauserLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblCod, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(codCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblNome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nomeCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
 
         btnVolta.setText("Voltar");
         btnVolta.addActionListener(new java.awt.event.ActionListener() {
@@ -139,6 +126,44 @@ public class RemoveUser extends javax.swing.JInternalFrame {
                 btnConfirmarActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout panelBuscauserLayout = new javax.swing.GroupLayout(panelBuscauser);
+        panelBuscauser.setLayout(panelBuscauserLayout);
+        panelBuscauserLayout.setHorizontalGroup(
+            panelBuscauserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBuscauserLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelBuscauserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblCod, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(codCampo, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                    .addComponent(lblNome)
+                    .addComponent(nomeCampo))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelBuscauserLayout.createSequentialGroup()
+                .addComponent(btnVolta, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        panelBuscauserLayout.setVerticalGroup(
+            panelBuscauserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBuscauserLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblCod, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(codCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nomeCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(panelBuscauserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVolta)
+                    .addComponent(btnConfirmar))
+                .addGap(20, 20, 20))
+        );
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuarios", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
 
         tabelaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -171,39 +196,47 @@ public class RemoveUser extends javax.swing.JInternalFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 25, Short.MAX_VALUE)
+                .addComponent(btnAtualizar)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout fundoLayout = new javax.swing.GroupLayout(fundo);
         fundo.setLayout(fundoLayout);
         fundoLayout.setHorizontalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoLayout.createSequentialGroup()
-                        .addComponent(btnVolta, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41))
-                    .addGroup(fundoLayout.createSequentialGroup()
-                        .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panelBuscauser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(60, 60, 60)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelBuscauser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         fundoLayout.setVerticalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(fundoLayout.createSequentialGroup()
-                .addComponent(btnVolta)
-                .addGap(14, 14, 14)
+                .addGap(37, 37, 37)
                 .addComponent(panelBuscauser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnConfirmar)
-                .addGap(29, 29, 29)
-                .addComponent(btnAtualizar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(fundoLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -229,7 +262,7 @@ public class RemoveUser extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnVoltaActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        if(nomeCampo.getText().length()>0 || codCampo.getText().length()>0){
+        if(nomeCampo.getText().length()>0 && codCampo.getText().length()>0){
             String login = nomeCampo.getText();
             int id = Integer.parseInt(codCampo.getText());
             
@@ -240,9 +273,13 @@ public class RemoveUser extends javax.swing.JInternalFrame {
                 del.deletar(id, login);
                 leituraTabela();
             }
+            
         }else{
-            JOptionPane.showMessageDialog(null, "Dado não existente no banco");
+            JOptionPane.showMessageDialog(null, "Os campos 'ID' e 'Login' devem estar preenchidos\n"
+                    + "para ser realizado a exclusão do registro");
         }
+        codCampo.setText("");
+        nomeCampo.setText("");
     }//GEN-LAST:event_btnConfirmarActionPerformed
     //metodo de leitura da tabela
     private void leituraTabela(){
@@ -276,6 +313,33 @@ public class RemoveUser extends javax.swing.JInternalFrame {
         leituraTabela();
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
+    private void nomeCampoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nomeCampoKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(nomeCampo.getText().length()>0 && codCampo.getText().length()>0){
+                String login = nomeCampo.getText();
+                int id = Integer.parseInt(codCampo.getText());
+
+
+                int i = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir?", "Confirmação", 0);
+                if(i==JOptionPane.YES_OPTION){
+                    DeleteDao del = new DeleteDao();
+                    del.deletar(id, login);
+                    leituraTabela();
+                }
+
+            }else{
+                JOptionPane.showMessageDialog(null, "Os campos 'ID' e 'Login' devem estar preenchidos\n"
+                        + "para ser realizado a exclusão do registro");
+            }
+            codCampo.setText("");
+            nomeCampo.setText("");
+        }
+    }//GEN-LAST:event_nomeCampoKeyPressed
+
+    private void codCampoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codCampoKeyPressed
+       
+    }//GEN-LAST:event_codCampoKeyPressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnConfirmar;
@@ -283,6 +347,7 @@ public class RemoveUser extends javax.swing.JInternalFrame {
     private javax.swing.JTextField codCampo;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JPanel fundo;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCod;
     private javax.swing.JLabel lblNome;

@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author allan
  */
-public class DeleteDao extends SearchDao {
+public class DeleteDao {
     
     public boolean deletar(int id, String login){
          try {

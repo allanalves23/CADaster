@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 import modelbean.UserBean;
-import modeldao.UserDao;
+import modeldao.InsertDao;
 
 /**
  *
@@ -233,7 +233,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         }else{
             UserBean dados = new UserBean();//Recebe os dados do formulario e
             //passa para o DAO
-            UserDao insert = new UserDao(); //DAO criado
+            InsertDao insert = new InsertDao(); //DAO criado
             dados.setNome(campoNome.getText());
             dados.setSenha(new String(campoSenha.getPassword()));
             dados.setPermissao(cadTipofunc.getSelectedItem().toString());
@@ -305,7 +305,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             }else{
                 UserBean dados = new UserBean();//Recebe os dados do formulario e
                 //passa para o DAO
-                UserDao insert = new UserDao(); //DAO criado
+                InsertDao insert = new InsertDao(); //DAO criado
                 dados.setNome(campoNome.getText());
                 dados.setSenha(new String(campoSenha.getPassword()));
                 dados.setPermissao(cadTipofunc.getSelectedItem().toString());
@@ -329,7 +329,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             }else{
                 UserBean dados = new UserBean();//Recebe os dados do formulario e
                 //passa para o DAO
-                UserDao insert = new UserDao(); //DAO criado
+                InsertDao insert = new InsertDao(); //DAO criado
                 dados.setNome(campoNome.getText());
                 dados.setSenha(new String(campoSenha.getPassword()));
                 dados.setPermissao(cadTipofunc.getSelectedItem().toString());
