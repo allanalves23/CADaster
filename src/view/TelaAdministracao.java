@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.awt.CardLayout;
 
 /**
  *
- * @author areznla
+ * @author allan
  */
 public class TelaAdministracao extends javax.swing.JInternalFrame {
 
@@ -17,12 +12,16 @@ public class TelaAdministracao extends javax.swing.JInternalFrame {
      * Creates new form TelaAdministracao
      */
     private static TelaAdministracao tela;
+    /*variavel estatica para verificar se existe mais de um objeto do mesmo
+    tipo aberto*/ 
     
     public static TelaAdministracao getAbrir(){
         if(tela==null){
             tela=new TelaAdministracao();
             
         }
+        /*se a tela estiver null, ou seja, se nao estiver nada aberto. Abra uma!
+        Senao matenha a mesma aberta  */
         return tela;
     }
     public TelaAdministracao() {
@@ -278,6 +277,7 @@ public class TelaAdministracao extends javax.swing.JInternalFrame {
         );
 
         fundo.add(panelAddfunc, "adicionar");
+        panelAddfunc.getAccessibleContext().setAccessibleName("");
 
         camposRem.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Remover funcionario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
         camposRem.setForeground(new java.awt.Color(1, 1, 1));
@@ -494,20 +494,25 @@ public class TelaAdministracao extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void admAcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admAcaoActionPerformed
-       //Selecione, Adicionar, Remover, Modificar
-        if(admAcao.getSelectedItem().equals("Adicionar")){
-            CardLayout add = (CardLayout) fundo.getLayout();
-            add.show(fundo, "adicionar");
-        }else if(admAcao.getSelectedItem().equals("Remover")){
-            CardLayout rem = (CardLayout) fundo.getLayout();
-            rem.show(fundo, "remover");
-        }else if(admAcao.getSelectedItem().equals("Modificar")){
-            CardLayout mod = (CardLayout) fundo.getLayout();
-            mod.show(fundo, "modificar");
-        }else{
-            CardLayout add = (CardLayout) fundo.getLayout();
-            add.show(fundo, "adicionar");
+       //Selecione, Adicionar, Remover, Modificar utilizando o CardLayout
+        switch(admAcao.getSelectedItem().toString()){
+            case "Adicionar":
+                CardLayout add = (CardLayout) fundo.getLayout();
+                add.show(fundo, "adicionar");
+                break;
+            case "Remover":
+                CardLayout rem = (CardLayout) fundo.getLayout();
+                rem.show(fundo, "remover");
+                break;
+            case "Modificar":
+                CardLayout mod = (CardLayout) fundo.getLayout();
+                mod.show(fundo, "modificar");
+                break;
+            default:
+                CardLayout add1 = (CardLayout) fundo.getLayout();
+                add1.show(fundo, "adicionar");
         }
+      
         
     }//GEN-LAST:event_admAcaoActionPerformed
 
@@ -526,7 +531,10 @@ public class TelaAdministracao extends javax.swing.JInternalFrame {
     private void btnVoltarremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarremActionPerformed
         dispose();
     }//GEN-LAST:event_btnVoltarremActionPerformed
-
+    
+    /* Metodo para definir a posicao fixa do JinternalFrame (Aplicavel 
+    em janelas que estao como default Maximizaveis
+    */
     private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
         this.setLocation(0, 0);
     }//GEN-LAST:event_formComponentMoved

@@ -2,10 +2,9 @@ package utilitarios;
 
 /**
  *
- * @author areznla
+ * @author allan
  */
 import java.awt.Dimension;
-import javafx.geometry.Pos;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 
