@@ -14,7 +14,7 @@ import modelbean.UserBean;
 public class InsertDao {
     
    //Criar um registro de usuarios no banco de dados 
-    public void criar(UserBean cad){
+    public void criarUser(UserBean cad){
         Connection conn = ConnectionFactory.conexao();
         String SQL = "INSERT INTO usuario (login,senha,permissao)VALUES(?,?,?)";
         try {

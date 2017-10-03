@@ -238,7 +238,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             dados.setSenha(new String(campoSenha.getPassword()));
             dados.setPermissao(cadTipofunc.getSelectedItem().toString());
             
-            insert.criar(dados); //Comando para inserção dos dados
+            insert.criarUser(dados); //Comando para inserção dos dados
         }
         campoNome.setText("");
         campoSenha.setText("");
@@ -310,7 +310,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                 dados.setSenha(new String(campoSenha.getPassword()));
                 dados.setPermissao(cadTipofunc.getSelectedItem().toString());
 
-                insert.criar(dados); //Comando para inserção dos dados
+                insert.criarUser(dados); //Comando para inserção dos dados
             }
             campoNome.setText("");
             campoSenha.setText("");
@@ -334,7 +334,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                 dados.setSenha(new String(campoSenha.getPassword()));
                 dados.setPermissao(cadTipofunc.getSelectedItem().toString());
 
-                insert.criar(dados); //Comando para inserção dos dados
+                insert.criarUser(dados); //Comando para inserção dos dados
             }
             campoNome.setText("");
             campoSenha.setText("");

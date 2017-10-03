@@ -45,6 +45,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         fundo = new javax.swing.JDesktopPane();
         barraMenu = new javax.swing.JMenuBar();
         sistema = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         logout = new javax.swing.JMenuItem();
         exit = new javax.swing.JMenuItem();
         usuarios = new javax.swing.JMenu();
@@ -72,6 +74,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         sistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
         sistema.setText("Sistema");
+
+        jMenuItem1.setText("Gerencia Banco de dados");
+        sistema.add(jMenuItem1);
+
+        jMenuItem2.setText("Personalizar");
+        sistema.add(jMenuItem2);
 
         logout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
@@ -368,6 +376,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem funcUtil;
     private javax.swing.JMenu funcionarios;
     private javax.swing.JDesktopPane fundo;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem logout;
     private javax.swing.JMenuItem removeUser;
     private javax.swing.JMenuItem searchUser;

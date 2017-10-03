@@ -270,7 +270,7 @@ public class RemoveUser extends javax.swing.JInternalFrame {
             int i = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir?", "Confirmação", 0);
             if(i==JOptionPane.YES_OPTION){
                 DeleteDao del = new DeleteDao();
-                del.deletar(id, login);
+                del.deletarUser(id, login);
                 leituraTabela();
             }
             
@@ -286,7 +286,7 @@ public class RemoveUser extends javax.swing.JInternalFrame {
              DefaultTableModel model = (DefaultTableModel) tabelaUsuarios.getModel();
              model.setNumRows(0);
              SearchDao sd = new SearchDao();
-             for(UserBean user: sd.procurar()){
+             for(UserBean user: sd.procurarUser()){
                 model.addRow(new Object[]{
                     user.getId(),
                     user.getNome(),
@@ -323,7 +323,7 @@ public class RemoveUser extends javax.swing.JInternalFrame {
                 int i = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir?", "Confirmação", 0);
                 if(i==JOptionPane.YES_OPTION){
                     DeleteDao del = new DeleteDao();
-                    del.deletar(id, login);
+                    del.deletarUser(id, login);
                     leituraTabela();
                 }
 

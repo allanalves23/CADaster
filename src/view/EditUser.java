@@ -219,7 +219,7 @@ public class EditUser extends javax.swing.JInternalFrame {
                 DefaultTableModel model = (DefaultTableModel) tabelaEditar.getModel();
                 model.setRowCount(0);
                 SearchDao sd = new SearchDao();
-                for(UserBean user: sd.procurar(lblTipocampo.getText())){
+                for(UserBean user: sd.procurarUser(lblTipocampo.getText())){
                     model.addRow(new Object[]{
                         user.getId(),
                         user.getNome(),
@@ -233,7 +233,7 @@ public class EditUser extends javax.swing.JInternalFrame {
                 DefaultTableModel model = (DefaultTableModel) tabelaEditar.getModel();
                 model.setRowCount(0);
                 SearchDao sd = new SearchDao();
-                for(UserBean user: sd.procurar(Integer.parseInt(lblTipocampo.getText()))){
+                for(UserBean user: sd.procurarUser(Integer.parseInt(lblTipocampo.getText()))){
                     model.addRow(new Object[]{
                         user.getId(),
                         user.getNome(),
@@ -268,16 +268,16 @@ public class EditUser extends javax.swing.JInternalFrame {
            String login=tabelaEditar.getValueAt(tabelaEditar.getSelectedRow(), 1).toString();
            String permissao=tabelaEditar.getValueAt(tabelaEditar.getSelectedRow(), 2).toString();
            int control=0;
-           for(UserBean user:sd.procurar()){
+           for(UserBean user:sd.procurarUser()){
               if(user.getId()==id){
                   if(!user.getNome().equals(login)){
                       UpdateDao upd = new UpdateDao();
-                      upd.update("UPDATE usuario SET login = ? WHERE id = ?",login,id);
+                      upd.updateUser("UPDATE usuario SET login = ? WHERE id = ?",login,id);
                       control++;
                   }
                   if(!user.getPermissao().equals(permissao)){
                       UpdateDao upd = new UpdateDao();
-                      upd.update("UPDATE usuario SET permissao = ? WHERE id = ?", permissao,id);
+                      upd.updateUser("UPDATE usuario SET permissao = ? WHERE id = ?", permissao,id);
                       control++;
                   }
               }
@@ -321,7 +321,7 @@ public class EditUser extends javax.swing.JInternalFrame {
                     DefaultTableModel model = (DefaultTableModel) tabelaEditar.getModel();
                     model.setRowCount(0);
                     SearchDao sd = new SearchDao();
-                    for(UserBean user: sd.procurar(lblTipocampo.getText())){
+                    for(UserBean user: sd.procurarUser(lblTipocampo.getText())){
                         model.addRow(new Object[]{
                             user.getId(),
                             user.getNome(),
@@ -335,7 +335,7 @@ public class EditUser extends javax.swing.JInternalFrame {
                     DefaultTableModel model = (DefaultTableModel) tabelaEditar.getModel();
                     model.setRowCount(0);
                     SearchDao sd = new SearchDao();
-                    for(UserBean user: sd.procurar(Integer.parseInt(lblTipocampo.getText()))){
+                    for(UserBean user: sd.procurarUser(Integer.parseInt(lblTipocampo.getText()))){
                         model.addRow(new Object[]{
                             user.getId(),
                             user.getNome(),

@@ -17,12 +17,8 @@ import modelbean.UserBean;
  */
 public class SearchDao {
 
-    public SearchDao() {
-        
-    }
-    
     //busca exclusao usuario
-    public List<UserBean> procurar(){
+    public List<UserBean> procurarUser(){
         //metodo para listar usuarios no jtable
         List<UserBean> listUsers = new ArrayList<>();
         try {
@@ -51,7 +47,7 @@ public class SearchDao {
       return listUsers; //retorno do array dos registros
     } 
     //Metodo de procurar usuario pelo ID
-    public List<UserBean> procurar(int ID){
+    public List<UserBean> procurarUser(int ID){
         List<UserBean> listUsers = new ArrayList<>();
         try {
             Connection conn = ConnectionFactory.conexao();
@@ -76,7 +72,7 @@ public class SearchDao {
         return listUsers;
     }
     //Metodo de procurar usuario pelo LOGIN
-    public List<UserBean> procurar(String login){
+    public List<UserBean> procurarUser(String login){
         List<UserBean> listUsers = new ArrayList<>();
         try {
             Connection conn = ConnectionFactory.conexao();

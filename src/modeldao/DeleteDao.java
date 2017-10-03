@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class DeleteDao {
     
-    public boolean deletar(int id, String login){
+    public boolean deletarUser(int id, String login){
          try {
             Connection conn = ConnectionFactory.conexao();
             String delete = "DELETE FROM usuario where id= ? or login=?";

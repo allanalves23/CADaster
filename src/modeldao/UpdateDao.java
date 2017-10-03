@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class UpdateDao {
     
-    public boolean update(String SQL,String login,int id){ //Update somente do login
+    public boolean updateUser(String SQL,String login,int id){ //Update somente do login
         try {
             Connection conn = ConnectionFactory.conexao();
             PreparedStatement pstm = conn.prepareStatement(SQL);
@@ -33,7 +33,7 @@ public class UpdateDao {
         return true;
     }
     
-    public boolean update(String SQL,String permissao,String id){ //Update somente da permissao
+    public boolean updateUser(String SQL,String permissao,String id){ //Update somente da permissao
         try {
             int id1 = Integer.parseInt(id);//refatorar essa parte, ID esta em string
             Connection conn = ConnectionFactory.conexao();

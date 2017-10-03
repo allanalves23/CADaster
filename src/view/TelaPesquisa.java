@@ -303,7 +303,7 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
                     DefaultTableModel model = (DefaultTableModel) tabelaResultado.getModel();
                     model.setNumRows(0); 
                     SearchDao sd = new SearchDao();
-                    for(UserBean user: sd.procurar(Integer.parseInt(campoTipo.getText()))){
+                    for(UserBean user: sd.procurarUser(Integer.parseInt(campoTipo.getText()))){
                         model.addRow(new Object[]{
                             user.getId(),
                             user.getNome(),
@@ -320,7 +320,7 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
                     DefaultTableModel model = (DefaultTableModel) tabelaResultado.getModel();
                     model.setNumRows(0);
                     SearchDao sd = new SearchDao();
-                    for(UserBean user: sd.procurar(campoTipo.getText())){
+                    for(UserBean user: sd.procurarUser(campoTipo.getText())){
                         model.addRow(new Object[]{
                             user.getId(),
                             user.getNome(),
@@ -352,7 +352,7 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
         DefaultTableModel model = (DefaultTableModel) tabelaPrincipal.getModel();
         model.setNumRows(0);
         SearchDao sd = new SearchDao();
-        for(UserBean user: sd.procurar()){
+        for(UserBean user: sd.procurarUser()){
             model.addRow(new Object[]{
                 user.getId(),
                 user.getNome(),
@@ -374,7 +374,7 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
                         DefaultTableModel model = (DefaultTableModel) tabelaResultado.getModel();
                         model.setNumRows(0); 
                         SearchDao sd = new SearchDao();
-                        for(UserBean user: sd.procurar(Integer.parseInt(campoTipo.getText()))){
+                        for(UserBean user: sd.procurarUser(Integer.parseInt(campoTipo.getText()))){
                             model.addRow(new Object[]{
                                 user.getId(),
                                 user.getNome(),
@@ -391,7 +391,7 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
                         DefaultTableModel model = (DefaultTableModel) tabelaResultado.getModel();
                         model.setNumRows(0);
                         SearchDao sd = new SearchDao();
-                        for(UserBean user: sd.procurar(campoTipo.getText())){
+                        for(UserBean user: sd.procurarUser(campoTipo.getText())){
                             model.addRow(new Object[]{
                                 user.getId(),
                                 user.getNome(),
@@ -408,7 +408,7 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
     private void leituraTabela(){
         DefaultTableModel model = (DefaultTableModel) tabelaPrincipal.getModel();
         SearchDao sd = new SearchDao();
-        for(UserBean user: sd.procurar()){
+        for(UserBean user: sd.procurarUser()){
             model.addRow(new Object[]{
                 user.getId(),
                 user.getNome(),
