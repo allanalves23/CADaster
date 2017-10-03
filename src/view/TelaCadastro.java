@@ -1,20 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
+import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 import modelbean.UserBean;
-import modeldao.UserDao;
-
-
+import modeldao.InsertDao;
 
 /**
  *
- * @author areznla
+ * @author allan
  */
 public class TelaCadastro extends javax.swing.JInternalFrame {
 
@@ -22,12 +16,16 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
      * Creates new form TelaCadastro
      */
     
-    private static TelaCadastro telaCad;//gerenciador de janelas
+    private static TelaCadastro telaCad;
+    /*variavel estatica para verificar se existe mais de um objeto do mesmo
+    tipo aberto*/
     
     public static TelaCadastro getAbrir(){
         if(telaCad==null){
             telaCad=new TelaCadastro();
         }
+        /*se a tela estiver null, ou seja, se nao estiver nada aberto. Abra uma!
+        Senao mantenha a mesma aberta  */
         return telaCad;
     }
     
@@ -54,15 +52,13 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         campoSenha2 = new javax.swing.JPasswordField();
         btnCadastrar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
-        logoNome = new javax.swing.JPanel();
-        logo = new javax.swing.JLabel();
-        nome = new javax.swing.JLabel();
         campoNome = new javax.swing.JTextField();
         lblTipo = new javax.swing.JLabel();
         cadTipofunc = new javax.swing.JComboBox<>();
         areaTexto = new javax.swing.JPanel();
         descTexto = new javax.swing.JScrollPane();
         textArea = new javax.swing.JTextArea();
+        btnSobre = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -74,10 +70,21 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
 
         lblSenha2.setText("Confirmar senha");
 
+        campoSenha2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                campoSenha2KeyPressed(evt);
+            }
+        });
+
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarActionPerformed(evt);
+            }
+        });
+        btnCadastrar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnCadastrarKeyPressed(evt);
             }
         });
 
@@ -88,42 +95,17 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             }
         });
 
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logocSMALL.png"))); // NOI18N
-
-        nome.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        nome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        nome.setText("Cadastro de Usuário");
-
-        javax.swing.GroupLayout logoNomeLayout = new javax.swing.GroupLayout(logoNome);
-        logoNome.setLayout(logoNomeLayout);
-        logoNomeLayout.setHorizontalGroup(
-            logoNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(logoNomeLayout.createSequentialGroup()
-                .addGroup(logoNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(logoNomeLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(nome))
-                    .addGroup(logoNomeLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(logo)))
-                .addContainerGap())
-        );
-        logoNomeLayout.setVerticalGroup(
-            logoNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(logoNomeLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
         lblTipo.setText("Tipo");
 
         cadTipofunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Comum", "Funcionario", "Administrador" }));
         cadTipofunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadTipofuncActionPerformed(evt);
+            }
+        });
+        cadTipofunc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cadTipofuncKeyPressed(evt);
             }
         });
 
@@ -136,20 +118,33 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         textArea.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         descTexto.setViewportView(textArea);
 
+        btnSobre.setText("Sobre");
+        btnSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSobreActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout areaTextoLayout = new javax.swing.GroupLayout(areaTexto);
         areaTexto.setLayout(areaTextoLayout);
         areaTextoLayout.setHorizontalGroup(
             areaTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, areaTextoLayout.createSequentialGroup()
+            .addGroup(areaTextoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(descTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(descTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, areaTextoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         areaTextoLayout.setVerticalGroup(
             areaTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(areaTextoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(descTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, areaTextoLayout.createSequentialGroup()
+                .addComponent(descTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSobre)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout fundoLayout = new javax.swing.GroupLayout(fundo);
@@ -168,29 +163,27 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                                     .addComponent(lblSenha)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lblSenha2)
-                                    .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(campoSenha2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(campoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(campoSenha2, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                                     .addComponent(lblTipo)
-                                    .addComponent(cadTipofunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(cadTipofunc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(90, 90, 90)
-                        .addComponent(areaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
-                        .addComponent(logoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(areaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(fundoLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(44, 44, 44)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
+                        .addGap(54, 54, 54)
                         .addComponent(btnCadastrar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         fundoLayout.setVerticalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoLayout.createSequentialGroup()
+            .addGroup(fundoLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
                 .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fundoLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoLayout.createSequentialGroup()
                         .addComponent(lblLogin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -199,25 +192,21 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(lblSenha2))
+                        .addComponent(lblSenha2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(campoSenha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblTipo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cadTipofunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnSair)
+                            .addComponent(btnCadastrar))
+                        .addGap(64, 64, 64))
                     .addGroup(fundoLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(logoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoSenha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblTipo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cadTipofunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadastrar)
-                    .addComponent(btnSair))
-                .addGap(20, 20, 20))
-            .addGroup(fundoLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(areaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                        .addComponent(areaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(45, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -233,28 +222,36 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //Cadastro de usuarios
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         if(!(Arrays.toString(campoSenha.getPassword()).equals(Arrays.toString(campoSenha2.getPassword())))){
             JOptionPane.showMessageDialog(null, "As senhas não conferem\nDigite novamente");
+        }else if(campoNome.getText().equals("") || Arrays.toString(campoSenha.getPassword()).equals("")){
+            JOptionPane.showMessageDialog(null, "Um ou mais campos estão em branco");
+        
         }else{
-            UserBean dados = new UserBean();
-            UserDao insBd = new UserDao();
+            UserBean dados = new UserBean();//Recebe os dados do formulario e
+            //passa para o DAO
+            InsertDao insert = new InsertDao(); //DAO criado
             dados.setNome(campoNome.getText());
             dados.setSenha(new String(campoSenha.getPassword()));
             dados.setPermissao(cadTipofunc.getSelectedItem().toString());
             
-            insBd.criar(dados);
+            insert.criar(dados); //Comando para inserção dos dados
         }
-     
-        
+        campoNome.setText("");
+        campoSenha.setText("");
+        campoSenha2.setText("");
+        cadTipofunc.setSelectedItem("Selecione");
+        //Reseta os campos ao terminar de inserir um registro
     }//GEN-LAST:event_btnCadastrarActionPerformed
-
+    //fechar a tela
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         dispose();
         
     }//GEN-LAST:event_btnSairActionPerformed
-
+    //Metodo para imprimir uma descrição da categoria conforme o combox
     private void cadTipofuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadTipofuncActionPerformed
         switch(cadTipofunc.getSelectedItem().toString()){
             case "Comum":
@@ -287,12 +284,72 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_cadTipofuncActionPerformed
+    //Metodo para imprimir um "sobre"
+    private void btnSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSobreActionPerformed
+        textArea.setText("O cadastro de usuario é referênte a adição de Logins "
+        +"ao sistema, cada usuario terá um nível de privilégio ao ser adicionado.\n "
+        +"Selecione os tipos de cadastros existêntes para uma breve explicação."
+        +"Mais detalhes consulte a documentação");
+    }//GEN-LAST:event_btnSobreActionPerformed
+
+    private void btnCadastrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrarKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastrarKeyPressed
+
+    private void campoSenha2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoSenha2KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if(!(Arrays.toString(campoSenha.getPassword()).equals(Arrays.toString(campoSenha2.getPassword())))){
+                JOptionPane.showMessageDialog(null, "As senhas não conferem\nDigite novamente");
+            }else if(campoNome.getText().equals("") || Arrays.toString(campoSenha.getPassword()).equals("")){
+                JOptionPane.showMessageDialog(null, "Um ou mais campos estão em branco");
+            }else{
+                UserBean dados = new UserBean();//Recebe os dados do formulario e
+                //passa para o DAO
+                InsertDao insert = new InsertDao(); //DAO criado
+                dados.setNome(campoNome.getText());
+                dados.setSenha(new String(campoSenha.getPassword()));
+                dados.setPermissao(cadTipofunc.getSelectedItem().toString());
+
+                insert.criar(dados); //Comando para inserção dos dados
+            }
+            campoNome.setText("");
+            campoSenha.setText("");
+            campoSenha2.setText("");
+            cadTipofunc.setSelectedItem("Selecione");
+            //Reseta os campos ao terminar de inserir um registro
+        }
+    }//GEN-LAST:event_campoSenha2KeyPressed
+
+    private void cadTipofuncKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cadTipofuncKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if(!(Arrays.toString(campoSenha.getPassword()).equals(Arrays.toString(campoSenha2.getPassword())))){
+                JOptionPane.showMessageDialog(null, "As senhas não conferem\nDigite novamente");
+            }else if(campoNome.getText().equals("") || Arrays.toString(campoSenha.getPassword()).equals("")){
+                JOptionPane.showMessageDialog(null, "Um ou mais campos estão em branco");
+            }else{
+                UserBean dados = new UserBean();//Recebe os dados do formulario e
+                //passa para o DAO
+                InsertDao insert = new InsertDao(); //DAO criado
+                dados.setNome(campoNome.getText());
+                dados.setSenha(new String(campoSenha.getPassword()));
+                dados.setPermissao(cadTipofunc.getSelectedItem().toString());
+
+                insert.criar(dados); //Comando para inserção dos dados
+            }
+            campoNome.setText("");
+            campoSenha.setText("");
+            campoSenha2.setText("");
+            cadTipofunc.setSelectedItem("Selecione");
+            //Reseta os campos ao terminar de inserir um registro
+        }
+    }//GEN-LAST:event_cadTipofuncKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel areaTexto;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnSair;
+    private javax.swing.JButton btnSobre;
     private javax.swing.JComboBox<String> cadTipofunc;
     private javax.swing.JTextField campoNome;
     private javax.swing.JPasswordField campoSenha;
@@ -303,9 +360,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblSenha2;
     private javax.swing.JLabel lblTipo;
-    private javax.swing.JLabel logo;
-    private javax.swing.JPanel logoNome;
-    private javax.swing.JLabel nome;
     private javax.swing.ButtonGroup sexo;
     private javax.swing.JTextArea textArea;
     // End of variables declaration//GEN-END:variables

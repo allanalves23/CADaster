@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 /**
@@ -15,11 +10,15 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
      * Creates new form TelaGerenciaAluno
      */
     private static TelaGerenciaAluno tela;
+    /*variavel estatica para verificar se existe mais de um objeto do mesmo
+    tipo aberto*/ 
     
     public static TelaGerenciaAluno getAbrir(){
         if(tela==null){
             tela= new TelaGerenciaAluno(); 
         }
+        /*se a tela estiver null, ou seja, se nao estiver nada aberto. Abra uma!
+        Senao matenha a mesma aberta  */
         return tela;
     }
    
@@ -195,7 +194,7 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //fecha a tela
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
@@ -204,6 +203,9 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
        
     }//GEN-LAST:event_formInternalFrameClosed
 
+    /* Metodo para definir a posicao fixa do JinternalFrame (Aplicavel 
+    em janelas que estao como default Maximizaveis
+    */
     private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
        this.setLocation(0, 0);
     }//GEN-LAST:event_formComponentMoved

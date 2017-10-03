@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 /**
@@ -15,12 +10,16 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
      * Creates new form TelaDelAluno
      */
     private static TelaDelAluno tela;
+    /*variavel estatica para verificar se existe mais de um objeto do mesmo
+    tipo aberto*/ 
     
     public static TelaDelAluno getAbrir(){
         if(tela==null){
             tela=new TelaDelAluno();
             
         }
+        /*se a tela estiver null, ou seja, se nao estiver nada aberto. Abra uma!
+        Senao matenha a mesma aberta  */
         return tela;
     }
     public TelaDelAluno() {
@@ -36,6 +35,9 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("school?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        usuarioQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT u FROM Usuario u");
+        usuarioList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuarioQuery.getResultList();
         fundo = new javax.swing.JPanel();
         campos = new javax.swing.JPanel();
         campoNome = new javax.swing.JTextField();
@@ -112,7 +114,7 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
             .addGroup(fundoLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(campos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,11 +130,13 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //fechar a tela
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
-
+    /* Metodo para definir a posicao fixa do JinternalFrame (Aplicavel 
+    em janelas que estao como default Maximizaveis
+    */
     private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
         this.setLocation(0, 0);
     }//GEN-LAST:event_formComponentMoved
@@ -143,7 +147,10 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnVoltar;
     private javax.swing.JTextField campoNome;
     private javax.swing.JPanel campos;
+    private javax.persistence.EntityManager entityManager;
     private javax.swing.JPanel fundo;
     private javax.swing.JLabel lblNome;
+    private java.util.List<view.Usuario> usuarioList;
+    private javax.persistence.Query usuarioQuery;
     // End of variables declaration//GEN-END:variables
 }
