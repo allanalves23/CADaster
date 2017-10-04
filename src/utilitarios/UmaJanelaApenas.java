@@ -32,4 +32,8 @@ public class UmaJanelaApenas {
             }
         }
     }
+    
+    public void fecharJanela(JDesktopPane fundo2){
+        
+    }
 }

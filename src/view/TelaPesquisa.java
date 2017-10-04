@@ -336,11 +336,10 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         metBusca.setSelectedItem("Selecione");
         campoTipo.setText("");
-        DefaultTableModel model = (DefaultTableModel) tabelaResultado.getModel();
-        model.removeRow(0);
-        dispose();
+        atualizarTabelaDados();
+        this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
-
+    
     /* Metodo para definir a posicao fixa do JinternalFrame (Aplicavel 
     em janelas que estao como default Maximizaveis
     */
@@ -349,6 +348,10 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formComponentMoved
     //Botao para atualizar a lista dos dados
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        atualizarTabelaDados();
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
+    private void atualizarTabelaDados(){
         DefaultTableModel model = (DefaultTableModel) tabelaPrincipal.getModel();
         model.setNumRows(0);
         SearchDao sd = new SearchDao();
@@ -359,8 +362,7 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
                 user.getPermissao()
             });
         }
-    }//GEN-LAST:event_btnAtualizarActionPerformed
-
+    }
     private void campoTipoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTipoKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             switch (metBusca.getSelectedItem().toString()) {
