@@ -74,6 +74,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         tipoAnoGin = new javax.swing.JComboBox<>();
         rBtnnaoGin = new javax.swing.JRadioButton();
         btnApagarGinasio = new javax.swing.JButton();
+        btnCadastrarGinasio = new javax.swing.JButton();
         panelEM = new javax.swing.JPanel();
         lblMatriculaEM = new javax.swing.JLabel();
         lblRespEM = new javax.swing.JLabel();
@@ -257,13 +258,25 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         rBtnnaoGin.setText("Não");
 
         btnApagarGinasio.setText("Apagar");
+        btnApagarGinasio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApagarGinasioActionPerformed(evt);
+            }
+        });
+
+        btnCadastrarGinasio.setText("Cadastrar");
+        btnCadastrarGinasio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarGinasioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelGinasioLayout = new javax.swing.GroupLayout(panelGinasio);
         panelGinasio.setLayout(panelGinasioLayout);
         panelGinasioLayout.setHorizontalGroup(
             panelGinasioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGinasioLayout.createSequentialGroup()
-                .addGap(49, 130, Short.MAX_VALUE)
+                .addGap(49, 142, Short.MAX_VALUE)
                 .addGroup(panelGinasioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblNomeGin)
                     .addComponent(lblCPFGin)
@@ -293,7 +306,10 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(tipoAnoGin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelGinasioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnApagarGinasio, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelGinasioLayout.createSequentialGroup()
+                            .addComponent(btnApagarGinasio)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCadastrarGinasio))
                         .addComponent(lblCEPGin, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lblEnderecoGin, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(campoEnderecoGin, javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,7 +383,8 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(panelGinasioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblInfoGin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnApagarGinasio))
+                    .addComponent(btnApagarGinasio)
+                    .addComponent(btnCadastrarGinasio))
                 .addContainerGap())
         );
 
@@ -447,7 +464,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelEMLayout.createSequentialGroup()
-                        .addGap(49, 49, 49)
+                        .addGap(130, 130, 130)
                         .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNascEM)
                             .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -465,12 +482,11 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                             .addComponent(lblNomepaiEM)
                             .addComponent(lblRespEM)
                             .addComponent(campoRespEM, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAlunoTransfEM)
                             .addComponent(lblNomemaeEM)
+                            .addComponent(lblAlunoTransfEM)
                             .addGroup(panelEMLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
                                 .addComponent(rBtnsimEM)
-                                .addGap(18, 18, 18)
+                                .addGap(32, 32, 32)
                                 .addComponent(rBtnnaoEM)))
                         .addGap(130, 130, 130)
                         .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -492,67 +508,58 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
             panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEMLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNomeEM)
+                    .addComponent(lblNomemaeEM)
+                    .addComponent(lblCEPEM))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoNomeEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoMaeEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoCEPEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelEMLayout.createSequentialGroup()
-                        .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelEMLayout.createSequentialGroup()
-                                .addComponent(lblNomemaeEM)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoMaeEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
-                                .addComponent(lblNomepaiEM)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoPaiEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblRespEM))
-                            .addGroup(panelEMLayout.createSequentialGroup()
-                                .addComponent(lblCEPEM)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoCEPEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblEnderecoEM)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoEnderecoEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(11, 11, 11)
-                                .addComponent(lblBairroEM)))
-                        .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(panelEMLayout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(campoRespEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(44, 44, 44))
-                            .addGroup(panelEMLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoBairroEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblAnoEM)
-                                    .addComponent(anoEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblAlunoTransfEM)))))
-                    .addGroup(panelEMLayout.createSequentialGroup()
-                        .addComponent(lblNomeEM)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoNomeEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblCPFEM)
-                        .addGap(13, 13, 13)
-                        .addComponent(campoCPFEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblMatriculaEM)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoMatEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblNascEM)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoNascEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelEMLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
                         .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCPFEM)
+                            .addComponent(lblNomepaiEM))
+                        .addGap(6, 6, 6)
+                        .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(campoCPFEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campoPaiEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblMatriculaEM)
+                            .addComponent(lblRespEM))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(campoMatEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campoRespEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNascEM)
+                            .addComponent(lblAlunoTransfEM))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(campoNascEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(rBtnsimEM)
-                            .addComponent(rBtnnaoEM))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(rBtnnaoEM)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEMLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(lblInfoEM, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblEnderecoEM)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(campoEnderecoEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblBairroEM)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(campoBairroEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAnoEM)
+                            .addComponent(anoEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(lblInfoEM, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -665,7 +672,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                         .addComponent(rBtnsimTec)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblPCentTec)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
                 .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lblCEPTec)
@@ -834,7 +841,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrimarioLayout.createSequentialGroup()
                 .addGroup(panelPrimarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPrimarioLayout.createSequentialGroup()
-                        .addGap(49, 130, Short.MAX_VALUE)
+                        .addGap(49, 142, Short.MAX_VALUE)
                         .addGroup(panelPrimarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblNome)
                             .addComponent(lblCPF)
@@ -979,8 +986,9 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
     private void rBtnnaoEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBtnnaoEMActionPerformed
         
     }//GEN-LAST:event_rBtnnaoEMActionPerformed
-
-    private void limparInputsPrimario(){
+    
+    //limpa os jTextFild e afins do alunoPrimario
+    private void limparInputs(){
             campoNome.setText("");
             campoMat.setText("");
             campoCPF.setText("");
@@ -994,6 +1002,25 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
             tipoAno.setSelectedItem("Selecione");
     }
     
+    private void limparInputs(String ginasio){
+            campoNomeGin.setText("");
+            campoMatGin.setText("");
+            campoCPFGin.setText("");
+            campoNascGin.setText("");
+            campoCEPGin.setText("");
+            campoEnderecoGin.setText("");
+            campoBairroGin.setText("");
+            campoMaeGin.setText("");
+            campoPaiGin.setText("");
+            campoRespGin.setText("");
+            tipoAnoGin.setSelectedItem("Selecione");
+            if(rBtnnaoGin.isSelected()){
+                alunoTransferido.clearSelection();
+            }
+            if(rBtnsimGin.isSelected()){
+                alunoTransferido.clearSelection();
+            }
+    }
     //Trabalho com os panels atraves do cardLayout
     private void tipoAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoAlunoActionPerformed
         switch (tipoAluno.getSelectedItem().toString()) {
@@ -1061,13 +1088,62 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
             student.setAno(tipoAno.getSelectedItem().toString());
 
             insert.criarAluno(student, count);
-            limparInputsPrimario();
+            limparInputs();
         }
     }//GEN-LAST:event_btnCadastrarPrimarioActionPerformed
 
     private void btnApagarPrimarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApagarPrimarioActionPerformed
-        limparInputsPrimario();
+        limparInputs();
     }//GEN-LAST:event_btnApagarPrimarioActionPerformed
+
+    private void btnCadastrarGinasioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarGinasioActionPerformed
+        if(campoNomeGin.getText().equals("") || campoCPFGin.getText().equals("") || campoMatGin.getText().equals("")
+            || campoNascGin.getText().equals("") || campoRespGin.getText().equals("") || campoCEPGin.getText().equals("")
+            || campoEnderecoGin.getText().equals("") || tipoAnoGin.getSelectedItem().toString().equals("Selecione")
+            || (!rBtnnaoGin.isSelected() && !rBtnsimGin.isSelected())){
+            JOptionPane.showMessageDialog(null, "Um ou mais campos obrigatórios estão em branco\n"
+                + "ou não foram preenchidos corretamente");
+        }else{
+            int count=0;
+            String transferido="";
+            if(campoMaeGin.getText().equals("")){
+                count++;
+            }
+            if(campoPaiGin.getText().equals("")){
+                count+=2;
+            }
+            if(campoBairroGin.getText().equals("")){
+                count+=4;
+            }
+
+            StudentBean student = new StudentBean();
+            InsertDao insert = new InsertDao();
+            student.setGrau("anoGinasio");
+            student.setNome(campoNomeGin.getText());
+            student.setMatricula(campoMatGin.getText());
+            student.setCPF(campoCPFGin.getText());
+            student.setDataNasc(campoNascGin.getText());
+            student.setCEP(campoCEPGin.getText());
+            student.setEndereco(campoEnderecoGin.getText());
+            student.setBairro(campoBairroGin.getText());
+            student.setNomeMae(campoMaeGin.getText());
+            student.setNomePai(campoPaiGin.getText());
+            student.setResponsavel(campoRespGin.getText());
+            student.setAno(tipoAnoGin.getSelectedItem().toString());
+            if(rBtnnaoGin.isSelected()){
+                transferido="N";
+            }
+            if(rBtnsimGin.isSelected()){
+                transferido="S";
+            }
+            insert.criarAluno(student, count,transferido);
+            
+        }    }//GEN-LAST:event_btnCadastrarGinasioActionPerformed
+
+    private void btnApagarGinasioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApagarGinasioActionPerformed
+        
+        limparInputs("ginasio");
+    }//GEN-LAST:event_btnApagarGinasioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1075,6 +1151,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> anoEM;
     private javax.swing.JButton btnApagarGinasio;
     private javax.swing.JButton btnApagarPrimario;
+    private javax.swing.JButton btnCadastrarGinasio;
     private javax.swing.JButton btnCadastrarPrimario;
     private javax.swing.JTextField campoBairro;
     private javax.swing.JTextField campoBairroEM;
