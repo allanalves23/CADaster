@@ -153,7 +153,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                          <EmptySpace min="49" pref="130" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="lblNomeGin" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblCPFGin" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -181,18 +181,19 @@
                           </Group>
                           <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="lblAnoGin" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="tipoAnoGin" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="btnApagarGinasio" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblCEPGin" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblEnderecoGin" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="campoEnderecoGin" alignment="0" max="32767" attributes="0"/>
                                   <Component id="lblBairroGin" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="campoBairroGin" alignment="0" max="32767" attributes="0"/>
                                   <Component id="campoCEPGin" alignment="0" pref="170" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblAnoGin" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="tipoAnoGin" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
@@ -273,7 +274,10 @@
                               </Group>
                           </Group>
                           <EmptySpace pref="51" max="32767" attributes="0"/>
-                          <Component id="lblInfoGin" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblInfoGin" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="btnApagarGinasio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -307,7 +311,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblCPFGin">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="CPF"/>
+                    <Property name="text" type="java.lang.String" value="CPF *"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblNomeGin">
@@ -415,6 +419,11 @@
                       <ComponentRef name="alunoTransferido"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnApagarGinasio">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Apagar"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -1092,9 +1101,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="49" pref="130" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="49" pref="130" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="lblNome" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblCPF" min="-2" max="-2" attributes="0"/>
@@ -1115,35 +1124,34 @@
                                       <Component id="campoResp" min="-2" pref="254" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="lblCEP" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblEndereco" min="-2" max="-2" attributes="0"/>
-                                          <Component id="campoEndereco" max="32767" attributes="0"/>
-                                          <Component id="lblBairro" min="-2" max="-2" attributes="0"/>
-                                          <Component id="campoBairro" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="campoCEP" alignment="0" pref="170" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="lblAno" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="tipoAno" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="btnApagarPrimario" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblInfo" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="lblAno" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="tipoAno" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="btnApagarPrimario" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="btnCadastrarPrimario" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lblCEP" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoEndereco" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblBairro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoBairro" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="campoCEP" alignment="0" pref="170" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblInfo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnCadastrarPrimario" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1265,8 +1273,8 @@
                 </Component>
                 <Component class="javax.swing.JFormattedTextField" name="campoNasc">
                   <Properties>
-                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                      <Format subtype="2" type="1"/>
+                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                      <Format format="##/##/####" subtype="-1" type="5"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -1349,6 +1357,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Apagar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnApagarPrimarioActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

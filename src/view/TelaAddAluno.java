@@ -73,6 +73,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         lblAnoGin = new javax.swing.JLabel();
         tipoAnoGin = new javax.swing.JComboBox<>();
         rBtnnaoGin = new javax.swing.JRadioButton();
+        btnApagarGinasio = new javax.swing.JButton();
         panelEM = new javax.swing.JPanel();
         lblMatriculaEM = new javax.swing.JLabel();
         lblRespEM = new javax.swing.JLabel();
@@ -207,7 +208,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
 
         lblNomemaeGin.setText("Nome Mãe");
 
-        lblCPFGin.setText("CPF");
+        lblCPFGin.setText("CPF *");
 
         lblNomeGin.setText("Nome *");
 
@@ -255,12 +256,14 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         alunoTransferido.add(rBtnnaoGin);
         rBtnnaoGin.setText("Não");
 
+        btnApagarGinasio.setText("Apagar");
+
         javax.swing.GroupLayout panelGinasioLayout = new javax.swing.GroupLayout(panelGinasio);
         panelGinasio.setLayout(panelGinasioLayout);
         panelGinasioLayout.setHorizontalGroup(
             panelGinasioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGinasioLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(49, 130, Short.MAX_VALUE)
                 .addGroup(panelGinasioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblNomeGin)
                     .addComponent(lblCPFGin)
@@ -285,17 +288,18 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                     .addComponent(lblAlunoTrasfGin))
                 .addGap(130, 130, 130)
                 .addGroup(panelGinasioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelGinasioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblCEPGin)
-                        .addComponent(lblEnderecoGin)
-                        .addComponent(campoEnderecoGin)
-                        .addComponent(lblBairroGin)
-                        .addComponent(campoBairroGin)
-                        .addComponent(campoCEPGin, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
                     .addGroup(panelGinasioLayout.createSequentialGroup()
                         .addComponent(lblAnoGin)
                         .addGap(18, 18, 18)
-                        .addComponent(tipoAnoGin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tipoAnoGin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelGinasioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnApagarGinasio, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblCEPGin, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblEnderecoGin, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(campoEnderecoGin, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblBairroGin, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(campoBairroGin, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(campoCEPGin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)))
                 .addGap(233, 233, 233))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGinasioLayout.createSequentialGroup()
                 .addContainerGap()
@@ -361,7 +365,9 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                             .addComponent(tipoAnoGin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblAnoGin))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addComponent(lblInfoGin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelGinasioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblInfoGin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnApagarGinasio))
                 .addContainerGap())
         );
 
@@ -771,7 +777,11 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
 
         lblNome.setText("Nome *");
 
-        campoNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
+        try {
+            campoNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         try {
             campoCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -811,15 +821,20 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         });
 
         btnApagarPrimario.setText("Apagar");
+        btnApagarPrimario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApagarPrimarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelPrimarioLayout = new javax.swing.GroupLayout(panelPrimario);
         panelPrimario.setLayout(panelPrimarioLayout);
         panelPrimarioLayout.setHorizontalGroup(
             panelPrimarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrimarioLayout.createSequentialGroup()
-                .addGap(49, 130, Short.MAX_VALUE)
-                .addGroup(panelPrimarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panelPrimarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPrimarioLayout.createSequentialGroup()
+                        .addGap(49, 130, Short.MAX_VALUE)
                         .addGroup(panelPrimarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblNome)
                             .addComponent(lblCPF)
@@ -837,29 +852,28 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                             .addComponent(lblNomepai)
                             .addComponent(lblResp)
                             .addComponent(campoResp, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(130, 130, 130)
-                        .addGroup(panelPrimarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelPrimarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblCEP)
-                                .addComponent(lblEndereco)
-                                .addComponent(campoEndereco)
-                                .addComponent(lblBairro)
-                                .addComponent(campoBairro)
-                                .addComponent(campoCEP, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
-                            .addGroup(panelPrimarioLayout.createSequentialGroup()
-                                .addComponent(lblAno)
-                                .addGap(18, 18, 18)
-                                .addComponent(tipoAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(130, 130, 130))
                     .addGroup(panelPrimarioLayout.createSequentialGroup()
-                        .addComponent(btnApagarPrimario)
-                        .addGap(138, 138, 138)))
+                        .addContainerGap()
+                        .addComponent(lblInfo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(panelPrimarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPrimarioLayout.createSequentialGroup()
+                        .addComponent(lblAno)
+                        .addGap(18, 18, 18)
+                        .addComponent(tipoAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPrimarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(panelPrimarioLayout.createSequentialGroup()
+                            .addComponent(btnApagarPrimario)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCadastrarPrimario))
+                        .addComponent(lblCEP, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblEndereco, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(campoEndereco, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblBairro, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(campoBairro, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(campoCEP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)))
                 .addGap(233, 233, 233))
-            .addGroup(panelPrimarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblInfo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCadastrarPrimario)
-                .addGap(242, 242, 242))
         );
         panelPrimarioLayout.setVerticalGroup(
             panelPrimarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -966,6 +980,20 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_rBtnnaoEMActionPerformed
 
+    private void limparInputsPrimario(){
+            campoNome.setText("");
+            campoMat.setText("");
+            campoCPF.setText("");
+            campoNasc.setText("");
+            campoCEP.setText("");
+            campoEndereco.setText("");
+            campoBairro.setText("");
+            campoMae.setText("");
+            campoPai.setText("");
+            campoResp.setText("");
+            tipoAno.setSelectedItem("Selecione");
+    }
+    
     //Trabalho com os panels atraves do cardLayout
     private void tipoAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoAlunoActionPerformed
         switch (tipoAluno.getSelectedItem().toString()) {
@@ -996,27 +1024,30 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_tipoAlunoActionPerformed
 
+    
+    
+    //Cadastrar aluno DO ENSINO PRIMARIO
     private void btnCadastrarPrimarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarPrimarioActionPerformed
         if(campoNome.getText().equals("") || campoCPF.getText().equals("") || campoMat.getText().equals("")
-                || campoNasc.getText().equals("") || campoResp.getText().equals("") || campoCEP.getText().equals("")
-                || campoEndereco.getText().equals("") || tipoAno.getSelectedItem().toString().equals("Selecione")){
+            || campoNasc.getText().equals("") || campoResp.getText().equals("") || campoCEP.getText().equals("")
+            || campoEndereco.getText().equals("") || tipoAno.getSelectedItem().toString().equals("Selecione")){
             JOptionPane.showMessageDialog(null, "Um ou mais campos obrigatórios estão em branco\n"
-                    + "ou não foram preenchidos corretamente");
+                + "ou não foram preenchidos corretamente");
         }else{
-           int count=0;
-           if(campoMae.getText().equals("")){
-               count++;
-           }
-           if(campoPai.getText().equals("")){
-               count+=2;
-           }
-           if(campoBairro.getText().equals("")){
-               count+=4;
-           }
-           
+            int count=0;
+            if(campoMae.getText().equals("")){
+                count++;
+            }
+            if(campoPai.getText().equals("")){
+                count+=2;
+            }
+            if(campoBairro.getText().equals("")){
+                count+=4;
+            }
+
             StudentBean student = new StudentBean();
             InsertDao insert = new InsertDao();
-            //student.setGrau("anoPrimario");
+            student.setGrau("anoPrimario");
             student.setNome(campoNome.getText());
             student.setMatricula(campoMat.getText());
             student.setCPF(campoCPF.getText());
@@ -1028,17 +1059,21 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
             student.setNomePai(campoPai.getText());
             student.setResponsavel(campoResp.getText());
             student.setAno(tipoAno.getSelectedItem().toString());
-            
+
             insert.criarAluno(student, count);
+            limparInputsPrimario();
         }
-        
-        
     }//GEN-LAST:event_btnCadastrarPrimarioActionPerformed
+
+    private void btnApagarPrimarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApagarPrimarioActionPerformed
+        limparInputsPrimario();
+    }//GEN-LAST:event_btnApagarPrimarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup alunoTransferido;
     private javax.swing.JComboBox<String> anoEM;
+    private javax.swing.JButton btnApagarGinasio;
     private javax.swing.JButton btnApagarPrimario;
     private javax.swing.JButton btnCadastrarPrimario;
     private javax.swing.JTextField campoBairro;
