@@ -30,6 +30,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
     }
     public TelaAddAluno() {
         initComponents();
+        panelFundo.setVisible(false);
     }
 
     /**
@@ -1122,6 +1123,9 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
     
     //Trabalho com os panels atraves do cardLayout
     private void tipoAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoAlunoActionPerformed
+        if(!panelFundo.isVisible()){
+            panelFundo.setVisible(true);
+        }
         switch (tipoAluno.getSelectedItem().toString()) {
             case "Primario [1-4 ano]":
                 {
@@ -1142,11 +1146,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                 tecnico.show(panelFundo,"tecnico");
                 break;
             default:
-                {
-                    CardLayout primario = (CardLayout) panelFundo.getLayout();
-                    primario.show(panelFundo,"primario");
-                    break;
-                }
+                panelFundo.setVisible(false);
         }
     }//GEN-LAST:event_tipoAlunoActionPerformed
 
