@@ -153,7 +153,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="49" pref="142" max="32767" attributes="0"/>
+                          <EmptySpace min="49" pref="168" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="lblNomeGin" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblCPFGin" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -498,7 +498,6 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblCEPEM" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="lblEnderecoEM" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="campoEnderecoEM" alignment="0" max="32767" attributes="0"/>
@@ -509,13 +508,21 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="lblAnoEM" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="anoEM" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tipoAnoEM" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="lblCEPEM" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace pref="259" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="lblInfoEM" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblInfoEM" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="btnApagarEM" min="-2" pref="65" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                                  <Component id="btnCadastrarEM" min="-2" pref="79" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -580,14 +587,25 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lblAnoEM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="anoEM" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tipoAnoEM" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="50" max="32767" attributes="0"/>
-                          <Component id="lblInfoEM" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace pref="39" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="lblInfoEM" min="-2" pref="31" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btnCadastrarEM" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnApagarEM" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -717,7 +735,23 @@
                     <Property name="text" type="java.lang.String" value="Ano *"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="anoEM">
+                <Component class="javax.swing.JButton" name="btnCadastrarEM">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cadastrar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarEMActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnApagarEM">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Apagar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnApagarEMActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="tipoAnoEM">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -800,7 +834,7 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblPCentTec" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="170" max="32767" attributes="0"/>
+                          <EmptySpace pref="196" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="lblCEPTec" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1107,7 +1141,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="49" pref="142" max="32767" attributes="0"/>
+                                  <EmptySpace min="49" pref="168" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="lblNome" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblCPF" min="-2" max="-2" attributes="0"/>

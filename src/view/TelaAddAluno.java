@@ -101,7 +101,9 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         lblBairroEM = new javax.swing.JLabel();
         campoBairroEM = new javax.swing.JTextField();
         lblAnoEM = new javax.swing.JLabel();
-        anoEM = new javax.swing.JComboBox<>();
+        btnCadastrarEM = new javax.swing.JButton();
+        btnApagarEM = new javax.swing.JButton();
+        tipoAnoEM = new javax.swing.JComboBox<>();
         panelTecnico = new javax.swing.JPanel();
         lblMatriculaTec = new javax.swing.JLabel();
         lblRespTec = new javax.swing.JLabel();
@@ -276,7 +278,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         panelGinasioLayout.setHorizontalGroup(
             panelGinasioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGinasioLayout.createSequentialGroup()
-                .addGap(49, 142, Short.MAX_VALUE)
+                .addGap(49, 168, Short.MAX_VALUE)
                 .addGroup(panelGinasioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblNomeGin)
                     .addComponent(lblCPFGin)
@@ -454,7 +456,21 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
 
         lblAnoEM.setText("Ano *");
 
-        anoEM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "1", "2", "3" }));
+        btnCadastrarEM.setText("Cadastrar");
+        btnCadastrarEM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarEMActionPerformed(evt);
+            }
+        });
+
+        btnApagarEM.setText("Apagar");
+        btnApagarEM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApagarEMActionPerformed(evt);
+            }
+        });
+
+        tipoAnoEM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "1", "2", "3" }));
 
         javax.swing.GroupLayout panelEMLayout = new javax.swing.GroupLayout(panelEM);
         panelEM.setLayout(panelEMLayout);
@@ -490,7 +506,6 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                                 .addComponent(rBtnnaoEM)))
                         .addGap(130, 130, 130)
                         .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCEPEM)
                             .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(lblEnderecoEM)
                                 .addComponent(campoEnderecoEM)
@@ -500,9 +515,16 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                             .addGroup(panelEMLayout.createSequentialGroup()
                                 .addComponent(lblAnoEM)
                                 .addGap(18, 18, 18)
-                                .addComponent(anoEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(lblInfoEM))
-                .addGap(233, 233, 233))
+                                .addComponent(tipoAnoEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCEPEM))
+                        .addContainerGap(259, Short.MAX_VALUE))
+                    .addGroup(panelEMLayout.createSequentialGroup()
+                        .addComponent(lblInfoEM)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnApagarEM, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(84, 84, 84)
+                        .addComponent(btnCadastrarEM, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(124, 124, 124))))
         );
         panelEMLayout.setVerticalGroup(
             panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -556,11 +578,18 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblAnoEM)
-                            .addComponent(anoEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tipoAnoEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(17, 17, 17)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(lblInfoEM, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEMLayout.createSequentialGroup()
+                        .addComponent(lblInfoEM, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEMLayout.createSequentialGroup()
+                        .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnCadastrarEM)
+                            .addComponent(btnApagarEM))
+                        .addGap(23, 23, 23))))
         );
 
         panelFundo.add(panelEM, "EnsinoMedio");
@@ -672,7 +701,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                         .addComponent(rBtnsimTec)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblPCentTec)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
                 .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lblCEPTec)
@@ -841,7 +870,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrimarioLayout.createSequentialGroup()
                 .addGroup(panelPrimarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPrimarioLayout.createSequentialGroup()
-                        .addGap(49, 142, Short.MAX_VALUE)
+                        .addGap(49, 168, Short.MAX_VALUE)
                         .addGroup(panelPrimarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblNome)
                             .addComponent(lblCPF)
@@ -987,7 +1016,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_rBtnnaoEMActionPerformed
     
-    //limpa os jTextFild e afins do alunoPrimario
+    //limpa os jTextFields e afins do alunoPrimario
     private void limparInputs(){
             campoNome.setText("");
             campoMat.setText("");
@@ -1002,6 +1031,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
             tipoAno.setSelectedItem("Selecione");
     }
     
+    //limpa os jTextFields e afins do alunoGinasio
     private void limparInputs(String ginasio){
             campoNomeGin.setText("");
             campoMatGin.setText("");
@@ -1021,6 +1051,29 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                 alunoTransferido.clearSelection();
             }
     }
+    
+    //limpa os jTextFields e afins do alunoEM
+    private void limparInputs(char EM){
+            campoNomeEM.setText("");
+            campoMatEM.setText("");
+            campoCPFEM.setText("");
+            campoNascEM.setText("");
+            campoCEPEM.setText("");
+            campoEnderecoEM.setText("");
+            campoBairroEM.setText("");
+            campoMaeEM.setText("");
+            campoPaiEM.setText("");
+            campoRespEM.setText("");
+            tipoAnoEM.setSelectedItem("Selecione");
+            if(rBtnnaoEM.isSelected()){
+                alunoTransferido.clearSelection();
+            }
+            if(rBtnsimEM.isSelected()){
+                alunoTransferido.clearSelection();
+            }
+    }
+    
+    
     //Trabalho com os panels atraves do cardLayout
     private void tipoAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoAlunoActionPerformed
         switch (tipoAluno.getSelectedItem().toString()) {
@@ -1137,20 +1190,69 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                 transferido="S";
             }
             insert.criarAluno(student, count,transferido);
-            
+         
         }    }//GEN-LAST:event_btnCadastrarGinasioActionPerformed
 
     private void btnApagarGinasioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApagarGinasioActionPerformed
-        
         limparInputs("ginasio");
     }//GEN-LAST:event_btnApagarGinasioActionPerformed
+
+    private void btnCadastrarEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarEMActionPerformed
+        if(campoNomeEM.getText().equals("") || campoCPFEM.getText().equals("") || campoMatEM.getText().equals("")
+            || campoNascEM.getText().equals("") || campoRespEM.getText().equals("") || campoCEPEM.getText().equals("")
+            || campoEnderecoEM.getText().equals("") || tipoAnoEM.getSelectedItem().toString().equals("Selecione")
+            || (!rBtnnaoEM.isSelected() && !rBtnsimEM.isSelected())){
+            JOptionPane.showMessageDialog(null, "Um ou mais campos obrigatórios estão em branco\n"
+                + "ou não foram preenchidos corretamente");
+        }else{
+            int count=0;
+            String transferido="";
+            if(campoMaeEM.getText().equals("")){
+                count++;
+            }
+            if(campoPaiEM.getText().equals("")){
+                count+=2;
+            }
+            if(campoBairroEM.getText().equals("")){
+                count+=4;
+            }
+
+            StudentBean student = new StudentBean();
+            InsertDao insert = new InsertDao();
+            student.setGrau("anoEM");
+            student.setNome(campoNomeEM.getText());
+            student.setMatricula(campoMatEM.getText());
+            student.setCPF(campoCPFEM.getText());
+            student.setDataNasc(campoNascEM.getText());
+            student.setCEP(campoCEPEM.getText());
+            student.setEndereco(campoEnderecoEM.getText());
+            student.setBairro(campoBairroEM.getText());
+            student.setNomeMae(campoMaeEM.getText());
+            student.setNomePai(campoPaiEM.getText());
+            student.setResponsavel(campoRespEM.getText());
+            student.setAno(tipoAnoEM.getSelectedItem().toString());
+            if(rBtnnaoEM.isSelected()){
+                transferido="N";
+            }
+            if(rBtnsimEM.isSelected()){
+                transferido="S";
+            }
+            insert.criarAluno(student, count,transferido);
+            
+        }
+    }//GEN-LAST:event_btnCadastrarEMActionPerformed
+
+    private void btnApagarEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApagarEMActionPerformed
+        limparInputs('A');
+    }//GEN-LAST:event_btnApagarEMActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup alunoTransferido;
-    private javax.swing.JComboBox<String> anoEM;
+    private javax.swing.JButton btnApagarEM;
     private javax.swing.JButton btnApagarGinasio;
     private javax.swing.JButton btnApagarPrimario;
+    private javax.swing.JButton btnCadastrarEM;
     private javax.swing.JButton btnCadastrarGinasio;
     private javax.swing.JButton btnCadastrarPrimario;
     private javax.swing.JTextField campoBairro;
@@ -1262,6 +1364,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton rBtnsimTec;
     private javax.swing.JComboBox<String> tipoAluno;
     private javax.swing.JComboBox<String> tipoAno;
+    private javax.swing.JComboBox<String> tipoAnoEM;
     private javax.swing.JComboBox<String> tipoAnoGin;
     private javax.swing.JComboBox<String> tipoBolsaTec;
     private javax.swing.JComboBox<String> tipoCursotecnico;

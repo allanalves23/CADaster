@@ -280,7 +280,7 @@ public class InsertDao {
         
     }
     
-    //Cria um registro de alunoGINASIO no banco de dados
+    //Cria um registro de alunoGINASIO ou EM no banco de dados
     public void criarAluno(StudentBean student,int count,String transferido){
         Connection conn = ConnectionFactory.conexao();
         String SQL = stringInsertInto(count,student.getGrau(),transferido); //para alunoGinasio
@@ -423,7 +423,7 @@ public class InsertDao {
         
     }
     
-    //Retorna o comando SQL para inserir alunoGinasio no banco
+    //Retorna o comando SQL para inserir alunoGinasio ou EM no banco
     private String stringInsertInto(int count,String coluna,String transferido){
         switch(count){
         
