@@ -4,6 +4,7 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import modelbean.StudentBean;
 import modeldao.InsertDao;
+import modeldao.RotinasDao;
 
 /**
  *
@@ -134,6 +135,8 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         campoBairroTec = new javax.swing.JTextField();
         campoPaiTec = new javax.swing.JTextField();
         rBtnnaoTec = new javax.swing.JRadioButton();
+        btnApagarTec = new javax.swing.JButton();
+        btnCadastrarTec = new javax.swing.JButton();
         panelPrimario = new javax.swing.JPanel();
         lblMatricula = new javax.swing.JLabel();
         lblResp = new javax.swing.JLabel();
@@ -503,28 +506,26 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                             .addGroup(panelEMLayout.createSequentialGroup()
                                 .addComponent(rBtnsimEM)
                                 .addGap(32, 32, 32)
-                                .addComponent(rBtnnaoEM)))
-                        .addGap(130, 130, 130)
-                        .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblEnderecoEM)
-                                .addComponent(campoEnderecoEM)
-                                .addComponent(lblBairroEM)
-                                .addComponent(campoBairroEM)
-                                .addComponent(campoCEPEM, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelEMLayout.createSequentialGroup()
-                                .addComponent(lblAnoEM)
-                                .addGap(18, 18, 18)
-                                .addComponent(tipoAnoEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblCEPEM))
-                        .addContainerGap(259, Short.MAX_VALUE))
+                                .addComponent(rBtnnaoEM))))
+                    .addComponent(lblInfoEM))
+                .addGap(130, 130, 130)
+                .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelEMLayout.createSequentialGroup()
-                        .addComponent(lblInfoEM)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnApagarEM, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84)
-                        .addComponent(btnCadastrarEM, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(124, 124, 124))))
+                        .addComponent(lblAnoEM)
+                        .addGap(18, 18, 18)
+                        .addComponent(tipoAnoEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCEPEM)
+                    .addGroup(panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(panelEMLayout.createSequentialGroup()
+                            .addComponent(btnApagarEM)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCadastrarEM))
+                        .addComponent(lblEnderecoEM, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(campoEnderecoEM, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblBairroEM, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(campoBairroEM, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(campoCEPEM, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
         panelEMLayout.setVerticalGroup(
             panelEMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -660,70 +661,89 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         alunoTransferido.add(rBtnnaoTec);
         rBtnnaoTec.setText("Não");
 
+        btnApagarTec.setText("Apagar");
+        btnApagarTec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApagarTecActionPerformed(evt);
+            }
+        });
+
+        btnCadastrarTec.setText("Cadastrar");
+        btnCadastrarTec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarTecActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelTecnicoLayout = new javax.swing.GroupLayout(panelTecnico);
         panelTecnico.setLayout(panelTecnicoLayout);
         panelTecnicoLayout.setHorizontalGroup(
             panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTecnicoLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNomeTec)
-                    .addComponent(lblCPFTec)
-                    .addComponent(lblNascTec)
-                    .addComponent(campoNomeTec, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(campoNascTec, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(campoCPFTec, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
-                    .addComponent(lblMatriculaTec)
-                    .addComponent(campoMatTec, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelTecnicoLayout.createSequentialGroup()
-                        .addGap(130, 130, 130)
+                        .addGap(49, 49, 49)
                         .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNomemaeTec)
-                            .addComponent(campoMaeTec, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNomepaiTec)
-                            .addComponent(lblRespTec)
-                            .addComponent(campoRespTec, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNomeTec)
+                            .addComponent(lblCPFTec)
+                            .addComponent(lblNascTec)
+                            .addComponent(campoNomeTec, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(campoNascTec, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(campoCPFTec, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
+                            .addComponent(lblMatriculaTec)
+                            .addComponent(campoMatTec, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelTecnicoLayout.createSequentialGroup()
+                                .addGap(130, 130, 130)
                                 .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblAlunotransfTec)
+                                    .addComponent(lblNomemaeTec)
+                                    .addComponent(campoMaeTec, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblNomepaiTec)
+                                    .addComponent(lblRespTec)
+                                    .addComponent(campoRespTec, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(panelTecnicoLayout.createSequentialGroup()
-                                        .addGap(76, 76, 76)
-                                        .addComponent(rBtnnaoTec)))
-                                .addGap(77, 77, 77)
-                                .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tipoBolsaTec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblBolsaTec)))
-                            .addComponent(campoPaiTec, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblAlunotransfTec)
+                                            .addGroup(panelTecnicoLayout.createSequentialGroup()
+                                                .addGap(76, 76, 76)
+                                                .addComponent(rBtnnaoTec)))
+                                        .addGap(77, 77, 77)
+                                        .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tipoBolsaTec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblBolsaTec)))
+                                    .addComponent(campoPaiTec, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panelTecnicoLayout.createSequentialGroup()
+                                .addGap(126, 126, 126)
+                                .addComponent(rBtnsimTec)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPCentTec))
                     .addGroup(panelTecnicoLayout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(rBtnsimTec)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPCentTec)
+                        .addContainerGap()
+                        .addComponent(lblInfoTec)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
                 .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblCEPTec)
-                        .addComponent(lblEnderecoTec)
-                        .addComponent(campoEnderecoTec)
-                        .addComponent(lblBairroTec)
-                        .addComponent(campoBairroTec)
-                        .addComponent(campoCEPTec, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblCursoTec)
-                    .addComponent(tipoCursotecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tipoCursotecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(panelTecnicoLayout.createSequentialGroup()
+                            .addComponent(btnApagarTec)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCadastrarTec))
+                        .addComponent(lblCEPTec, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblEnderecoTec, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(campoEnderecoTec, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblBairroTec, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(campoBairroTec, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(campoCEPTec, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(163, 163, 163))
-            .addGroup(panelTecnicoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblInfoTec)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelTecnicoLayout.setVerticalGroup(
             panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTecnicoLayout.createSequentialGroup()
                 .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelTecnicoLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(5, 5, 5)
                         .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNomeTec)
                             .addComponent(lblNomemaeTec))
@@ -740,7 +760,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(campoRespTec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelTecnicoLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(5, 5, 5)
                         .addComponent(lblCEPTec)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(campoCEPTec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -770,12 +790,6 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                             .addComponent(rBtnsimTec, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(rBtnnaoTec))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelTecnicoLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(lblCursoTec)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tipoCursotecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelTecnicoLayout.createSequentialGroup()
                         .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelTecnicoLayout.createSequentialGroup()
@@ -792,7 +806,17 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
                                     .addComponent(lblPCentTec))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                         .addComponent(lblInfoTec, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(panelTecnicoLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(lblCursoTec)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tipoCursotecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panelTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnApagarTec)
+                            .addComponent(btnCadastrarTec))
+                        .addGap(23, 23, 23))))
         );
 
         panelFundo.add(panelTecnico, "tecnico");
@@ -1073,6 +1097,28 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
             }
     }
     
+    //limpa os jTextFields e afins do alunoTecnico
+    private void limparInputs(boolean Tec){
+            campoNomeTec.setText("");
+            campoMatTec.setText("");
+            campoCPFTec.setText("");
+            campoNascTec.setText("");
+            campoCEPTec.setText("");
+            campoEnderecoTec.setText("");
+            campoBairroTec.setText("");
+            campoMaeTec.setText("");
+            campoPaiTec.setText("");
+            campoRespTec.setText("");
+            tipoBolsaTec.setSelectedItem("Selecione");
+            tipoCursotecnico.setSelectedItem("Selecione");
+            if(rBtnnaoTec.isSelected()){
+                alunoTransferido.clearSelection();
+            }
+            if(rBtnsimTec.isSelected()){
+                alunoTransferido.clearSelection();
+            }
+    }
+    
     
     //Trabalho com os panels atraves do cardLayout
     private void tipoAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoAlunoActionPerformed
@@ -1108,40 +1154,46 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
     
     //Cadastrar aluno DO ENSINO PRIMARIO
     private void btnCadastrarPrimarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarPrimarioActionPerformed
-        if(campoNome.getText().equals("") || campoCPF.getText().equals("") || campoMat.getText().equals("")
-            || campoNasc.getText().equals("") || campoResp.getText().equals("") || campoCEP.getText().equals("")
-            || campoEndereco.getText().equals("") || tipoAno.getSelectedItem().toString().equals("Selecione")){
-            JOptionPane.showMessageDialog(null, "Um ou mais campos obrigatórios estão em branco\n"
-                + "ou não foram preenchidos corretamente");
+        
+        if(RotinasDao.verificarMatricula(campoMat.getText())){
+            JOptionPane.showMessageDialog(null, "Ja existe uma matricula igual esta dentro do banco de dados\n"
+                    + "Por favor informe outro valor");
         }else{
-            int count=0;
-            if(campoMae.getText().equals("")){
-                count++;
-            }
-            if(campoPai.getText().equals("")){
-                count+=2;
-            }
-            if(campoBairro.getText().equals("")){
-                count+=4;
-            }
+            if(campoNome.getText().equals("") || campoCPF.getText().equals("") || campoMat.getText().equals("")
+                || campoNasc.getText().equals("") || campoResp.getText().equals("") || campoCEP.getText().equals("")
+                || campoEndereco.getText().equals("") || tipoAno.getSelectedItem().toString().equals("Selecione")){
+                JOptionPane.showMessageDialog(null, "Um ou mais campos obrigatórios estão em branco\n"
+                    + "ou não foram preenchidos corretamente");
+            }else{
+                int count=0;
+                if(campoMae.getText().equals("")){
+                    count++;
+                }
+                if(campoPai.getText().equals("")){
+                    count+=2;
+                }
+                if(campoBairro.getText().equals("")){
+                    count+=4;
+                }
 
-            StudentBean student = new StudentBean();
-            InsertDao insert = new InsertDao();
-            student.setGrau("anoPrimario");
-            student.setNome(campoNome.getText());
-            student.setMatricula(campoMat.getText());
-            student.setCPF(campoCPF.getText());
-            student.setDataNasc(campoNasc.getText());
-            student.setCEP(campoCEP.getText());
-            student.setEndereco(campoEndereco.getText());
-            student.setBairro(campoBairro.getText());
-            student.setNomeMae(campoMae.getText());
-            student.setNomePai(campoPai.getText());
-            student.setResponsavel(campoResp.getText());
-            student.setAno(tipoAno.getSelectedItem().toString());
+                StudentBean student = new StudentBean();
+                InsertDao insert = new InsertDao();
+                student.setGrau("anoPrimario");
+                student.setNome(campoNome.getText());
+                student.setMatricula(campoMat.getText());
+                student.setCPF(campoCPF.getText());
+                student.setDataNasc(campoNasc.getText());
+                student.setCEP(campoCEP.getText());
+                student.setEndereco(campoEndereco.getText());
+                student.setBairro(campoBairro.getText());
+                student.setNomeMae(campoMae.getText());
+                student.setNomePai(campoPai.getText());
+                student.setResponsavel(campoResp.getText());
+                student.setAno(tipoAno.getSelectedItem().toString());
 
-            insert.criarAluno(student, count);
-            limparInputs();
+                insert.criarAluno(student, count);
+                limparInputs();
+            }
         }
     }//GEN-LAST:event_btnCadastrarPrimarioActionPerformed
 
@@ -1246,15 +1298,66 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
         limparInputs('A');
     }//GEN-LAST:event_btnApagarEMActionPerformed
 
+    private void btnCadastrarTecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarTecActionPerformed
+        if(campoNomeTec.getText().equals("") || campoCPFTec.getText().equals("") || campoMatTec.getText().equals("")
+            || campoNascTec.getText().equals("") || campoRespTec.getText().equals("") || campoCEPTec.getText().equals("")
+            || campoEnderecoTec.getText().equals("") || (!rBtnnaoTec.isSelected() && !rBtnsimTec.isSelected()) 
+            || tipoBolsaTec.getSelectedItem().toString().equals("Selecione") || tipoCursotecnico.getSelectedItem().toString().equals("Selecione")){
+            JOptionPane.showMessageDialog(null, "Um ou mais campos obrigatórios estão em branco\n"
+                + "ou não foram preenchidos corretamente");
+        }else{
+            int count=0;
+            String transferido="";
+            if(campoMaeTec.getText().equals("")){
+                count++;
+            }
+            if(campoPaiTec.getText().equals("")){
+                count+=2;
+            }
+            if(campoBairroTec.getText().equals("")){
+                count+=4;
+            }
+
+            StudentBean student = new StudentBean();
+            InsertDao insert = new InsertDao();
+            student.setNome(campoNomeTec.getText());
+            student.setMatricula(campoMatTec.getText());
+            student.setCPF(campoCPFTec.getText());
+            student.setDataNasc(campoNascTec.getText());
+            student.setCEP(campoCEPTec.getText());
+            student.setEndereco(campoEnderecoTec.getText());
+            student.setBairro(campoBairroTec.getText());
+            student.setNomeMae(campoMaeTec.getText());
+            student.setNomePai(campoPaiTec.getText());
+            student.setResponsavel(campoRespTec.getText());
+            student.setBolsa(Integer.parseInt(tipoBolsaTec.getSelectedItem().toString()));
+            student.setCurso(tipoCursotecnico.getSelectedItem().toString());
+            if(rBtnnaoTec.isSelected()){
+                transferido="N";
+            }
+            if(rBtnsimTec.isSelected()){
+                transferido="S";
+            }
+            insert.criarAluno(student, count,transferido,student.getBolsa());
+            
+        }
+    }//GEN-LAST:event_btnCadastrarTecActionPerformed
+
+    private void btnApagarTecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApagarTecActionPerformed
+        limparInputs(true);
+    }//GEN-LAST:event_btnApagarTecActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup alunoTransferido;
     private javax.swing.JButton btnApagarEM;
     private javax.swing.JButton btnApagarGinasio;
     private javax.swing.JButton btnApagarPrimario;
+    private javax.swing.JButton btnApagarTec;
     private javax.swing.JButton btnCadastrarEM;
     private javax.swing.JButton btnCadastrarGinasio;
     private javax.swing.JButton btnCadastrarPrimario;
+    private javax.swing.JButton btnCadastrarTec;
     private javax.swing.JTextField campoBairro;
     private javax.swing.JTextField campoBairroEM;
     private javax.swing.JTextField campoBairroGin;
