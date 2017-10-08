@@ -8,7 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import modelbean.StudentBean;
 import modelbean.UserBean;
 
 /**
@@ -95,5 +98,49 @@ public class SearchDao {
         
         
         return listUsers;
+    }
+    
+    //procurar Aluno 
+    public List<StudentBean> procurarStudent(){
+        List<StudentBean> listStudents = new ArrayList<>();
+        return listStudents;
+    } 
+    
+    //procurar Aluno pelo nome (para exclusao)
+    public List<StudentBean> procurarStudent(String nome){
+        List<StudentBean> listStudents = new ArrayList<>();
+        try {
+            Connection conn = ConnectionFactory.conexao();
+            String SQL = "SELECT matricula,nome,anoPrimario,anoGinasio,anoEM,"
+                    + "anoTecnico FROM student where nome like '%"+nome+"%'";
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(SQL);
+            if(rs.next()){
+                StudentBean student = new StudentBean();
+                student.setMatricula(rs.getString("matricula"));
+                student.setNome(rs.getString("nome"));
+                if(rs.getString("anoPrimario")!=null){
+                    student.setAno(rs.getString("anoPrimario"));
+                    student.setGrau("Primario");
+                }else if(rs.getString("anoGinasio")!=null){
+                    student.setAno(rs.getString("anoGinasio"));
+                    student.setGrau("Ginasio");
+                }else if(rs.getString("anoEM")!=null){
+                    student.setAno(rs.getString("anoEM"));
+                    student.setGrau("Ensino Médio");
+                }else{
+                    student.setAno(rs.getString("anoTecnico"));
+                    student.setGrau("Curso Técnico");
+                }
+                listStudents.add(student);
+            }else{
+                JOptionPane.showMessageDialog(null, "Nenhum REGISTRO");
+            }
+            ConnectionFactory.encerrarConexao(conn, stm, rs);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao ler os dados do banco - "+ex.getMessage());
+        }
+            
+        return listStudents;
     }
 }

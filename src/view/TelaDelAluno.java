@@ -1,5 +1,10 @@
 package view;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import modelbean.StudentBean;
+import modeldao.SearchDao;
+
 /**
  *
  * @author allan
@@ -44,6 +49,8 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
         lblNome = new javax.swing.JLabel();
         btnConfirmar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaStudents = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -61,6 +68,11 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
         lblNome.setText("Nome");
 
         btnConfirmar.setText("Confirmar");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
 
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +112,28 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
+        tabelaStudents.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Matricula", "Nome", "Grau", "Ano"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelaStudents.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tabelaStudents);
+        if (tabelaStudents.getColumnModel().getColumnCount() > 0) {
+            tabelaStudents.getColumnModel().getColumn(3).setResizable(false);
+        }
+
         javax.swing.GroupLayout fundoLayout = new javax.swing.GroupLayout(fundo);
         fundo.setLayout(fundoLayout);
         fundoLayout.setHorizontalGroup(
@@ -107,14 +141,21 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
             .addGroup(fundoLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(campos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(620, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         fundoLayout.setVerticalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(campos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fundoLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(campos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fundoLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -134,6 +175,10 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
+    
+    
+    
+    
     /* Metodo para definir a posicao fixa do JinternalFrame (Aplicavel 
     em janelas que estao como default Maximizaveis
     */
@@ -141,7 +186,27 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
         this.setLocation(0, 0);
     }//GEN-LAST:event_formComponentMoved
 
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        if(!campoNome.getText().equals("")){
+            leituraTabela(campoNome.getText());
+        }else{
+            JOptionPane.showMessageDialog(null, "Nenhum registro encontrado");
+        }
+    }//GEN-LAST:event_btnConfirmarActionPerformed
 
+    private void leituraTabela(String nome){
+        DefaultTableModel model = (DefaultTableModel) tabelaStudents.getModel();
+        model.setNumRows(0);
+        SearchDao sd = new SearchDao();
+        for(StudentBean student : sd.procurarStudent(nome)){
+            model.addRow(new Object[]{
+                student.getMatricula(),
+                student.getNome(),
+                student.getGrau(),
+                student.getAno()
+            });
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnVoltar;
@@ -149,7 +214,9 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
     private javax.swing.JPanel campos;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JPanel fundo;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNome;
+    private javax.swing.JTable tabelaStudents;
     private java.util.List<view.Usuario> usuarioList;
     private javax.persistence.Query usuarioQuery;
     // End of variables declaration//GEN-END:variables

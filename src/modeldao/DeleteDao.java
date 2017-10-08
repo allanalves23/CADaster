@@ -33,4 +33,14 @@ public class DeleteDao {
         }
       return false; //caso login ou senha estiver errado
     } 
+    
+    
+    public boolean deletarStudent (){
+        
+        Connection conn = ConnectionFactory.conexao();
+        String delete = "DELETE FROM student where ";
+        return false;
+    }
+    
+    
 }

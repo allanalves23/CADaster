@@ -4,7 +4,7 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import modelbean.StudentBean;
 import modeldao.InsertDao;
-import modeldao.RotinasDao;
+import rotinas.RotinasDB;
 
 /**
  *
@@ -1155,7 +1155,7 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
     //Cadastrar aluno DO ENSINO PRIMARIO
     private void btnCadastrarPrimarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarPrimarioActionPerformed
         
-        if(RotinasDao.verificarMatricula(campoMat.getText())){
+        if(RotinasDB.verificarMatricula(campoMat.getText())){
             JOptionPane.showMessageDialog(null, "Ja existe uma matricula igual esta dentro do banco de dados\n"
                     + "Por favor informe outro valor");
         }else{

@@ -1,4 +1,4 @@
-package modeldao;
+package rotinas;
 
 import conexaobd.ConnectionFactory;
 import java.sql.Connection;
@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author allan
  */
-public class RotinasDao {
+public class RotinasDB {
     
     public static boolean verificarMatricula(String matricula){
         boolean response=false;
