@@ -134,7 +134,8 @@ public class SearchDao {
                 }
                 listStudents.add(student);
             }else{
-                JOptionPane.showMessageDialog(null, "Nenhum REGISTRO");
+                JOptionPane.showMessageDialog(null, "Nenhum registro encontrado\n"
+                        + "Verifique o nome digitado");
             }
             ConnectionFactory.encerrarConexao(conn, stm, rs);
         } catch (SQLException ex) {
@@ -143,4 +144,7 @@ public class SearchDao {
             
         return listStudents;
     }
+    
+    
+    
 }

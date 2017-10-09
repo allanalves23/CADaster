@@ -3,6 +3,7 @@ package view;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelbean.StudentBean;
+import modeldao.DeleteDao;
 import modeldao.SearchDao;
 
 /**
@@ -29,6 +30,8 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
     }
     public TelaDelAluno() {
         initComponents();
+        btnConfirmarExclusao.setEnabled(false);
+        btnLimparTabela.setEnabled(false);
     }
 
     /**
@@ -51,6 +54,8 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
         btnVoltar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaStudents = new javax.swing.JTable();
+        btnConfirmarExclusao = new javax.swing.JButton();
+        btnLimparTabela = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -129,21 +134,48 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
             }
         });
         tabelaStudents.getTableHeader().setReorderingAllowed(false);
+        tabelaStudents.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaStudentsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelaStudents);
         if (tabelaStudents.getColumnModel().getColumnCount() > 0) {
             tabelaStudents.getColumnModel().getColumn(3).setResizable(false);
         }
 
+        btnConfirmarExclusao.setText("Confirmar Exclusão");
+        btnConfirmarExclusao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarExclusaoActionPerformed(evt);
+            }
+        });
+
+        btnLimparTabela.setText("Limpar Tabela");
+        btnLimparTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparTabelaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout fundoLayout = new javax.swing.GroupLayout(fundo);
         fundo.setLayout(fundoLayout);
         fundoLayout.setHorizontalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fundoLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(campos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(fundoLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
+                    .addGroup(fundoLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(btnLimparTabela)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnConfirmarExclusao)
+                        .addGap(39, 39, 39))))
         );
         fundoLayout.setVerticalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +187,11 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
                     .addGroup(fundoLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConfirmarExclusao)
+                    .addComponent(btnLimparTabela))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -194,7 +230,35 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
-    private void leituraTabela(String nome){
+    private void tabelaStudentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaStudentsMouseClicked
+      //Implementar..
+    }//GEN-LAST:event_tabelaStudentsMouseClicked
+
+    private void btnLimparTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparTabelaActionPerformed
+        if(tabelaStudents.getRowCount()>0){
+            DefaultTableModel model = (DefaultTableModel) tabelaStudents.getModel();
+            model.setNumRows(0);
+        }
+    }//GEN-LAST:event_btnLimparTabelaActionPerformed
+
+    private void btnConfirmarExclusaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarExclusaoActionPerformed
+        if(tabelaStudents.getSelectedRow()==-1)
+            JOptionPane.showMessageDialog(null, "Selecione um registro");
+        else{
+            Object registro = tabelaStudents.getValueAt(tabelaStudents.getSelectedRow(), 0);
+            String matricula = registro.toString();
+            DeleteDao del = new DeleteDao();
+            int i = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja remover o registro?",
+                    "Confirmar Exclusão",JOptionPane.YES_NO_OPTION);
+            if(i == JOptionPane.YES_OPTION){
+                del.deletarStudent(matricula);
+                btnLimparTabelaActionPerformed(evt);
+                campoNome.setText("");
+            }
+        }
+    }//GEN-LAST:event_btnConfirmarExclusaoActionPerformed
+
+    private boolean leituraTabela(String nome){
         DefaultTableModel model = (DefaultTableModel) tabelaStudents.getModel();
         model.setNumRows(0);
         SearchDao sd = new SearchDao();
@@ -206,9 +270,23 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
                 student.getAno()
             });
         }
+        if(model.getRowCount()==0){
+            if(btnConfirmarExclusao.isEnabled() && btnLimparTabela.isEnabled()){
+                btnConfirmarExclusao.setEnabled(false);
+                btnLimparTabela.setEnabled(false);
+            }
+            return false;
+        }
+        btnConfirmarExclusao.setEnabled(true);
+        btnLimparTabela.setEnabled(true);
+        return true;
     }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmar;
+    private javax.swing.JButton btnConfirmarExclusao;
+    private javax.swing.JButton btnLimparTabela;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JTextField campoNome;
     private javax.swing.JPanel campos;

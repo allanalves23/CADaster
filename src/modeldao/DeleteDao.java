@@ -9,6 +9,8 @@ import conexaobd.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,7 +19,8 @@ import javax.swing.JOptionPane;
  */
 public class DeleteDao {
     
-    public boolean deletarUser(int id, String login){
+    //Deleta usuario do sistema no banco
+    public void deletarUser(int id, String login){
          try {
             Connection conn = ConnectionFactory.conexao();
             String delete = "DELETE FROM usuario where id= ? or login=?";
@@ -28,18 +31,25 @@ public class DeleteDao {
             ConnectionFactory.encerrarConexao(conn, pstm);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao deletar o registro, verifique a"
-                    + " integridade com o banco" +ex.getMessage());
-            return false;
+                    + " integridade com o banco" +ex.getMessage());     
         }
-      return false; //caso login ou senha estiver errado
     } 
     
-    
-    public boolean deletarStudent (){
-        
-        Connection conn = ConnectionFactory.conexao();
-        String delete = "DELETE FROM student where ";
-        return false;
+    //Deleta aluno no banco
+    public void deletarStudent (String matricula){
+        try {
+            Connection conn = ConnectionFactory.conexao();
+            String delete = "DELETE FROM student where matricula = ?";
+            PreparedStatement pstm = conn.prepareStatement(delete);
+            pstm.setString(1, matricula);
+            pstm.execute();
+            ConnectionFactory.encerrarConexao(conn, pstm);
+            JOptionPane.showMessageDialog(null, "Usuario removido com sucesso");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao deletar o registro, verifique a"
+                    + "integridade com o banco");
+        }
+
     }
     
     
