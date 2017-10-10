@@ -6,12 +6,15 @@ package utilitarios;
  */
 import java.awt.Dimension;
 import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
+import view.GerenciaBanco;
 
 public class UmaJanelaApenas {
 
     private static JDesktopPane fundo;
-
+    private static JFrame config;
+    
     public UmaJanelaApenas(JDesktopPane fundo2) {
         UmaJanelaApenas.fundo=fundo2;
     }
@@ -33,7 +36,12 @@ public class UmaJanelaApenas {
         }
     }
     
-    public void fecharJanela(JDesktopPane fundo2){
-        
+    public void abrirConfig(JFrame janela){
+        if(janela.isVisible()){
+            janela.toFront();
+        }else{
+            janela.setVisible(true);
+        }
     }
+    
 }

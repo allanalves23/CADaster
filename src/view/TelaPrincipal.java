@@ -19,6 +19,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     //Flags dos jInternalFrames
     
     UmaJanelaApenas controle;
+    
     /*Variavel do tipo UmaJanela
     para realizar a verificação da existencia de um mesmo frame
     aberto.
@@ -87,6 +88,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         sistema.setText("Sistema");
 
         jMenuItem1.setText("Gerencia Banco de dados");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         sistema.add(jMenuItem1);
 
         jMenuItem2.setText("Personalizar");
@@ -338,6 +344,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         controle.abrirJanela(true,TelaAdministracao.getAbrir());
          //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_funcAdmActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        controle.abrirConfig(GerenciaBanco.getAbrir());
+              
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
     
 
     /**
