@@ -60,6 +60,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         textArea = new javax.swing.JTextArea();
         btnSobre = new javax.swing.JButton();
 
+        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(182, 175, 175), 2, true));
         setClosable(true);
         setIconifiable(true);
         setTitle("CADaster - Cadastro de usuários");
@@ -206,7 +207,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                         .addGap(64, 64, 64))
                     .addGroup(fundoLayout.createSequentialGroup()
                         .addComponent(areaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(45, Short.MAX_VALUE))))
+                        .addContainerGap(52, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

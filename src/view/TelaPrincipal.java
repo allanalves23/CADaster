@@ -3,7 +3,9 @@ package view;
 
 import javax.swing.JOptionPane;
 import utilitarios.UmaJanelaApenas;
-
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import java.awt.Graphics;
 
 /**
  *
@@ -31,6 +33,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         //Chamada da tela de login (JDialog)
         this.controle=new UmaJanelaApenas(fundo);
         
+        
+                
+        
     }
 
     /**
@@ -42,7 +47,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        fundo = new javax.swing.JDesktopPane();
+        ImageIcon img = new ImageIcon(getClass().getResource("/imagens/fundo.jpg"));
+        Image imagem = img.getImage();
+        fundo = new javax.swing.JDesktopPane(){
+            public void paintComponent(Graphics g){
+                g.drawImage(imagem, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         barraMenu = new javax.swing.JMenuBar();
         sistema = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();

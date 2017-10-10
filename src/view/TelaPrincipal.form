@@ -267,6 +267,10 @@
           <Color blue="1" green="1" red="1" type="rgb"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane(){&#xa;    public void paintComponent(Graphics g){&#xa;        g.drawImage(imagem, 0, 0, getWidth(), getHeight(), this);&#xa;    }&#xa;}"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon img = new ImageIcon(getClass().getResource(&quot;/imagens/fundo.jpg&quot;));&#xa;Image imagem = img.getImage();"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
