@@ -307,7 +307,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     //Chamada da tela de remocao de aluno
     
     private void alunoDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoDelActionPerformed
-       controle.abrirJanela(true,TelaDelAluno.getAbrir());
+       controle.abrirJanela(false,TelaDelAluno.getAbrir());
        //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_alunoDelActionPerformed
     //Chamada da tela de pesquisar aluno

@@ -102,6 +102,7 @@ public class SearchDao {
     
     //procurar Aluno pelo nome (para exclusao)
     public List<StudentBean> procurarStudent(String nome){
+        int count=0;
         List<StudentBean> listStudents = new ArrayList<>();
         try {
             Connection conn = ConnectionFactory.conexao();
@@ -109,27 +110,28 @@ public class SearchDao {
                     + "anoTecnico FROM student where nome like '%"+nome+"%'";
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(SQL);
-            if(rs.next()){
-                StudentBean student = new StudentBean();
-                student.setMatricula(rs.getString("matricula"));
-                student.setNome(rs.getString("nome"));
-                if(rs.getString("anoPrimario")!=null){
-                    student.setAno(rs.getString("anoPrimario"));
-                    student.setGrau("Primario");
-                }else if(rs.getString("anoGinasio")!=null){
-                    student.setAno(rs.getString("anoGinasio"));
-                    student.setGrau("Ginasio");
-                }else if(rs.getString("anoEM")!=null){
-                    student.setAno(rs.getString("anoEM"));
-                    student.setGrau("Ensino Médio");
-                }else{
-                    student.setAno(rs.getString("anoTecnico"));
-                    student.setGrau("Curso Técnico");
+            while(rs.next()){
+                    StudentBean student = new StudentBean();
+                    student.setMatricula(rs.getString("matricula"));
+                    student.setNome(rs.getString("nome"));
+                    if(rs.getString("anoPrimario")!=null){
+                        student.setAno(rs.getString("anoPrimario"));
+                        student.setGrau("Primario");
+                    }else if(rs.getString("anoGinasio")!=null){
+                        student.setAno(rs.getString("anoGinasio"));
+                        student.setGrau("Ginasio");
+                    }else if(rs.getString("anoEM")!=null){
+                        student.setAno(rs.getString("anoEM"));
+                        student.setGrau("Ensino Médio");
+                    }else{
+                        student.setAno(rs.getString("anoTecnico"));
+                        student.setGrau("Curso Técnico");
+                    }
+                    listStudents.add(student);
+                    count++;
                 }
-                listStudents.add(student);
-            }else{
-                JOptionPane.showMessageDialog(null, "Nenhum registro encontrado\n"
-                        + "Verifique o nome digitado");
+            if(count==0){
+                JOptionPane.showMessageDialog(null, "Nenhum registro foi encontrado, por favor verifique o nome digitado");
             }
             ConnectionFactory.encerrarConexao(conn, stm, rs);
         } catch (SQLException ex) {

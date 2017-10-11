@@ -1,18 +1,18 @@
-# CADaster	
+﻿# CADaster	
 
-Sistema de cadastro academico.
+Sistema de CRUD em um ambiente escolar.
 
 Sisteminha sendo criado a fins de estudos com a linguagem Java
 
-Este sisteminha funcionara da seguinte maneira: existirão usuários que entrarão neste sistema, dependendo de que tipo se usuário entrar no sistema, será bloqueado funcionalidades gerando uma limitação de modificação desses dados.
+Este sisteminha funcionara da seguinte maneira: existirão usuários que entrarão neste sistema, os mesmos poderão realizar consultas/adições/edições e remoções de registros.
 
-![Login](https://i.imgur.com/Rb3sera.png "login")
+![Login](https://i.imgur.com/UrFzllT.png "login")
 
 Serão dados de Alunos, professores, funcionarios administrativos e serviços gerais. 
 Também haverá os dados do usuário para o acesso no sistema.
 
-Possuirá uma conexão com o banco de dados usando a API JDBC para poder gerenciar bem esses cadastros.
+Possui uma conexão com o banco de dados usando a API JDBC.
 
-![Imagemx](https://i.imgur.com/xka9ROB.png "img")
+![Imagemx](https://i.imgur.com/cSP4qEm.png "img")
 
 
