@@ -224,12 +224,15 @@ public class TelaLogin extends javax.swing.JDialog {
     //Login com verificação da conta no banco de dados
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         LoginDao ld = new LoginDao();
-        if(ld.login(campoLogin.getText(), new String(campoSenha.getPassword()))){
-            this.dispose();
-        }else{
-            lblMensagemerro.setText("Login ou senha invalidos");
-            lblMensagemerro.setIcon(new ImageIcon(getClass().getResource("../imagens/About.png")));
-        }
+            if((ld.login(campoLogin.getText(), new String(campoSenha.getPassword())))){
+                this.dispose();
+            }else{
+                if(verificarLogin(campoLogin.getText(), new String(campoSenha.getPassword()))){
+                    this.dispose();
+                }
+                lblMensagemerro.setText("Login ou senha invalidos");
+                lblMensagemerro.setIcon(new ImageIcon(getClass().getResource("../imagens/About.png")));
+            }
     }//GEN-LAST:event_btnEntrarActionPerformed
     //Sair da aplicação na tela de Login
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -242,25 +245,31 @@ public class TelaLogin extends javax.swing.JDialog {
     private void campoSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoSenhaKeyPressed
         if(evt.getKeyCode()== KeyEvent.VK_ENTER){
              LoginDao ld = new LoginDao();
-            if(ld.login(campoLogin.getText(), new String(campoSenha.getPassword()))){
+            if((ld.login(campoLogin.getText(), new String(campoSenha.getPassword())))){
                 this.dispose();
             }else{
+                if(verificarLogin(campoLogin.getText(), new String(campoSenha.getPassword()))){
+                    this.dispose();
+                }
                 lblMensagemerro.setText("Login ou senha invalidos");
                 lblMensagemerro.setIcon(new ImageIcon(getClass().getResource("../imagens/About.png")));
             }  
         }
+        
+        
     }//GEN-LAST:event_campoSenhaKeyPressed
     //Login com verificação da conta no banco de dados
     private void campoLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoLoginKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-             LoginDao ld = new LoginDao();
-            if(ld.login(campoLogin.getText(), new String(campoSenha.getPassword()))){
+        LoginDao ld = new LoginDao();
+            if((ld.login(campoLogin.getText(), new String(campoSenha.getPassword())))){
                 this.dispose();
             }else{
+                if(verificarLogin(campoLogin.getText(), new String(campoSenha.getPassword()))){
+                    this.dispose();
+                }
                 lblMensagemerro.setText("Login ou senha invalidos");
                 lblMensagemerro.setIcon(new ImageIcon(getClass().getResource("../imagens/About.png")));
             }
-        }
     }//GEN-LAST:event_campoLoginKeyPressed
 
     private void btnConfigurarBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigurarBancoActionPerformed
@@ -268,12 +277,11 @@ public class TelaLogin extends javax.swing.JDialog {
         config.setVisible(true);
     }//GEN-LAST:event_btnConfigurarBancoActionPerformed
     //Metodo de login via root - Não implementado
-    private void verificarLogin(String login, String senha){
+    private boolean verificarLogin(String login, String senha){
         if(login.equals("root") && senha.equals("123")){
-            this.dispose();
+            return true;
         }else{
-            lblMensagemerro.setText("Login ou senha invalidos");
-            lblMensagemerro.setIcon(new ImageIcon(getClass().getResource("../imagens/About.png")));
+            return false;
         }
     }
     /**

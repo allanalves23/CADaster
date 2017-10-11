@@ -139,11 +139,11 @@ public class EditUser extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "LOGIN", "PERMISSAO"
+                "ID", "LOGIN"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true
+                false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -155,7 +155,6 @@ public class EditUser extends javax.swing.JInternalFrame {
         if (tabelaEditar.getColumnModel().getColumnCount() > 0) {
             tabelaEditar.getColumnModel().getColumn(0).setResizable(false);
             tabelaEditar.getColumnModel().getColumn(1).setResizable(false);
-            tabelaEditar.getColumnModel().getColumn(2).setResizable(false);
         }
 
         btnConfirmar.setText("Confirmar");
@@ -223,7 +222,6 @@ public class EditUser extends javax.swing.JInternalFrame {
                     model.addRow(new Object[]{
                         user.getId(),
                         user.getNome(),
-                        user.getPermissao()
                     });
                 }
                 break;
@@ -237,7 +235,6 @@ public class EditUser extends javax.swing.JInternalFrame {
                     model.addRow(new Object[]{
                         user.getId(),
                         user.getNome(),
-                        user.getPermissao()
                     });
                 }
                 break;
@@ -266,18 +263,12 @@ public class EditUser extends javax.swing.JInternalFrame {
            SearchDao sd = new SearchDao();
            int id=(int)tabelaEditar.getValueAt(tabelaEditar.getSelectedRow(), 0);
            String login=tabelaEditar.getValueAt(tabelaEditar.getSelectedRow(), 1).toString();
-           String permissao=tabelaEditar.getValueAt(tabelaEditar.getSelectedRow(), 2).toString();
            int control=0;
            for(UserBean user:sd.procurarUser()){
               if(user.getId()==id){
                   if(!user.getNome().equals(login)){
                       UpdateDao upd = new UpdateDao();
                       upd.updateUser("UPDATE usuario SET login = ? WHERE id = ?",login,id);
-                      control++;
-                  }
-                  if(!user.getPermissao().equals(permissao)){
-                      UpdateDao upd = new UpdateDao();
-                      upd.updateUser("UPDATE usuario SET permissao = ? WHERE id = ?", permissao,id);
                       control++;
                   }
               }
@@ -291,13 +282,6 @@ public class EditUser extends javax.swing.JInternalFrame {
                      case 1:
                         {
                          JOptionPane.showMessageDialog(null, "Registro atualizado");
-                         DefaultTableModel model = (DefaultTableModel) tabelaEditar.getModel();
-                         model.removeRow(tabelaEditar.getSelectedRow());
-                         break;
-                        }
-                     case 2:
-                        {  
-                         JOptionPane.showMessageDialog(null, "Login e permissoes alteradas");
                          DefaultTableModel model = (DefaultTableModel) tabelaEditar.getModel();
                          model.removeRow(tabelaEditar.getSelectedRow());
                          break;
@@ -325,7 +309,6 @@ public class EditUser extends javax.swing.JInternalFrame {
                         model.addRow(new Object[]{
                             user.getId(),
                             user.getNome(),
-                            user.getPermissao()
                         });
                     }
                     break;
@@ -339,7 +322,6 @@ public class EditUser extends javax.swing.JInternalFrame {
                         model.addRow(new Object[]{
                             user.getId(),
                             user.getNome(),
-                            user.getPermissao()
                         });
                     }
                     break;

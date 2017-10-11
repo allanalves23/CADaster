@@ -53,25 +53,16 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblLogin" min="-2" max="-2" attributes="0"/>
-                                      <Component id="campoNome" min="-2" pref="169" max="-2" attributes="0"/>
-                                      <Component id="lblSenha" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                              <Component id="lblSenha" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblSenha2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoSenha" pref="170" max="32767" attributes="0"/>
+                                  <Component id="campoSenha2" alignment="0" pref="170" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lblSenha2" min="-2" max="-2" attributes="0"/>
-                                      <Component id="campoSenha" pref="170" max="32767" attributes="0"/>
-                                      <Component id="campoSenha2" alignment="0" pref="170" max="32767" attributes="0"/>
-                                      <Component id="lblTipo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cadTipofunc" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="campoNome" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
+                              <Component id="lblLogin" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                           <Component id="areaTexto" min="-2" max="-2" attributes="0"/>
@@ -93,6 +84,7 @@
                   <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="lblLogin" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="campoNome" min="-2" max="-2" attributes="0"/>
@@ -104,10 +96,6 @@
                           <Component id="lblSenha2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="campoSenha2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="lblTipo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cadTipofunc" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnSair" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -117,7 +105,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="areaTexto" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="52" max="32767" attributes="0"/>
+                          <EmptySpace pref="54" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -165,30 +153,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campoNome">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblTipo">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Tipo"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cadTipofunc">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Selecione"/>
-                <StringItem index="1" value="Comum"/>
-                <StringItem index="2" value="Funcionario"/>
-                <StringItem index="3" value="Administrador"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadTipofuncActionPerformed"/>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cadTipofuncKeyPressed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
         </Component>
         <Container class="javax.swing.JPanel" name="areaTexto">
 

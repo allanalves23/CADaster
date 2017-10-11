@@ -170,11 +170,11 @@ public class RemoveUser extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "LOGIN", "PERMISSAO"
+                "ID", "LOGIN"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -186,7 +186,6 @@ public class RemoveUser extends javax.swing.JInternalFrame {
         if (tabelaUsuarios.getColumnModel().getColumnCount() > 0) {
             tabelaUsuarios.getColumnModel().getColumn(0).setResizable(false);
             tabelaUsuarios.getColumnModel().getColumn(1).setResizable(false);
-            tabelaUsuarios.getColumnModel().getColumn(2).setResizable(false);
         }
 
         btnAtualizar.setText("Atualizar Lista");
@@ -290,7 +289,6 @@ public class RemoveUser extends javax.swing.JInternalFrame {
                 model.addRow(new Object[]{
                     user.getId(),
                     user.getNome(),
-                    user.getPermissao()
                 });
              }
         

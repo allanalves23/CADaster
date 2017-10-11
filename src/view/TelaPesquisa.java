@@ -148,11 +148,11 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "LOGIN", "PERMISSAO"
+                "ID", "LOGIN"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, false
+                false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -164,7 +164,6 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
         if (tabelaResultado.getColumnModel().getColumnCount() > 0) {
             tabelaResultado.getColumnModel().getColumn(0).setResizable(false);
             tabelaResultado.getColumnModel().getColumn(1).setResizable(false);
-            tabelaResultado.getColumnModel().getColumn(2).setResizable(false);
         }
 
         javax.swing.GroupLayout resultadoBuscaLayout = new javax.swing.GroupLayout(resultadoBusca);
@@ -191,11 +190,11 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "LOGIN", "PERMISSAO"
+                "ID", "LOGIN"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -207,7 +206,6 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
         if (tabelaPrincipal.getColumnModel().getColumnCount() > 0) {
             tabelaPrincipal.getColumnModel().getColumn(0).setResizable(false);
             tabelaPrincipal.getColumnModel().getColumn(1).setResizable(false);
-            tabelaPrincipal.getColumnModel().getColumn(2).setResizable(false);
         }
 
         btnAtualizar.setText("Atualizar Lista");
@@ -307,7 +305,6 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
                         model.addRow(new Object[]{
                             user.getId(),
                             user.getNome(),
-                            user.getPermissao()
                         });
                     }       
                     break;
@@ -324,7 +321,6 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
                         model.addRow(new Object[]{
                             user.getId(),
                             user.getNome(),
-                            user.getPermissao()
                         });
                     }       
                     break;
@@ -359,7 +355,6 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
             model.addRow(new Object[]{
                 user.getId(),
                 user.getNome(),
-                user.getPermissao()
             });
         }
     }
@@ -380,7 +375,6 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
                             model.addRow(new Object[]{
                                 user.getId(),
                                 user.getNome(),
-                                user.getPermissao()
                             });
                         }       
                         break;
@@ -397,7 +391,6 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
                             model.addRow(new Object[]{
                                 user.getId(),
                                 user.getNome(),
-                                user.getPermissao()
                             });
                         }       
                         break;
@@ -414,7 +407,6 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
             model.addRow(new Object[]{
                 user.getId(),
                 user.getNome(),
-                user.getPermissao()
             });
         }
     }   

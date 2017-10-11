@@ -45,12 +45,12 @@ public class  ConnectionFactory {
     }
     
     //Encerrando a conexao e o prepare statement
-     public static void encerrarConexao(Connection conec, PreparedStatement stm){
+     public static void encerrarConexao(Connection conec, PreparedStatement pstm){
        encerrarConexao(conec);
        
        try{
-            if(stm!=null){
-            stm.close();
+            if(pstm!=null){
+            pstm.close();
             }
        }catch(SQLException ex){
            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null,ex);
@@ -58,8 +58,8 @@ public class  ConnectionFactory {
     }
     
      ////Encerrando a conexao e o prepare statement e o resultSet
-    public static void encerrarConexao(Connection conec, PreparedStatement stm, ResultSet result){
-        encerrarConexao(conec,stm);
+    public static void encerrarConexao(Connection conec, PreparedStatement pstm, ResultSet result){
+        encerrarConexao(conec,pstm);
          try{
              if(result!=null){
                  result.close();
@@ -79,5 +79,17 @@ public class  ConnectionFactory {
          }catch(SQLException ex){
             Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null,ex);
          }
+    }
+    //encerrar conection e o statement
+    public static void encerrarConexao(Connection conec, Statement stm){
+       encerrarConexao(conec);
+       
+       try{
+            if(stm!=null){
+            stm.close();
+            }
+       }catch(SQLException ex){
+           Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null,ex);
+       }
     }
 }

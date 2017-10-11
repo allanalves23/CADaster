@@ -8,7 +8,6 @@ public class UserBean {
     private int id;
     private String nome;
     private String senha;
-    private String permissao;
 
     public int getId() {
         return id;
@@ -33,14 +32,5 @@ public class UserBean {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-    public String getPermissao() {
-        return permissao;
-    }
-
-    public void setPermissao(String permissao) {
-        this.permissao = permissao;
-    }
-    
     
 }

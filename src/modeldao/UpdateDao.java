@@ -18,18 +18,18 @@ import javax.swing.JOptionPane;
 public class UpdateDao {
     
     public boolean updateUser(String SQL,String login,int id){ //Update somente do login
+        Connection conn = ConnectionFactory.conexao();
+        PreparedStatement pstm;
         try {
-            Connection conn = ConnectionFactory.conexao();
-            PreparedStatement pstm = conn.prepareStatement(SQL);
+            pstm = conn.prepareStatement(SQL);
             pstm.setString(1, login);
             pstm.setInt(2, id);
             pstm.execute();
-            pstm.close();
-            conn.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro de conexao com o banco "+ex.getMessage());
             return false;
         }
+        ConnectionFactory.encerrarConexao(conn, pstm);
         return true;
     }
     

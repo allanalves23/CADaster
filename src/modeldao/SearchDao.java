@@ -37,8 +37,6 @@ public class SearchDao {
                     UserBean usuario = new UserBean();
                     usuario.setId(rs.getInt("id"));
                     usuario.setNome(rs.getString("login"));
-                    usuario.setPermissao(rs.getString("permissao"));
-                    
                     listUsers.add(usuario);
                 
             }
@@ -62,8 +60,6 @@ public class SearchDao {
                 UserBean usuario = new UserBean();
                 usuario.setId(rs.getInt("id"));
                 usuario.setNome(rs.getString("login"));
-                usuario.setPermissao(rs.getString("permissao"));
-                
                 listUsers.add(usuario);
             }
             ConnectionFactory.encerrarConexao(conn, pstm, rs);
@@ -87,8 +83,6 @@ public class SearchDao {
                 UserBean usuario = new UserBean();
                 usuario.setId(rs.getInt("id"));
                 usuario.setNome(rs.getString("login"));
-                usuario.setPermissao(rs.getString("permissao"));
-                
                 listUsers.add(usuario);
             }
             ConnectionFactory.encerrarConexao(conn, pstm, rs);

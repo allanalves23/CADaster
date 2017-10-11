@@ -2,6 +2,7 @@ package view;
 
 import java.awt.CardLayout;
 import javax.swing.JFrame;
+import modeldao.CreateDao;
 
 /**
  *
@@ -26,6 +27,7 @@ public final class GerenciaBanco extends javax.swing.JFrame {
     
     public GerenciaBanco() {
         initComponents();
+        
     }
 
     /**
@@ -38,122 +40,30 @@ public final class GerenciaBanco extends javax.swing.JFrame {
     private void initComponents() {
 
         fundo = new javax.swing.JPanel();
-        panelEndereco = new javax.swing.JPanel();
-        lblEndereco = new javax.swing.JLabel();
-        campoEndereco = new javax.swing.JTextField();
-        lblLogin = new javax.swing.JLabel();
-        lblSenha = new javax.swing.JLabel();
-        campoLogin = new javax.swing.JTextField();
-        campoSenha = new javax.swing.JPasswordField();
-        lblinfo3 = new javax.swing.JLabel();
-        lblinfo1 = new javax.swing.JLabel();
-        lblinfo2 = new javax.swing.JLabel();
-        btnConfirmar = new javax.swing.JButton();
-        btnRedirect = new javax.swing.JButton();
         panelEstabilidade = new javax.swing.JPanel();
         panelAddTables = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        checkUserTable = new javax.swing.JCheckBox();
+        checkStudentTable = new javax.swing.JCheckBox();
+        checkJobTable = new javax.swing.JCheckBox();
+        lblInfo = new javax.swing.JLabel();
+        btnCriar = new javax.swing.JButton();
         jInternalFrame1 = new javax.swing.JInternalFrame();
-        jPanel1 = new javax.swing.JPanel();
+        fundoAreaTexto = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         areaTexto = new javax.swing.JTextPane();
         tipoTabela = new javax.swing.JComboBox<>();
         panelVerifyTables = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         servidor = new javax.swing.JMenu();
-        btnEndereco = new javax.swing.JMenuItem();
         btnEstabilidade = new javax.swing.JMenuItem();
         btnTabelas = new javax.swing.JMenu();
         btnVerificarTables = new javax.swing.JMenuItem();
         btnShowTables = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("CADaster - Gerenciar Base de Dados");
 
         fundo.setLayout(new java.awt.CardLayout());
-
-        lblEndereco.setText("Endereco Banco MYSQL");
-
-        campoEndereco.setText("jdbc:mysql://localhost:3306/school");
-
-        lblLogin.setText("Login");
-
-        lblSenha.setText("Senha");
-
-        campoLogin.setText("ex: root");
-
-        lblinfo3.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
-        lblinfo3.setText("* Se não tiver senha, deixe o campo em branco");
-
-        lblinfo1.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
-        lblinfo1.setText("* Dúvidas? consulte a documentação");
-
-        lblinfo2.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
-        lblinfo2.setText("* Login com o banco mysql");
-
-        btnConfirmar.setText("Confirmar");
-
-        btnRedirect.setText("Documentação");
-
-        javax.swing.GroupLayout panelEnderecoLayout = new javax.swing.GroupLayout(panelEndereco);
-        panelEndereco.setLayout(panelEnderecoLayout);
-        panelEnderecoLayout.setHorizontalGroup(
-            panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEnderecoLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblSenha)
-                    .addComponent(lblLogin)
-                    .addComponent(lblEndereco))
-                .addGap(18, 18, 18)
-                .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelEnderecoLayout.createSequentialGroup()
-                        .addComponent(btnRedirect)
-                        .addGap(41, 41, 41)
-                        .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelEnderecoLayout.createSequentialGroup()
-                        .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(lblinfo1))
-                    .addGroup(panelEnderecoLayout.createSequentialGroup()
-                        .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblinfo2)
-                            .addComponent(lblinfo3))))
-                .addContainerGap(112, Short.MAX_VALUE))
-        );
-        panelEnderecoLayout.setVerticalGroup(
-            panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEnderecoLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEndereco)
-                    .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblinfo1))
-                .addGap(27, 27, 27)
-                .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLogin)
-                    .addComponent(campoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblinfo2))
-                .addGap(28, 28, 28)
-                .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSenha)
-                    .addComponent(lblinfo3))
-                .addGap(54, 54, 54)
-                .addGroup(panelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConfirmar)
-                    .addComponent(btnRedirect))
-                .addContainerGap(197, Short.MAX_VALUE))
-        );
-
-        fundo.add(panelEndereco, "endereco");
 
         javax.swing.GroupLayout panelEstabilidadeLayout = new javax.swing.GroupLayout(panelEstabilidade);
         panelEstabilidade.setLayout(panelEstabilidadeLayout);
@@ -168,42 +78,56 @@ public final class GerenciaBanco extends javax.swing.JFrame {
 
         fundo.add(panelEstabilidade, "estabilidade");
 
-        jCheckBox1.setText("Criar Tabela de usuarios");
+        checkUserTable.setText("Criar Tabela de usuarios");
 
-        jCheckBox2.setText("Criar Tabela de alunos");
+        checkStudentTable.setText("Criar Tabela de alunos");
 
-        jCheckBox3.setText("Criar Tabela de Funcionários");
+        checkJobTable.setText("Criar Tabela de Funcionários");
 
-        jLabel1.setText("* Ao confirmar a criação da tabela os registros atuais são sobrescritos, é recomendado a utilização desta ferramenta somente uma vez");
+        lblInfo.setText("* Ao confirmar a criação da tabela os registros atuais são sobrescritos, é recomendado a utilização desta ferramenta somente uma vez");
 
-        jButton1.setText("Criar");
+        btnCriar.setText("Criar");
+        btnCriar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCriarActionPerformed(evt);
+            }
+        });
 
+        jInternalFrame1.setTitle("Estrutura das Tabelas");
         jInternalFrame1.setVisible(true);
 
+        areaTexto.setEditable(false);
+        areaTexto.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        areaTexto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(areaTexto);
 
         tipoTabela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Aluno", "Funcionario" }));
+        tipoTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoTabelaActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout fundoAreaTextoLayout = new javax.swing.GroupLayout(fundoAreaTexto);
+        fundoAreaTexto.setLayout(fundoAreaTextoLayout);
+        fundoAreaTextoLayout.setHorizontalGroup(
+            fundoAreaTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fundoAreaTextoLayout.createSequentialGroup()
+                .addGroup(fundoAreaTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fundoAreaTextoLayout.createSequentialGroup()
                         .addGap(131, 131, 131)
-                        .addComponent(tipoTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                        .addComponent(tipoTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fundoAreaTextoLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        fundoAreaTextoLayout.setVerticalGroup(
+            fundoAreaTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fundoAreaTextoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tipoTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -212,11 +136,11 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
         jInternalFrame1Layout.setHorizontalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(fundoAreaTexto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(fundoAreaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout panelAddTablesLayout = new javax.swing.GroupLayout(panelAddTables);
@@ -227,17 +151,17 @@ public final class GerenciaBanco extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(panelAddTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAddTablesLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(lblInfo)
                         .addContainerGap(37, Short.MAX_VALUE))
                     .addGroup(panelAddTablesLayout.createSequentialGroup()
                         .addGroup(panelAddTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelAddTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jCheckBox3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(checkJobTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(checkStudentTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(checkUserTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(panelAddTablesLayout.createSequentialGroup()
                                 .addGap(36, 36, 36)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46))))
@@ -248,22 +172,22 @@ public final class GerenciaBanco extends javax.swing.JFrame {
                 .addGroup(panelAddTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAddTablesLayout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(jCheckBox1)
+                        .addComponent(checkUserTable)
                         .addGap(18, 18, 18)
-                        .addComponent(jCheckBox2)
+                        .addComponent(checkStudentTable)
                         .addGap(18, 18, 18)
-                        .addComponent(jCheckBox3)
+                        .addComponent(checkJobTable)
                         .addGap(88, 88, 88)
-                        .addComponent(jButton1))
+                        .addComponent(btnCriar))
                     .addGroup(panelAddTablesLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(lblInfo)
                 .addContainerGap())
         );
 
-        fundo.add(panelAddTables, "card4");
+        fundo.add(panelAddTables, "addTables");
 
         javax.swing.GroupLayout panelVerifyTablesLayout = new javax.swing.GroupLayout(panelVerifyTables);
         panelVerifyTables.setLayout(panelVerifyTablesLayout);
@@ -279,14 +203,6 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         fundo.add(panelVerifyTables, "card5");
 
         servidor.setText("Servidor");
-
-        btnEndereco.setText("Endereço/Login");
-        btnEndereco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnderecoActionPerformed(evt);
-            }
-        });
-        servidor.add(btnEndereco);
 
         btnEstabilidade.setText("Verificar Estabilidade");
         btnEstabilidade.addActionListener(new java.awt.event.ActionListener() {
@@ -304,6 +220,11 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         btnTabelas.add(btnVerificarTables);
 
         btnShowTables.setText("Gerenciar tabelas");
+        btnShowTables.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowTablesActionPerformed(evt);
+            }
+        });
         btnTabelas.add(btnShowTables);
 
         jMenuBar1.add(btnTabelas);
@@ -318,21 +239,44 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+            .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnderecoActionPerformed
-       CardLayout endereco = (CardLayout) fundo.getLayout();
-       endereco.show(fundo, "endereco");
-    }//GEN-LAST:event_btnEnderecoActionPerformed
-
     private void btnEstabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstabilidadeActionPerformed
         CardLayout estabilidade = (CardLayout) fundo.getLayout();
         estabilidade.show(fundo, "estabilidade");
     }//GEN-LAST:event_btnEstabilidadeActionPerformed
+
+    private void tipoTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoTabelaActionPerformed
+        if(tipoTabela.getSelectedItem().toString().equals("Usuario")){
+            areaTexto.setText("Estrutura da tabela | ID / Login / Senha");
+        }else if(tipoTabela.getSelectedItem().toString().equals("Aluno")){
+            areaTexto.setText("Estrutura da tabela | Matricula / Nome / CPF / Data de Nascimento / Endereco / Bairro"
+                    + "/ Nome mãe / Nome Pai / Responsável/ Transferência / anoTecnico / anoPrimario / anoGinasio / anoEnsinoMedio "
+                    + "/ Curso / Bolsa ");
+        }else if(tipoTabela.getSelectedItem().toString().equals("Funcionario")){
+            areaTexto.setText("A realizar");
+        }
+    }//GEN-LAST:event_tipoTabelaActionPerformed
+
+    private void btnShowTablesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowTablesActionPerformed
+        CardLayout addTables = (CardLayout) fundo.getLayout();
+        addTables.show(fundo, "addTables");
+        areaTexto.setText("Estrutura da tabela | ID / Login / Senha");
+    }//GEN-LAST:event_btnShowTablesActionPerformed
+
+    private void btnCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarActionPerformed
+        if(checkStudentTable.isSelected()){
+            CreateDao.createTableStudent();
+        }
+        
+        if(checkUserTable.isSelected()){
+            CreateDao.createTableUser();
+        }
+    }//GEN-LAST:event_btnCriarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -371,34 +315,21 @@ public final class GerenciaBanco extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextPane areaTexto;
-    private javax.swing.JButton btnConfirmar;
-    private javax.swing.JMenuItem btnEndereco;
+    private javax.swing.JButton btnCriar;
     private javax.swing.JMenuItem btnEstabilidade;
-    private javax.swing.JButton btnRedirect;
     private javax.swing.JMenuItem btnShowTables;
     private javax.swing.JMenu btnTabelas;
     private javax.swing.JMenuItem btnVerificarTables;
-    private javax.swing.JTextField campoEndereco;
-    private javax.swing.JTextField campoLogin;
-    private javax.swing.JPasswordField campoSenha;
+    private javax.swing.JCheckBox checkJobTable;
+    private javax.swing.JCheckBox checkStudentTable;
+    private javax.swing.JCheckBox checkUserTable;
     private javax.swing.JPanel fundo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JPanel fundoAreaTexto;
     private javax.swing.JInternalFrame jInternalFrame1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblEndereco;
-    private javax.swing.JLabel lblLogin;
-    private javax.swing.JLabel lblSenha;
-    private javax.swing.JLabel lblinfo1;
-    private javax.swing.JLabel lblinfo2;
-    private javax.swing.JLabel lblinfo3;
+    private javax.swing.JLabel lblInfo;
     private javax.swing.JPanel panelAddTables;
-    private javax.swing.JPanel panelEndereco;
     private javax.swing.JPanel panelEstabilidade;
     private javax.swing.JPanel panelVerifyTables;
     private javax.swing.JMenu servidor;

@@ -53,8 +53,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         btnCadastrar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         campoNome = new javax.swing.JTextField();
-        lblTipo = new javax.swing.JLabel();
-        cadTipofunc = new javax.swing.JComboBox<>();
         areaTexto = new javax.swing.JPanel();
         descTexto = new javax.swing.JScrollPane();
         textArea = new javax.swing.JTextArea();
@@ -93,20 +91,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
-            }
-        });
-
-        lblTipo.setText("Tipo");
-
-        cadTipofunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Comum", "Funcionario", "Administrador" }));
-        cadTipofunc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadTipofuncActionPerformed(evt);
-            }
-        });
-        cadTipofunc.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                cadTipofuncKeyPressed(evt);
             }
         });
 
@@ -155,21 +139,15 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             .addGroup(fundoLayout.createSequentialGroup()
                 .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fundoLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
                         .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(fundoLayout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblLogin)
-                                    .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblSenha)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblSenha2)
-                                    .addComponent(campoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                    .addComponent(campoSenha2, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                    .addComponent(lblTipo)
-                                    .addComponent(cadTipofunc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(lblSenha)
+                            .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblSenha2)
+                                .addComponent(campoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                .addComponent(campoSenha2, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+                            .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblLogin))
                         .addGap(90, 90, 90)
                         .addComponent(areaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(fundoLayout.createSequentialGroup()
@@ -185,6 +163,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                 .addGap(42, 42, 42)
                 .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
                         .addComponent(lblLogin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,10 +175,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                         .addComponent(lblSenha2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(campoSenha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblTipo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cadTipofunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnSair)
@@ -207,7 +182,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                         .addGap(64, 64, 64))
                     .addGroup(fundoLayout.createSequentialGroup()
                         .addComponent(areaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(52, Short.MAX_VALUE))))
+                        .addContainerGap(54, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -237,60 +212,24 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             InsertDao insert = new InsertDao(); //DAO criado
             dados.setNome(campoNome.getText());
             dados.setSenha(new String(campoSenha.getPassword()));
-            dados.setPermissao(cadTipofunc.getSelectedItem().toString());
-            
             insert.criarUser(dados); //Comando para inserção dos dados
         }
         campoNome.setText("");
         campoSenha.setText("");
         campoSenha2.setText("");
-        cadTipofunc.setSelectedItem("Selecione");
         //Reseta os campos ao terminar de inserir um registro
     }//GEN-LAST:event_btnCadastrarActionPerformed
     //fechar a tela
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         dispose();
-        
     }//GEN-LAST:event_btnSairActionPerformed
-    //Metodo para imprimir uma descrição da categoria conforme o combox
-    private void cadTipofuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadTipofuncActionPerformed
-        switch(cadTipofunc.getSelectedItem().toString()){
-            case "Comum":
-                textArea.setText("Cadastro do tipo 'Comum' retém permissões "
-                        + "de acesso de somente aos alunos do sistema, não possui "
-                        + "qualquer tipo de acesso a alterações aos registros de "
-                        + "qualquer setor. Somente usuários do tipo funcionário "
-                        + "e administrador podem registrar usuários do tipo "
-                        + "'Comum'");
-                break;
-            case "Funcionario":
-                textArea.setText("Cadastro do tipo 'Funcionario' retém permissões "
-                        + "de acesso à registros de alunos e usuários do sistema.\n"
-                        + "Possui Capacidade de alterar registros de usuários do "
-                        + "tipo 'Usuario' e de alunos do sistema. Não possui "
-                        + "capacidade de visualizar outros funcionários do sistema "
-                        + "e também não consegue deletar cadastros de alunos, somente "
-                        + "de usuários do tipo 'Usuario'");
-                break;
-            case "Administrador":
-                textArea.setText("Cadastro do tipo 'Administrador' retém todas as "
-                        + "permissões de gerenciamento do sistema.\n"
-                        + "Remoção de todos os registros de todos os setores, "
-                        + "alteração e inserção.");
-                break;
-           default:
-               textArea.setText("Nenhum tipo de usuário selecionado");
-                
-                
-        }
-        
-    }//GEN-LAST:event_cadTipofuncActionPerformed
-    //Metodo para imprimir um "sobre"
+
+   //Metodo para imprimir um "sobre"
     private void btnSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSobreActionPerformed
         textArea.setText("O cadastro de usuario é referênte a adição de Logins "
-        +"ao sistema, cada usuario terá um nível de privilégio ao ser adicionado.\n "
-        +"Selecione os tipos de cadastros existêntes para uma breve explicação."
-        +"Mais detalhes consulte a documentação");
+        +"ao sistema, este usuário terá a capacidade de realizar qualquer configuração dentro do programa."
+                + "Tais como adicionar e remover usuários, alunos e funcionários. Também pesquisar qualquer tipo de registro"
+                + " e também poderá consultar as tabelas e visualizar suas configurações.");
     }//GEN-LAST:event_btnSobreActionPerformed
 
     private void btnCadastrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrarKeyPressed
@@ -309,41 +248,14 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                 InsertDao insert = new InsertDao(); //DAO criado
                 dados.setNome(campoNome.getText());
                 dados.setSenha(new String(campoSenha.getPassword()));
-                dados.setPermissao(cadTipofunc.getSelectedItem().toString());
-
                 insert.criarUser(dados); //Comando para inserção dos dados
             }
             campoNome.setText("");
             campoSenha.setText("");
             campoSenha2.setText("");
-            cadTipofunc.setSelectedItem("Selecione");
             //Reseta os campos ao terminar de inserir um registro
         }
     }//GEN-LAST:event_campoSenha2KeyPressed
-
-    private void cadTipofuncKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cadTipofuncKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            if(!(Arrays.toString(campoSenha.getPassword()).equals(Arrays.toString(campoSenha2.getPassword())))){
-                JOptionPane.showMessageDialog(null, "As senhas não conferem\nDigite novamente");
-            }else if(campoNome.getText().equals("") || Arrays.toString(campoSenha.getPassword()).equals("")){
-                JOptionPane.showMessageDialog(null, "Um ou mais campos estão em branco");
-            }else{
-                UserBean dados = new UserBean();//Recebe os dados do formulario e
-                //passa para o DAO
-                InsertDao insert = new InsertDao(); //DAO criado
-                dados.setNome(campoNome.getText());
-                dados.setSenha(new String(campoSenha.getPassword()));
-                dados.setPermissao(cadTipofunc.getSelectedItem().toString());
-
-                insert.criarUser(dados); //Comando para inserção dos dados
-            }
-            campoNome.setText("");
-            campoSenha.setText("");
-            campoSenha2.setText("");
-            cadTipofunc.setSelectedItem("Selecione");
-            //Reseta os campos ao terminar de inserir um registro
-        }
-    }//GEN-LAST:event_cadTipofuncKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -351,7 +263,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnSobre;
-    private javax.swing.JComboBox<String> cadTipofunc;
     private javax.swing.JTextField campoNome;
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JPasswordField campoSenha2;
@@ -360,7 +271,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblSenha2;
-    private javax.swing.JLabel lblTipo;
     private javax.swing.ButtonGroup sexo;
     private javax.swing.JTextArea textArea;
     // End of variables declaration//GEN-END:variables
