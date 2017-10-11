@@ -352,7 +352,7 @@ public class RemoveUser extends javax.swing.JInternalFrame {
     private javax.swing.JTextField nomeCampo;
     private javax.swing.JPanel panelBuscauser;
     private javax.swing.JTable tabelaUsuarios;
-    private java.util.List<view.Usuario> usuarioList;
+    private java.util.List<utilitarios.Usuario> usuarioList;
     private javax.persistence.Query usuarioQuery;
     // End of variables declaration//GEN-END:variables
 }

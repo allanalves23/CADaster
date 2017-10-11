@@ -1,5 +1,10 @@
 package view;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import modelbean.StudentBean;
+import modeldao.SearchDao;
+
 /**
  *
  * @author allan
@@ -34,18 +39,22 @@ public class TelaPesqAluno extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupoTipoPesquisa = new javax.swing.ButtonGroup();
         fundo = new javax.swing.JPanel();
         campos = new javax.swing.JPanel();
-        grauAluno = new javax.swing.JComboBox<>();
+        tipoGrauAluno = new javax.swing.JComboBox<>();
         lblGraualyno = new javax.swing.JLabel();
-        lblMatricula = new javax.swing.JLabel();
         btnConfirma = new javax.swing.JButton();
-        lblNome = new javax.swing.JLabel();
-        campoNome = new javax.swing.JTextField();
-        lblCPF = new javax.swing.JLabel();
-        campoCPF = new javax.swing.JFormattedTextField();
-        campoMatricula = new javax.swing.JFormattedTextField();
+        lblBusca = new javax.swing.JLabel();
+        campoBusca = new javax.swing.JFormattedTextField();
         btnSair = new javax.swing.JButton();
+        radioBtnMatricula = new javax.swing.JRadioButton();
+        radioBtnNome = new javax.swing.JRadioButton();
+        radioBtnCPF = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
+        radioBtnTodos = new javax.swing.JRadioButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaStudent = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -58,26 +67,21 @@ public class TelaPesqAluno extends javax.swing.JInternalFrame {
 
         campos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Aluno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
-        grauAluno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Primario", "Ginasio", "Medio", "Tecnico" }));
+        tipoGrauAluno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Primario", "Ginasio", "Ensino Medio", "Tecnico" }));
 
         lblGraualyno.setText("Grau do aluno");
 
-        lblMatricula.setText("Matricula");
-
         btnConfirma.setText("Confirmar");
+        btnConfirma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmaActionPerformed(evt);
+            }
+        });
 
-        lblNome.setText("Nome");
-
-        lblCPF.setText("CPF");
-
-        try {
-            campoCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###.##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        lblBusca.setText("Matricula");
 
         try {
-            campoMatricula.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-###-####")));
+            campoBusca.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-###-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -89,27 +93,67 @@ public class TelaPesqAluno extends javax.swing.JInternalFrame {
             }
         });
 
+        grupoTipoPesquisa.add(radioBtnMatricula);
+        radioBtnMatricula.setText("Matricula");
+        radioBtnMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioBtnMatriculaActionPerformed(evt);
+            }
+        });
+
+        grupoTipoPesquisa.add(radioBtnNome);
+        radioBtnNome.setText("Nome");
+        radioBtnNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioBtnNomeActionPerformed(evt);
+            }
+        });
+
+        grupoTipoPesquisa.add(radioBtnCPF);
+        radioBtnCPF.setText("CPF");
+        radioBtnCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioBtnCPFActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Tipo de pesquisa");
+
+        grupoTipoPesquisa.add(radioBtnTodos);
+        radioBtnTodos.setText("Todos");
+        radioBtnTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioBtnTodosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout camposLayout = new javax.swing.GroupLayout(campos);
         campos.setLayout(camposLayout);
         camposLayout.setHorizontalGroup(
             camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, camposLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
+            .addGroup(camposLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(btnConfirma)
-                .addGap(22, 22, 22))
+                .addGap(23, 23, 23))
             .addGroup(camposLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblGraualyno)
-                    .addComponent(lblMatricula)
-                    .addComponent(lblNome)
-                    .addComponent(campoNome)
-                    .addComponent(lblCPF)
-                    .addComponent(campoCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                    .addComponent(campoMatricula)
-                    .addComponent(grauAluno, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblGraualyno)
+                        .addComponent(lblBusca)
+                        .addComponent(campoBusca, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                        .addComponent(tipoGrauAluno, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addGroup(camposLayout.createSequentialGroup()
+                        .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(radioBtnTodos)
+                            .addComponent(radioBtnMatricula))
+                        .addGap(36, 36, 36)
+                        .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(radioBtnNome)
+                            .addComponent(radioBtnCPF))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         camposLayout.setVerticalGroup(
@@ -118,25 +162,51 @@ public class TelaPesqAluno extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblGraualyno)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(grauAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(lblMatricula)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(lblNome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(lblCPF)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addComponent(tipoGrauAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConfirma)
-                    .addComponent(btnSair))
-                .addGap(23, 23, 23))
+                    .addComponent(radioBtnMatricula)
+                    .addComponent(radioBtnNome))
+                .addGap(13, 13, 13)
+                .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(radioBtnTodos)
+                    .addComponent(radioBtnCPF))
+                .addGap(49, 49, 49)
+                .addComponent(lblBusca)
+                .addGap(18, 18, 18)
+                .addComponent(campoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSair)
+                    .addComponent(btnConfirma))
+                .addGap(49, 49, 49))
         );
+
+        tabelaStudent.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Matricula", "Nome", "CPF", "Data de Nascimento", "CEP", "Endereco", "Bairro", "Responsável", "Nome do Mãe", "Nome da Pai", "Grau", "Ano"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelaStudent.setAutoscrolls(false);
+        tabelaStudent.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tabelaStudent.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tabelaStudent);
 
         javax.swing.GroupLayout fundoLayout = new javax.swing.GroupLayout(fundo);
         fundo.setLayout(fundoLayout);
@@ -145,13 +215,17 @@ public class TelaPesqAluno extends javax.swing.JInternalFrame {
             .addGroup(fundoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(campos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(556, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+                .addContainerGap())
         );
         fundoLayout.setVerticalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(campos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(campos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -168,10 +242,6 @@ public class TelaPesqAluno extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    //fecha a tela
-    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnSairActionPerformed
 
     /* Metodo para definir a posicao fixa do JinternalFrame (Aplicavel 
     em janelas que estao como default Maximizaveis
@@ -180,19 +250,115 @@ public class TelaPesqAluno extends javax.swing.JInternalFrame {
         this.setLocation(0, 0);
     }//GEN-LAST:event_formComponentMoved
 
+    //fecha a tela
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmaActionPerformed
+        String parametroGrau="";
+        String parametroTipo = "";
+        if(!tipoGrauAluno.getSelectedItem().toString().equals("Selecione")){
+            switch(tipoGrauAluno.getSelectedItem().toString()){
+                case "Primario":
+                parametroGrau="anoPrimario";
+                break;
+                case "Ginasio":
+                parametroGrau="anoGinasio";
+                break;
+                case "Ensino Medio":
+                parametroGrau="anoEM";
+                break;
+                case "Tecnico":
+                parametroGrau="anoTecnico";
+                break;
+            }
+        }
+        if(!(radioBtnCPF.isSelected() ||radioBtnNome.isSelected() || radioBtnMatricula.isSelected() || radioBtnTodos.isSelected())){
+            JOptionPane.showMessageDialog(null, "Selecione um método de busca!");
+        }
+
+       if(radioBtnCPF.isSelected()){
+           parametroTipo = "CPF";
+       }
+       if(radioBtnMatricula.isSelected()){
+           parametroTipo = "matricula";
+       }
+       if(radioBtnNome.isSelected()){
+           parametroTipo = "nome";
+       }
+       if(radioBtnTodos.isSelected()){
+          parametroTipo = "Todos";
+          DefaultTableModel model = (DefaultTableModel) tabelaStudent.getModel();
+          model.setNumRows(0);
+          SearchDao sd = new SearchDao();
+          for(StudentBean student : sd.procurarStudent(parametroGrau, parametroTipo)){
+              model.addRow(new Object[]{
+                student.getMatricula(),
+                student.getNome(),
+                student.getCPF(),
+                student.getDataNasc(),
+                student.getCEP(),
+                student.getEndereco(),
+                student.getBairro(),
+                student.getResponsavel(),
+                student.getNomeMae(),
+                student.getNomePai(),
+                student.getGrau(),
+                student.getAno()
+              });
+          }
+       }
+       
+       
+    }//GEN-LAST:event_btnConfirmaActionPerformed
+
+    private void radioBtnMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBtnMatriculaActionPerformed
+        lblBusca.setText("Matricula");
+        try {
+            campoBusca.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-###-####")));
+        } catch (java.text.ParseException ex) {
+        }
+    }//GEN-LAST:event_radioBtnMatriculaActionPerformed
+
+    private void radioBtnNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBtnNomeActionPerformed
+        lblBusca.setText("Nome");
+        try {
+            campoBusca.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
+        } catch (java.text.ParseException ex) {
+        }
+    }//GEN-LAST:event_radioBtnNomeActionPerformed
+
+    private void radioBtnCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBtnCPFActionPerformed
+        lblBusca.setText("CPF");
+        try {
+            campoBusca.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+        }
+    }//GEN-LAST:event_radioBtnCPFActionPerformed
+
+    private void radioBtnTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBtnTodosActionPerformed
+        lblBusca.setText("Todos os alunos");
+        campoBusca.setEnabled(false);
+    }//GEN-LAST:event_radioBtnTodosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirma;
     private javax.swing.JButton btnSair;
-    private javax.swing.JFormattedTextField campoCPF;
-    private javax.swing.JFormattedTextField campoMatricula;
-    private javax.swing.JTextField campoNome;
+    private javax.swing.JFormattedTextField campoBusca;
     private javax.swing.JPanel campos;
     private javax.swing.JPanel fundo;
-    private javax.swing.JComboBox<String> grauAluno;
-    private javax.swing.JLabel lblCPF;
+    private javax.swing.ButtonGroup grupoTipoPesquisa;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblBusca;
     private javax.swing.JLabel lblGraualyno;
-    private javax.swing.JLabel lblMatricula;
-    private javax.swing.JLabel lblNome;
+    private javax.swing.JRadioButton radioBtnCPF;
+    private javax.swing.JRadioButton radioBtnMatricula;
+    private javax.swing.JRadioButton radioBtnNome;
+    private javax.swing.JRadioButton radioBtnTodos;
+    private javax.swing.JTable tabelaStudent;
+    private javax.swing.JComboBox<String> tipoGrauAluno;
     // End of variables declaration//GEN-END:variables
 }

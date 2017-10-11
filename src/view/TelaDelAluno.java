@@ -295,7 +295,7 @@ public class TelaDelAluno extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNome;
     private javax.swing.JTable tabelaStudents;
-    private java.util.List<view.Usuario> usuarioList;
+    private java.util.List<utilitarios.Usuario> usuarioList;
     private javax.persistence.Query usuarioQuery;
     // End of variables declaration//GEN-END:variables
 }

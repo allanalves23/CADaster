@@ -4,11 +4,9 @@ package utilitarios;
  *
  * @author allan
  */
-import java.awt.Dimension;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
-import view.GerenciaBanco;
 
 public class UmaJanelaApenas {
 
@@ -25,14 +23,11 @@ public class UmaJanelaApenas {
             janela.requestFocus();
         }else{
             if(size){
-                Dimension res = fundo.getSize();
-                janela.setSize(res);
-                fundo.add(janela);
-                janela.setVisible(true);
-            }else{
-                fundo.add(janela);
-                janela.setVisible(true);
+                janela.setMaximizable(true);
             }
+            fundo.add(janela);
+            janela.setVisible(true);
+            
         }
     }
     

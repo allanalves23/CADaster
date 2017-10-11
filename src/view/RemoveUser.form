@@ -22,7 +22,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;view.Usuario&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;utilitarios.Usuario&gt;"/>
       </AuxValues>
     </Component>
   </NonVisualComponents>
