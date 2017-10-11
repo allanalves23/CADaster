@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.CardLayout;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import modeldao.CreateDao;
 
@@ -27,9 +29,13 @@ public final class GerenciaBanco extends javax.swing.JFrame {
     
     public GerenciaBanco() {
         initComponents();
-        
+        setIcon();
     }
-
+    //muda o icone do jInternalFrame
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens/LogoFrame.png")));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

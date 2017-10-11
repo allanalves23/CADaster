@@ -2,6 +2,7 @@ package view;
 
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelbean.UserBean;
 import modeldao.InsertDao;
@@ -31,7 +32,12 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     
     public TelaCadastro() {
         initComponents();
-        
+        setIcon();
+    }
+    
+    //muda o icone do jInternalFrame
+    private void setIcon() {
+        setFrameIcon(new ImageIcon(this.getClass().getResource("/imagens/LogoFrame.png")));
     }
     
     /**

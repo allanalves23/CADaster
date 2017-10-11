@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelbean.UserBean;
@@ -37,7 +38,13 @@ public class RemoveUser extends javax.swing.JInternalFrame {
     
     public RemoveUser(){
         initComponents();
+        setIcon();
         leituraTabela();
+    }
+    
+    //muda o icone do jInternalFrame
+    private void setIcon() {
+        setFrameIcon(new ImageIcon(this.getClass().getResource("/imagens/LogoFrame.png")));
     }
     
     /**
@@ -304,7 +311,7 @@ public class RemoveUser extends javax.swing.JInternalFrame {
     em janelas que estao como default Maximizaveis
     */
     private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
-        this.setLocation(0, 0);
+
     }//GEN-LAST:event_formComponentMoved
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed

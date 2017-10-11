@@ -1,7 +1,10 @@
 package view;
 
 import java.awt.CardLayout;
+import java.awt.Toolkit;
+import java.net.URL;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -14,7 +17,8 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
      */
     private static TelaProfessor tela;
     /*variavel estatica para verificar se existe mais de um objeto do mesmo
-    tipo aberto*/ 
+    tipo aberto*/
+    private URL url;
     
     public static TelaProfessor getAbrir(){
       if(tela==null){
@@ -26,6 +30,7 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
     }
     public TelaProfessor() {
         initComponents();
+        setIcon();
     }
 
     /**
@@ -482,12 +487,16 @@ public class TelaProfessor extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
+    //muda o icone do jInternalFrame
+    private void setIcon() {
+        setFrameIcon(new ImageIcon(this.getClass().getResource("/imagens/LogoFrame.png")));
+    }
     
     /* Metodo para definir a posicao fixa do JinternalFrame (Aplicavel 
     em janelas que estao como default Maximizaveis
     */
     private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
-        this.setLocation(0, 0);
+       
     }//GEN-LAST:event_formComponentMoved
     //fecha a tela
     private void btnVoltarmodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarmodActionPerformed

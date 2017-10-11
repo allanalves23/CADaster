@@ -6,6 +6,7 @@ import utilitarios.UmaJanelaApenas;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import java.awt.Graphics;
+import java.awt.Toolkit;
 
 /**
  *
@@ -26,6 +27,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     */
     public TelaPrincipal() {
         initComponents();
+        setIcon();
         this.setExtendedState(TelaPrincipal.MAXIMIZED_BOTH);
         this.setVisible(true);
         //Tela principal Maximizada
@@ -33,12 +35,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         login.setVisible(true);
         //Chamada da tela de login (JDialog)
         this.controle=new UmaJanelaApenas(fundo);
-        
-        
-                
-        
     }
-
+    
+   
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,6 +80,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CADaster - Gerenciamento Acadêmico [Build 0.2]");
+        setIconImages(null);
 
         fundo.setBackground(new java.awt.Color(230, 230, 248));
         fundo.setForeground(new java.awt.Color(1, 1, 1));
@@ -260,7 +261,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    //chamada do JDialog para o logout
+    
+
+//chamada do JDialog para o logout
+    
+    //muda o icone do programa
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens/LogoFrame.png")));
+    }
     
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         TelaLogin login = new TelaLogin(this, true); /*Chamada do objeto do tipo

@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.CardLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelbean.StudentBean;
 import modeldao.InsertDao;
@@ -30,9 +31,15 @@ public class TelaAddAluno extends javax.swing.JInternalFrame {
     }
     public TelaAddAluno() {
         initComponents();
+        setIcon();
         panelFundo.setVisible(false);
     }
-
+    
+    //muda o icone do jInternalFrame
+    private void setIcon() {
+        setFrameIcon(new ImageIcon(this.getClass().getResource("/imagens/LogoFrame.png")));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

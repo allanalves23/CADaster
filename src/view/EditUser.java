@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelbean.UserBean;
@@ -33,8 +34,14 @@ public class EditUser extends javax.swing.JInternalFrame {
     
     public EditUser() {
         initComponents();
+        setIcon();
     }
-
+    
+    //muda o icone do jInternalFrame
+    private void setIcon() {
+        setFrameIcon(new ImageIcon(this.getClass().getResource("/imagens/LogoFrame.png")));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
