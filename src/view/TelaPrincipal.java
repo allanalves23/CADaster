@@ -65,6 +65,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 g.drawImage(imagem, 0, 0, getWidth(), getHeight(), this);
             }
         };
+        jToolBar1 = new javax.swing.JToolBar();
+        addAluno = new javax.swing.JButton();
+        pesqAluno = new javax.swing.JButton();
         barraMenu = new javax.swing.JMenuBar();
         sistema = new javax.swing.JMenu();
         gerenciaBD = new javax.swing.JMenuItem();
@@ -101,6 +104,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         fundo.setBackground(new java.awt.Color(230, 230, 248));
         fundo.setForeground(new java.awt.Color(1, 1, 1));
+        fundo.setDesktopManager(null);
+        fundo.setInheritsPopupMenu(true);
+
+        jToolBar1.setFloatable(false);
+        jToolBar1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jToolBar1.setRollover(true);
+        jToolBar1.setName(""); // NOI18N
+        jToolBar1.setRequestFocusEnabled(false);
+
+        addAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Female.png"))); // NOI18N
+        addAluno.setText("Adicionar Aluno");
+        addAluno.setToolTipText("Adicionar um Aluno");
+        addAluno.setFocusable(false);
+        addAluno.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addAluno.setMaximumSize(new java.awt.Dimension(150, 60));
+        addAluno.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        addAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addAlunoActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(addAluno);
+
+        pesqAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Text preview.png"))); // NOI18N
+        pesqAluno.setText("Pesquisar Alunos");
+        pesqAluno.setToolTipText("Pesquise alunos");
+        pesqAluno.setFocusable(false);
+        pesqAluno.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pesqAluno.setMaximumSize(new java.awt.Dimension(150, 60));
+        pesqAluno.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(pesqAluno);
 
         sistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
         sistema.setText("Sistema");
@@ -325,11 +359,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+            .addComponent(fundo)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -426,13 +464,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         controle.abrirJanela(true,TelaAdministracao.getAbrir());
          //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_funcAdmActionPerformed
-
+    
+    //abre o frame para realizar a configuracao do banco
     private void gerenciaBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciaBDActionPerformed
         controle.abrirConfig(GerenciaBanco.getAbrir());
               
         
     }//GEN-LAST:event_gerenciaBDActionPerformed
-
+    
+    //carrega o tema Windows
     private void temaWindowsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_temaWindowsActionPerformed
          try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -447,6 +487,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         SwingUtilities.updateComponentTreeUI(this);
     }//GEN-LAST:event_temaWindowsActionPerformed
 
+    //carrega o tema Nimbus
     private void temaNimbusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_temaNimbusActionPerformed
          try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -461,6 +502,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         SwingUtilities.updateComponentTreeUI(this);
     }//GEN-LAST:event_temaNimbusActionPerformed
 
+    //carrega o tema Metal
     private void temaMetalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_temaMetalActionPerformed
          try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -476,6 +518,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_temaMetalActionPerformed
 
+    //carrega o tema ExperienceRoyale
     private void experienceRoyaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_experienceRoyaleActionPerformed
          try {
             PlasticLookAndFeel.setPlasticTheme(new ExperienceRoyale());
@@ -492,6 +535,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
          SwingUtilities.updateComponentTreeUI(this);
     }//GEN-LAST:event_experienceRoyaleActionPerformed
 
+    //carrega o tema Silver
     private void silverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_silverActionPerformed
         try {
             PlasticLookAndFeel.setPlasticTheme(new Silver());
@@ -508,6 +552,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
          SwingUtilities.updateComponentTreeUI(this);
     }//GEN-LAST:event_silverActionPerformed
 
+    //carrega o tema InvertedColor
     private void invertedColorThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invertedColorThemeActionPerformed
         try {
             PlasticLookAndFeel.setPlasticTheme(new InvertedColorTheme() {
@@ -525,6 +570,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
          SwingUtilities.updateComponentTreeUI(this);
     }//GEN-LAST:event_invertedColorThemeActionPerformed
 
+    //carrega o tema AbstractSky
     private void abstractSkyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abstractSkyActionPerformed
         try {
             PlasticLookAndFeel.setPlasticTheme(new AbstractSkyTheme() {
@@ -541,6 +587,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 }
          SwingUtilities.updateComponentTreeUI(this);
     }//GEN-LAST:event_abstractSkyActionPerformed
+
+    private void addAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAlunoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addAlunoActionPerformed
  
 
     /**
@@ -578,6 +628,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem about;
     private javax.swing.JMenuItem abstractSky;
+    private javax.swing.JButton addAluno;
     private javax.swing.JMenuItem addUser;
     private javax.swing.JMenuItem alunoAdd;
     private javax.swing.JMenuItem alunoDel;
@@ -595,7 +646,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane fundo;
     private javax.swing.JMenuItem gerenciaBD;
     private javax.swing.JMenuItem invertedColorTheme;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenuItem logout;
+    private javax.swing.JButton pesqAluno;
     private javax.swing.JMenuItem removeUser;
     private javax.swing.JMenuItem searchUser;
     private javax.swing.JMenuItem silver;
