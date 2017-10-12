@@ -1,12 +1,22 @@
 
 package view;
 
+import com.jgoodies.looks.plastic.PlasticLookAndFeel;
+import com.jgoodies.looks.plastic.theme.AbstractSkyTheme;
+import com.jgoodies.looks.plastic.theme.ExperienceRoyale;
+import com.jgoodies.looks.plastic.theme.InvertedColorTheme;
+import com.jgoodies.looks.plastic.theme.Silver;
 import javax.swing.JOptionPane;
 import utilitarios.UmaJanelaApenas;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import java.awt.Graphics;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -57,8 +67,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         };
         barraMenu = new javax.swing.JMenuBar();
         sistema = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        gerenciaBD = new javax.swing.JMenuItem();
+        temas = new javax.swing.JMenu();
+        temaWindows = new javax.swing.JMenuItem();
+        temaNimbus = new javax.swing.JMenuItem();
+        temaMetal = new javax.swing.JMenuItem();
+        experienceRoyale = new javax.swing.JMenuItem();
+        silver = new javax.swing.JMenuItem();
+        invertedColorTheme = new javax.swing.JMenuItem();
+        abstractSky = new javax.swing.JMenuItem();
         logout = new javax.swing.JMenuItem();
         exit = new javax.swing.JMenuItem();
         usuarios = new javax.swing.JMenu();
@@ -67,10 +84,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         editUser = new javax.swing.JMenuItem();
         searchUser = new javax.swing.JMenuItem();
         alunos = new javax.swing.JMenu();
+        alunoAdd = new javax.swing.JMenuItem();
+        alunoDel = new javax.swing.JMenuItem();
         alunoGeren = new javax.swing.JMenuItem();
         alunoPesq = new javax.swing.JMenuItem();
-        alunoDel = new javax.swing.JMenuItem();
-        alunoAdd = new javax.swing.JMenuItem();
         funcionarios = new javax.swing.JMenu();
         funcProf = new javax.swing.JMenuItem();
         funcAdm = new javax.swing.JMenuItem();
@@ -88,21 +105,75 @@ public class TelaPrincipal extends javax.swing.JFrame {
         sistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
         sistema.setText("Sistema");
 
-        jMenuItem1.setText("Gerencia Banco de dados");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        gerenciaBD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/bd.png"))); // NOI18N
+        gerenciaBD.setText("Gerencia Banco de dados");
+        gerenciaBD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                gerenciaBDActionPerformed(evt);
             }
         });
-        sistema.add(jMenuItem1);
+        sistema.add(gerenciaBD);
 
-        jMenuItem2.setText("Personalizar");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        temas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/tema.png"))); // NOI18N
+        temas.setText("Temas");
+
+        temaWindows.setText("Windows");
+        temaWindows.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                temaWindowsActionPerformed(evt);
             }
         });
-        sistema.add(jMenuItem2);
+        temas.add(temaWindows);
+
+        temaNimbus.setText("Nimbus");
+        temaNimbus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                temaNimbusActionPerformed(evt);
+            }
+        });
+        temas.add(temaNimbus);
+
+        temaMetal.setText("Metal");
+        temaMetal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                temaMetalActionPerformed(evt);
+            }
+        });
+        temas.add(temaMetal);
+
+        experienceRoyale.setText("Experience Royale");
+        experienceRoyale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                experienceRoyaleActionPerformed(evt);
+            }
+        });
+        temas.add(experienceRoyale);
+
+        silver.setText("Silver");
+        silver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                silverActionPerformed(evt);
+            }
+        });
+        temas.add(silver);
+
+        invertedColorTheme.setText("Cores Invertidas");
+        invertedColorTheme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                invertedColorThemeActionPerformed(evt);
+            }
+        });
+        temas.add(invertedColorTheme);
+
+        abstractSky.setText("Abstract Sky");
+        abstractSky.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                abstractSkyActionPerformed(evt);
+            }
+        });
+        temas.add(abstractSky);
+
+        sistema.add(temas);
 
         logout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
@@ -169,6 +240,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         alunos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/People.png"))); // NOI18N
         alunos.setText("Alunos");
 
+        alunoAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Female.png"))); // NOI18N
+        alunoAdd.setText("Adicionar");
+        alunoAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alunoAddActionPerformed(evt);
+            }
+        });
+        alunos.add(alunoAdd);
+
+        alunoDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
+        alunoDel.setText("Excluir");
+        alunoDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alunoDelActionPerformed(evt);
+            }
+        });
+        alunos.add(alunoDel);
+
         alunoGeren.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Notes.png"))); // NOI18N
         alunoGeren.setText("Gerenciar");
         alunoGeren.addActionListener(new java.awt.event.ActionListener() {
@@ -186,24 +275,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         alunos.add(alunoPesq);
-
-        alunoDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
-        alunoDel.setText("Excluir");
-        alunoDel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alunoDelActionPerformed(evt);
-            }
-        });
-        alunos.add(alunoDel);
-
-        alunoAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Female.png"))); // NOI18N
-        alunoAdd.setText("Adicionar");
-        alunoAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alunoAddActionPerformed(evt);
-            }
-        });
-        alunos.add(alunoAdd);
 
         barraMenu.add(alunos);
 
@@ -254,13 +325,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 928, Short.MAX_VALUE)
+            .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
         );
 
         pack();
@@ -358,16 +427,121 @@ public class TelaPrincipal extends javax.swing.JFrame {
          //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_funcAdmActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void gerenciaBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciaBDActionPerformed
         controle.abrirConfig(GerenciaBanco.getAbrir());
               
         
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_gerenciaBDActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-       controle.abrirJanela(true, Personalizar.getAbrir());
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-    
+    private void temaWindowsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_temaWindowsActionPerformed
+         try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        SwingUtilities.updateComponentTreeUI(this);
+    }//GEN-LAST:event_temaWindowsActionPerformed
+
+    private void temaNimbusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_temaNimbusActionPerformed
+         try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        SwingUtilities.updateComponentTreeUI(this);
+    }//GEN-LAST:event_temaNimbusActionPerformed
+
+    private void temaMetalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_temaMetalActionPerformed
+         try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Metal".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        SwingUtilities.updateComponentTreeUI(this);
+        
+    }//GEN-LAST:event_temaMetalActionPerformed
+
+    private void experienceRoyaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_experienceRoyaleActionPerformed
+         try {
+            PlasticLookAndFeel.setPlasticTheme(new ExperienceRoyale());
+                try {
+                    UIManager.setLookAndFeel("com.jgoodies.looks.plastic.Plastic3DLookAndFeel");
+                } catch (InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+                    Logger.getLogger(this.getName()).log(Level.SEVERE, null, ex);
+                }
+           
+
+                } catch (ClassNotFoundException ex) {
+                    JOptionPane.showMessageDialog(this, "Erro ao aplicar o tema - "+ex.getMessage(), "Erro",0);
+                }
+         SwingUtilities.updateComponentTreeUI(this);
+    }//GEN-LAST:event_experienceRoyaleActionPerformed
+
+    private void silverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_silverActionPerformed
+        try {
+            PlasticLookAndFeel.setPlasticTheme(new Silver());
+                try {
+                    UIManager.setLookAndFeel("com.jgoodies.looks.plastic.Plastic3DLookAndFeel");
+                } catch (InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+                    Logger.getLogger(this.getName()).log(Level.SEVERE, null, ex);
+                }
+           
+
+                } catch (ClassNotFoundException ex) {
+                    JOptionPane.showMessageDialog(this, "Erro ao aplicar o tema - "+ex.getMessage(), "Erro",0);
+                }
+         SwingUtilities.updateComponentTreeUI(this);
+    }//GEN-LAST:event_silverActionPerformed
+
+    private void invertedColorThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invertedColorThemeActionPerformed
+        try {
+            PlasticLookAndFeel.setPlasticTheme(new InvertedColorTheme() {
+            });
+                try {
+                    UIManager.setLookAndFeel("com.jgoodies.looks.plastic.Plastic3DLookAndFeel");
+                } catch (InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+                    Logger.getLogger(this.getName()).log(Level.SEVERE, null, ex);
+                }
+           
+
+                } catch (ClassNotFoundException ex) {
+                    JOptionPane.showMessageDialog(this, "Erro ao aplicar o tema - "+ex.getMessage(), "Erro",0);
+                }
+         SwingUtilities.updateComponentTreeUI(this);
+    }//GEN-LAST:event_invertedColorThemeActionPerformed
+
+    private void abstractSkyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abstractSkyActionPerformed
+        try {
+            PlasticLookAndFeel.setPlasticTheme(new AbstractSkyTheme() {
+});
+                try {
+                    UIManager.setLookAndFeel("com.jgoodies.looks.plastic.Plastic3DLookAndFeel");
+                } catch (InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+                    Logger.getLogger(this.getName()).log(Level.SEVERE, null, ex);
+                }
+           
+
+                } catch (ClassNotFoundException ex) {
+                    JOptionPane.showMessageDialog(this, "Erro ao aplicar o tema - "+ex.getMessage(), "Erro",0);
+                }
+         SwingUtilities.updateComponentTreeUI(this);
+    }//GEN-LAST:event_abstractSkyActionPerformed
+ 
 
     /**
      * @param args the command line arguments
@@ -382,7 +556,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -398,10 +572,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             new TelaPrincipal().setVisible(true);
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem about;
+    private javax.swing.JMenuItem abstractSky;
     private javax.swing.JMenuItem addUser;
     private javax.swing.JMenuItem alunoAdd;
     private javax.swing.JMenuItem alunoDel;
@@ -411,18 +587,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenuItem editUser;
     private javax.swing.JMenuItem exit;
+    private javax.swing.JMenuItem experienceRoyale;
     private javax.swing.JMenuItem funcAdm;
     private javax.swing.JMenuItem funcProf;
     private javax.swing.JMenuItem funcUtil;
     private javax.swing.JMenu funcionarios;
     private javax.swing.JDesktopPane fundo;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem gerenciaBD;
+    private javax.swing.JMenuItem invertedColorTheme;
     private javax.swing.JMenuItem logout;
     private javax.swing.JMenuItem removeUser;
     private javax.swing.JMenuItem searchUser;
+    private javax.swing.JMenuItem silver;
     private javax.swing.JMenu sistema;
     private javax.swing.JMenu sobre;
+    private javax.swing.JMenuItem temaMetal;
+    private javax.swing.JMenuItem temaNimbus;
+    private javax.swing.JMenuItem temaWindows;
+    private javax.swing.JMenu temas;
     private javax.swing.JMenu usuarios;
     // End of variables declaration//GEN-END:variables
 }
