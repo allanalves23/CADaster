@@ -302,7 +302,8 @@ public class TelaPesquisa extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null,"Selecione um método de busca");
                 break;
             case "ID":
-                {   if(!tabelaResultado.isEnabled()){
+                {
+                    if(!tabelaResultado.isEnabled()){
                         tabelaResultado.setEnabled(true);
                     }
                     DefaultTableModel model = (DefaultTableModel) tabelaResultado.getModel();

@@ -62,6 +62,8 @@ public class SearchDao {
                 usuario.setId(rs.getInt("id"));
                 usuario.setNome(rs.getString("login"));
                 listUsers.add(usuario);
+            }else{
+                JOptionPane.showMessageDialog(null, "Nenhum registro encontrado", "Aviso", 2);
             }
             ConnectionFactory.encerrarConexao(conn, pstm, rs);
         } catch (SQLException ex) {
@@ -85,6 +87,8 @@ public class SearchDao {
                 usuario.setId(rs.getInt("id"));
                 usuario.setNome(rs.getString("login"));
                 listUsers.add(usuario);
+            }else{
+                JOptionPane.showMessageDialog(null, "Nenhum registro encontrado", "Aviso", 2);
             }
             ConnectionFactory.encerrarConexao(conn, pstm, rs);
         } catch (SQLException ex) {
@@ -192,6 +196,60 @@ public class SearchDao {
         }
         return listStudents;
     }
+    
+    //procurar por aluno pelo nome, CPF ou matricula
+    public List<StudentBean> procurarStudent(String grau,String tipo, String dado){
+        List<StudentBean> listStudents = new ArrayList<>();
+        String SQL =  "";
+        try {
+            Connection conn = ConnectionFactory.conexao();
+            if(tipo.equals("nome")||tipo.equals("CPF")||tipo.equals("matricula")){
+                SQL = "SELECT * FROM student WHERE "+tipo+" LIKE '%"+dado+"%' and "+grau+" IS NOT NULL";
+            }else{
+                SQL = "";
+            }
+            Statement stm = conn.createStatement();
+            
+            ResultSet rs = stm.executeQuery(SQL);
+            while(rs.next()){
+                StudentBean student  = new StudentBean();
+                student.setMatricula(rs.getString("matricula"));
+                student.setNome(rs.getString("nome"));
+                student.setCPF(rs.getString("CPF"));
+                student.setDataNasc(converterData(rs.getString("dataNascimento")));
+                student.setCEP(rs.getString("CEP"));
+                student.setEndereco(rs.getString("endereco"));
+                student.setBairro(rs.getString("bairro"));
+                student.setResponsavel(rs.getString("responsavel"));
+                student.setNomeMae(rs.getString("nomeMae"));
+                student.setNomePai(rs.getString("nomePai"));
+                if(!(rs.getString("anoPrimario") == null)){
+                    student.setGrau("Primario");
+                    student.setAno(rs.getString("anoPrimario"));
+                }
+                if(!(rs.getString("anoGinasio") == null)){
+                    student.setGrau("Ginasio");
+                    student.setAno(rs.getString("anoGinasio"));
+                }
+                if(!(rs.getString("anoEM") == null)){
+                    student.setGrau("Ensino Medio");
+                    student.setAno(rs.getString("anoEM"));
+                }
+                if(!(rs.getString("anoTecnico") == null)){
+                    student.setGrau("Tecnico");
+                    student.setAno(rs.getString("anoTecnico"));
+                }
+                listStudents.add(student);
+            }
+            ConnectionFactory.encerrarConexao(conn, stm, rs);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ler os dados do banco "+ex.getMessage());
+        }
+        return listStudents;
+    }
+    
+    
+    
      private String converterData(String data){//Converte dados do tipo Data para o banco
         Date formatarData;
         String dadoData="";
