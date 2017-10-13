@@ -214,10 +214,7 @@ public class TelaPesqAluno extends javax.swing.JInternalFrame {
 
         tabelaStudent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Matricula", "Nome", "CPF", "Data de Nascimento", "CEP", "Endereco", "Bairro", "Responsável", "Nome do Mãe", "Nome da Pai", "Grau", "Ano"

@@ -58,6 +58,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSeparator1 = new javax.swing.JSeparator();
         ImageIcon img = new ImageIcon(getClass().getResource("/imagens/fundo.jpg"));
         Image imagem = img.getImage();
         fundo = new javax.swing.JDesktopPane(){
@@ -66,8 +67,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         };
         jToolBar1 = new javax.swing.JToolBar();
-        addAluno = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        btnSair = new javax.swing.JButton();
+        btnBD = new javax.swing.JButton();
+        btnAdministrativo = new javax.swing.JButton();
         pesqAluno = new javax.swing.JButton();
+        addAluno = new javax.swing.JButton();
+        lblNome = new javax.swing.JLabel();
         barraMenu = new javax.swing.JMenuBar();
         sistema = new javax.swing.JMenu();
         gerenciaBD = new javax.swing.JMenuItem();
@@ -99,7 +105,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         about = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("CADaster - Gerenciamento Acadêmico [Build 0.2]");
+        setTitle("CADaster - Gerenciamento Acadêmico [Build 0.6.0]");
         setIconImages(null);
 
         fundo.setBackground(new java.awt.Color(230, 230, 248));
@@ -107,11 +113,66 @@ public class TelaPrincipal extends javax.swing.JFrame {
         fundo.setDesktopManager(null);
         fundo.setInheritsPopupMenu(true);
 
+        jToolBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jToolBar1.setFloatable(false);
         jToolBar1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jToolBar1.setRollover(true);
         jToolBar1.setName(""); // NOI18N
         jToolBar1.setRequestFocusEnabled(false);
+
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
+        btnSair.setText("Sair");
+        btnSair.setToolTipText("Logout do Sistema");
+        btnSair.setFocusable(false);
+        btnSair.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSair.setMaximumSize(new java.awt.Dimension(150, 60));
+        btnSair.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+
+        btnBD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/bd.png"))); // NOI18N
+        btnBD.setText("Banco de Dados");
+        btnBD.setToolTipText("Gerêncie Informações sobre as Tabelas do Banco");
+        btnBD.setFocusable(false);
+        btnBD.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBD.setMaximumSize(new java.awt.Dimension(150, 60));
+        btnBD.setMinimumSize(new java.awt.Dimension(87, 41));
+        btnBD.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBDActionPerformed(evt);
+            }
+        });
+
+        btnAdministrativo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/User group.png"))); // NOI18N
+        btnAdministrativo.setText("Administrativo");
+        btnAdministrativo.setToolTipText("Gerêncie Cadastros do Setor Administrativo");
+        btnAdministrativo.setFocusable(false);
+        btnAdministrativo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAdministrativo.setMaximumSize(new java.awt.Dimension(150, 60));
+        btnAdministrativo.setMinimumSize(new java.awt.Dimension(87, 41));
+        btnAdministrativo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAdministrativo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdministrativoActionPerformed(evt);
+            }
+        });
+
+        pesqAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Text preview.png"))); // NOI18N
+        pesqAluno.setText("Pesquisar Aluno");
+        pesqAluno.setToolTipText("Pesquise alunos");
+        pesqAluno.setFocusable(false);
+        pesqAluno.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pesqAluno.setMaximumSize(new java.awt.Dimension(150, 60));
+        pesqAluno.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        pesqAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesqAlunoActionPerformed(evt);
+            }
+        });
 
         addAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Female.png"))); // NOI18N
         addAluno.setText("Adicionar Aluno");
@@ -125,16 +186,59 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 addAlunoActionPerformed(evt);
             }
         });
-        jToolBar1.add(addAluno);
 
-        pesqAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Text preview.png"))); // NOI18N
-        pesqAluno.setText("Pesquisar Alunos");
-        pesqAluno.setToolTipText("Pesquise alunos");
-        pesqAluno.setFocusable(false);
-        pesqAluno.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        pesqAluno.setMaximumSize(new java.awt.Dimension(150, 60));
-        pesqAluno.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(pesqAluno);
+        lblNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblNome.setForeground(new java.awt.Color(51, 51, 255));
+        lblNome.setText("CADaster");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnBD, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnAdministrativo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pesqAluno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(addAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(lblNome)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(addAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pesqAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAdministrativo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(142, Short.MAX_VALUE))
+        );
+
+        jToolBar1.add(jPanel1);
 
         sistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
         sistema.setText("Sistema");
@@ -359,15 +463,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(fundo)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -587,10 +692,28 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 }
          SwingUtilities.updateComponentTreeUI(this);
     }//GEN-LAST:event_abstractSkyActionPerformed
-
+    //Botao de atalho para abrir o frame para adicionar aluno
     private void addAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAlunoActionPerformed
-        // TODO add your handling code here:
+        controle.abrirJanela(false, TelaAddAluno.getAbrir());
     }//GEN-LAST:event_addAlunoActionPerformed
+
+    private void pesqAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesqAlunoActionPerformed
+        controle.abrirJanela(true, TelaPesqAluno.getAbrir());
+    }//GEN-LAST:event_pesqAlunoActionPerformed
+
+    private void btnAdministrativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministrativoActionPerformed
+        controle.abrirJanela(true, TelaAdministracao.getAbrir());
+    }//GEN-LAST:event_btnAdministrativoActionPerformed
+
+    private void btnBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDActionPerformed
+        controle.abrirConfig(GerenciaBanco.getAbrir());
+    }//GEN-LAST:event_btnBDActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        TelaLogin login = new TelaLogin(this, true); /*Chamada do objeto do tipo
+        jDialog*/
+        login.setVisible(true);
+    }//GEN-LAST:event_btnSairActionPerformed
  
 
     /**
@@ -636,6 +759,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem alunoPesq;
     private javax.swing.JMenu alunos;
     private javax.swing.JMenuBar barraMenu;
+    private javax.swing.JButton btnAdministrativo;
+    private javax.swing.JButton btnBD;
+    private javax.swing.JButton btnSair;
     private javax.swing.JMenuItem editUser;
     private javax.swing.JMenuItem exit;
     private javax.swing.JMenuItem experienceRoyale;
@@ -646,7 +772,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane fundo;
     private javax.swing.JMenuItem gerenciaBD;
     private javax.swing.JMenuItem invertedColorTheme;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel lblNome;
     private javax.swing.JMenuItem logout;
     private javax.swing.JButton pesqAluno;
     private javax.swing.JMenuItem removeUser;
