@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import modelbean.StudentBean;
 
@@ -105,7 +106,9 @@ public class UpdateDao {
                 
             }
             pstm.execute();
-            JOptionPane.showMessageDialog(null, "Registro atualizado com sucesso");
+            ConnectionFactory.encerrarConexao(conn, pstm, rs);
+            pstm2.close();
+            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro de conexao com o banco "+ex.getMessage());
             return false;
@@ -159,7 +162,8 @@ public class UpdateDao {
                 
             }
             pstm.execute();
-            JOptionPane.showMessageDialog(null, "Registro atualizado com sucesso");
+            ConnectionFactory.encerrarConexao(conn, pstm, rs);
+            pstm2.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro de conexao com o banco "+ex.getMessage());
             return false;
@@ -213,7 +217,8 @@ public class UpdateDao {
                 
             }
             pstm.execute();
-            JOptionPane.showMessageDialog(null, "Registro atualizado com sucesso");
+            ConnectionFactory.encerrarConexao(conn, pstm, rs);
+            pstm2.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro de conexao com o banco "+ex.getMessage());
             return false;
@@ -267,7 +272,8 @@ public class UpdateDao {
                 
             }
             pstm.execute();
-            JOptionPane.showMessageDialog(null, "Registro atualizado com sucesso");
+            ConnectionFactory.encerrarConexao(conn, pstm, rs);
+            pstm2.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro de conexao com o banco "+ex.getMessage());
             return false;
@@ -318,7 +324,8 @@ public class UpdateDao {
                 
             }
             pstm.execute();
-            JOptionPane.showMessageDialog(null, "Registro atualizado com sucesso");
+            ConnectionFactory.encerrarConexao(conn, pstm, rs);
+            pstm2.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro de conexao com o banco "+ex.getMessage());
             return false;
@@ -369,7 +376,8 @@ public class UpdateDao {
                 
             }
             pstm.execute();
-            JOptionPane.showMessageDialog(null, "Registro atualizado com sucesso");
+            ConnectionFactory.encerrarConexao(conn, pstm, rs);
+            pstm2.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro de conexao com o banco "+ex.getMessage());
             return false;
@@ -422,7 +430,8 @@ public class UpdateDao {
                 
             }
             pstm.execute();
-            JOptionPane.showMessageDialog(null, "Registro atualizado com sucesso");
+            ConnectionFactory.encerrarConexao(conn, pstm, rs);
+            pstm2.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro de conexao com o banco "+ex.getMessage());
             return false;
@@ -471,9 +480,10 @@ public class UpdateDao {
                 
             }
             pstm.execute();
-            JOptionPane.showMessageDialog(null, "Registro atualizado com sucesso");
+            ConnectionFactory.encerrarConexao(conn, pstm, rs);
+            pstm2.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro de conexao com o banco "+ex.getMessage());
+            //JOptionPane.showMessageDialog(null, "Erro de conexao com o banco "+ex.getMessage());
             return false;
         }
         return true;

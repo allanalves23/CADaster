@@ -205,10 +205,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnAdministrativo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnAdministrativo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(pesqAluno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -263,7 +261,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         temas.add(temaWindows);
 
-        temaNimbus.setText("Nimbus");
+        temaNimbus.setText("Nimbus (Padrão)");
         temaNimbus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 temaNimbusActionPerformed(evt);
@@ -323,6 +321,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         sistema.add(logout);
 
+        exit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.CTRL_MASK));
         exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/quit.png"))); // NOI18N
         exit.setText("Sair");
         exit.addActionListener(new java.awt.event.ActionListener() {
@@ -496,7 +495,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     //Chamada da tela de adicao de usuario
     
     private void addUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserActionPerformed
-        controle.abrirJanela(false,TelaCadastro.getAbrir());
+        controle.abrirJanela(false, TelaCadastro.getAbrir());
         //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_addUserActionPerformed
     //Chamada da tela de remocao de usuario

@@ -13,9 +13,7 @@ import modeldao.InsertDao;
  */
 public class TelaCadastro extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form TelaCadastro
-     */
+   
     
     private static TelaCadastro telaCad;
     /*variavel estatica para verificar se existe mais de um objeto do mesmo
@@ -30,16 +28,17 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         return telaCad;
     }
     
+     /**
+     * Creates new form TelaCadastro2
+     */
     public TelaCadastro() {
         initComponents();
         setIcon();
     }
     
-    //muda o icone do jInternalFrame
-    private void setIcon() {
+     private void setIcon() {
         setFrameIcon(new ImageIcon(this.getClass().getResource("/imagens/LogoFrame.png")));
     }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,7 +48,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        sexo = new javax.swing.ButtonGroup();
         fundo = new javax.swing.JPanel();
         lblLogin = new javax.swing.JLabel();
         lblSenha = new javax.swing.JLabel();
@@ -64,7 +62,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         textArea = new javax.swing.JTextArea();
         btnSobre = new javax.swing.JButton();
 
-        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(182, 175, 175), 2, true));
         setClosable(true);
         setIconifiable(true);
         setTitle("CADaster - Cadastro de usuários");
@@ -161,7 +158,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(54, 54, 54)
                         .addComponent(btnCadastrar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         fundoLayout.setVerticalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +185,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                         .addGap(64, 64, 64))
                     .addGroup(fundoLayout.createSequentialGroup()
                         .addComponent(areaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(54, Short.MAX_VALUE))))
+                        .addContainerGap(39, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -204,43 +201,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    //Cadastro de usuarios
-    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        if(!(Arrays.toString(campoSenha.getPassword()).equals(Arrays.toString(campoSenha2.getPassword())))){
-            JOptionPane.showMessageDialog(null, "As senhas não conferem\nDigite novamente");
-        }else if(campoNome.getText().equals("") || Arrays.toString(campoSenha.getPassword()).equals("")){
-            JOptionPane.showMessageDialog(null, "Um ou mais campos estão em branco");
-        
-        }else{
-            UserBean dados = new UserBean();//Recebe os dados do formulario e
-            //passa para o DAO
-            InsertDao insert = new InsertDao(); //DAO criado
-            dados.setNome(campoNome.getText());
-            dados.setSenha(new String(campoSenha.getPassword()));
-            insert.criarUser(dados); //Comando para inserção dos dados
-        }
-        campoNome.setText("");
-        campoSenha.setText("");
-        campoSenha2.setText("");
-        //Reseta os campos ao terminar de inserir um registro
-    }//GEN-LAST:event_btnCadastrarActionPerformed
-    //fechar a tela
-    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        dispose();
-    }//GEN-LAST:event_btnSairActionPerformed
-
-   //Metodo para imprimir um "sobre"
-    private void btnSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSobreActionPerformed
-        textArea.setText("O cadastro de usuario é referênte a adição de Logins "
-        +"ao sistema, este usuário terá a capacidade de realizar qualquer configuração dentro do programa."
-                + "Tais como adicionar e remover usuários, alunos e funcionários. Também pesquisar qualquer tipo de registro"
-                + " e também poderá consultar as tabelas e visualizar suas configurações.");
-    }//GEN-LAST:event_btnSobreActionPerformed
-
-    private void btnCadastrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrarKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCadastrarKeyPressed
 
     private void campoSenha2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoSenha2KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
@@ -263,6 +223,41 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_campoSenha2KeyPressed
 
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        if(!(Arrays.toString(campoSenha.getPassword()).equals(Arrays.toString(campoSenha2.getPassword())))){
+            JOptionPane.showMessageDialog(null, "As senhas não conferem\nDigite novamente");
+        }else if(campoNome.getText().equals("") || Arrays.toString(campoSenha.getPassword()).equals("")){
+            JOptionPane.showMessageDialog(null, "Um ou mais campos estão em branco");
+
+        }else{
+            UserBean dados = new UserBean();//Recebe os dados do formulario e
+            //passa para o DAO
+            InsertDao insert = new InsertDao(); //DAO criado
+            dados.setNome(campoNome.getText());
+            dados.setSenha(new String(campoSenha.getPassword()));
+            insert.criarUser(dados); //Comando para inserção dos dados
+        }
+        campoNome.setText("");
+        campoSenha.setText("");
+        campoSenha2.setText("");
+        //Reseta os campos ao terminar de inserir um registro
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btnCadastrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrarKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastrarKeyPressed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSobreActionPerformed
+        textArea.setText("O cadastro de usuario é referênte a adição de Logins "
+            +"ao sistema, este usuário terá a capacidade de realizar qualquer configuração dentro do programa."
+            + "Tais como adicionar e remover usuários, alunos e funcionários. Também pesquisar qualquer tipo de registro"
+            + " e também poderá consultar as tabelas e visualizar suas configurações.");
+    }//GEN-LAST:event_btnSobreActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel areaTexto;
@@ -277,7 +272,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblSenha2;
-    private javax.swing.ButtonGroup sexo;
     private javax.swing.JTextArea textArea;
     // End of variables declaration//GEN-END:variables
 }
