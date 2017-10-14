@@ -1,6 +1,14 @@
 package view;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import modelbean.StudentBean;
+import modeldao.SearchDao;
+import modeldao.UpdateDao;
 
 /**
  *
@@ -54,26 +62,29 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
         campoMatricula = new javax.swing.JFormattedTextField();
         btnPesquisa = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
-        panelGerencia = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaStudent = new javax.swing.JTable();
+        btnConfirmar = new javax.swing.JButton();
+        btnDesfazer = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setTitle("CADaster - Modificar aluno");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
-            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameClosed(evt);
             }
-            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
             }
         });
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -88,7 +99,7 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
 
         lblGrauEnsino.setText("Grau de Ensino");
 
-        grauEnsino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qualquer", "Primario", "Ginasio", "Ensino medio", "Tecnico" }));
+        grauEnsino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Primario", "Ginasio", "Ensino medio", "Tecnico" }));
 
         lblMatricula.setText("Matricula");
 
@@ -99,6 +110,11 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
         }
 
         btnPesquisa.setText("Pesquisar");
+        btnPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisaActionPerformed(evt);
+            }
+        });
 
         btnSair.setText("Sair");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -153,18 +169,35 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
                 .addGap(46, 46, 46))
         );
 
-        panelGerencia.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gerênciar aluno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        tabelaStudent.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        javax.swing.GroupLayout panelGerenciaLayout = new javax.swing.GroupLayout(panelGerencia);
-        panelGerencia.setLayout(panelGerenciaLayout);
-        panelGerenciaLayout.setHorizontalGroup(
-            panelGerenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 555, Short.MAX_VALUE)
-        );
-        panelGerenciaLayout.setVerticalGroup(
-            panelGerenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+            },
+            new String [] {
+                "Matricula", "Nome", "CPF", "Data de Nascimento", "CEP", "Endereco", "Bairro", "Responsável", "Nome do Mãe", "Nome da Pai", "Grau", "Ano"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true, true, true, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelaStudent.setAutoscrolls(false);
+        tabelaStudent.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tabelaStudent.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tabelaStudent);
+
+        btnConfirmar.setText("Confirmar");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
+
+        btnDesfazer.setText("Desfazer");
 
         javax.swing.GroupLayout fundoLayout = new javax.swing.GroupLayout(fundo);
         fundo.setLayout(fundoLayout);
@@ -173,20 +206,27 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
             .addGroup(fundoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelPesq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(111, 111, 111)
-                .addComponent(panelGerencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(49, 49, 49)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDesfazer, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(btnConfirmar)
+                .addGap(29, 29, 29))
         );
         fundoLayout.setVerticalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fundoLayout.createSequentialGroup()
-                        .addComponent(panelPesq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 217, Short.MAX_VALUE))
-                    .addComponent(panelGerencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelPesq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnConfirmar)
+                    .addComponent(btnDesfazer))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -218,18 +258,221 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_formComponentMoved
 
+    private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
+       
+        if(grauEnsino.getSelectedItem().toString().equals("Selecione")){ 
+           JOptionPane.showMessageDialog(null, "O Nivel educacional nao foi selecionado");
+       }else{
+           if(campoNome.getText().length() > 0 && !campoMatricula.getText().equals("   -   -    ")){
+                String grau="";
+                DefaultTableModel model = (DefaultTableModel)tabelaStudent.getModel();
+                model.setNumRows(0);
+                SearchDao sd = new SearchDao();
+                switch(grauEnsino.getSelectedItem().toString()){
+                    case "Primario":
+                        grau="anoPrimario";
+                        break;
+                    case "Ginasio":
+                        grau="anoGinasio";
+                        break;
+                    case "Ensino Medio":
+                        grau="anoEM";
+                        break;
+                    case "Tecnico":
+                        grau="anoTecnico";
+                        break;
+                }
+                for(StudentBean student : sd.procurarStudent(campoNome.getText(), campoMatricula.getText(), grauEnsino.getSelectedItem().toString(), grau)){
+                    model.addRow(new Object[]{
+                        student.getMatricula(),
+                        student.getNome(),
+                        student.getCPF(),
+                        student.getDataNasc(),
+                        student.getCEP(),
+                        student.getEndereco(),
+                        student.getBairro(),
+                        student.getResponsavel(),
+                        student.getNomeMae(),
+                        student.getNomePai(),
+                        student.getGrau(),
+                        student.getAno()
+                    });
+                }
+           }else{
+                if(campoNome.getText().length()==0){
+                    JOptionPane.showMessageDialog(null, "O campo nome está vazio");
+                
+            }
+                if(campoMatricula.getText().equals("   -   -    ")){
+                    JOptionPane.showMessageDialog(null, "O campo matricula nao foi preenchido corretamente");
+                
+            }
+           }   
+       }
+    }//GEN-LAST:event_btnPesquisaActionPerformed
+
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        if(tabelaStudent.getSelectedRow() != -1){
+           SearchDao sd = new SearchDao();
+           String matricula=tabelaStudent.getValueAt(tabelaStudent.getSelectedRow(), 0).toString();
+                if(sd.verificarMatricula(matricula)){
+                      int count=0;
+                      UpdateDao upd = new UpdateDao();
+                      String grau="";
+                      String nome = tabelaStudent.getValueAt(tabelaStudent.getSelectedRow(), 1).toString();
+                      String CPF = tabelaStudent.getValueAt(tabelaStudent.getSelectedRow(), 2).toString();
+                      String dataNascimento = tabelaStudent.getValueAt(tabelaStudent.getSelectedRow(), 3).toString();
+                      String CEP = tabelaStudent.getValueAt(tabelaStudent.getSelectedRow(), 4).toString();
+                      String endereco = tabelaStudent.getValueAt(tabelaStudent.getSelectedRow(), 5).toString();
+                      String bairro = ""; 
+                      if(tabelaStudent.getValueAt(tabelaStudent.getSelectedRow(), 6)!=null){
+                        bairro = tabelaStudent.getValueAt(tabelaStudent.getSelectedRow(), 6).toString();
+                      }else{
+                          
+                          count ++;
+                      }
+                      
+                      String responsavel = tabelaStudent.getValueAt(tabelaStudent.getSelectedRow(), 7).toString();
+                      String nomeMae = "";
+                      
+                      if(tabelaStudent.getValueAt(tabelaStudent.getSelectedRow(), 8)!=null){
+                        nomeMae = tabelaStudent.getValueAt(tabelaStudent.getSelectedRow(), 8).toString();
+                      }else{
+                          count +=2;
+                      }
+                       String nomePai = "";
+                      if(tabelaStudent.getValueAt(tabelaStudent.getSelectedRow(), 9)!=null){
+                        nomePai = tabelaStudent.getValueAt(tabelaStudent.getSelectedRow(), 9).toString();
+                      }else{
+                          count+=4;
+                      }
+                      
+               switch (tabelaStudent.getValueAt(tabelaStudent.getSelectedRow(), 10).toString()) {
+                   case "Primario":
+                       grau = "anoPrimario";
+                       break;
+                   case "Ginasio":
+                       grau = "anoGinasio";
+                       break;
+                   case "Ensino Medio":
+                       grau = "anoEM";
+                       break;
+                   case "Tecnico":
+                       grau = "anoTecnico";
+                       break;
+                   default:
+                       break;
+               }
+                      String ano = tabelaStudent.getValueAt(tabelaStudent.getSelectedRow(), 11).toString();
+                      boolean resposta=false;
+                      //resposta = upd.updateStudent(matricula,nome,CPF,dataNascimento,CEP,endereco,bairro,responsavel,nomeMae,nomePai,grau,ano);
+            switch(count){
+        
+                case 0://se todos os campos estiverem preenchidos
+                {
+                   
+                    try {
+                            resposta = upd.updateStudent(matricula, nome, CPF, dataNascimento, CEP, endereco, bairro, responsavel, nomeMae, nomePai, grau, ano);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(TelaGerenciaAluno.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    break;
+                }
+                case 1://se campo Bairro nao estiver preenchido
+                {   
+                    try {
+                            resposta = upd.updateStudent(matricula, nome, CPF, dataNascimento, CEP, endereco, responsavel, nomeMae, nomePai, grau, ano);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(TelaGerenciaAluno.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    break;
+                   
+                }
+                case 2://se o campo mae nao estiver preenchido
+                {
+                    try {
+                            resposta = upd.updateStudent(matricula, nome, CPF, dataNascimento, CEP, endereco, bairro, responsavel, nomePai, grau, ano,false);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(TelaGerenciaAluno.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    break;
+                }
+                case 4://se o campo pai nao estiver preenchido
+                {
+                    try {
+                           resposta = upd.updateStudent(matricula, nome, CPF, dataNascimento, CEP, endereco, bairro, responsavel, nomeMae, grau, ano,'N');
+                        } catch (SQLException ex) {
+                            Logger.getLogger(TelaGerenciaAluno.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    break;
+                }
+                case 3://se o campo bairro e mae nao estiverem preenchidos
+                {
+                     try {
+                           resposta = upd.updateStudent(matricula, nome, CPF, dataNascimento, CEP, endereco, responsavel, nomePai, grau, ano);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(TelaGerenciaAluno.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    break;
+                }
+                case 5://se o campo pai e bairro nao estiverem preenchidos
+                {
+                     try {
+                           resposta = upd.updateStudent(matricula, nome, CPF, dataNascimento, CEP, endereco, responsavel, nomeMae, grau, ano,false);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(TelaGerenciaAluno.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    break;
+                }
+                case 6://se o campo pai e mae nao estiverem preenchidos
+                {
+                   try {
+                           resposta = upd.updateStudent(matricula, nome, CPF, dataNascimento, CEP, endereco, bairro , responsavel, grau, ano,false,false);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(TelaGerenciaAluno.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    break;
+                }
+                case 7://se os campos pai, bairro e mae nao esiverem preenchidos
+                {
+                    try {
+                            resposta = upd.updateStudent(matricula, nome, CPF, dataNascimento, CEP, endereco, responsavel, grau, ano);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(TelaGerenciaAluno.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    break;
+                }
+                default:
+                {
+                    JOptionPane.showMessageDialog(null, "ERROR 404 - os campos nao foram interpretados corretamente"
+                            + "\n entre em contato com o desenvolvedor deste aplicativo");
+                }
+                
+            }
+                     
+        }
+            
+            }else{
+           JOptionPane.showMessageDialog(null, "Nenhum registro selecionado!");
+       }
+    }//GEN-LAST:event_btnConfirmarActionPerformed
+    
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConfirmar;
+    private javax.swing.JButton btnDesfazer;
     private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton btnSair;
     private javax.swing.JFormattedTextField campoMatricula;
     private javax.swing.JTextField campoNome;
     private javax.swing.JPanel fundo;
     private javax.swing.JComboBox<String> grauEnsino;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblGrauEnsino;
     private javax.swing.JLabel lblMatricula;
     private javax.swing.JLabel lblNome;
-    private javax.swing.JPanel panelGerencia;
     private javax.swing.JPanel panelPesq;
+    private javax.swing.JTable tabelaStudent;
     // End of variables declaration//GEN-END:variables
 }

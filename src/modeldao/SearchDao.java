@@ -146,7 +146,7 @@ public class SearchDao {
         return listStudents;
     }
     
-    //procurar por aluno somente pelo nivel do grau
+    //procurar por aluno somente pelo nivel do grau (para pesquisa)
     public List<StudentBean> procurarStudent(String grau,String tipo){
         List<StudentBean> listStudents = new ArrayList<>();
         String SQL =  "";
@@ -197,7 +197,7 @@ public class SearchDao {
         return listStudents;
     }
     
-    //procurar por aluno pelo nome, CPF ou matricula
+    //procurar por aluno pelo nome, CPF ou matricula (para pesquisa)
     public List<StudentBean> procurarStudent(String grau,String tipo, String dado){
         List<StudentBean> listStudents = new ArrayList<>();
         String SQL =  "";
@@ -247,10 +247,73 @@ public class SearchDao {
         }
         return listStudents;
     }
-    
-    
-    
-     private String converterData(String data){//Converte dados do tipo Data para o banco
+     
+    //procurar aluno para Preencher a tabela (para edicao)
+     public List<StudentBean> procurarStudent(String nome,String matricula, String grau, String colunaBanco){
+        List<StudentBean> listStudents = new ArrayList<>();
+        String SQL =  "";
+        try {
+            Connection conn = ConnectionFactory.conexao();
+            if(!grau.equals("Selecione")){
+                SQL = "SELECT * FROM student WHERE "+colunaBanco+" IS NOT NULL and nome LIKE '%"+nome+"%'";
+            }else{
+                SQL = "";
+            }
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(SQL);
+            while(rs.next()){
+                StudentBean student  = new StudentBean();
+                student.setMatricula(rs.getString("matricula"));
+                student.setNome(rs.getString("nome"));
+                student.setCPF(rs.getString("CPF"));
+                student.setDataNasc(converterData(rs.getString("dataNascimento")));
+                student.setCEP(rs.getString("CEP"));
+                student.setEndereco(rs.getString("endereco"));
+                student.setBairro(rs.getString("bairro"));
+                student.setResponsavel(rs.getString("responsavel"));
+                student.setNomeMae(rs.getString("nomeMae"));
+                student.setNomePai(rs.getString("nomePai"));
+                if(!(rs.getString("anoPrimario") == null)){
+                    student.setGrau("Primario");
+                    student.setAno(rs.getString("anoPrimario"));
+                }
+                if(!(rs.getString("anoGinasio") == null)){
+                    student.setGrau("Ginasio");
+                    student.setAno(rs.getString("anoGinasio"));
+                }
+                if(!(rs.getString("anoEM") == null)){
+                    student.setGrau("Ensino Medio");
+                    student.setAno(rs.getString("anoEM"));
+                }
+                if(!(rs.getString("anoTecnico") == null)){
+                    student.setGrau("Tecnico");
+                    student.setAno(rs.getString("anoTecnico"));
+                }
+                listStudents.add(student);
+            }
+            ConnectionFactory.encerrarConexao(conn, stm, rs);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ler os dados do banco "+ex.getMessage());
+        }
+        return listStudents;
+    }
+   
+     //procurar aluno para realizar a mudanca
+     public boolean verificarMatricula(String matricula){
+        boolean status=false;
+         try {
+            Connection conn = ConnectionFactory.conexao();
+            String SQL = "SELECT * FROM student WHERE matricula = '"+matricula+"'";
+            Statement pstm = conn.createStatement();
+            ResultSet rs = pstm.executeQuery(SQL);
+            status=rs.next();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao ler os dados do banco - "+ex.getMessage());
+        }
+            
+        return status;
+     }
+     private String converterData(String data){//Converte dados do tipo Data para o serem representados no programa
         Date formatarData;
         String dadoData="";
             try {
