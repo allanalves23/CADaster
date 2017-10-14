@@ -1,13 +1,11 @@
 package view;
 
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.DefaultFormatterFactory;
 import modelbean.StudentBean;
 import modeldao.SearchDao;
 import modeldao.UpdateDao;
@@ -64,14 +62,19 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
         campoMatricula = new javax.swing.JFormattedTextField();
         btnPesquisa = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
+        lblTipoPesquisa = new javax.swing.JLabel();
+        checkAddMatricula = new javax.swing.JCheckBox();
+        lblInfoMsg = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        btnConfirmar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaStudent = new javax.swing.JTable();
-        btnConfirmar = new javax.swing.JButton();
         btnLimparTabela = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setTitle("CADaster - Modificar aluno");
+        setPreferredSize(new java.awt.Dimension(1020, 600));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -110,6 +113,7 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        campoMatricula.setEnabled(false);
 
         btnPesquisa.setText("Pesquisar");
         btnPesquisa.addActionListener(new java.awt.event.ActionListener() {
@@ -125,48 +129,76 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
             }
         });
 
+        lblTipoPesquisa.setText("Tipos de pesquisa");
+
+        checkAddMatricula.setText("Adicionar matricula a pesquisa");
+        checkAddMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkAddMatriculaActionPerformed(evt);
+            }
+        });
+
+        lblInfoMsg.setForeground(new java.awt.Color(255, 0, 0));
+        lblInfoMsg.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
         javax.swing.GroupLayout panelPesqLayout = new javax.swing.GroupLayout(panelPesq);
         panelPesq.setLayout(panelPesqLayout);
         panelPesqLayout.setHorizontalGroup(
             panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPesqLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(checkAddMatricula)
                     .addComponent(lblGrauEnsino)
+                    .addComponent(lblMatricula)
                     .addGroup(panelPesqLayout.createSequentialGroup()
-                        .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNome)
-                            .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(grauEnsino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnLimpar, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMatricula)
+                        .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(campoMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(26, Short.MAX_VALUE))
+                            .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblNome)
+                                .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(grauEnsino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnLimpar, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTipoPesquisa)
+                    .addComponent(lblInfoMsg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         panelPesqLayout.setVerticalGroup(
             panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPesqLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNome)
-                    .addComponent(lblMatricula))
+                .addComponent(lblNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTipoPesquisa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(checkAddMatricula)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(lblMatricula)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(lblGrauEnsino)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(grauEnsino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addComponent(lblInfoMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(panelPesqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPesquisa)
                     .addComponent(btnLimpar))
                 .addGap(46, 46, 46))
         );
+
+        btnConfirmar.setText("Confirmar");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
 
         tabelaStudent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -189,13 +221,6 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
         tabelaStudent.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaStudent);
 
-        btnConfirmar.setText("Confirmar");
-        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfirmarActionPerformed(evt);
-            }
-        });
-
         btnLimparTabela.setText("Limpar Tabela");
         btnLimparTabela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,34 +228,53 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimparTabela)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLimparTabela)
+                    .addComponent(btnConfirmar))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout fundoLayout = new javax.swing.GroupLayout(fundo);
         fundo.setLayout(fundoLayout);
         fundoLayout.setHorizontalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
                 .addComponent(panelPesq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLimparTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(20, 20, 20))
         );
         fundoLayout.setVerticalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(22, 22, 22)
                 .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelPesq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnConfirmar)
-                    .addComponent(btnLimparTabela))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -248,9 +292,7 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
     //fecha a tela
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        campoNome.setText("");
-        campoMatricula.setText("");
-        grauEnsino.setSelectedItem("Selecione");
+        limparInputs(true);
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
@@ -264,12 +306,31 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_formComponentMoved
 
+    private void limparInputs(){
+        campoNome.setText("");
+        campoMatricula.setText("");
+        DefaultTableModel model = (DefaultTableModel) tabelaStudent.getModel();
+        model.setNumRows(0);
+        grauEnsino.setSelectedItem("Selecione");
+    }
+    
+    private void limparInputs(boolean status){
+        if(status){
+            campoNome.setText("");
+            campoMatricula.setText("");
+            grauEnsino.setSelectedItem("Selecione");
+        }else{
+             DefaultTableModel model = (DefaultTableModel) tabelaStudent.getModel();
+             model.setNumRows(0);
+        }
+    }
+    
     private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
-       
         if(grauEnsino.getSelectedItem().toString().equals("Selecione")){ 
-           JOptionPane.showMessageDialog(null, "O Nivel educacional nao foi selecionado");
+            limparInputs();
+            JOptionPane.showMessageDialog(null, "O Nivel educacional nao foi selecionado");
        }else{
-           if(campoNome.getText().length() > 0 && !campoMatricula.getText().equals("   -   -    ")){
+           if(campoNome.getText().length() > 0 || campoMatricula.getText().length() == 12){
                 String grau="";
                 DefaultTableModel model = (DefaultTableModel)tabelaStudent.getModel();
                 model.setNumRows(0);
@@ -288,7 +349,8 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
                         grau="anoTecnico";
                         break;
                 }
-                for(StudentBean student : sd.procurarStudent(campoNome.getText(), campoMatricula.getText(), grauEnsino.getSelectedItem().toString(), grau)){
+                if(checkAddMatricula.isSelected()){//procurar se checkbox matricula estiver selecionado
+                    for(StudentBean student : sd.procurarStudent(campoNome.getText(), campoMatricula.getText(), grauEnsino.getSelectedItem().toString(), grau,true)){
                     model.addRow(new Object[]{
                         student.getMatricula(),
                         student.getNome(),
@@ -304,13 +366,45 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
                         student.getAno()
                     });
                 }
+                    if(model.getRowCount()==0){
+                        lblInfoMsg.setText("Nenhum registro foi encontrado");
+                        lblInfoMsg.setIcon(new ImageIcon(getClass().getResource("/imagens/warning.png")));
+                                
+                    }else{
+                        lblInfoMsg.setText("");
+                        lblInfoMsg.setIcon(new ImageIcon());
+                    }
+                    
+                }else{//procurar se checkbox matricula nao estiver selecionado
+                    for(StudentBean student : sd.procurarStudent(campoNome.getText(), campoMatricula.getText(), grauEnsino.getSelectedItem().toString(), grau,false)){
+                    model.addRow(new Object[]{
+                        student.getMatricula(),
+                        student.getNome(),
+                        student.getCPF(),
+                        student.getDataNasc(),
+                        student.getCEP(),
+                        student.getEndereco(),
+                        student.getBairro(),
+                        student.getResponsavel(),
+                        student.getNomeMae(),
+                        student.getNomePai(),
+                        student.getGrau(),
+                        student.getAno()
+                        });
+                    }
+                    if(model.getRowCount()==0){
+                        lblInfoMsg.setText("Nenhum registro foi encontrado");
+                        lblInfoMsg.setIcon(new ImageIcon(getClass().getResource("/imagens/warning.png")));
+                                
+                    }else{
+                        lblInfoMsg.setText("");
+                        lblInfoMsg.setIcon(new ImageIcon());
+                    }
+                }
            }else{
                 if(campoNome.getText().length()==0){
                     JOptionPane.showMessageDialog(this, "O campo nome está vazio","Nome não informado",2);
-                
-            }
-                if(campoMatricula.getText().equals("   -   -    ")){
-                    JOptionPane.showMessageDialog(this, "O campo matricula nao foi preenchido corretamente","Campo matricula nao preenchido",2);
+                    limparInputs();
                 
             }
            }   
@@ -451,6 +545,8 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
                 {
                     JOptionPane.showMessageDialog(this, "Erro desconhecido - os campos nao foram interpretados corretamente"
                             + "\n Entre em contato com o desenvolvedor deste aplicativo","Erro !",0);
+                    limparInputs();
+                    
                 }
                 
             }
@@ -459,7 +555,8 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
             }else{
                 JOptionPane.showMessageDialog(this, "Ocorreu um erro ao efetuar as alterações do registro\n"
                         + "Entre em contato com o desenvolvedor deste aplicativo", "Erro com o Banco de dados", 0);
-            }        
+                limparInputs();
+            }   
         }
         }else{
            JOptionPane.showMessageDialog(this, "Selecione o registro para efetuar as alterações", "Nenhum registro selecionado", 2);
@@ -467,9 +564,17 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void btnLimparTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparTabelaActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tabelaStudent.getModel();
-        model.setNumRows(0);
+        limparInputs(false);
     }//GEN-LAST:event_btnLimparTabelaActionPerformed
+
+    private void checkAddMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAddMatriculaActionPerformed
+        if(campoMatricula.isEnabled()){
+            campoMatricula.setEnabled(false);
+            campoMatricula.setText("");
+        }else{
+            campoMatricula.setEnabled(true);
+        }
+    }//GEN-LAST:event_checkAddMatriculaActionPerformed
     
    
 
@@ -480,12 +585,16 @@ public class TelaGerenciaAluno extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnPesquisa;
     private javax.swing.JFormattedTextField campoMatricula;
     private javax.swing.JTextField campoNome;
+    private javax.swing.JCheckBox checkAddMatricula;
     private javax.swing.JPanel fundo;
     private javax.swing.JComboBox<String> grauEnsino;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblGrauEnsino;
+    private javax.swing.JLabel lblInfoMsg;
     private javax.swing.JLabel lblMatricula;
     private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblTipoPesquisa;
     private javax.swing.JPanel panelPesq;
     private javax.swing.JTable tabelaStudent;
     // End of variables declaration//GEN-END:variables

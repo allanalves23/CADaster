@@ -60,7 +60,7 @@
                   <Component id="panelAcao" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   <Component id="lblInfo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="454" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
@@ -169,23 +169,24 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="89" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="lblNomeTec" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblCPFTec" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblNascTec" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="campoNascTec" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="campoCPFTec" alignment="0" pref="184" max="32767" attributes="0"/>
-                                          <Component id="lblMatriculaTec" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="campoMatTec" alignment="0" pref="184" max="32767" attributes="0"/>
-                                          <Component id="campoNomeTec" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Component id="lblCursoTec" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblNomeTec" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCPFTec" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNascTec" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoNascTec" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="campoCPFTec" alignment="0" pref="184" max="32767" attributes="0"/>
+                                  <Component id="lblMatriculaTec" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoMatTec" alignment="0" pref="184" max="32767" attributes="0"/>
+                                  <Component id="campoNomeTec" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="lblCursoTec" min="-2" max="-2" attributes="0"/>
+                              <Component id="tipoCursotecnico" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lblNomemaeTec" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblNomepaiTec" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -197,9 +198,9 @@
                                       </Group>
                                       <Component id="lblBolsaTec" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
-                                          <Component id="rBtnsimTec" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="rBtnnaoTec" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tipoBolsaTec" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblPCentTec" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
@@ -214,21 +215,20 @@
                                       </Group>
                                       <Component id="lblAlunotransfTec" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
-                                          <Component id="tipoBolsaTec" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblPCentTec" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rBtnsimTec" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="rBtnnaoTec" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="tipoCursotecnico" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="349" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
                                   <Component id="btnApagarTec" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="btnCadastrarTec" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="90" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -290,46 +290,41 @@
                               <Component id="lblBolsaTec" min="-2" max="-2" attributes="0"/>
                               <Component id="lblAlunotransfTec" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                          <Component id="campoNascTec" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="rBtnsimTec" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                                              <Component id="rBtnnaoTec" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lblCursoTec" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="btnApagarTec" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnCadastrarTec" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="tipoCursotecnico" min="-2" max="-2" attributes="0"/>
+                                      <Component id="campoNascTec" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="tipoBolsaTec" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblPCentTec" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="tipoBolsaTec" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblPCentTec" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rBtnsimTec" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Component id="rBtnnaoTec" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="lblCursoTec" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="tipoCursotecnico" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btnApagarTec" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnCadastrarTec" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -908,7 +903,7 @@
                                       <Component id="lblCPFGin" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="campoCPFGin" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Component id="lblMatriculaGin" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="campoMatGin" min="-2" max="-2" attributes="0"/>
@@ -1104,7 +1099,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="89" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblNascEM" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -1125,7 +1120,7 @@
                               <Component id="lblAlunoTransfEM" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="rBtnsimEM" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                   <Component id="rBtnnaoEM" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="campoPaiEM" alignment="0" pref="184" max="32767" attributes="0"/>
@@ -1134,11 +1129,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblAnoEM" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="tipoAnoEM" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="lblAnoEM" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblCEPEM" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
@@ -1152,8 +1143,9 @@
                                   <Component id="campoBairroEM" alignment="0" max="32767" attributes="0"/>
                                   <Component id="campoCEPEM" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="tipoAnoEM" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="89" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1178,21 +1170,20 @@
                                   <Component id="lblEnderecoEM" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="campoEnderecoEM" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="40" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="lblBairroEM" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="campoBairroEM" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblAnoEM" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Component id="tipoAnoEM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                                  <Component id="lblAnoEM" min="-2" pref="24" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="tipoAnoEM" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="48" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btnApagarEM" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnCadastrarEM" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="75" max="32767" attributes="0"/>
+                                  <EmptySpace pref="58" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
@@ -1210,29 +1201,23 @@
                                       <Component id="lblRespEM" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblMatriculaEM" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="campoRespEM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="campoMatEM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="lblNascEM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblAlunoTransfEM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="campoNascEM" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="rBtnnaoEM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="rBtnsimEM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="campoRespEM" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="campoMatEM" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblNascEM" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblAlunoTransfEM" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="campoNascEM" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rBtnsimEM" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rBtnnaoEM" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>

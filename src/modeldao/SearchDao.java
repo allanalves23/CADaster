@@ -249,13 +249,18 @@ public class SearchDao {
     }
      
     //procurar aluno para Preencher a tabela (para edicao)
-     public List<StudentBean> procurarStudent(String nome,String matricula, String grau, String colunaBanco){
+     public List<StudentBean> procurarStudent(String nome,String matricula, String grau, String colunaBanco, boolean checkMatricula){
         List<StudentBean> listStudents = new ArrayList<>();
         String SQL =  "";
         try {
             Connection conn = ConnectionFactory.conexao();
             if(!grau.equals("Selecione")){
-                SQL = "SELECT * FROM student WHERE "+colunaBanco+" IS NOT NULL and nome LIKE '%"+nome+"%'";
+                if(checkMatricula){
+                    SQL = "SELECT * FROM student WHERE "+colunaBanco+" IS NOT NULL and nome LIKE '%"+nome+"%' and matricula = '"+matricula+"'";
+                    
+                }else{
+                    SQL = "SELECT * FROM student WHERE "+colunaBanco+" IS NOT NULL and nome LIKE '%"+nome+"%'";
+                }
             }else{
                 SQL = "";
             }
