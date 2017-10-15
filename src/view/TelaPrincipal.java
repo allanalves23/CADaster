@@ -101,6 +101,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         funcProf = new javax.swing.JMenuItem();
         funcAdm = new javax.swing.JMenuItem();
         funcUtil = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         sobre = new javax.swing.JMenu();
         about = new javax.swing.JMenuItem();
 
@@ -419,7 +420,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         funcionarios.setText("Funcionarios");
 
         funcProf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/teacher.png"))); // NOI18N
-        funcProf.setText("Professor");
+        funcProf.setText("Adicionar Novo Funcionario");
         funcProf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 funcProfActionPerformed(evt);
@@ -428,7 +429,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         funcionarios.add(funcProf);
 
         funcAdm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/User group.png"))); // NOI18N
-        funcAdm.setText("Administração");
+        funcAdm.setText("Gerenciar Registros");
         funcAdm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 funcAdmActionPerformed(evt);
@@ -437,8 +438,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         funcionarios.add(funcAdm);
 
         funcUtil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/funcionario.png"))); // NOI18N
-        funcUtil.setText("Serviços Gerais");
+        funcUtil.setText("Remover Funcionario");
         funcionarios.add(funcUtil);
+
+        jMenuItem1.setText("Pesquisar Funcionarios");
+        funcionarios.add(jMenuItem1);
 
         barraMenu.add(funcionarios);
 
@@ -559,7 +563,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     //Chamada da tela de gerenciamento de cadastro de professor
 
     private void funcProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcProfActionPerformed
-        controle.abrirJanela(true,TelaProfessor.getAbrir());
+        controle.abrirJanela(true,TelaAddFunc.getAbrir());
         //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_funcProfActionPerformed
     /*Chamada da tela de gerenciamento de casdastro de funcionarios
@@ -771,6 +775,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane fundo;
     private javax.swing.JMenuItem gerenciaBD;
     private javax.swing.JMenuItem invertedColorTheme;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JToolBar jToolBar1;

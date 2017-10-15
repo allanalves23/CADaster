@@ -27,9 +27,22 @@ public class  ConnectionFactory {
             
             return DriverManager.getConnection(URL, USER, PASS); //Conectando ao banco
         } catch (ClassNotFoundException | SQLException ex) {
-           JOptionPane.showMessageDialog(null, "O banco de dados esta desligado, por favor ligue o e reinicie o sistema", "Erro", 0);
+           JOptionPane.showMessageDialog(null, "O banco de dados não foi encontrado, por favor verifique sua integridade e reinicie o sistema", "Erro", 0);
            throw new RuntimeException("Erro ao realizar a conexão com o banco de dados\n ID: "+ex.getMessage());
            
+        }
+    }
+    
+    public static Connection criarBanco(){
+        
+        try {
+            String URL2 = "jdbc:mysql://localhost:3306";
+            Class.forName(DRIVER);
+            
+            return DriverManager.getConnection(URL2, DRIVER, PASS);
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+            throw new RuntimeException("Erro ao realizar a conexao com o banco"+ex.getMessage());
         }
     }
     

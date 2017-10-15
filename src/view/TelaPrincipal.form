@@ -242,7 +242,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagens/teacher.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Professor"/>
+                <Property name="text" type="java.lang.String" value="Adicionar Novo Funcionario"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="funcProfActionPerformed"/>
@@ -253,7 +253,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagens/User group.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Administra&#xe7;&#xe3;o"/>
+                <Property name="text" type="java.lang.String" value="Gerenciar Registros"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="funcAdmActionPerformed"/>
@@ -264,7 +264,12 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagens/funcionario.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Servi&#xe7;os Gerais"/>
+                <Property name="text" type="java.lang.String" value="Remover Funcionario"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pesquisar Funcionarios"/>
               </Properties>
             </MenuItem>
           </SubComponents>

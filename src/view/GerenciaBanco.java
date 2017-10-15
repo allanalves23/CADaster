@@ -2,8 +2,8 @@ package view;
 
 import java.awt.CardLayout;
 import java.awt.Toolkit;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import modeldao.CreateDao;
 
 /**
@@ -45,8 +45,8 @@ public final class GerenciaBanco extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        criarBD = new javax.swing.ButtonGroup();
         fundo = new javax.swing.JPanel();
-        panelEstabilidade = new javax.swing.JPanel();
         panelAddTables = new javax.swing.JPanel();
         checkUserTable = new javax.swing.JCheckBox();
         checkStudentTable = new javax.swing.JCheckBox();
@@ -59,9 +59,20 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         areaTexto = new javax.swing.JTextPane();
         tipoTabela = new javax.swing.JComboBox<>();
         panelVerifyTables = new javax.swing.JPanel();
+        panelCriarBanco = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        lblInfoResposta = new javax.swing.JLabel();
+        radioBtnSim = new javax.swing.JRadioButton();
+        radioBtnNao = new javax.swing.JRadioButton();
+        lblTitle = new javax.swing.JLabel();
+        lblMsgCreate = new javax.swing.JLabel();
+        btnCriarBanco = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         servidor = new javax.swing.JMenu();
-        btnEstabilidade = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        btnCriarBancoMenu = new javax.swing.JMenuItem();
         btnTabelas = new javax.swing.JMenu();
         btnVerificarTables = new javax.swing.JMenuItem();
         btnShowTables = new javax.swing.JMenuItem();
@@ -70,19 +81,6 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         setTitle("CADaster - Gerenciar Base de Dados");
 
         fundo.setLayout(new java.awt.CardLayout());
-
-        javax.swing.GroupLayout panelEstabilidadeLayout = new javax.swing.GroupLayout(panelEstabilidade);
-        panelEstabilidade.setLayout(panelEstabilidadeLayout);
-        panelEstabilidadeLayout.setHorizontalGroup(
-            panelEstabilidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 707, Short.MAX_VALUE)
-        );
-        panelEstabilidadeLayout.setVerticalGroup(
-            panelEstabilidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
-        );
-
-        fundo.add(panelEstabilidade, "estabilidade");
 
         checkUserTable.setText("Criar Tabela de usuarios");
 
@@ -208,15 +206,109 @@ public final class GerenciaBanco extends javax.swing.JFrame {
 
         fundo.add(panelVerifyTables, "card5");
 
-        servidor.setText("Servidor");
+        criarBD.add(radioBtnSim);
+        radioBtnSim.setText("Sim");
 
-        btnEstabilidade.setText("Verificar Estabilidade");
-        btnEstabilidade.addActionListener(new java.awt.event.ActionListener() {
+        criarBD.add(radioBtnNao);
+        radioBtnNao.setText("Não");
+
+        lblTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTitle.setText("Criar Banco de Dados");
+
+        lblMsgCreate.setText("Deseja Criar o Banco?");
+
+        btnCriarBanco.setText("Confirmar Criação");
+        btnCriarBanco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEstabilidadeActionPerformed(evt);
+                btnCriarBancoActionPerformed(evt);
             }
         });
-        servidor.add(btnEstabilidade);
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Banco de dados para ser criado\né necessário ter o mysql\ninstalado.\nConsulte o site:\nhttps://www.mysql.com/downloads/");
+        jScrollPane2.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(radioBtnSim)
+                        .addGap(42, 42, 42)
+                        .addComponent(radioBtnNao))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addComponent(lblMsgCreate))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCriarBanco, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(5, 5, 5)
+                .addComponent(lblInfoResposta, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitle)
+                .addGap(58, 58, 58)
+                .addComponent(lblMsgCreate)
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblInfoResposta, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(radioBtnSim)
+                        .addComponent(radioBtnNao)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(btnCriarBanco)
+                .addGap(33, 33, 33))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane2)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panelCriarBancoLayout = new javax.swing.GroupLayout(panelCriarBanco);
+        panelCriarBanco.setLayout(panelCriarBancoLayout);
+        panelCriarBancoLayout.setHorizontalGroup(
+            panelCriarBancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCriarBancoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelCriarBancoLayout.setVerticalGroup(
+            panelCriarBancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCriarBancoLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(122, Short.MAX_VALUE))
+        );
+
+        fundo.add(panelCriarBanco, "criarBD");
+
+        servidor.setText("Servidor");
+
+        jMenu1.setText("Banco");
+
+        btnCriarBancoMenu.setText("Criar Banco de dados");
+        btnCriarBancoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCriarBancoMenuActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btnCriarBancoMenu);
+
+        servidor.add(jMenu1);
 
         jMenuBar1.add(servidor);
 
@@ -249,22 +341,22 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEstabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstabilidadeActionPerformed
-        CardLayout estabilidade = (CardLayout) fundo.getLayout();
-        estabilidade.show(fundo, "estabilidade");
-    }//GEN-LAST:event_btnEstabilidadeActionPerformed
-
     private void tipoTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoTabelaActionPerformed
-        if(tipoTabela.getSelectedItem().toString().equals("Usuario")){
-            areaTexto.setText("Estrutura da tabela | ID / Login / Senha");
-        }else if(tipoTabela.getSelectedItem().toString().equals("Aluno")){
-            areaTexto.setText("Estrutura da tabela | Matricula / Nome / CPF / Data de Nascimento / Endereco / Bairro"
-                    + "/ Nome mãe / Nome Pai / Responsável/ Transferência / anoTecnico / anoPrimario / anoGinasio / anoEnsinoMedio "
-                    + "/ Curso / Bolsa ");
-        }else if(tipoTabela.getSelectedItem().toString().equals("Funcionario")){
-            areaTexto.setText("A realizar");
+        switch (tipoTabela.getSelectedItem().toString()) {
+            case "Usuario":
+                areaTexto.setText("Estrutura da tabela | ID / Login / Senha");
+                break;
+            case "Aluno":
+                areaTexto.setText("Estrutura da tabela | Matricula / Nome / CPF / Data de Nascimento / Endereco / Bairro"
+                        + "/ Nome mãe / Nome Pai / Responsável/ Transferência / anoTecnico / anoPrimario / anoGinasio / anoEnsinoMedio "
+                        + "/ Curso / Bolsa ");
+                break;
+            case "Funcionario":
+                areaTexto.setText("A realizar");
+                break;
         }
     }//GEN-LAST:event_tipoTabelaActionPerformed
 
@@ -275,14 +367,71 @@ public final class GerenciaBanco extends javax.swing.JFrame {
     }//GEN-LAST:event_btnShowTablesActionPerformed
 
     private void btnCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarActionPerformed
+        int count=0;
         if(checkStudentTable.isSelected()){
-            CreateDao.createTableStudent();
+            if(CreateDao.createTableStudent()){
+                count++;
+            }
         }
         
         if(checkUserTable.isSelected()){
-            CreateDao.createTableUser();
+            if(CreateDao.createTableUser()){
+                count+=2;
+            }
+        }
+        
+        if(checkJobTable.isSelected()){
+            if(CreateDao.createTableEmployee()){
+                count+=4;
+            }
+        }
+        
+        switch(count){
+            case 0:
+                JOptionPane.showMessageDialog(this, "Nenhuma Opção selecionada", "Atenção", 2);
+                break;
+            case 1:
+                JOptionPane.showMessageDialog(this, "Tabela de alunos criada com sucesso", "Sucesso", 1);
+                break;
+            case 2:
+                JOptionPane.showMessageDialog(this, "Tabela de usuarios criada com sucesso", "Sucesso", 1);
+                break;
+            case 3:
+                JOptionPane.showMessageDialog(this, "Tabelas de usuarios e alunos criada com sucesso", "Sucesso", 1);
+                break;
+            case 4:
+                JOptionPane.showMessageDialog(this, "Tabela de funcionários criada com sucesso", "Sucesso", 1);
+                break;
+            case 5:
+                JOptionPane.showMessageDialog(this, "Tabela de funcionários e alunos criada com sucesso", "Sucesso", 1);
+                break;
+            case 6:
+                JOptionPane.showMessageDialog(this, "Tabela de funcionários e usuarios criada com sucesso", "Sucesso", 1);
+                break;
+            case 7:
+                JOptionPane.showMessageDialog(this, "Todas as tabelas foram criadas com sucesso", "Sucesso", 1);
+                break;
+                
+           
         }
     }//GEN-LAST:event_btnCriarActionPerformed
+
+    private void btnCriarBancoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarBancoMenuActionPerformed
+        CardLayout criarBanco = (CardLayout) fundo.getLayout();
+        criarBanco.show(fundo, "criarBD");
+        areaTexto.setText("Estrutura da tabela | ID / Login / Senha");
+    }//GEN-LAST:event_btnCriarBancoMenuActionPerformed
+
+    private void btnCriarBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarBancoActionPerformed
+        if(radioBtnSim.isSelected()){
+            if(CreateDao.createDataBase()){
+                JOptionPane.showMessageDialog(this, "Banco criado com sucesso", "Sucesso", 1);
+            }
+        }
+        if(radioBtnNao.isSelected()){
+           this.dispose();
+        }
+    }//GEN-LAST:event_btnCriarBancoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,22 +441,33 @@ public final class GerenciaBanco extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextPane areaTexto;
     private javax.swing.JButton btnCriar;
-    private javax.swing.JMenuItem btnEstabilidade;
+    private javax.swing.JButton btnCriarBanco;
+    private javax.swing.JMenuItem btnCriarBancoMenu;
     private javax.swing.JMenuItem btnShowTables;
     private javax.swing.JMenu btnTabelas;
     private javax.swing.JMenuItem btnVerificarTables;
     private javax.swing.JCheckBox checkJobTable;
     private javax.swing.JCheckBox checkStudentTable;
     private javax.swing.JCheckBox checkUserTable;
+    private javax.swing.ButtonGroup criarBD;
     private javax.swing.JPanel fundo;
     private javax.swing.JPanel fundoAreaTexto;
     private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblInfo;
+    private javax.swing.JLabel lblInfoResposta;
+    private javax.swing.JLabel lblMsgCreate;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel panelAddTables;
-    private javax.swing.JPanel panelEstabilidade;
+    private javax.swing.JPanel panelCriarBanco;
     private javax.swing.JPanel panelVerifyTables;
+    private javax.swing.JRadioButton radioBtnNao;
+    private javax.swing.JRadioButton radioBtnSim;
     private javax.swing.JMenu servidor;
     private javax.swing.JComboBox<String> tipoTabela;
     // End of variables declaration//GEN-END:variables

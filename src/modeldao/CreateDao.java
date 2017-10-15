@@ -14,21 +14,22 @@ import modelbean.UserBean;
  * @author allan
  */
 public class CreateDao {
-    public static void createDataBase(){
-        
+    public static boolean createDataBase(){
+        boolean status=false;
         try {
-            Connection conn = ConnectionFactory.conexao();
+            Connection conn = ConnectionFactory.criarBanco();
             String SQL = "CREATE DATABASE IF NOT EXISTS school";
             Statement stm = conn.createStatement();
             stm.execute(SQL);
-            JOptionPane.showMessageDialog(null, "Banco criado com sucesso");
+            status = true;
         } catch (SQLException ex) {
             Logger.getLogger(CreateDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        return status;
     }
     
-    public static void createTableStudent(){
+    public static boolean createTableStudent(){
+        boolean status=false;
         try {
             Connection conn = ConnectionFactory.conexao();
             String SQL = "CREATE TABLE IF NOT EXISTS student("
@@ -42,15 +43,16 @@ public class CreateDao {
                 + ")ENGINE=InnoDB DEFAULT CHARSET=utf8";
             Statement stm = conn.createStatement();
             stm.execute(SQL);
-            JOptionPane.showMessageDialog(null, "Tabela Criada de Alunos Criada");
             ConnectionFactory.encerrarConexao(conn, stm);
+            status=true;
         } catch (SQLException ex) {
             Logger.getLogger(CreateDao.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return status;
     }
  
-    public static void createTableUser(){
-
+    public static boolean createTableUser(){
+        boolean status=false;
         try {
             Connection conn = ConnectionFactory.conexao();
             String SQL = "CREATE TABLE IF NOT EXISTS usuario("
@@ -58,10 +60,31 @@ public class CreateDao {
                     + "senha VARCHAR(50) NOT NULL,PRIMARY KEY(id))ENGINE=InnoDB DEFAULT CHARSET=utf8";
             Statement stm = conn.createStatement();
             stm.execute(SQL);
-            JOptionPane.showMessageDialog(null, "Tabela Criada de Usuários Criada");
             ConnectionFactory.encerrarConexao(conn, stm);
+            status=true;
         } catch (SQLException ex) {
             Logger.getLogger(CreateDao.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        } 
+        return status;
     } 
+    
+    public static boolean createTableEmployee(){
+        boolean status=false;
+         try {
+            Connection conn = ConnectionFactory.conexao();
+            String SQL = "CREATE TABLE IF NOT EXISTS employee (registro int AUTO_INCREMENT,"
+                    + " nome varchar(50) NOT NULL, sexo enum('F','M') NOT NULL, "
+                    + "dataNascimento varchar(10) NOT NULL, CPF varchar(15) NOT NULL UNIQUE, "
+                    + "cargo enum('Professor','Diretor','Administrativo','Servicos Gerais','Outros')"
+                    + " NOT NULL,salario float NOT NULL, CEP varchar(10) NOT NULL , "
+                    + "endereco varchar(100) NOT NULL, PRIMARY KEY(registro))ENGINE=InnoDB DEFAULT CHARSET=utf8";
+            Statement stm = conn.createStatement();
+            stm.execute(SQL);
+            ConnectionFactory.encerrarConexao(conn, stm);
+            status=true;
+        } catch (SQLException ex) {
+            Logger.getLogger(CreateDao.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        return status;
+    }
 }
