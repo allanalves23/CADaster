@@ -1,7 +1,12 @@
 package view;
 
 import java.awt.CardLayout;
+import java.awt.Cursor;
+import java.awt.Desktop;
 import java.awt.Toolkit;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modeldao.CreateDao;
@@ -16,6 +21,7 @@ public final class GerenciaBanco extends javax.swing.JFrame {
      * Creates new form GerenciaBanco
      */
     private static GerenciaBanco tela;
+    private static URI uri;
     
     public static JFrame getAbrir(){
         if(tela==null){
@@ -28,8 +34,15 @@ public final class GerenciaBanco extends javax.swing.JFrame {
     }
     
     public GerenciaBanco() {
+        try {
+            uri = new URI("https://www.mysql.com/downloads");
+        } catch (URISyntaxException ex) {
+        }
         initComponents();
         setIcon();
+        CardLayout criarBanco = (CardLayout) fundo.getLayout();
+        criarBanco.show(fundo, "criarBD");
+        areaTexto.setText("Estrutura da tabela | ID / Login / Senha");
     }
     //muda o icone do jInternalFrame
     private void setIcon() {
@@ -68,7 +81,7 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         lblMsgCreate = new javax.swing.JLabel();
         btnCriarBanco = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        areaTextoInfo = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         servidor = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -79,6 +92,8 @@ public final class GerenciaBanco extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CADaster - Gerenciar Base de Dados");
+        setAlwaysOnTop(true);
+        setModalExclusionType(java.awt.Dialog.ModalExclusionType.TOOLKIT_EXCLUDE);
 
         fundo.setLayout(new java.awt.CardLayout());
 
@@ -156,7 +171,7 @@ public final class GerenciaBanco extends javax.swing.JFrame {
                 .addGroup(panelAddTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAddTablesLayout.createSequentialGroup()
                         .addComponent(lblInfo)
-                        .addContainerGap(37, Short.MAX_VALUE))
+                        .addContainerGap(38, Short.MAX_VALUE))
                     .addGroup(panelAddTablesLayout.createSequentialGroup()
                         .addGroup(panelAddTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelAddTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -197,7 +212,7 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         panelVerifyTables.setLayout(panelVerifyTablesLayout);
         panelVerifyTablesLayout.setHorizontalGroup(
             panelVerifyTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 707, Short.MAX_VALUE)
+            .addGap(0, 708, Short.MAX_VALUE)
         );
         panelVerifyTablesLayout.setVerticalGroup(
             panelVerifyTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,11 +239,22 @@ public final class GerenciaBanco extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Banco de dados para ser criado\né necessário ter o mysql\ninstalado.\nConsulte o site:\nhttps://www.mysql.com/downloads/");
-        jScrollPane2.setViewportView(jTextArea1);
+        areaTextoInfo.setEditable(false);
+        areaTextoInfo.setColumns(20);
+        areaTextoInfo.setRows(5);
+        areaTextoInfo.setText("Banco de dados para ser criado\né necessário ter o mysql\ninstalado.\nConsulte o site:\nhttps://www.mysql.com/downloads/");
+        areaTextoInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                areaTextoInfoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                areaTextoInfoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                areaTextoInfoMouseExited(evt);
+            }
+        });
+        jScrollPane2.setViewportView(areaTextoInfo);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -236,20 +262,22 @@ public final class GerenciaBanco extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(117, 117, 117)
+                            .addComponent(lblMsgCreate))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGap(100, 100, 100)
+                            .addComponent(lblTitle)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(104, 104, 104)
-                        .addComponent(radioBtnSim)
-                        .addGap(42, 42, 42)
-                        .addComponent(radioBtnNao))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(lblMsgCreate))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCriarBanco, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(5, 5, 5)
+                            .addComponent(btnCriarBanco)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(radioBtnSim)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(radioBtnNao)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblInfoResposta, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -268,9 +296,9 @@ public final class GerenciaBanco extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(radioBtnSim)
                         .addComponent(radioBtnNao)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
                 .addComponent(btnCriarBanco)
-                .addGap(33, 33, 33))
+                .addContainerGap(38, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jScrollPane2)
@@ -282,14 +310,14 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         panelCriarBancoLayout.setHorizontalGroup(
             panelCriarBancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCriarBancoLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCriarBancoLayout.setVerticalGroup(
             panelCriarBancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCriarBancoLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addContainerGap(54, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(122, Short.MAX_VALUE))
         );
@@ -426,12 +454,30 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         if(radioBtnSim.isSelected()){
             if(CreateDao.createDataBase()){
                 JOptionPane.showMessageDialog(this, "Banco criado com sucesso", "Sucesso", 1);
+                this.dispose();
             }
         }
         if(radioBtnNao.isSelected()){
            this.dispose();
         }
     }//GEN-LAST:event_btnCriarBancoActionPerformed
+
+    private void areaTextoInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_areaTextoInfoMouseClicked
+        if(Desktop.isDesktopSupported()){
+            try{
+                Desktop.getDesktop().browse(uri);
+            }catch(IOException ex){
+            }
+        }
+    }//GEN-LAST:event_areaTextoInfoMouseClicked
+
+    private void areaTextoInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_areaTextoInfoMouseEntered
+        getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_areaTextoInfoMouseEntered
+
+    private void areaTextoInfoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_areaTextoInfoMouseExited
+        getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+    }//GEN-LAST:event_areaTextoInfoMouseExited
 
     /**
      * @param args the command line arguments
@@ -440,6 +486,7 @@ public final class GerenciaBanco extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextPane areaTexto;
+    private javax.swing.JTextArea areaTextoInfo;
     private javax.swing.JButton btnCriar;
     private javax.swing.JButton btnCriarBanco;
     private javax.swing.JMenuItem btnCriarBancoMenu;
@@ -458,7 +505,6 @@ public final class GerenciaBanco extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblInfo;
     private javax.swing.JLabel lblInfoResposta;
     private javax.swing.JLabel lblMsgCreate;

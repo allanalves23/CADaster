@@ -219,9 +219,17 @@ public class TelaLogin extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    //Login com verificação da conta no banco de dados
+    
+    private void limparInputs(){
+        campoLogin.setText("");
+        campoSenha.setText("");
+    }
+//Login com verificação da conta no banco de dados
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        if(verificarLogin("root", "123")){
+        if(verificarLogin(campoLogin.getText(), new String(campoSenha.getPassword()))){
+            JOptionPane.showMessageDialog(this, "Você entrou no modo ROOT, para isso recomendamos que você tenha\n"
+                    + "Toda a estrutura do banco criada, sem ela você não \n"
+                    + "conseguirá usufruir de toda a capacidade do programa", "AVISO!", 1);
             this.dispose();
         }else{
             LoginDao ld = new LoginDao();
@@ -235,6 +243,7 @@ public class TelaLogin extends javax.swing.JDialog {
                     lblMensagemerro.setIcon(new ImageIcon(getClass().getResource("../imagens/About.png")));
                 }
         }
+        limparInputs();
     }//GEN-LAST:event_btnEntrarActionPerformed
     //Sair da aplicação na tela de Login
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -245,35 +254,47 @@ public class TelaLogin extends javax.swing.JDialog {
     }//GEN-LAST:event_btnSairActionPerformed
     //Login com verificação da conta no banco de dados
     private void campoSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoSenhaKeyPressed
-        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
-             LoginDao ld = new LoginDao();
-            if((ld.login(campoLogin.getText(), new String(campoSenha.getPassword())))){
+      if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(verificarLogin(campoLogin.getText(), new String(campoSenha.getPassword()))){
+                JOptionPane.showMessageDialog(this, "Você entrou no modo ROOT, para isso recomendamos que você tenha\n"
+                        + "Toda a estrutura do banco criada, sem ela você não \n"
+                        + "conseguirá usufruir de toda a capacidade do programa", "AVISO!", 1);
                 this.dispose();
             }else{
-                if(verificarLogin(campoLogin.getText(), new String(campoSenha.getPassword()))){
-                    this.dispose();
-                }
-                lblMensagemerro.setText("Login ou senha invalidos");
-                lblMensagemerro.setIcon(new ImageIcon(getClass().getResource("../imagens/About.png")));
-            }  
-        }
-        
-        
+                LoginDao ld = new LoginDao();
+                    if((ld.login(campoLogin.getText(), new String(campoSenha.getPassword())))){
+                        this.dispose();
+                    }else{
+                        if(verificarLogin(campoLogin.getText(), new String(campoSenha.getPassword()))){
+                            this.dispose();
+                        }
+                        lblMensagemerro.setText("Login ou senha invalidos");
+                        lblMensagemerro.setIcon(new ImageIcon(getClass().getResource("../imagens/About.png")));
+                    }
+            }
+        } 
     }//GEN-LAST:event_campoSenhaKeyPressed
     //Login com verificação da conta no banco de dados
     private void campoLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoLoginKeyPressed
-        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
-        LoginDao ld = new LoginDao();
-            if((ld.login(campoLogin.getText(), new String(campoSenha.getPassword())))){
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(verificarLogin(campoLogin.getText(), new String(campoSenha.getPassword()))){
+                JOptionPane.showMessageDialog(this, "Você entrou no modo ROOT, para isso recomendamos que você tenha\n"
+                        + "Toda a estrutura do banco criada, sem ela você não \n"
+                        + "conseguirá usufruir de toda a capacidade do programa", "AVISO!", 1);
                 this.dispose();
             }else{
-                if(verificarLogin(campoLogin.getText(), new String(campoSenha.getPassword()))){
-                    this.dispose();
-                }
-                lblMensagemerro.setText("Login ou senha invalidos");
-                lblMensagemerro.setIcon(new ImageIcon(getClass().getResource("../imagens/About.png")));
+                LoginDao ld = new LoginDao();
+                    if((ld.login(campoLogin.getText(), new String(campoSenha.getPassword())))){
+                        this.dispose();
+                    }else{
+                        if(verificarLogin(campoLogin.getText(), new String(campoSenha.getPassword()))){
+                            this.dispose();
+                        }
+                        lblMensagemerro.setText("Login ou senha invalidos");
+                        lblMensagemerro.setIcon(new ImageIcon(getClass().getResource("../imagens/About.png")));
+                    }
             }
-        }    
+        }
     }//GEN-LAST:event_campoLoginKeyPressed
 
     private void btnConfigurarBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigurarBancoActionPerformed

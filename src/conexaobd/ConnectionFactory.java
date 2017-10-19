@@ -39,7 +39,7 @@ public class  ConnectionFactory {
             String URL2 = "jdbc:mysql://localhost:3306";
             Class.forName(DRIVER);
             
-            return DriverManager.getConnection(URL2, DRIVER, PASS);
+            return DriverManager.getConnection(URL2, USER, PASS);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
             throw new RuntimeException("Erro ao realizar a conexao com o banco"+ex.getMessage());

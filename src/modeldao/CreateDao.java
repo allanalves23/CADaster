@@ -6,8 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import modelbean.UserBean;
 
 /**
  *
@@ -20,7 +18,7 @@ public class CreateDao {
             Connection conn = ConnectionFactory.criarBanco();
             String SQL = "CREATE DATABASE IF NOT EXISTS school";
             Statement stm = conn.createStatement();
-            stm.execute(SQL);
+            stm.executeUpdate(SQL);
             status = true;
         } catch (SQLException ex) {
             Logger.getLogger(CreateDao.class.getName()).log(Level.SEVERE, null, ex);
