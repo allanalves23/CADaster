@@ -15,9 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
-import modelbean.StudentBean;
 
 /**
  *
@@ -494,11 +492,75 @@ public class UpdateDao {
         Date formatarData;
         String dadoData="";
             try {
-                formatarData = new SimpleDateFormat("dd-MM-yyyy").parse(data);
+                formatarData = new SimpleDateFormat("dd/MM/yyyy").parse(data);
                 dadoData = new SimpleDateFormat("yyyy-MM-dd").format(formatarData);
             } catch (ParseException ex) {
                 JOptionPane.showMessageDialog(null, "Erro ao converter a data ID: "+ex.getMessage());
             }   
             return dadoData;
     }
+
+     public boolean updateEmployee(int registro,String nome, String sexo, String dataNasc, String CPF, String cargo
+     ,String salario,String CEP, String endereco) throws SQLException{
+         //verificando campo salario
+         try{
+             float sal = Float.parseFloat(salario);
+         }catch(NumberFormatException ex){
+             Logger.getLogger(UpdateDao.class.getName()).log(Level.SEVERE,null,ex);
+             return false;
+         }
+         //=================================
+         
+        Connection conn = ConnectionFactory.conexao();
+        String UPDATE; 
+        //==============================================================
+         PreparedStatement verCpf = conn.prepareStatement("SELECT CPF FROM employee");
+         ResultSet rs = verCpf.executeQuery();
+         rs.next();
+            //se o cpf informado for igual ao existente no banco...
+             if(rs.getString("CPF").equals(CPF)){
+                UPDATE= "UPDATE employee SET nome=?, sexo=?,dataNascimento=?,cargo=?,salario=?,CEP=?,endereco=?"
+                       + " WHERE registro=?"; 
+                try {
+                    PreparedStatement pstm = conn.prepareStatement(UPDATE);
+                    pstm.setString(1, nome);
+                    pstm.setString(2, sexo);
+                    pstm.setString(3, converterData(dataNasc));
+                    pstm.setString(4, cargo);
+                    pstm.setString(5, salario);
+                    pstm.setString(6, CEP);
+                    pstm.setString(7, endereco);
+                    pstm.setInt(8, registro);
+                    pstm.execute();
+                    ConnectionFactory.encerrarConexao(conn, pstm, rs);
+                    verCpf.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UpdateDao.class.getName()).log(Level.SEVERE, null, ex);
+                    return false;
+                } 
+             }else{//senao
+                UPDATE= "UPDATE employee SET nome=?, sexo=?,dataNascimento=?,CPF=?,cargo=?,salario=?,CEP=?,endereco=?"
+                       + " WHERE registro=?"; 
+                 try {
+                    PreparedStatement pstm = conn.prepareStatement(UPDATE);
+                    pstm.setString(1, nome);
+                    pstm.setString(2, sexo);
+                    pstm.setString(3, converterData(dataNasc));
+                    pstm.setString(4, CPF);
+                    pstm.setString(5, cargo);
+                    pstm.setString(6, salario);
+                    pstm.setString(7, CEP);
+                    pstm.setString(8, endereco);
+                    pstm.setInt(9, registro);
+                    pstm.execute();
+                    ConnectionFactory.encerrarConexao(conn, pstm, rs);
+                    verCpf.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UpdateDao.class.getName()).log(Level.SEVERE, null, ex);
+                    return false;
+                } 
+             }
+         return true;
+     }
+
 }

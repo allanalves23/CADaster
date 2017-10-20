@@ -5,10 +5,15 @@
  */
 package view;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelbean.EmployeeBean;
 import modeldao.SearchDao;
+import modeldao.UpdateDao;
 
 /**
  *
@@ -196,7 +201,15 @@ public class TelaEditarFuncionario extends javax.swing.JInternalFrame {
             new String [] {
                 "Registro", "Nome", "Sexo", "dataNascimento", "CPF", "Cargo", "Salario (R$)", "CEP", "endereco"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabelaFuncionario.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tabelaFuncionario);
 
@@ -293,6 +306,30 @@ public class TelaEditarFuncionario extends javax.swing.JInternalFrame {
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
        limparInfo();
+       boolean resposta;
+       
+       int registro = (int) tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 0);
+       String nome = tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 1).toString();
+       String sexo = tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 2).toString();
+       String dataNascimento = tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 3).toString();
+       String CPF = tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 4).toString();
+       String prof = tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 5).toString();
+       String salario = tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 6).toString();
+       String CEP = tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 7).toString();
+       String endereco = tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 8).toString();
+        
+       UpdateDao upd = new UpdateDao();
+        try {
+            resposta=upd.updateEmployee(registro, nome, sexo, dataNascimento, CPF, prof, salario, CEP, endereco);
+            if(resposta){
+                JOptionPane.showMessageDialog(this, "Registro Atualizado com êxito", "Êxito", 1);
+            }else{
+                JOptionPane.showMessageDialog(this, "Ocorreu um erro ao atualizar os registros\n"
+                        + "Certifique-se que os dados atualizados estão válidos","Erro",2);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEditarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
 
