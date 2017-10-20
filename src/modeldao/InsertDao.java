@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelbean.StudentBean;
 import modelbean.UserBean;
@@ -782,6 +784,29 @@ public class InsertDao {
         
     }
     
+    public boolean criarFuncionario(String nome, String sexo, String dataNascimento,String cpf, String cargo,String salario, String cep,
+            String endereco){
+        Connection conn = ConnectionFactory.conexao();
+       try {
+           String SQL = "INSERT INTO employee (nome,sexo,dataNascimento,CPF,cargo,salario,CEP,endereco) VALUES(?,?,?,?,?,?,?,?)";
+           PreparedStatement pstm = conn.prepareStatement(SQL);
+           pstm.setString(1, nome);
+           pstm.setString(2, sexo);
+           pstm.setString(3, dataNascimento);
+           pstm.setString(4, cpf);
+           pstm.setString(5, cargo);
+           pstm.setString(6, salario);
+           pstm.setString(7, cep);
+           pstm.setString(8, endereco);
+           pstm.execute();
+           ConnectionFactory.encerrarConexao(conn, pstm);
+           JOptionPane.showMessageDialog(null,"Funcionario registrado com sucesso!" , "Êxito", 1);
+           return true;
+       } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Erro de inconsistencia de dados - Message: "+ex.getMessage(), "Erro ao armazenar", 2);
+       }
+       return false;
+    }
     //Converte a dataNascimento para ser inserido no banco
     private String converterData(String data){//Converte dados do tipo Data para o banco
         Date formatarData;

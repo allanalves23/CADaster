@@ -83,11 +83,15 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="lblCargo" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblSalario" min="-2" max="-2" attributes="0"/>
-                                      <Component id="campoSalario" min="-2" pref="131" max="-2" attributes="0"/>
-                                      <Component id="tipoCargo" min="-2" pref="131" max="-2" attributes="0"/>
+                                      <Component id="tipoCargo" min="-2" pref="158" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="campoSalario" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -97,7 +101,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="572" max="32767" attributes="0"/>
+                  <EmptySpace pref="545" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -123,6 +127,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="rBtnmasc" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="rBtnfem" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="campoSalario" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -146,7 +151,7 @@
                       <Component id="btnLimparCampo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="144" max="32767" attributes="0"/>
+                  <EmptySpace pref="148" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -178,8 +183,8 @@
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="campoNasc">
           <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format subtype="0" type="1"/>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+              <Format format="##/##/####" subtype="-1" type="5"/>
             </Property>
           </Properties>
         </Component>
@@ -208,6 +213,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastrar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnLimparCampo">
           <Properties>
@@ -263,12 +271,20 @@
             <Property name="text" type="java.lang.String" value="Salario"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="campoSalario">
+        <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format subtype="0" type="4"/>
-            </Property>
+            <Property name="text" type="java.lang.String" value="R$"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="campoSalario">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ex: 2450.35"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="campoSalarioFocusGained"/>
+            <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="campoSalarioInputMethodTextChanged"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -1,7 +1,12 @@
 package view;
 
+import java.math.BigDecimal;
 import java.net.URL;
+import java.text.NumberFormat;
+import java.util.Locale;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import modeldao.InsertDao;
 
 /**
  *
@@ -59,7 +64,8 @@ public class TelaAddFunc extends javax.swing.JInternalFrame {
         lblCargo = new javax.swing.JLabel();
         tipoCargo = new javax.swing.JComboBox<>();
         lblSalario = new javax.swing.JLabel();
-        campoSalario = new javax.swing.JFormattedTextField();
+        jLabel1 = new javax.swing.JLabel();
+        campoSalario = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -84,7 +90,11 @@ public class TelaAddFunc extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
 
-        campoNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        try {
+            campoNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         sexoBtnGroup.add(rBtnmasc);
         rBtnmasc.setText("Masculino");
@@ -95,6 +105,11 @@ public class TelaAddFunc extends javax.swing.JInternalFrame {
         lblSexo.setText("Sexo");
 
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
         btnLimparCampo.setText("Limpar Campos");
         btnLimparCampo.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +134,22 @@ public class TelaAddFunc extends javax.swing.JInternalFrame {
 
         lblSalario.setText("Salario");
 
-        campoSalario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        jLabel1.setText("R$");
+
+        campoSalario.setText("ex: 2450.35");
+        campoSalario.setToolTipText("");
+        campoSalario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campoSalarioFocusGained(evt);
+            }
+        });
+        campoSalario.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                campoSalarioInputMethodTextChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout fundoLayout = new javax.swing.GroupLayout(fundo);
         fundo.setLayout(fundoLayout);
@@ -150,15 +180,18 @@ public class TelaAddFunc extends javax.swing.JInternalFrame {
                         .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(fundoLayout.createSequentialGroup()
                                 .addGap(80, 80, 80)
-                                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lblCargo)
                                     .addComponent(lblSalario)
-                                    .addComponent(campoSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tipoCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(tipoCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(fundoLayout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(campoSalario))))
                             .addGroup(fundoLayout.createSequentialGroup()
                                 .addGap(65, 65, 65)
                                 .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(572, Short.MAX_VALUE))
+                .addContainerGap(545, Short.MAX_VALUE))
         );
         fundoLayout.setVerticalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,6 +212,7 @@ public class TelaAddFunc extends javax.swing.JInternalFrame {
                 .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rBtnmasc)
                     .addComponent(rBtnfem)
+                    .addComponent(jLabel1)
                     .addComponent(campoSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addComponent(lblCPF)
@@ -200,7 +234,7 @@ public class TelaAddFunc extends javax.swing.JInternalFrame {
                 .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimparCampo)
                     .addComponent(btnCadastrar))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -228,23 +262,54 @@ public class TelaAddFunc extends javax.swing.JInternalFrame {
     private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
        
     }//GEN-LAST:event_formComponentMoved
-
-   //fecha a tela
-    private void btnLimparCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparCampoActionPerformed
+    private void limparImputs(){
         campoCEP.setText("");
         campoCPF.setText("");
         campoEndereco.setText("");
         campoNome.setText("");
-        campoSalario.setText("");
+        campoSalario.setText("ex: 2450.35");
         campoNasc.setText("");
         tipoCargo.setSelectedItem("Selecione");
-        if(rBtnfem.isSelected()){
-            rBtnfem.setSelected(false);
+        if(rBtnfem.isSelected()||rBtnmasc.isSelected()){
+            sexoBtnGroup.clearSelection();
         }
-        if(rBtnmasc.isSelected()){
-            rBtnmasc.setSelected(false);
-        }
+    }
+    
+   //fecha a tela
+    private void btnLimparCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparCampoActionPerformed
+       limparImputs();
     }//GEN-LAST:event_btnLimparCampoActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        InsertDao insert = new InsertDao();
+        String sexo="";
+        if(!(rBtnfem.isSelected() || rBtnmasc.isSelected()) || campoNome.getText().equals("") || campoEndereco.getText().equals("") || (campoSalario.getText().equals("")||campoSalario.getText().equals("ex: 2450.35"))
+                || campoCPF.getText().equals("   .   .   -  ") || campoCEP.getText().equals("     -   ")|| campoNasc.getText().equals("  /  /    ")){
+            JOptionPane.showMessageDialog(this, "Um ou mais campos estao invalidos!", "Campo(s) Invalido(s)", 2);
+        }else{
+            if(rBtnfem.isSelected()){
+                sexo="F";
+            }
+            if(rBtnmasc.isSelected()){
+                sexo="M";
+            }
+            try{
+                float salario = Float.parseFloat(campoSalario.getText());
+                if(insert.criarFuncionario(campoNome.getText(),sexo ,campoNasc.getText(), campoCPF.getText(), tipoCargo.getSelectedItem().toString(), campoSalario.getText(), campoCEP.getText(), campoEndereco.getText())){
+                    limparImputs();
+                }
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(this, "Voce inseriu um valor invalido de salario, reajuste e tente novamente", "Erro", 3);
+            }
+        }
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void campoSalarioInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_campoSalarioInputMethodTextChanged
+    }//GEN-LAST:event_campoSalarioInputMethodTextChanged
+
+    private void campoSalarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campoSalarioFocusGained
+       campoSalario.setText("");
+    }//GEN-LAST:event_campoSalarioFocusGained
 
    
    
@@ -256,8 +321,9 @@ public class TelaAddFunc extends javax.swing.JInternalFrame {
     private javax.swing.JTextField campoEndereco;
     private javax.swing.JFormattedTextField campoNasc;
     private javax.swing.JTextField campoNome;
-    private javax.swing.JFormattedTextField campoSalario;
+    private javax.swing.JTextField campoSalario;
     private javax.swing.JPanel fundo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCEP;
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblCargo;
