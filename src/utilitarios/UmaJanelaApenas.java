@@ -4,6 +4,7 @@ package utilitarios;
  *
  * @author allan
  */
+import java.awt.Dimension;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -18,12 +19,13 @@ public class UmaJanelaApenas {
     }
     
     public void abrirJanela(boolean size,JInternalFrame janela){
+        
         if(janela.isVisible()){
             janela.toFront();
             janela.requestFocus();
         }else{
             if(size){
-                janela.setMaximizable(true);
+                janela.setSize(fundo.getSize());
             }
             fundo.add(janela);
             janela.setVisible(true);

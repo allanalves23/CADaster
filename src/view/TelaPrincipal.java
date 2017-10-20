@@ -6,6 +6,7 @@ import com.jgoodies.looks.plastic.theme.AbstractSkyTheme;
 import com.jgoodies.looks.plastic.theme.ExperienceRoyale;
 import com.jgoodies.looks.plastic.theme.InvertedColorTheme;
 import com.jgoodies.looks.plastic.theme.Silver;
+import java.awt.Dimension;
 import javax.swing.JOptionPane;
 import utilitarios.UmaJanelaApenas;
 import java.awt.Image;
@@ -30,7 +31,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     //Flags dos jInternalFrames
     
     UmaJanelaApenas controle;
-    
     /*Variavel do tipo UmaJanela
     para realizar a verificação da existencia de um mesmo frame
     aberto.
@@ -98,10 +98,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         alunoGeren = new javax.swing.JMenuItem();
         alunoPesq = new javax.swing.JMenuItem();
         funcionarios = new javax.swing.JMenu();
-        funcProf = new javax.swing.JMenuItem();
-        funcAdm = new javax.swing.JMenuItem();
-        funcUtil = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        addFunc = new javax.swing.JMenuItem();
+        removeFunc = new javax.swing.JMenuItem();
+        editFunc = new javax.swing.JMenuItem();
+        pesqFunc = new javax.swing.JMenuItem();
         sobre = new javax.swing.JMenu();
         about = new javax.swing.JMenuItem();
 
@@ -419,30 +419,35 @@ public class TelaPrincipal extends javax.swing.JFrame {
         funcionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Boss.png"))); // NOI18N
         funcionarios.setText("Funcionarios");
 
-        funcProf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/teacher.png"))); // NOI18N
-        funcProf.setText("Adicionar Novo Funcionario");
-        funcProf.addActionListener(new java.awt.event.ActionListener() {
+        addFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/teacher.png"))); // NOI18N
+        addFunc.setText("Adicionar Novo Funcionario");
+        addFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                funcProfActionPerformed(evt);
+                addFuncActionPerformed(evt);
             }
         });
-        funcionarios.add(funcProf);
+        funcionarios.add(addFunc);
 
-        funcAdm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/User group.png"))); // NOI18N
-        funcAdm.setText("Gerenciar Registros");
-        funcAdm.addActionListener(new java.awt.event.ActionListener() {
+        removeFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/User group.png"))); // NOI18N
+        removeFunc.setText("Remover Funcionario");
+        removeFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                funcAdmActionPerformed(evt);
+                removeFuncActionPerformed(evt);
             }
         });
-        funcionarios.add(funcAdm);
+        funcionarios.add(removeFunc);
 
-        funcUtil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/funcionario.png"))); // NOI18N
-        funcUtil.setText("Remover Funcionario");
-        funcionarios.add(funcUtil);
+        editFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/funcionario.png"))); // NOI18N
+        editFunc.setText("Editar Funcionario");
+        editFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editFuncActionPerformed(evt);
+            }
+        });
+        funcionarios.add(editFunc);
 
-        jMenuItem1.setText("Pesquisar Funcionarios");
-        funcionarios.add(jMenuItem1);
+        pesqFunc.setText("Pesquisar Funcionarios");
+        funcionarios.add(pesqFunc);
 
         barraMenu.add(funcionarios);
 
@@ -562,16 +567,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_exitActionPerformed
     //Chamada da tela de gerenciamento de cadastro de professor
 
-    private void funcProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcProfActionPerformed
+    private void addFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFuncActionPerformed
         controle.abrirJanela(true,TelaAddFunc.getAbrir());
         //dado boolean define se a janela vai abrir maximizada ou nao
-    }//GEN-LAST:event_funcProfActionPerformed
+    }//GEN-LAST:event_addFuncActionPerformed
     /*Chamada da tela de gerenciamento de casdastro de funcionarios
       administrativos*/
-    private void funcAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcAdmActionPerformed
-        controle.abrirJanela(true,TelaAdministracao.getAbrir());
+    private void removeFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeFuncActionPerformed
+        controle.abrirJanela(true,TelaRemoverFunc.getAbrir());
          //dado boolean define se a janela vai abrir maximizada ou nao
-    }//GEN-LAST:event_funcAdmActionPerformed
+    }//GEN-LAST:event_removeFuncActionPerformed
     
     //abre o frame para realizar a configuracao do banco
     private void gerenciaBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciaBDActionPerformed
@@ -705,7 +710,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_pesqAlunoActionPerformed
 
     private void btnAdministrativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministrativoActionPerformed
-        controle.abrirJanela(true, TelaAdministracao.getAbrir());
+        controle.abrirJanela(true, TelaRemoverFunc.getAbrir());
     }//GEN-LAST:event_btnAdministrativoActionPerformed
 
     private void btnBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDActionPerformed
@@ -717,6 +722,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jDialog*/
         login.setVisible(true);
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void editFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFuncActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editFuncActionPerformed
  
 
     /**
@@ -755,6 +764,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem about;
     private javax.swing.JMenuItem abstractSky;
     private javax.swing.JButton addAluno;
+    private javax.swing.JMenuItem addFunc;
     private javax.swing.JMenuItem addUser;
     private javax.swing.JMenuItem alunoAdd;
     private javax.swing.JMenuItem alunoDel;
@@ -765,23 +775,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAdministrativo;
     private javax.swing.JButton btnBD;
     private javax.swing.JButton btnSair;
+    private javax.swing.JMenuItem editFunc;
     private javax.swing.JMenuItem editUser;
     private javax.swing.JMenuItem exit;
     private javax.swing.JMenuItem experienceRoyale;
-    private javax.swing.JMenuItem funcAdm;
-    private javax.swing.JMenuItem funcProf;
-    private javax.swing.JMenuItem funcUtil;
     private javax.swing.JMenu funcionarios;
     private javax.swing.JDesktopPane fundo;
     private javax.swing.JMenuItem gerenciaBD;
     private javax.swing.JMenuItem invertedColorTheme;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblNome;
     private javax.swing.JMenuItem logout;
     private javax.swing.JButton pesqAluno;
+    private javax.swing.JMenuItem pesqFunc;
+    private javax.swing.JMenuItem removeFunc;
     private javax.swing.JMenuItem removeUser;
     private javax.swing.JMenuItem searchUser;
     private javax.swing.JMenuItem silver;

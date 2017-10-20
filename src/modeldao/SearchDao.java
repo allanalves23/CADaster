@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
+import modelbean.EmployeeBean;
 import modelbean.StudentBean;
 import modelbean.UserBean;
 
@@ -302,9 +303,9 @@ public class SearchDao {
         }
         return listStudents;
     }
-   
-     //procurar aluno para realizar a mudanca
-     public boolean verificarMatricula(String matricula){
+     
+    //procurar aluno para realizar a mudanca
+    public boolean verificarMatricula(String matricula){
         boolean status=false;
          try {
             Connection conn = ConnectionFactory.conexao();
@@ -317,8 +318,35 @@ public class SearchDao {
         }
             
         return status;
-     }
-     private String converterData(String data){//Converte dados do tipo Data para o serem representados no programa
+    }
+     
+    public List<EmployeeBean> procurarEmployee(int registro,String nome){
+         List<EmployeeBean> listEmployees = new ArrayList<>();
+         String SQL="";
+         Connection conn = ConnectionFactory.conexao();
+         try{
+             Statement stm = conn.createStatement();
+             SQL = "SELECT * from employee WHERE registro='"+registro+"' and nome LIKE '%"+nome+"%'";
+             ResultSet rs = stm.executeQuery(SQL);
+             while(rs.next()){
+                 EmployeeBean employee = new EmployeeBean();
+                 employee.setRegistro(rs.getInt("registro"));
+                 employee.setNome(rs.getString("nome"));
+                 employee.setSexo(rs.getString("sexo"));
+                 employee.setDataNascimento(rs.getString("dataNascimento"));
+                 employee.setCPF(rs.getString("CPF"));
+                 employee.setCargo(rs.getString("cargo"));
+                 employee.setSalario(rs.getString("salario"));
+                 employee.setCEP(rs.getString("CEP"));
+                 employee.setEndereco(rs.getString("endereco"));
+                 listEmployees.add(employee);
+             }
+         }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Erro ler os dados do banco "+ex.getMessage());
+         }
+         return listEmployees;
+    }
+    private String converterData(String data){//Converte dados do tipo Data para o serem representados no programa
         Date formatarData;
         String dadoData="";
             try {
