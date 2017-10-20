@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelbean.EmployeeBean;
 import modelbean.StudentBean;
@@ -313,13 +315,16 @@ public class SearchDao {
             Statement pstm = conn.createStatement();
             ResultSet rs = pstm.executeQuery(SQL);
             status=rs.next();
+            ConnectionFactory.encerrarConexao(conn, pstm, rs);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao ler os dados do banco - "+ex.getMessage());
         }
             
         return status;
     }
-     
+    
+    
+    //Procurar employee para remoção
     public List<EmployeeBean> procurarEmployee(int registro,String nome){
          List<EmployeeBean> listEmployees = new ArrayList<>();
          String SQL;
@@ -333,7 +338,7 @@ public class SearchDao {
                  employee.setRegistro(rs.getInt("registro"));
                  employee.setNome(rs.getString("nome"));
                  employee.setSexo(rs.getString("sexo"));
-                 employee.setDataNascimento(rs.getString("dataNascimento"));
+                 employee.setDataNascimento(converterData(rs.getString("dataNascimento")));
                  employee.setCPF(rs.getString("CPF"));
                  employee.setCargo(rs.getString("cargo"));
                  employee.setSalario(rs.getString("salario"));
@@ -346,12 +351,45 @@ public class SearchDao {
          }
          return listEmployees;
     }
-    private String converterData(String data){//Converte dados do tipo Data para o serem representados no programa
+    
+    public List<EmployeeBean> procurarEmployee (int registro, String nome, String profissao, boolean nomeActive){
+        List<EmployeeBean> listEmployee = new ArrayList<>();
+        Connection conn = ConnectionFactory.conexao();
+        String SQL;
+        if(nomeActive){
+            SQL = "SELECT * FROM employee WHERE registro = '"+registro+"' and nome LIKE '%"+nome+"%' and cargo = '"+profissao+"'";
+        }else{
+            SQL = "SELECT * FROM employee WHERE registro = '"+registro+"' and cargo = '"+profissao+"'";
+        }
+        try {
+            Statement stm = conn.prepareStatement(SQL);
+            ResultSet rs = stm.executeQuery(SQL);
+            while(rs.next()){
+                EmployeeBean employee = new EmployeeBean();
+                employee.setRegistro(rs.getInt("registro"));
+                employee.setNome(rs.getString("nome"));
+                employee.setSexo(rs.getString("sexo"));
+                employee.setDataNascimento(converterData(rs.getString("dataNascimento")));
+                employee.setCPF(rs.getString("CPF"));
+                employee.setCargo(rs.getString("cargo"));
+                employee.setSalario(rs.getString("salario"));
+                employee.setCEP(rs.getString("CEP"));
+                employee.setEndereco(rs.getString("endereco"));
+                listEmployee.add(employee);
+            }
+            ConnectionFactory.encerrarConexao(conn, stm, rs);
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return listEmployee;
+    }
+        private String converterData(String data){//Converte dados do tipo Data para o serem representados no programa
         Date formatarData;
         String dadoData="";
             try {
                 formatarData = new SimpleDateFormat("yyyy-MM-dd").parse(data);
-                dadoData = new SimpleDateFormat("dd-MM-yyyy").format(formatarData);
+                dadoData = new SimpleDateFormat("dd/MM/yyyy").format(formatarData);
             } catch (ParseException ex) {
                 JOptionPane.showMessageDialog(null, "Erro ao converter a data ID: "+ex.getMessage());
             }   

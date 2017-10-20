@@ -74,6 +74,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pesqAluno = new javax.swing.JButton();
         addAluno = new javax.swing.JButton();
         lblNome = new javax.swing.JLabel();
+        btnFechar = new javax.swing.JButton();
         barraMenu = new javax.swing.JMenuBar();
         sistema = new javax.swing.JMenu();
         gerenciaBD = new javax.swing.JMenuItem();
@@ -122,7 +123,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jToolBar1.setRequestFocusEnabled(false);
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
-        btnSair.setText("Sair");
+        btnSair.setText("Logout");
         btnSair.setToolTipText("Logout do Sistema");
         btnSair.setFocusable(false);
         btnSair.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -149,7 +150,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         btnAdministrativo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/User group.png"))); // NOI18N
-        btnAdministrativo.setText("Administrativo");
+        btnAdministrativo.setText("Funcionarios");
         btnAdministrativo.setToolTipText("Gerêncie Cadastros do Setor Administrativo");
         btnAdministrativo.setFocusable(false);
         btnAdministrativo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -163,7 +164,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         pesqAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Text preview.png"))); // NOI18N
-        pesqAluno.setText("Pesquisar Aluno");
+        pesqAluno.setText("Alunos");
         pesqAluno.setToolTipText("Pesquise alunos");
         pesqAluno.setFocusable(false);
         pesqAluno.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -176,7 +177,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         addAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Female.png"))); // NOI18N
-        addAluno.setText("Adicionar Aluno");
+        addAluno.setText("Novo Aluno");
         addAluno.setToolTipText("Adicionar um Aluno");
         addAluno.setFocusable(false);
         addAluno.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -191,6 +192,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         lblNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblNome.setForeground(new java.awt.Color(51, 51, 255));
         lblNome.setText("CADaster");
+
+        btnFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/quit.png"))); // NOI18N
+        btnFechar.setText("Sair");
+        btnFechar.setToolTipText("Logout do Sistema");
+        btnFechar.setFocusable(false);
+        btnFechar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnFechar.setMaximumSize(new java.awt.Dimension(150, 60));
+        btnFechar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFecharActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -212,11 +226,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                     .addComponent(pesqAluno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(addAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(addAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(lblNome)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(lblNome)
+                .addContainerGap()
+                .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -234,7 +252,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(btnBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         jToolBar1.add(jPanel1);
@@ -428,7 +448,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         funcionarios.add(addFunc);
 
-        removeFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/User group.png"))); // NOI18N
+        removeFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/quit.png"))); // NOI18N
         removeFunc.setText("Remover Funcionario");
         removeFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -437,7 +457,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         funcionarios.add(removeFunc);
 
-        editFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/funcionario.png"))); // NOI18N
+        editFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/New document.png"))); // NOI18N
         editFunc.setText("Editar Funcionario");
         editFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -446,6 +466,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         funcionarios.add(editFunc);
 
+        pesqFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/User group.png"))); // NOI18N
         pesqFunc.setText("Pesquisar Funcionarios");
         funcionarios.add(pesqFunc);
 
@@ -724,8 +745,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void editFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFuncActionPerformed
-        // TODO add your handling code here:
+        controle.abrirJanela(true,TelaEditarFuncionario.getAbrir());
     }//GEN-LAST:event_editFuncActionPerformed
+
+    private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
+        int i = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja sair?", "Confirmar Saída", JOptionPane.YES_NO_OPTION);
+        if(i==JOptionPane.YES_OPTION){
+            System.exit(1);
+        }
+        
+    }//GEN-LAST:event_btnFecharActionPerformed
  
 
     /**
@@ -774,6 +803,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btnAdministrativo;
     private javax.swing.JButton btnBD;
+    private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnSair;
     private javax.swing.JMenuItem editFunc;
     private javax.swing.JMenuItem editUser;

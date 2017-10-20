@@ -792,7 +792,7 @@ public class InsertDao {
            PreparedStatement pstm = conn.prepareStatement(SQL);
            pstm.setString(1, nome);
            pstm.setString(2, sexo);
-           pstm.setString(3, dataNascimento);
+           pstm.setString(3, converterData(dataNascimento));
            pstm.setString(4, cpf);
            pstm.setString(5, cargo);
            pstm.setString(6, salario);
