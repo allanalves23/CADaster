@@ -52,5 +52,19 @@ public class DeleteDao {
 
     }
     
-    
+    public void  deletarEmployee(int registro){
+        try {
+            Connection conn = ConnectionFactory.conexao();
+            String delete = "DELETE FROM employee WHERE registro=?";
+            PreparedStatement pstm = conn.prepareStatement(delete);
+            pstm.setInt(1, registro);
+            pstm.execute();
+            ConnectionFactory.encerrarConexao(conn, pstm);
+            JOptionPane.showMessageDialog(null, "Funcionario removido com êxito", "Êxito", 1);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro de incosistencia no banco\n"
+                    + "Consulta a integridade do banco - MSG : "+ex.getMessage(), "Erro banco de dados", 1);
+        }
+        
+    }
 }

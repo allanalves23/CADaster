@@ -322,7 +322,7 @@ public class SearchDao {
      
     public List<EmployeeBean> procurarEmployee(int registro,String nome){
          List<EmployeeBean> listEmployees = new ArrayList<>();
-         String SQL="";
+         String SQL;
          Connection conn = ConnectionFactory.conexao();
          try{
              Statement stm = conn.createStatement();

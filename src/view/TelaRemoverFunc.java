@@ -5,6 +5,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelbean.EmployeeBean;
+import modeldao.DeleteDao;
 import modeldao.SearchDao;
 
 /**
@@ -54,12 +55,13 @@ public class TelaRemoverFunc extends javax.swing.JInternalFrame {
         tabelaFuncionario = new javax.swing.JTable();
         btnConfirmar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        campoRegistro = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         campoNome = new javax.swing.JTextField();
         lblRegistro = new javax.swing.JLabel();
         lblNome = new javax.swing.JLabel();
         lblInfo2 = new javax.swing.JLabel();
+        btnLimpar = new javax.swing.JButton();
+        campoRegistro = new javax.swing.JFormattedTextField();
         btnTabelaClean = new javax.swing.JButton();
         lblInfo = new javax.swing.JLabel();
 
@@ -114,22 +116,35 @@ public class TelaRemoverFunc extends javax.swing.JInternalFrame {
         lblInfo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblInfo2.setText("* Campos obrigatórios");
 
+        btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
+
+        campoRegistro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#"))));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnBuscar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnLimpar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                        .addComponent(btnBuscar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblRegistro)
                             .addComponent(lblNome)
                             .addComponent(campoNome)
-                            .addComponent(campoRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)))
-                    .addComponent(lblInfo2, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                            .addComponent(lblInfo2, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(campoRegistro))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,7 +160,9 @@ public class TelaRemoverFunc extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblInfo2)
                 .addGap(18, 18, 18)
-                .addComponent(btnBuscar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuscar)
+                    .addComponent(btnLimpar))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
@@ -188,11 +205,12 @@ public class TelaRemoverFunc extends javax.swing.JInternalFrame {
                         .addGap(31, 31, 31)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fundoGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConfirmar)
-                    .addComponent(btnTabelaClean)
-                    .addComponent(lblInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(fundoGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(fundoGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnConfirmar)
+                        .addComponent(btnTabelaClean)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -207,8 +225,6 @@ public class TelaRemoverFunc extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(fundoGeral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        getAccessibleContext().setAccessibleName("CADaster - Remover Funcionario");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -230,7 +246,11 @@ public class TelaRemoverFunc extends javax.swing.JInternalFrame {
                 lblInfo.setText("Selecione um registro para excluir");
                 lblInfo.setIcon(new ImageIcon(getClass().getResource("../imagens/warning.png")));
             }else{
+                DeleteDao delete = new DeleteDao();
+                delete.deletarEmployee((int)model.getValueAt(tabelaFuncionario.getSelectedRow(), 0));
+                model.setNumRows(0);
                 resetarMsg();
+                resetarCampos();
             }
         }
     }//GEN-LAST:event_btnConfirmarActionPerformed
@@ -243,7 +263,7 @@ public class TelaRemoverFunc extends javax.swing.JInternalFrame {
             DefaultTableModel model = (DefaultTableModel) tabelaFuncionario.getModel();
             model.setNumRows(0);
             SearchDao sd = new SearchDao();
-            for(EmployeeBean employee: sd.procurarEmployee(Integer.parseInt(campoNome.getText()), campoRegistro.getText())){
+            for(EmployeeBean employee: sd.procurarEmployee(Integer.parseInt(campoRegistro.getText()),campoNome.getText())){
                 model.addRow(new Object[]{
                     employee.getRegistro(),
                     employee.getNome(),
@@ -263,18 +283,29 @@ public class TelaRemoverFunc extends javax.swing.JInternalFrame {
         lblInfo.setText("");
         lblInfo.setIcon(new ImageIcon(getClass().getResource("")));
     }
+    
+    private void resetarCampos(){
+        campoNome.setText("");
+        campoRegistro.setText("");
+    }
+    
     private void btnTabelaCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabelaCleanActionPerformed
         DefaultTableModel model = (DefaultTableModel) tabelaFuncionario.getModel();
         model.setNumRows(0);
     }//GEN-LAST:event_btnTabelaCleanActionPerformed
 
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+       resetarCampos();
+    }//GEN-LAST:event_btnLimparActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnConfirmar;
+    private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnTabelaClean;
     private javax.swing.JTextField campoNome;
-    private javax.swing.JTextField campoRegistro;
+    private javax.swing.JFormattedTextField campoRegistro;
     private javax.swing.JPanel fundoGeral;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
