@@ -70,7 +70,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnSair = new javax.swing.JButton();
         btnBD = new javax.swing.JButton();
-        btnAdministrativo = new javax.swing.JButton();
+        btnPesquisarFunc = new javax.swing.JButton();
         pesqAluno = new javax.swing.JButton();
         addAluno = new javax.swing.JButton();
         lblNome = new javax.swing.JLabel();
@@ -149,17 +149,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnAdministrativo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/User group.png"))); // NOI18N
-        btnAdministrativo.setText("Funcionarios");
-        btnAdministrativo.setToolTipText("Gerêncie Cadastros do Setor Administrativo");
-        btnAdministrativo.setFocusable(false);
-        btnAdministrativo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnAdministrativo.setMaximumSize(new java.awt.Dimension(150, 60));
-        btnAdministrativo.setMinimumSize(new java.awt.Dimension(87, 41));
-        btnAdministrativo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnAdministrativo.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisarFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/User group.png"))); // NOI18N
+        btnPesquisarFunc.setText("Funcionarios");
+        btnPesquisarFunc.setToolTipText("Gerêncie Cadastros do Setor Administrativo");
+        btnPesquisarFunc.setFocusable(false);
+        btnPesquisarFunc.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPesquisarFunc.setMaximumSize(new java.awt.Dimension(150, 60));
+        btnPesquisarFunc.setMinimumSize(new java.awt.Dimension(87, 41));
+        btnPesquisarFunc.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPesquisarFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdministrativoActionPerformed(evt);
+                btnPesquisarFuncActionPerformed(evt);
             }
         });
 
@@ -221,7 +221,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAdministrativo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnPesquisarFunc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(pesqAluno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -247,7 +247,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(pesqAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAdministrativo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPesquisarFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -468,6 +468,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         pesqFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/User group.png"))); // NOI18N
         pesqFunc.setText("Pesquisar Funcionarios");
+        pesqFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesqFuncActionPerformed(evt);
+            }
+        });
         funcionarios.add(pesqFunc);
 
         barraMenu.add(funcionarios);
@@ -730,9 +735,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         controle.abrirJanela(true, TelaPesqAluno.getAbrir());
     }//GEN-LAST:event_pesqAlunoActionPerformed
 
-    private void btnAdministrativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministrativoActionPerformed
-        controle.abrirJanela(true, TelaRemoverFunc.getAbrir());
-    }//GEN-LAST:event_btnAdministrativoActionPerformed
+    private void btnPesquisarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarFuncActionPerformed
+        controle.abrirJanela(true, TelaPesquisarFunc.getAbrir());
+    }//GEN-LAST:event_btnPesquisarFuncActionPerformed
 
     private void btnBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDActionPerformed
         controle.abrirConfig(GerenciaBanco.getAbrir());
@@ -755,6 +760,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnFecharActionPerformed
+
+    private void pesqFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesqFuncActionPerformed
+        controle.abrirJanela(true, TelaPesquisarFunc.getAbrir());
+    }//GEN-LAST:event_pesqFuncActionPerformed
  
 
     /**
@@ -801,9 +810,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem alunoPesq;
     private javax.swing.JMenu alunos;
     private javax.swing.JMenuBar barraMenu;
-    private javax.swing.JButton btnAdministrativo;
     private javax.swing.JButton btnBD;
     private javax.swing.JButton btnFechar;
+    private javax.swing.JButton btnPesquisarFunc;
     private javax.swing.JButton btnSair;
     private javax.swing.JMenuItem editFunc;
     private javax.swing.JMenuItem editUser;

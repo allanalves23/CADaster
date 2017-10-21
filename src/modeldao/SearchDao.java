@@ -384,15 +384,148 @@ public class SearchDao {
         
         return listEmployee;
     }
-        private String converterData(String data){//Converte dados do tipo Data para o serem representados no programa
-        Date formatarData;
-        String dadoData="";
-            try {
-                formatarData = new SimpleDateFormat("yyyy-MM-dd").parse(data);
-                dadoData = new SimpleDateFormat("dd/MM/yyyy").format(formatarData);
-            } catch (ParseException ex) {
-                JOptionPane.showMessageDialog(null, "Erro ao converter a data ID: "+ex.getMessage());
-            }   
-            return dadoData;
+    
+    //Procurar Funcionario somente pelo nivel de profissao
+    public List<EmployeeBean> procurarEmployee (int counter){
+        List<EmployeeBean> listEmployees = new ArrayList<>();
+        String SQL= "";
+        Connection conn = ConnectionFactory.conexao();
+        switch(counter)
+        {
+            case 1:
+            {
+                SQL="SELECT * FROM employee";
+                break;
+            }
+            
+            case 2:
+            {
+                SQL="SELECT * FROM employee WHERE cargo = 'Professor'";
+                break;
+            }
+            
+            case 3:
+            {
+                SQL = "SELECT * FROM employee WHERE cargo = 'Diretor'";
+                break;
+            }
+            
+            case 4:
+            {
+                SQL ="SELECT * FROM employee WHERE cargo = 'Administrativo'";
+                break;
+            }
+            case 5:
+            {
+                SQL="SELECT * FROM employee WHERE cargo = 'Outros'";
+                break;
+            }
+            case 6:
+            {
+                SQL="SELECT * FROM employee WHERE cargo = 'Servicos Gerais'";
+                break;
+            }
+        }
+        
+        try {
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(SQL);
+            while(rs.next()){
+                EmployeeBean employee = new EmployeeBean();
+                 employee.setRegistro(rs.getInt("registro"));
+                 employee.setNome(rs.getString("nome"));
+                 employee.setSexo(rs.getString("sexo"));
+                 employee.setDataNascimento(converterData(rs.getString("dataNascimento")));
+                 employee.setCPF(rs.getString("CPF"));
+                 employee.setCargo(rs.getString("cargo"));
+                 employee.setSalario(rs.getString("salario"));
+                 employee.setCEP(rs.getString("CEP"));
+                 employee.setEndereco(rs.getString("endereco"));
+                 listEmployees.add(employee);
+            }
+            ConnectionFactory.encerrarConexao(conn, stm, rs);
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return listEmployees;
     }
-}
+    
+    //
+    public List<EmployeeBean> procurarEmployee (int counter, String nome,boolean status){
+        List<EmployeeBean> listEmployees = new ArrayList<>();
+        String SQL= "";
+        Connection conn = ConnectionFactory.conexao();
+        switch(counter)
+        {
+            case 1:
+            {
+                SQL="SELECT * FROM employee WHERE nome LIKE '%"+nome+"%'";
+                break;
+            }
+            
+            case 2:
+            {
+                SQL="SELECT * FROM employee WHERE cargo = 'Professor' and nome LIKE '%"+nome+"%'";
+                break;
+            }
+            
+            case 3:
+            {
+                SQL = "SELECT * FROM employee WHERE cargo = 'Diretor' and nome LIKE '%"+nome+"%'";
+                break;
+            }
+            
+            case 4:
+            {
+                SQL ="SELECT * FROM employee WHERE cargo = 'Administrativo' and nome LIKE '%"+nome+"%'";
+                break;
+            }
+            case 5:
+            {
+                SQL="SELECT * FROM employee WHERE cargo = 'Outros' and nome LIKE '%"+nome+"%'";
+                break;
+            }
+            case 6:
+            {
+                SQL="SELECT * FROM employee WHERE cargo = 'Servicos Gerais' and nome LIKE '%"+nome+"%'";
+                break;
+            }
+    }
+         
+        try {
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(SQL);
+            while(rs.next()){
+                EmployeeBean employee = new EmployeeBean();
+                 employee.setRegistro(rs.getInt("registro"));
+                 employee.setNome(rs.getString("nome"));
+                 employee.setSexo(rs.getString("sexo"));
+                 employee.setDataNascimento(converterData(rs.getString("dataNascimento")));
+                 employee.setCPF(rs.getString("CPF"));
+                 employee.setCargo(rs.getString("cargo"));
+                 employee.setSalario(rs.getString("salario"));
+                 employee.setCEP(rs.getString("CEP"));
+                 employee.setEndereco(rs.getString("endereco"));
+                 listEmployees.add(employee);
+            }
+            ConnectionFactory.encerrarConexao(conn, stm, rs);
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return listEmployees;
+    }
+    
+    private String converterData(String data){//Converte dados do tipo Data para o serem representados no programa
+    Date formatarData;
+    String dadoData="";
+        try {
+            formatarData = new SimpleDateFormat("yyyy-MM-dd").parse(data);
+            dadoData = new SimpleDateFormat("dd/MM/yyyy").format(formatarData);
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao converter a data ID: "+ex.getMessage());
+        }   
+        return dadoData;
+    }
+    }

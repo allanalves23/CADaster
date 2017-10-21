@@ -277,6 +277,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Pesquisar Funcionarios"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesqFuncActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -398,7 +401,7 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="btnAdministrativo" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
+                                          <Component id="btnPesquisarFunc" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
                                           <Component id="btnSair" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
                                           <Component id="pesqAluno" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
                                       </Group>
@@ -434,7 +437,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="pesqAluno" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnAdministrativo" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnPesquisarFunc" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnBD" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -486,7 +489,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBDActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnAdministrativo">
+            <Component class="javax.swing.JButton" name="btnPesquisarFunc">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagens/User group.png"/>
@@ -504,7 +507,7 @@
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdministrativoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPesquisarFuncActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="pesqAluno">

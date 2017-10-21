@@ -75,6 +75,7 @@ public class TelaEditarFuncionario extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaFuncionario = new javax.swing.JTable();
         btnConfirmar = new javax.swing.JButton();
+        btnLimparTabela = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -89,6 +90,12 @@ public class TelaEditarFuncionario extends javax.swing.JInternalFrame {
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
+            }
+        });
+
+        campoNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoNomeActionPerformed(evt);
             }
         });
 
@@ -220,6 +227,13 @@ public class TelaEditarFuncionario extends javax.swing.JInternalFrame {
             }
         });
 
+        btnLimparTabela.setText("Limpar Tabela");
+        btnLimparTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparTabelaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -234,6 +248,8 @@ public class TelaEditarFuncionario extends javax.swing.JInternalFrame {
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimparTabela)
+                        .addGap(82, 82, 82)
                         .addComponent(btnConfirmar)
                         .addGap(55, 55, 55))))
         );
@@ -245,8 +261,10 @@ public class TelaEditarFuncionario extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnConfirmar)
-                        .addGap(0, 17, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnConfirmar)
+                            .addComponent(btnLimparTabela))
+                        .addGap(0, 21, Short.MAX_VALUE))
                     .addComponent(fundoFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -306,6 +324,7 @@ public class TelaEditarFuncionario extends javax.swing.JInternalFrame {
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
        limparInfo();
+       limparInputs();
        boolean resposta;
        
        int registro = (int) tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 0);
@@ -332,7 +351,21 @@ public class TelaEditarFuncionario extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
+    private void btnLimparTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparTabelaActionPerformed
+       DefaultTableModel model = (DefaultTableModel) tabelaFuncionario.getModel();
+       model.setNumRows(0);
+    }//GEN-LAST:event_btnLimparTabelaActionPerformed
 
+    private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoNomeActionPerformed
+
+    private void limparInputs(){
+        campoNome.setText("");
+        campoRegistro.setText("");
+        profissao.clearSelection();
+    }
+    
     private void limparInfo(){
         lblInfo2.setText("");
         lblInfo2.setIcon(new ImageIcon(getClass().getResource("")));
@@ -340,6 +373,7 @@ public class TelaEditarFuncionario extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnConfirmar;
+    private javax.swing.JButton btnLimparTabela;
     private javax.swing.JPanel buttonsEmployee;
     private javax.swing.JTextField campoNome;
     private javax.swing.JFormattedTextField campoRegistro;
