@@ -24,7 +24,7 @@ import modelbean.UserBean;
  */
 public class SearchDao {
 
-    //busca exclusao usuario
+    //busca usuario para as tela de edicao e telaPesquisa
     public List<UserBean> procurarUser(){
         //metodo para listar usuarios no jtable
         List<UserBean> listUsers = new ArrayList<>();
@@ -47,11 +47,39 @@ public class SearchDao {
             ConnectionFactory.encerrarConexao(conn, stm, rs);
             
         } catch (SQLException ex) {
+            
+        }
+      return listUsers; //retorno do array dos registros
+    } 
+    //Para exclusao do usuario
+    public List<UserBean> procurarUser(int ID, String login){
+        //metodo para listar usuarios no jtable
+        List<UserBean> listUsers = new ArrayList<>();
+        try {
+            Connection conn = ConnectionFactory.conexao();
+            String SQL = "select * from usuario where id ='"+ID+"'  and login='"+login+"'";
+            Statement stm= conn.prepareStatement(SQL);
+            ResultSet rs = stm.executeQuery(SQL);
+            
+            
+            
+            //Se o dado existir, irá prosseguir para o proximo registro.
+            while(rs.next()){
+                    UserBean usuario = new UserBean();
+                    usuario.setId(rs.getInt("id"));
+                    usuario.setNome(rs.getString("login"));
+                    listUsers.add(usuario);
+                
+            }
+            ConnectionFactory.encerrarConexao(conn, stm, rs);
+            
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ler os dados do banco "+ex.getMessage());
         }
       return listUsers; //retorno do array dos registros
     } 
-    //Metodo de procurar usuario pelo ID
+    
+    //Metodo de procurar usuario pelo ID - pesquisa
     public List<UserBean> procurarUser(int ID){
         List<UserBean> listUsers = new ArrayList<>();
         try {
@@ -65,8 +93,6 @@ public class SearchDao {
                 usuario.setId(rs.getInt("id"));
                 usuario.setNome(rs.getString("login"));
                 listUsers.add(usuario);
-            }else{
-                JOptionPane.showMessageDialog(null, "Nenhum registro encontrado", "Aviso", 2);
             }
             ConnectionFactory.encerrarConexao(conn, pstm, rs);
         } catch (SQLException ex) {
@@ -76,7 +102,7 @@ public class SearchDao {
         
         return listUsers;
     }
-    //Metodo de procurar usuario pelo LOGIN
+    //Metodo de procurar usuario pelo LOGIN - pesquisa
     public List<UserBean> procurarUser(String login){
         List<UserBean> listUsers = new ArrayList<>();
         try {
@@ -102,7 +128,7 @@ public class SearchDao {
         return listUsers;
     }
     
-    //procurar Aluno para exclusão
+    //procurar Aluno para exclusão -- VERIFICAR
     public List<StudentBean> procurarStudent(){
         List<StudentBean> listStudents = new ArrayList<>();
         return listStudents;

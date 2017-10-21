@@ -1,4 +1,4 @@
-package view;
+
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;

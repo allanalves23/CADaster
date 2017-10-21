@@ -1,4 +1,4 @@
-package view;
+
 
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
@@ -39,7 +39,6 @@ public class RemoveUser extends javax.swing.JInternalFrame {
     public RemoveUser(){
         initComponents();
         setIcon();
-        leituraTabela();
     }
     
     //muda o icone do jInternalFrame
@@ -272,15 +271,12 @@ public class RemoveUser extends javax.swing.JInternalFrame {
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         if(nomeCampo.getText().length()>0 && codCampo.getText().length()>0){
-            String login = nomeCampo.getText();
-            int id = Integer.parseInt(codCampo.getText());
+            
+            leituraTabela();
             
             
             int i = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir?", "Confirmação", 0);
             if(i==JOptionPane.YES_OPTION){
-                DeleteDao del = new DeleteDao();
-                del.deletarUser(id, login);
-                leituraTabela();
             }
             
         }else{

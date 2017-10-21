@@ -34,15 +34,16 @@ public final class GerenciaBanco extends javax.swing.JFrame {
     }
     
     public GerenciaBanco() {
-        try {
-            uri = new URI("https://www.mysql.com/downloads");
-        } catch (URISyntaxException ex) {
-        }
         initComponents();
         setIcon();
+        try {
+            uri = new URI("https://www.apachefriends.org/index.html");
+        } catch (URISyntaxException ex) {
+        }
         CardLayout criarBanco = (CardLayout) fundo.getLayout();
         criarBanco.show(fundo, "criarBD");
-        areaTexto.setText("Estrutura da tabela | ID / Login / Senha");
+        areaTexto.setText("As estruturas da tabela não podem ser modificadas e são pré definidas pela aplicação.\n"
+                        + "Veja a seguir as Tabelas e suas estruturas ao botao abaixo");
     }
     //muda o icone do jInternalFrame
     private void setIcon() {
@@ -61,43 +62,46 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         criarBD = new javax.swing.ButtonGroup();
         fundo = new javax.swing.JPanel();
         panelAddTables = new javax.swing.JPanel();
-        checkUserTable = new javax.swing.JCheckBox();
-        checkStudentTable = new javax.swing.JCheckBox();
-        checkJobTable = new javax.swing.JCheckBox();
         lblInfo = new javax.swing.JLabel();
-        btnCriar = new javax.swing.JButton();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         fundoAreaTexto = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         areaTexto = new javax.swing.JTextPane();
         tipoTabela = new javax.swing.JComboBox<>();
+        jPanel3 = new javax.swing.JPanel();
+        checkUserTable = new javax.swing.JCheckBox();
+        checkJobTable = new javax.swing.JCheckBox();
+        checkStudentTable = new javax.swing.JCheckBox();
+        btnCriar = new javax.swing.JButton();
         panelVerifyTables = new javax.swing.JPanel();
         panelCriarBancoLocal = new javax.swing.JPanel();
         painel1 = new javax.swing.JPanel();
         lblInfoResposta1 = new javax.swing.JLabel();
-        radioBtnSim1 = new javax.swing.JRadioButton();
-        radioBtnNao1 = new javax.swing.JRadioButton();
-        lblTitle1 = new javax.swing.JLabel();
-        lblMsgCreate1 = new javax.swing.JLabel();
-        btnCriarBancoLocal = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         areaTextoInfoLocal = new javax.swing.JTextArea();
+        jPanel1 = new javax.swing.JPanel();
+        radioBtnNao1 = new javax.swing.JRadioButton();
+        lblMsgCreate1 = new javax.swing.JLabel();
+        lblTitle1 = new javax.swing.JLabel();
+        radioBtnSim1 = new javax.swing.JRadioButton();
+        btnCriarBancoLocal = new javax.swing.JButton();
         panelCriarBancoDistribuido = new javax.swing.JPanel();
         painel = new javax.swing.JPanel();
-        lblInfoResposta = new javax.swing.JLabel();
-        radioBtnSim = new javax.swing.JRadioButton();
-        radioBtnNao = new javax.swing.JRadioButton();
-        lblTitle = new javax.swing.JLabel();
-        lblMsgCreate = new javax.swing.JLabel();
-        btnCriarBDDist = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         areaTextoInfoDist = new javax.swing.JTextArea();
-        lblEndereco = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        radioBtnNao = new javax.swing.JRadioButton();
         campoEndereco = new javax.swing.JTextField();
-        lblUser = new javax.swing.JLabel();
-        campoUsuario = new javax.swing.JTextField();
-        lblSenha = new javax.swing.JLabel();
         campoSenha = new javax.swing.JPasswordField();
+        btnCriarBDDist = new javax.swing.JButton();
+        radioBtnSim = new javax.swing.JRadioButton();
+        lblUser = new javax.swing.JLabel();
+        lblSenha = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        campoUsuario = new javax.swing.JTextField();
+        lblMsgCreate = new javax.swing.JLabel();
+        lblEndereco = new javax.swing.JLabel();
+        lblInfoResposta = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         servidor = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -114,20 +118,7 @@ public final class GerenciaBanco extends javax.swing.JFrame {
 
         fundo.setLayout(new java.awt.CardLayout());
 
-        checkUserTable.setText("Criar Tabela de usuarios");
-
-        checkStudentTable.setText("Criar Tabela de alunos");
-
-        checkJobTable.setText("Criar Tabela de Funcionários");
-
-        lblInfo.setText("* Ao confirmar a criação da tabela os registros atuais são sobrescritos, é recomendado a utilização desta ferramenta somente uma vez");
-
-        btnCriar.setText("Criar");
-        btnCriar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCriarActionPerformed(evt);
-            }
-        });
+        lblInfo.setText("* Ao confirmar a criação da tabela os registros atuais não são sobrescritos, se a tabela ja existir, não será criada.");
 
         jInternalFrame1.setTitle("Estrutura das Tabelas");
         jInternalFrame1.setVisible(true);
@@ -137,7 +128,7 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         areaTexto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(areaTexto);
 
-        tipoTabela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Aluno", "Funcionario" }));
+        tipoTabela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tabelas", "Usuario", "Aluno", "Funcionario" }));
         tipoTabela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tipoTabelaActionPerformed(evt);
@@ -179,48 +170,76 @@ public final class GerenciaBanco extends javax.swing.JFrame {
             .addComponent(fundoAreaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabelas do Banco", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
+
+        checkUserTable.setText("Criar Tabela de usuarios");
+
+        checkJobTable.setText("Criar Tabela de Funcionários");
+
+        checkStudentTable.setText("Criar Tabela de alunos");
+
+        btnCriar.setText("Criar");
+        btnCriar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCriarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(checkJobTable)
+                    .addComponent(checkUserTable, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkStudentTable, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(checkUserTable)
+                .addGap(18, 18, 18)
+                .addComponent(checkStudentTable)
+                .addGap(18, 18, 18)
+                .addComponent(checkJobTable)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addComponent(btnCriar)
+                .addGap(28, 28, 28))
+        );
+
         javax.swing.GroupLayout panelAddTablesLayout = new javax.swing.GroupLayout(panelAddTables);
         panelAddTables.setLayout(panelAddTablesLayout);
         panelAddTablesLayout.setHorizontalGroup(
             panelAddTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAddTablesLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(panelAddTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelAddTablesLayout.createSequentialGroup()
-                        .addComponent(lblInfo)
-                        .addContainerGap(139, Short.MAX_VALUE))
-                    .addGroup(panelAddTablesLayout.createSequentialGroup()
-                        .addGroup(panelAddTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelAddTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(checkJobTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(checkStudentTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(checkUserTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(panelAddTablesLayout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(btnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46))))
+                .addGap(0, 126, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86)
+                .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE))
+            .addGroup(panelAddTablesLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(lblInfo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelAddTablesLayout.setVerticalGroup(
             panelAddTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAddTablesLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
                 .addGroup(panelAddTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelAddTablesLayout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(checkUserTable)
-                        .addGap(18, 18, 18)
-                        .addComponent(checkStudentTable)
-                        .addGap(18, 18, 18)
-                        .addComponent(checkJobTable)
-                        .addGap(88, 88, 88)
-                        .addComponent(btnCriar))
-                    .addGroup(panelAddTablesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                    .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(lblInfo)
-                .addContainerGap())
+                .addGap(60, 60, 60))
         );
 
         fundo.add(panelAddTables, "addTables");
@@ -229,7 +248,7 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         panelVerifyTables.setLayout(panelVerifyTablesLayout);
         panelVerifyTablesLayout.setHorizontalGroup(
             panelVerifyTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 809, Short.MAX_VALUE)
+            .addGap(0, 939, Short.MAX_VALUE)
         );
         panelVerifyTablesLayout.setVerticalGroup(
             panelVerifyTablesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,28 +257,10 @@ public final class GerenciaBanco extends javax.swing.JFrame {
 
         fundo.add(panelVerifyTables, "card5");
 
-        criarBD.add(radioBtnSim1);
-        radioBtnSim1.setText("Sim");
-
-        criarBD.add(radioBtnNao1);
-        radioBtnNao1.setText("Não");
-
-        lblTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblTitle1.setText("Criar Banco de Dados");
-
-        lblMsgCreate1.setText("Deseja Criar o Banco de dados Local?");
-
-        btnCriarBancoLocal.setText("Confirmar Criação");
-        btnCriarBancoLocal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCriarBancoLocalActionPerformed(evt);
-            }
-        });
-
         areaTextoInfoLocal.setEditable(false);
         areaTextoInfoLocal.setColumns(20);
         areaTextoInfoLocal.setRows(5);
-        areaTextoInfoLocal.setText("Banco de dados para ser criado\né necessário ter o mysql\ninstalado.\nConsulte o site:\nhttps://www.mysql.com/downloads/");
+        areaTextoInfoLocal.setText("Banco de dados para ser criado\né necessário ter o mysql\ninstalado funcionando junto com\nservidor local.\nConsulte os sites:\nhttps://www.apachefriends.org/index.html\nou\n=========================================\nhttps://httpd.apache.org/download.cgi\ne\nhttps://www.mysql.com/downloads/\n=========================================");
         areaTextoInfoLocal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 areaTextoInfoLocalMouseClicked(evt);
@@ -278,54 +279,81 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         painel1Layout.setHorizontalGroup(
             painel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painel1Layout.createSequentialGroup()
-                .addGroup(painel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painel1Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addGroup(painel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(painel1Layout.createSequentialGroup()
-                                .addComponent(lblMsgCreate1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-                                .addComponent(lblInfoResposta1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(painel1Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(painel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnCriarBancoLocal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(painel1Layout.createSequentialGroup()
-                                        .addComponent(radioBtnSim1)
-                                        .addGap(58, 58, 58)
-                                        .addComponent(radioBtnNao1)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(painel1Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(lblTitle1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblInfoResposta1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(780, 780, 780))
+            .addGroup(painel1Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         painel1Layout.setVerticalGroup(
             painel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painel1Layout.createSequentialGroup()
-                .addGap(133, 133, 133)
+                .addGap(0, 0, 0)
                 .addComponent(lblInfoResposta1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(painel1Layout.createSequentialGroup()
-                .addGroup(painel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painel1Layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(lblTitle1)
-                        .addGap(37, 37, 37)
-                        .addComponent(lblMsgCreate1)
-                        .addGap(40, 40, 40)
-                        .addGroup(painel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(radioBtnNao1)
-                            .addComponent(radioBtnSim1))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCriarBancoLocal))
-                    .addGroup(painel1Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(270, Short.MAX_VALUE))
+        );
+
+        criarBD.add(radioBtnNao1);
+        radioBtnNao1.setText("Não");
+
+        lblMsgCreate1.setText("Deseja Criar o Banco de dados Local?");
+
+        lblTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTitle1.setText("Criar Banco de Dados");
+
+        criarBD.add(radioBtnSim1);
+        radioBtnSim1.setText("Sim");
+
+        btnCriarBancoLocal.setText("Confirmar Criação");
+        btnCriarBancoLocal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCriarBancoLocalActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addComponent(lblMsgCreate1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblTitle1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(radioBtnSim1)
+                                        .addGap(58, 58, 58)
+                                        .addComponent(radioBtnNao1))
+                                    .addComponent(btnCriarBancoLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitle1)
+                .addGap(18, 18, 18)
+                .addComponent(lblMsgCreate1)
+                .addGap(35, 35, 35)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(radioBtnSim1)
+                    .addComponent(radioBtnNao1))
+                .addGap(42, 42, 42)
+                .addComponent(btnCriarBancoLocal)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelCriarBancoLocalLayout = new javax.swing.GroupLayout(panelCriarBancoLocal);
@@ -333,42 +361,31 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         panelCriarBancoLocalLayout.setHorizontalGroup(
             panelCriarBancoLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCriarBancoLocalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(painel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
+                .addContainerGap(149, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(painel1, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         panelCriarBancoLocalLayout.setVerticalGroup(
             panelCriarBancoLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCriarBancoLocalLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(painel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addGroup(panelCriarBancoLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCriarBancoLocalLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(painel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCriarBancoLocalLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         fundo.add(panelCriarBancoLocal, "criarBDLocal");
 
-        criarBD.add(radioBtnSim);
-        radioBtnSim.setText("Sim");
-
-        criarBD.add(radioBtnNao);
-        radioBtnNao.setText("Não");
-
-        lblTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblTitle.setText("Criar Banco de Dados");
-
-        lblMsgCreate.setText("Deseja Criar o Banco de dados Distribuido?");
-
-        btnCriarBDDist.setText("Confirmar Criação");
-        btnCriarBDDist.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCriarBDDistActionPerformed(evt);
-            }
-        });
-
         areaTextoInfoDist.setEditable(false);
         areaTextoInfoDist.setColumns(20);
         areaTextoInfoDist.setRows(5);
-        areaTextoInfoDist.setText("Banco de dados para ser criado\né necessário ter o mysql\ninstalado.\nConsulte o site:\nhttps://www.mysql.com/downloads/");
+        areaTextoInfoDist.setText("Banco de dados para ser criado\né necessário ter o mysql\ninstalado funcionando junto com\nservidor local.\nConsulte os sites:\nhttps://www.apachefriends.org/index.html\nou\n=========================================\nhttps://httpd.apache.org/download.cgi\ne\nhttps://www.mysql.com/downloads/\n=========================================");
         areaTextoInfoDist.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 areaTextoInfoDistMouseClicked(evt);
@@ -382,85 +399,114 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(areaTextoInfoDist);
 
-        lblEndereco.setText("Endereço");
+        criarBD.add(radioBtnNao);
+        radioBtnNao.setText("Não");
 
         campoEndereco.setText("ex: 127.0.0.0");
 
+        btnCriarBDDist.setText("Confirmar Criação");
+        btnCriarBDDist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCriarBDDistActionPerformed(evt);
+            }
+        });
+
+        criarBD.add(radioBtnSim);
+        radioBtnSim.setText("Sim");
+
         lblUser.setText("Usuario");
+
+        lblSenha.setText("Senha");
+
+        lblTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTitle.setText("Criar Banco de Dados");
 
         campoUsuario.setText("ex: root");
 
-        lblSenha.setText("Senha");
+        lblMsgCreate.setText("Deseja Criar o Banco de dados Distribuido?");
+
+        lblEndereco.setText("Endereço");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(radioBtnNao))
+                    .addComponent(lblMsgCreate)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(radioBtnSim))
+                    .addComponent(lblEndereco)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblUser)
+                                .addGap(18, 18, 18)
+                                .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblSenha, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTitle)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblInfoResposta, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCriarBDDist))))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblMsgCreate)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(radioBtnSim)
+                    .addComponent(radioBtnNao))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEndereco)
+                    .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUser)
+                    .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSenha)
+                    .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addComponent(lblInfoResposta, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(btnCriarBDDist)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout painelLayout = new javax.swing.GroupLayout(painel);
         painel.setLayout(painelLayout);
         painelLayout.setHorizontalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelLayout.createSequentialGroup()
-                .addGroup(painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelLayout.createSequentialGroup()
-                        .addComponent(lblInfoResposta, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(painelLayout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(lblTitle))
-                            .addGroup(painelLayout.createSequentialGroup()
-                                .addGap(104, 104, 104)
-                                .addComponent(radioBtnNao))
-                            .addComponent(lblMsgCreate)
-                            .addGroup(painelLayout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(radioBtnSim))
-                            .addComponent(lblEndereco)
-                            .addGroup(painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, painelLayout.createSequentialGroup()
-                                        .addComponent(lblUser)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lblSenha, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(painelLayout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(btnCriarBDDist)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(165, 165, 165))
+                .addContainerGap(135, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(142, 142, 142)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         painelLayout.setVerticalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelLayout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(lblInfoResposta, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(315, Short.MAX_VALUE))
-            .addGroup(painelLayout.createSequentialGroup()
                 .addGroup(painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(painelLayout.createSequentialGroup()
-                        .addComponent(lblTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblMsgCreate)
-                        .addGap(18, 18, 18)
-                        .addGroup(painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(radioBtnSim)
-                            .addComponent(radioBtnNao))
-                        .addGap(18, 18, 18)
-                        .addGroup(painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEndereco)
-                            .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblUser)
-                            .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblSenha)
-                            .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(100, 100, 100)
-                        .addComponent(btnCriarBDDist))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 113, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelCriarBancoDistribuidoLayout = new javax.swing.GroupLayout(panelCriarBancoDistribuido);
@@ -472,7 +518,7 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         panelCriarBancoDistribuidoLayout.setVerticalGroup(
             panelCriarBancoDistribuidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCriarBancoDistribuidoLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(46, 46, 46)
                 .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -528,7 +574,7 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+            .addComponent(fundo, javax.swing.GroupLayout.PREFERRED_SIZE, 512, Short.MAX_VALUE)
         );
 
         pack();
@@ -538,16 +584,24 @@ public final class GerenciaBanco extends javax.swing.JFrame {
     private void tipoTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoTabelaActionPerformed
         switch (tipoTabela.getSelectedItem().toString()) {
             case "Usuario":
-                areaTexto.setText("Estrutura da tabela | ID / Login / Senha");
+                areaTexto.setText("Estrutura da tabela:\n"
+                        + " ID (Identificador)\n"
+                        + " Login \n"
+                        + " Senha");
                 break;
             case "Aluno":
-                areaTexto.setText("Estrutura da tabela | Matricula / Nome / CPF / Data de Nascimento / Endereco / Bairro"
-                        + "/ Nome mãe / Nome Pai / Responsável/ Transferência / anoTecnico / anoPrimario / anoGinasio / anoEnsinoMedio "
-                        + "/ Curso / Bolsa ");
+                areaTexto.setText("Estrutura da tabela:\n"
+                        + " Matricula \n"
+                        + " Nome \n CPF \n Data de Nascimento \n Endereco \n Bairro \n"
+                        + " Nome mãe \n Nome Pai \n Responsável \n Transferência \n anoTecnico \n anoPrimario \n anoGinasio \n anoEnsinoMedio "
+                        + "\n Curso \n Bolsa ");
                 break;
             case "Funcionario":
-                areaTexto.setText("A realizar");
+                areaTexto.setText("Estrutura da tabela:\n Registro \n Nome \n Sexo \n CPF \n Data de Nascimento \n CEP \n Endereco \n Cargo(Profissao)");
                 break;
+            default:
+                areaTexto.setText("As estruturas da tabela não podem ser modificadas e são pré definidas pela aplicação.\n"
+                        + "Veja a seguir as Tabelas e suas estruturas ao botao abaixo");
         }
     }//GEN-LAST:event_tipoTabelaActionPerformed
 
@@ -702,6 +756,9 @@ public final class GerenciaBanco extends javax.swing.JFrame {
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

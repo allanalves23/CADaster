@@ -20,18 +20,17 @@ import javax.swing.JOptionPane;
 public class DeleteDao {
     
     //Deleta usuario do sistema no banco
-    public void deletarUser(int id, String login){
+    public boolean deletarUser(int id){
          try {
             Connection conn = ConnectionFactory.conexao();
-            String delete = "DELETE FROM usuario where id= ? or login=?";
+            String delete = "DELETE FROM usuario where id= ?";
             PreparedStatement pstm = conn.prepareStatement(delete);
             pstm.setInt(1, id);
-            pstm.setString(2, login);
             pstm.execute();
             ConnectionFactory.encerrarConexao(conn, pstm);
+            return true;
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao deletar o registro, verifique a"
-                    + " integridade com o banco" +ex.getMessage());     
+            return false;     
         }
     } 
     

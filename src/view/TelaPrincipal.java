@@ -536,7 +536,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     //Chamada da tela de remocao de usuario
     
     private void removeUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserActionPerformed
-        controle.abrirJanela(true,RemoveUser.getAbrir());
+        controle.abrirJanela(false,TelaRemoveUser.getAbrir());
         //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_removeUserActionPerformed
     //Chamada da tela de edicao de usuario
@@ -566,7 +566,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     //Chamada da tela de remocao de aluno
     
     private void alunoDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alunoDelActionPerformed
-       controle.abrirJanela(false,TelaDelAluno.getAbrir());
+       controle.abrirJanela(false,TelaExcluirAluno.getAbrir());
        //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_alunoDelActionPerformed
     //Chamada da tela de pesquisar aluno
