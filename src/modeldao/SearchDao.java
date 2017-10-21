@@ -47,7 +47,7 @@ public class SearchDao {
             ConnectionFactory.encerrarConexao(conn, stm, rs);
             
         } catch (SQLException ex) {
-            
+             Logger.getLogger(SearchDao.class.getName()).log(Level.SEVERE, null, ex);
         }
       return listUsers; //retorno do array dos registros
     } 
@@ -74,7 +74,7 @@ public class SearchDao {
             ConnectionFactory.encerrarConexao(conn, stm, rs);
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ler os dados do banco "+ex.getMessage());
+             Logger.getLogger(SearchDao.class.getName()).log(Level.SEVERE, null, ex);
         }
       return listUsers; //retorno do array dos registros
     } 
@@ -96,7 +96,7 @@ public class SearchDao {
             }
             ConnectionFactory.encerrarConexao(conn, pstm, rs);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ler os dados do banco "+ex.getMessage());
+             Logger.getLogger(SearchDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -121,22 +121,15 @@ public class SearchDao {
             }
             ConnectionFactory.encerrarConexao(conn, pstm, rs);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ler os dados do banco "+ex.getMessage());
+             Logger.getLogger(SearchDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
         return listUsers;
     }
     
-    //procurar Aluno para exclusão -- VERIFICAR
-    public List<StudentBean> procurarStudent(){
-        List<StudentBean> listStudents = new ArrayList<>();
-        return listStudents;
-    } 
-    
     //procurar Aluno pelo nome (para exclusao)
     public List<StudentBean> procurarStudent(String nome){
-        int count=0;
         List<StudentBean> listStudents = new ArrayList<>();
         try {
             Connection conn = ConnectionFactory.conexao();
@@ -162,23 +155,57 @@ public class SearchDao {
                         student.setGrau("Curso Técnico");
                     }
                     listStudents.add(student);
-                    count++;
                 }
-            if(count==0){
-                JOptionPane.showMessageDialog(null, "Nenhum registro foi encontrado, por favor verifique o nome digitado");
+            ConnectionFactory.encerrarConexao(conn, stm, rs);
+        } catch (SQLException ex) {
+             Logger.getLogger(SearchDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        return listStudents;
+    }
+    
+    //procurar Aluno pelo nivel de grau(Para exclusao)
+    public List<StudentBean> procurarStudent(String grau,String tipo,boolean status){
+        List<StudentBean> listStudents = new ArrayList<>();
+        String SQL =  "SELECT * FROM student WHERE "+tipo+" IS NOT NULL";
+        try {
+            Connection conn = ConnectionFactory.conexao();
+            Statement stm = conn.createStatement();
+            
+            ResultSet rs = stm.executeQuery(SQL);
+            while(rs.next()){
+                StudentBean student  = new StudentBean();
+                student.setMatricula(rs.getString("matricula"));
+                student.setNome(rs.getString("nome"));
+                if(rs.getString("anoPrimario") != null){
+                    student.setGrau("Primario");
+                    student.setAno(rs.getString("anoPrimario"));
+                }
+                if(rs.getString("anoGinasio") != null){
+                    student.setGrau("Ginasio");
+                    student.setAno(rs.getString("anoGinasio"));
+                }
+                if(rs.getString("anoEM") != null){
+                    student.setGrau("Ensino Medio");
+                    student.setAno(rs.getString("anoEM"));
+                }
+                if(rs.getString("anoTecnico") != null){
+                    student.setGrau("Tecnico");
+                    student.setAno(rs.getString("anoTecnico"));
+                }
+                listStudents.add(student);
             }
             ConnectionFactory.encerrarConexao(conn, stm, rs);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao ler os dados do banco - "+ex.getMessage());
+            Logger.getLogger(SearchDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
         return listStudents;
     }
     
     //procurar por aluno somente pelo nivel do grau (para pesquisa)
     public List<StudentBean> procurarStudent(String grau,String tipo){
         List<StudentBean> listStudents = new ArrayList<>();
-        String SQL =  "";
+        String SQL;
         try {
             Connection conn = ConnectionFactory.conexao();
             if(tipo.equals("Todos")){
@@ -221,7 +248,7 @@ public class SearchDao {
             }
             ConnectionFactory.encerrarConexao(conn, stm, rs);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ler os dados do banco "+ex.getMessage());
+             Logger.getLogger(SearchDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return listStudents;
     }
@@ -229,7 +256,7 @@ public class SearchDao {
     //procurar por aluno pelo nome, CPF ou matricula (para pesquisa)
     public List<StudentBean> procurarStudent(String grau,String tipo, String dado){
         List<StudentBean> listStudents = new ArrayList<>();
-        String SQL =  "";
+        String SQL;
         try {
             Connection conn = ConnectionFactory.conexao();
             if(tipo.equals("nome")||tipo.equals("CPF")||tipo.equals("matricula")){
@@ -272,7 +299,7 @@ public class SearchDao {
             }
             ConnectionFactory.encerrarConexao(conn, stm, rs);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ler os dados do banco "+ex.getMessage());
+             Logger.getLogger(SearchDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return listStudents;
     }
@@ -280,7 +307,7 @@ public class SearchDao {
     //procurar aluno para Preencher a tabela (para edicao)
      public List<StudentBean> procurarStudent(String nome,String matricula, String grau, String colunaBanco, boolean checkMatricula){
         List<StudentBean> listStudents = new ArrayList<>();
-        String SQL =  "";
+        String SQL;
         try {
             Connection conn = ConnectionFactory.conexao();
             if(!grau.equals("Selecione")){
@@ -327,7 +354,7 @@ public class SearchDao {
             }
             ConnectionFactory.encerrarConexao(conn, stm, rs);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ler os dados do banco "+ex.getMessage());
+             Logger.getLogger(SearchDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return listStudents;
     }
@@ -343,7 +370,7 @@ public class SearchDao {
             status=rs.next();
             ConnectionFactory.encerrarConexao(conn, pstm, rs);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao ler os dados do banco - "+ex.getMessage());
+            Logger.getLogger(SearchDao.class.getName()).log(Level.SEVERE, null, ex);
         }
             
         return status;
@@ -373,7 +400,7 @@ public class SearchDao {
                  listEmployees.add(employee);
              }
          }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Erro ler os dados do banco "+ex.getMessage());
+             Logger.getLogger(SearchDao.class.getName()).log(Level.SEVERE, null, ex);
          }
          return listEmployees;
     }
@@ -550,7 +577,7 @@ public class SearchDao {
             formatarData = new SimpleDateFormat("yyyy-MM-dd").parse(data);
             dadoData = new SimpleDateFormat("dd/MM/yyyy").format(formatarData);
         } catch (ParseException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao converter a data ID: "+ex.getMessage());
+            Logger.getLogger(SearchDao.class.getName()).log(Level.SEVERE, null, ex);
         }   
         return dadoData;
     }

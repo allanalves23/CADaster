@@ -6,25 +6,25 @@ import javax.swing.ImageIcon;
  *
  * @author allan
  */
-public class Sobre extends javax.swing.JInternalFrame {
+public class TelaSobre extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Sobre
      */
-    private static Sobre tela;
+    private static TelaSobre tela;
      /*variavel estatica para verificar se existe mais de um objeto do mesmo
     tipo aberto*/ 
     
-    public static Sobre getAbrir(){
+    public static TelaSobre getAbrir(){
         if(tela==null){
-            tela=new Sobre();
+            tela=new TelaSobre();
             
         }
         /*se a tela estiver null, ou seja, se nao estiver nada aberto. Abra uma!
         Senao matenha a mesma aberta  */
         return tela;
     }
-    public Sobre() {
+    public TelaSobre() {
         initComponents();
         setIcon();
     }
@@ -55,9 +55,9 @@ public class Sobre extends javax.swing.JInternalFrame {
         btnSair = new javax.swing.JButton();
 
         setClosable(true);
-        setIconifiable(true);
         setTitle("CADaster - Sobre");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setPreferredSize(new java.awt.Dimension(423, 427));
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoCADaster.png"))); // NOI18N
 
@@ -70,28 +70,28 @@ public class Sobre extends javax.swing.JInternalFrame {
         panelLogonome.setLayout(panelLogonomeLayout);
         panelLogonomeLayout.setHorizontalGroup(
             panelLogonomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLogonomeLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(lblLogo)
-                .addContainerGap(36, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLogonomeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLogonomeLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblLogo)
+                .addGap(34, 34, 34))
         );
         panelLogonomeLayout.setVerticalGroup(
             panelLogonomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLogonomeLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addContainerGap()
                 .addComponent(lblLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(lblNome)
                 .addGap(0, 13, Short.MAX_VALUE))
         );
 
-        lblBuild.setText("Build 0.6.0");
+        lblBuild.setText("Build 0.7.0");
 
-        lblRelease.setText("Release 0");
+        lblRelease.setText("Release 0.7");
 
         lblAno.setText("2017");
 
@@ -109,22 +109,25 @@ public class Sobre extends javax.swing.JInternalFrame {
         panelDetalhesLayout.setHorizontalGroup(
             panelDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDetalhesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblBuild)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblRelease)
-                .addGap(38, 38, 38))
+                .addGap(40, 40, 40))
             .addGroup(panelDetalhesLayout.createSequentialGroup()
-                .addGroup(panelDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(40, 40, 40)
+                .addGroup(panelDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelDetalhesLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(lblAutor)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblAno))
+                        .addGroup(panelDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelDetalhesLayout.createSequentialGroup()
+                                .addGroup(panelDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblAutor)
+                                    .addComponent(lblBuild))
+                                .addGap(42, 42, 42)))
+                        .addContainerGap(84, Short.MAX_VALUE))
                     .addGroup(panelDetalhesLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblAno)
+                        .addGap(63, 63, 63))))
         );
         panelDetalhesLayout.setVerticalGroup(
             panelDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,11 +136,11 @@ public class Sobre extends javax.swing.JInternalFrame {
                 .addGroup(panelDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRelease)
                     .addComponent(lblBuild))
-                .addGap(21, 21, 21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(panelDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAno))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnSair)
                 .addGap(22, 22, 22))
         );
@@ -147,14 +150,13 @@ public class Sobre extends javax.swing.JInternalFrame {
         fundoOpLayout.setHorizontalGroup(
             fundoOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoOpLayout.createSequentialGroup()
-                .addContainerGap(123, Short.MAX_VALUE)
-                .addGroup(fundoOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoOpLayout.createSequentialGroup()
-                        .addComponent(panelLogonome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(129, 129, 129))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoOpLayout.createSequentialGroup()
-                        .addComponent(panelDetalhes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(99, 99, 99))))
+                .addGap(95, 95, 95)
+                .addComponent(panelDetalhes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95))
+            .addGroup(fundoOpLayout.createSequentialGroup()
+                .addGap(129, 129, 129)
+                .addComponent(panelLogonome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(129, 129, 129))
         );
         fundoOpLayout.setVerticalGroup(
             fundoOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +165,7 @@ public class Sobre extends javax.swing.JInternalFrame {
                 .addComponent(panelLogonome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(panelDetalhes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGap(51, 51, 51))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

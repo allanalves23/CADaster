@@ -9,26 +9,26 @@ import modeldao.SearchDao;
  *
  * @author allan
  */
-public class TelaPesquisa extends javax.swing.JInternalFrame {
+public class TelaPesqUsuario extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form TelaPesquisa
      */
     
-    private static TelaPesquisa tela;
+    private static TelaPesqUsuario tela;
     /*variavel estatica para verificar se existe mais de um objeto do mesmo
     tipo aberto*/
     
-    public static TelaPesquisa getAbrir(){
+    public static TelaPesqUsuario getAbrir(){
         if(tela==null){
-            tela=new TelaPesquisa();
+            tela=new TelaPesqUsuario();
             
         }
         /*se a tela estiver null, ou seja, se nao estiver nada aberto. Abra uma!
         Senao matenha a mesma aberta  */
         return tela;
     }
-    public TelaPesquisa() {
+    public TelaPesqUsuario() {
         initComponents();
         setIcon();
         leituraTabela();

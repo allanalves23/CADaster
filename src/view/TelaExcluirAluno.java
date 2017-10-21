@@ -5,9 +5,12 @@
  */
 package view;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import modelbean.StudentBean;
 import modeldao.DeleteDao;
+import modeldao.SearchDao;
 
 /**
  *
@@ -34,6 +37,7 @@ public class TelaExcluirAluno extends javax.swing.JInternalFrame {
      */
     public TelaExcluirAluno() {
         initComponents();
+        
     }
 
     /**
@@ -45,18 +49,30 @@ public class TelaExcluirAluno extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tipoPesquisa = new javax.swing.ButtonGroup();
         fundo = new javax.swing.JPanel();
         campos = new javax.swing.JPanel();
         campoNome = new javax.swing.JTextField();
         lblNome = new javax.swing.JLabel();
         btnConfirmar = new javax.swing.JButton();
-        btnVoltar = new javax.swing.JButton();
+        btnLimpar = new javax.swing.JButton();
+        lblInfo2 = new javax.swing.JLabel();
+        lblGrau = new javax.swing.JLabel();
+        radioBtnNome = new javax.swing.JRadioButton();
+        radioBtnGrau = new javax.swing.JRadioButton();
+        campoGrau = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaStudents = new javax.swing.JTable();
         btnConfirmarExclusao = new javax.swing.JButton();
         btnLimparTabela = new javax.swing.JButton();
+        lblInfo = new javax.swing.JLabel();
 
-        campos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setTitle("CADaster - Excluir Aluno");
+
+        campos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Exclusão de aluno", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
         lblNome.setText("Nome");
 
@@ -67,12 +83,36 @@ public class TelaExcluirAluno extends javax.swing.JInternalFrame {
             }
         });
 
-        btnVoltar.setText("Voltar");
-        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarActionPerformed(evt);
+                btnLimparActionPerformed(evt);
             }
         });
+
+        lblInfo2.setForeground(new java.awt.Color(255, 0, 0));
+
+        lblGrau.setText("Grau");
+
+        tipoPesquisa.add(radioBtnNome);
+        radioBtnNome.setSelected(true);
+        radioBtnNome.setText("Nome");
+        radioBtnNome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                radioBtnNomeMouseClicked(evt);
+            }
+        });
+
+        tipoPesquisa.add(radioBtnGrau);
+        radioBtnGrau.setText("Grau");
+        radioBtnGrau.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                radioBtnGrauMouseClicked(evt);
+            }
+        });
+
+        campoGrau.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Primario", "Ginasio", "Ensino Medio", "Tecnico" }));
+        campoGrau.setEnabled(false);
 
         javax.swing.GroupLayout camposLayout = new javax.swing.GroupLayout(campos);
         campos.setLayout(camposLayout);
@@ -82,27 +122,48 @@ public class TelaExcluirAluno extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(camposLayout.createSequentialGroup()
-                        .addComponent(lblNome)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(campoNome)
+                        .addComponent(radioBtnNome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(radioBtnGrau)
+                        .addGap(27, 27, 27))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, camposLayout.createSequentialGroup()
-                        .addComponent(btnVoltar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addComponent(btnConfirmar)))
-                .addContainerGap())
+                        .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(campoGrau, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblInfo2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(campoNome, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, camposLayout.createSequentialGroup()
+                                .addComponent(btnLimpar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                                .addComponent(btnConfirmar))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, camposLayout.createSequentialGroup()
+                                .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblNome)
+                                    .addComponent(lblGrau))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         camposLayout.setVerticalGroup(
             camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(camposLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblNome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConfirmar)
-                    .addComponent(btnVoltar))
-                .addContainerGap())
+                    .addComponent(radioBtnNome)
+                    .addComponent(radioBtnGrau))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(lblGrau)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoGrau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addGroup(camposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLimpar)
+                    .addComponent(btnConfirmar))
+                .addGap(49, 49, 49)
+                .addComponent(lblInfo2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
 
         tabelaStudents.setModel(new javax.swing.table.DefaultTableModel(
@@ -143,40 +204,42 @@ public class TelaExcluirAluno extends javax.swing.JInternalFrame {
             }
         });
 
+        lblInfo.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout fundoLayout = new javax.swing.GroupLayout(fundo);
         fundo.setLayout(fundoLayout);
         fundoLayout.setHorizontalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
+            .addGroup(fundoLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
                 .addComponent(campos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lblInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(fundoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnLimparTabela)
-                        .addGap(270, 270, 270)
-                        .addComponent(btnConfirmarExclusao)
-                        .addGap(65, 65, 65))
-                    .addGroup(fundoLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(58, 58, 58)
+                        .addComponent(btnConfirmarExclusao)))
+                .addGap(159, 159, 159))
         );
         fundoLayout.setVerticalGroup(
             fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fundoLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(campos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fundoLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnLimparTabela)
-                            .addComponent(btnConfirmarExclusao))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(lblInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addGroup(fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLimparTabela)
+                    .addComponent(btnConfirmarExclusao))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -194,34 +257,114 @@ public class TelaExcluirAluno extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        if(!campoNome.getText().equals("")){
-            leituraTabela(campoNome.getText());
+       String tipo="";
+        if(campoNome.getText().length()>0 && campoNome.isEnabled()){
+            try{
+                int num = Integer.parseInt(campoNome.getText());
+                lblInfo2.setText("Números não são validos!");
+                lblInfo2.setIcon(new ImageIcon(getClass().getResource("../imagens/warningSmall.png")));
+                return;
+            }catch(NumberFormatException ex){
+            }
+            limparInputs(true);
+            DefaultTableModel model = (DefaultTableModel) tabelaStudents.getModel();
+            model.setRowCount(0);
+            SearchDao sd = new SearchDao();
+            for(StudentBean student : sd.procurarStudent(campoNome.getText())){
+                model.addRow(new Object[]{
+                    student.getMatricula(),
+                    student.getNome(),
+                    student.getGrau(),
+                    student.getAno()
+                });
+            }
+            if(tabelaStudents.getRowCount()==0){
+                lblInfo.setText("Nenhum Registro encontrado");
+                lblInfo.setIcon(new ImageIcon(getClass().getResource("../imagens/warningSmall.png")));
+            }else{
+                limparInputs(true);
+            }
+            
+        }else if (campoGrau.isEnabled()){
+            switch(campoGrau.getSelectedItem().toString()){
+                case "Primario":
+                {
+                    tipo="anoPrimario";
+                    break;
+                }
+                case "Ginasio":
+                {
+                    tipo="anoGinasio";
+                    break;
+                }
+                case "Ensino Medio":
+                {
+                    tipo="anoEM";
+                    break;
+                }
+                case "Tecnico":
+                {
+                    tipo="anoTecnico";
+                    break;
+                }
+            }
+            
+            limparInputs(true);
+            DefaultTableModel model = (DefaultTableModel) tabelaStudents.getModel();
+            model.setRowCount(0);
+            SearchDao sd = new SearchDao();
+            for(StudentBean student : sd.procurarStudent(campoGrau.getSelectedItem().toString(),tipo,true)){
+                model.addRow(new Object[]{
+                    student.getMatricula(),
+                    student.getNome(),
+                    student.getGrau(),
+                    student.getAno()
+                });
+            }
+            if(tabelaStudents.getRowCount()==0){
+                lblInfo.setText("Nenhum Registro encontrado");
+                lblInfo.setIcon(new ImageIcon(getClass().getResource("../imagens/warningSmall.png")));
+            }else{
+                limparInputs(true);
+            }
+            
         }else{
-            JOptionPane.showMessageDialog(null, "Nenhum registro encontrado");
+            if(lblInfo.getText().length()>0){
+                limparInputs(true);
+            }
+            lblInfo2.setText("Campo Obrigatório em branco");
+            lblInfo2.setIcon(new ImageIcon(getClass().getResource("../imagens/warningSmall.png")));
         }
+        
+        
+            
+        
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
-    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnVoltarActionPerformed
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        limparInputs(false);
+    }//GEN-LAST:event_btnLimparActionPerformed
 
     private void tabelaStudentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaStudentsMouseClicked
-        //Implementar..
+        
     }//GEN-LAST:event_tabelaStudentsMouseClicked
 
     private void btnConfirmarExclusaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarExclusaoActionPerformed
-        if(tabelaStudents.getSelectedRow()==-1)
-        JOptionPane.showMessageDialog(null, "Selecione um registro");
+        if(tabelaStudents.getSelectedRow()==-1){
+            lblInfo.setText("Selecione um registro para excluir");
+            lblInfo.setIcon(new ImageIcon(getClass().getResource("../imagens/warningSmall.png")));
+        }
         else{
-            Object registro = tabelaStudents.getValueAt(tabelaStudents.getSelectedRow(), 0);
-            String matricula = registro.toString();
+            limparInputs(true);
             DeleteDao del = new DeleteDao();
             int i = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja remover o registro?",
                 "Confirmar Exclusão",JOptionPane.YES_NO_OPTION);
             if(i == JOptionPane.YES_OPTION){
-                del.deletarStudent(matricula);
+                del.deletarStudent(tabelaStudents.getValueAt(tabelaStudents.getSelectedRow(),0 ).toString());
+                limparInputs(false);
+                campoGrau.setEnabled(false);
+                campoNome.setEnabled(true);
                 btnLimparTabelaActionPerformed(evt);
-                campoNome.setText("");
             }
         }
     }//GEN-LAST:event_btnConfirmarExclusaoActionPerformed
@@ -232,22 +375,59 @@ public class TelaExcluirAluno extends javax.swing.JInternalFrame {
             model.setNumRows(0);
         }
     }//GEN-LAST:event_btnLimparTabelaActionPerformed
+    
+    private void limparInputs(boolean onlyInfo){
+        if(onlyInfo){
+            lblInfo.setText("");
+            lblInfo.setIcon(new ImageIcon(getClass().getResource("")));
+            lblInfo2.setText("");
+            lblInfo2.setIcon(new ImageIcon(getClass().getResource("")));
+            
+        }else{
+            campoNome.setText("");
+            campoGrau.setSelectedItem("Primario");
+            tipoPesquisa.clearSelection();
+            radioBtnNome.setSelected(true);
+        }
+            
+    }
+    private void radioBtnGrauMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioBtnGrauMouseClicked
+            if(radioBtnGrau.isSelected()){
+                campoNome.setEnabled(false);
+                campoNome.setText("");
+                campoGrau.setEnabled(true);
+            }
+            
+    }//GEN-LAST:event_radioBtnGrauMouseClicked
 
-
+    private void radioBtnNomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioBtnNomeMouseClicked
+        if(radioBtnNome.isSelected()){
+            campoGrau.setEnabled(false);
+            campoGrau.setSelectedItem("Primario");
+            campoNome.setEnabled(true);
+        }    
+    }//GEN-LAST:event_radioBtnNomeMouseClicked
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnConfirmarExclusao;
+    private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnLimparTabela;
-    private javax.swing.JButton btnVoltar;
+    private javax.swing.JComboBox<String> campoGrau;
     private javax.swing.JTextField campoNome;
     private javax.swing.JPanel campos;
     private javax.swing.JPanel fundo;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblGrau;
+    private javax.swing.JLabel lblInfo;
+    private javax.swing.JLabel lblInfo2;
     private javax.swing.JLabel lblNome;
+    private javax.swing.JRadioButton radioBtnGrau;
+    private javax.swing.JRadioButton radioBtnNome;
     private javax.swing.JTable tabelaStudents;
+    private javax.swing.ButtonGroup tipoPesquisa;
     // End of variables declaration//GEN-END:variables
 
-    private void leituraTabela(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }

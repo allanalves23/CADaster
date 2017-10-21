@@ -107,7 +107,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         about = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("CADaster - Gerenciamento Acadêmico [Build 0.6.0]");
+        setTitle("CADaster -  [0.7]");
         setIconImages(null);
 
         fundo.setBackground(new java.awt.Color(230, 230, 248));
@@ -195,7 +195,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         btnFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/quit.png"))); // NOI18N
         btnFechar.setText("Sair");
-        btnFechar.setToolTipText("Logout do Sistema");
+        btnFechar.setToolTipText("Sair do Programa");
         btnFechar.setFocusable(false);
         btnFechar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnFechar.setMaximumSize(new java.awt.Dimension(150, 60));
@@ -530,31 +530,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
     //Chamada da tela de adicao de usuario
     
     private void addUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserActionPerformed
-        controle.abrirJanela(false, TelaCadastro.getAbrir());
+        controle.abrirJanela(false, TelaCadUsuario.getAbrir());
         //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_addUserActionPerformed
     //Chamada da tela de remocao de usuario
     
     private void removeUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserActionPerformed
-        controle.abrirJanela(false,TelaRemoveUser.getAbrir());
+        controle.abrirJanela(false,TelaRemoverUsuario.getAbrir());
         //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_removeUserActionPerformed
     //Chamada da tela de edicao de usuario
     
     private void editUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUserActionPerformed
-        controle.abrirJanela(false,EditUser.getAbrir());
+        controle.abrirJanela(false,TelaEditarUsuario.getAbrir());
         //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_editUserActionPerformed
     //Chamada da tela de procura de usuario
     
     private void searchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchUserActionPerformed
-        controle.abrirJanela(true,TelaPesquisa.getAbrir());
+        controle.abrirJanela(true,TelaPesqUsuario.getAbrir());
         //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_searchUserActionPerformed
     //Chamada da tela de sobre o programa
     
     private void aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutActionPerformed
-        controle.abrirJanela(false,Sobre.getAbrir());
+        controle.abrirJanela(false,TelaSobre.getAbrir());
         //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_aboutActionPerformed
     //Chamada da tela de adicionar aluno
@@ -606,7 +606,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     //abre o frame para realizar a configuracao do banco
     private void gerenciaBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciaBDActionPerformed
-        controle.abrirConfig(GerenciaBanco.getAbrir());
+        controle.abrirConfig(TelaGerenciaBanco.getAbrir());
               
         
     }//GEN-LAST:event_gerenciaBDActionPerformed
@@ -740,7 +740,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarFuncActionPerformed
 
     private void btnBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBDActionPerformed
-        controle.abrirConfig(GerenciaBanco.getAbrir());
+        controle.abrirConfig(TelaGerenciaBanco.getAbrir());
     }//GEN-LAST:event_btnBDActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed

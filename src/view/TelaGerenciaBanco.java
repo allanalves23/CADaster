@@ -15,17 +15,17 @@ import modeldao.CreateDao;
  *
  * @author allan
  */
-public final class GerenciaBanco extends javax.swing.JFrame {
+public final class TelaGerenciaBanco extends javax.swing.JFrame {
 
     /**
      * Creates new form GerenciaBanco
      */
-    private static GerenciaBanco tela;
+    private static TelaGerenciaBanco tela;
     private static URI uri;
     
     public static JFrame getAbrir(){
         if(tela==null){
-            tela=new GerenciaBanco();
+            tela=new TelaGerenciaBanco();
             
         }
         /*se a tela estiver null, ou seja, se nao estiver nada aberto. Abra uma!
@@ -33,7 +33,7 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         return tela;
     }
     
-    public GerenciaBanco() {
+    public TelaGerenciaBanco() {
         initComponents();
         setIcon();
         try {
@@ -574,7 +574,7 @@ public final class GerenciaBanco extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundo, javax.swing.GroupLayout.PREFERRED_SIZE, 512, Short.MAX_VALUE)
+            .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
         );
 
         pack();

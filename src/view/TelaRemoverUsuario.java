@@ -17,20 +17,20 @@ import modeldao.SearchDao;
  *
  * @author allan
  */
-public class TelaRemoveUser extends javax.swing.JInternalFrame {
+public class TelaRemoverUsuario extends javax.swing.JInternalFrame {
     
-    private static TelaRemoveUser tela;
+    private static TelaRemoverUsuario tela;
     
-    public static TelaRemoveUser getAbrir(){
+    public static TelaRemoverUsuario getAbrir(){
         if(tela==null){
-            tela=new TelaRemoveUser();
+            tela=new TelaRemoverUsuario();
         }
         return tela;
     }
     /**
      * Creates new form TelaRemoveUser
      */
-    public TelaRemoveUser() {
+    public TelaRemoverUsuario() {
         initComponents();
         setIcon();
     }

@@ -298,7 +298,7 @@ public class TelaLogin extends javax.swing.JDialog {
     }//GEN-LAST:event_campoLoginKeyPressed
 
     private void btnConfigurarBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigurarBancoActionPerformed
-        GerenciaBanco config = new GerenciaBanco();
+        TelaGerenciaBanco config = new TelaGerenciaBanco();
         config.setVisible(true);
     }//GEN-LAST:event_btnConfigurarBancoActionPerformed
     //Metodo de login via root - Não implementado

@@ -11,17 +11,17 @@ import modeldao.InsertDao;
  *
  * @author allan
  */
-public class TelaCadastro extends javax.swing.JInternalFrame {
+public class TelaCadUsuario extends javax.swing.JInternalFrame {
 
    
     
-    private static TelaCadastro telaCad;
+    private static TelaCadUsuario telaCad;
     /*variavel estatica para verificar se existe mais de um objeto do mesmo
     tipo aberto*/
     
-    public static TelaCadastro getAbrir(){
+    public static TelaCadUsuario getAbrir(){
         if(telaCad==null){
-            telaCad=new TelaCadastro();
+            telaCad=new TelaCadUsuario();
         }
         /*se a tela estiver null, ou seja, se nao estiver nada aberto. Abra uma!
         Senao mantenha a mesma aberta  */
@@ -31,7 +31,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
      /**
      * Creates new form TelaCadastro2
      */
-    public TelaCadastro() {
+    public TelaCadUsuario() {
         initComponents();
         setIcon();
     }

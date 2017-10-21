@@ -12,18 +12,18 @@ import modeldao.UpdateDao;
  *
  * @author allan
  */
-public class EditUser extends javax.swing.JInternalFrame {
+public class TelaEditarUsuario extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form EditUser
      */
-    private static EditUser tela;
+    private static TelaEditarUsuario tela;
     /*variavel estatica para verificar se existe mais de um objeto do mesmo
     tipo aberto*/    
     
-    public static EditUser getAbrir(){
+    public static TelaEditarUsuario getAbrir(){
         if(tela==null){
-            tela= new EditUser();
+            tela= new TelaEditarUsuario();
         }
         return tela;
         /*se a tela estiver null, ou seja, se nao estiver nada aberto. Abra uma!
@@ -32,7 +32,7 @@ public class EditUser extends javax.swing.JInternalFrame {
     }
     
     
-    public EditUser() {
+    public TelaEditarUsuario() {
         initComponents();
         setIcon();
     }
