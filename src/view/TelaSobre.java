@@ -59,9 +59,10 @@ public class TelaSobre extends javax.swing.JInternalFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setPreferredSize(new java.awt.Dimension(423, 427));
 
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoCADaster.png"))); // NOI18N
+        lblLogo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LOGO64.png"))); // NOI18N
 
-        lblNome.setFont(new java.awt.Font("Corbel", 1, 24)); // NOI18N
+        lblNome.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         lblNome.setForeground(new java.awt.Color(1, 1, 1));
         lblNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNome.setText("CADaster");
@@ -74,10 +75,10 @@ public class TelaSobre extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLogonomeLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelLogonomeLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
                 .addComponent(lblLogo)
-                .addGap(34, 34, 34))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelLogonomeLayout.setVerticalGroup(
             panelLogonomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,12 +90,16 @@ public class TelaSobre extends javax.swing.JInternalFrame {
                 .addGap(0, 13, Short.MAX_VALUE))
         );
 
+        lblBuild.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblBuild.setText("Build 0.7.0");
 
+        lblRelease.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblRelease.setText("Release 0.7");
 
+        lblAno.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblAno.setText("2017");
 
+        lblAutor.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblAutor.setText("AWtech");
 
         btnSair.setText("Sair");
@@ -150,13 +155,14 @@ public class TelaSobre extends javax.swing.JInternalFrame {
         fundoOpLayout.setHorizontalGroup(
             fundoOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fundoOpLayout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(panelDetalhes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(fundoOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fundoOpLayout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(panelDetalhes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fundoOpLayout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(panelLogonome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(95, 95, 95))
-            .addGroup(fundoOpLayout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(panelLogonome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(129, 129, 129))
         );
         fundoOpLayout.setVerticalGroup(
             fundoOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

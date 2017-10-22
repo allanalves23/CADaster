@@ -17,7 +17,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="gerenciaBD">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/bd.png"/>
+                  <Image iconType="3" name="/imagens/database.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Gerencia Banco de dados"/>
               </Properties>
@@ -28,7 +28,7 @@
             <Menu class="javax.swing.JMenu" name="temas">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/tema.png"/>
+                  <Image iconType="3" name="/imagens/displayTheme.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Temas"/>
               </Properties>
@@ -52,6 +52,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="temaMetal">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Metal"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="temaMetalActionPerformed"/>
@@ -60,6 +61,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="experienceRoyale">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Experience Royale"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="experienceRoyaleActionPerformed"/>
@@ -68,6 +70,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="silver">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Silver"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="silverActionPerformed"/>
@@ -76,6 +79,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="invertedColorTheme">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cores Invertidas"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="invertedColorThemeActionPerformed"/>
@@ -84,6 +88,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="abstractSky">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Abstract Sky"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="abstractSkyActionPerformed"/>
@@ -97,7 +102,7 @@
                   <KeyStroke key="Ctrl+Q"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/Exit.png"/>
+                  <Image iconType="3" name="/imagens/logout.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Logout"/>
               </Properties>
@@ -111,7 +116,7 @@
                   <KeyStroke key="Ctrl+F4"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/quit.png"/>
+                  <Image iconType="3" name="/imagens/standby.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sair"/>
               </Properties>
@@ -123,18 +128,15 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="usuarios">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/Person.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Usuarios"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="addUser">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/Male.png"/>
+                  <Image iconType="3" name="/imagens/user.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cadastrar"/>
+                <Property name="text" type="java.lang.String" value="Adicionar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addUserActionPerformed"/>
@@ -143,7 +145,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="removeUser">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/Trash.png"/>
+                  <Image iconType="3" name="/imagens/removeUser.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Remover"/>
               </Properties>
@@ -154,9 +156,9 @@
             <MenuItem class="javax.swing.JMenuItem" name="editUser">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/Modify.png"/>
+                  <Image iconType="3" name="/imagens/editUser.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Editar"/>
+                <Property name="text" type="java.lang.String" value="Editar registro"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editUserActionPerformed"/>
@@ -165,7 +167,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="searchUser">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/Find.png"/>
+                  <Image iconType="3" name="/imagens/searchUser.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Pesquisar"/>
               </Properties>
@@ -177,16 +179,13 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="alunos">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/People.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Alunos"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="alunoAdd">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/Female.png"/>
+                  <Image iconType="3" name="/imagens/BTNUSER.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Adicionar"/>
               </Properties>
@@ -197,9 +196,9 @@
             <MenuItem class="javax.swing.JMenuItem" name="alunoDel">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/Cancel.png"/>
+                  <Image iconType="3" name="/imagens/removeStudent.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Excluir"/>
+                <Property name="text" type="java.lang.String" value="Remover"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alunoDelActionPerformed"/>
@@ -210,7 +209,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagens/Notes.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Gerenciar"/>
+                <Property name="text" type="java.lang.String" value="Editar registro"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alunoGerenActionPerformed"/>
@@ -231,18 +230,15 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="funcionarios">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/Boss.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Funcionarios"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="addFunc">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/teacher.png"/>
+                  <Image iconType="3" name="/imagens/Employee2.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Adicionar Novo Funcionario"/>
+                <Property name="text" type="java.lang.String" value="Adicionar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addFuncActionPerformed"/>
@@ -251,9 +247,9 @@
             <MenuItem class="javax.swing.JMenuItem" name="removeFunc">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/quit.png"/>
+                  <Image iconType="3" name="/imagens/removeEmployee.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Remover Funcionario"/>
+                <Property name="text" type="java.lang.String" value="Remover"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeFuncActionPerformed"/>
@@ -262,9 +258,9 @@
             <MenuItem class="javax.swing.JMenuItem" name="editFunc">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/New document.png"/>
+                  <Image iconType="3" name="/imagens/Notes.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Editar Funcionario"/>
+                <Property name="text" type="java.lang.String" value="Editar registro"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editFuncActionPerformed"/>
@@ -273,9 +269,9 @@
             <MenuItem class="javax.swing.JMenuItem" name="pesqFunc">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/User group.png"/>
+                  <Image iconType="3" name="/imagens/searchEmployee.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Pesquisar Funcionarios"/>
+                <Property name="text" type="java.lang.String" value="Pesquisar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesqFuncActionPerformed"/>
@@ -285,9 +281,6 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="sobre">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/About.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Sobre"/>
           </Properties>
           <SubComponents>
@@ -335,8 +328,9 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Component id="fundo" pref="726" max="32767" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+              <Component id="fundo" pref="725" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jToolBar1" min="-2" pref="149" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
           </Group>
@@ -344,8 +338,8 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="fundo" max="32767" attributes="0"/>
           <Component id="jToolBar1" alignment="0" max="32767" attributes="0"/>
+          <Component id="fundo" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -365,7 +359,7 @@
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane(){&#xa;    public void paintComponent(Graphics g){&#xa;        g.drawImage(imagem, 0, 0, getWidth(), getHeight(), this);&#xa;    }&#xa;}"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon img = new ImageIcon(getClass().getResource(&quot;/imagens/fundo.jpg&quot;));&#xa;Image imagem = img.getImage();"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon img = new ImageIcon(getClass().getResource(&quot;/imagens/fundo.png&quot;));&#xa;Image imagem = img.getImage();"/>
       </AuxValues>
     </Component>
     <Container class="javax.swing.JToolBar" name="jToolBar1">
@@ -406,23 +400,22 @@
                                           <Component id="pesqAluno" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="btnFechar" min="-2" pref="125" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="addAluno" min="-2" pref="125" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="lblNome" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnFechar" min="-2" pref="125" max="-2" attributes="0"/>
+                      <Component id="lblNome" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -431,7 +424,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblNome" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="lblNome" min="-2" pref="70" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="addAluno" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -444,7 +437,7 @@
                       <Component id="btnSair" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnFechar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="81" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -453,7 +446,7 @@
             <Component class="javax.swing.JButton" name="btnSair">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/Exit.png"/>
+                  <Image iconType="3" name="/imagens/logout.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Logout"/>
                 <Property name="toolTipText" type="java.lang.String" value="Logout do Sistema"/>
@@ -471,7 +464,7 @@
             <Component class="javax.swing.JButton" name="btnBD">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/bd.png"/>
+                  <Image iconType="3" name="/imagens/database.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Banco de Dados"/>
                 <Property name="toolTipText" type="java.lang.String" value="Ger&#xea;ncie Informa&#xe7;&#xf5;es sobre as Tabelas do Banco"/>
@@ -492,7 +485,7 @@
             <Component class="javax.swing.JButton" name="btnPesquisarFunc">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/User group.png"/>
+                  <Image iconType="3" name="/imagens/Employee.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Funcionarios"/>
                 <Property name="toolTipText" type="java.lang.String" value="Ger&#xea;ncie Cadastros do Setor Administrativo"/>
@@ -513,7 +506,7 @@
             <Component class="javax.swing.JButton" name="pesqAluno">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/Text preview.png"/>
+                  <Image iconType="3" name="/imagens/students.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Alunos"/>
                 <Property name="toolTipText" type="java.lang.String" value="Pesquise alunos"/>
@@ -531,7 +524,7 @@
             <Component class="javax.swing.JButton" name="addAluno">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/Female.png"/>
+                  <Image iconType="3" name="/imagens/BTNUSER.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Novo Aluno"/>
                 <Property name="toolTipText" type="java.lang.String" value="Adicionar um Aluno"/>
@@ -554,13 +547,15 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="33" red="33" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="CADaster"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagens/LogoSmall2.png"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnFechar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/quit.png"/>
+                  <Image iconType="3" name="/imagens/standby.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sair"/>
                 <Property name="toolTipText" type="java.lang.String" value="Sair do Programa"/>

@@ -59,7 +59,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jSeparator1 = new javax.swing.JSeparator();
-        ImageIcon img = new ImageIcon(getClass().getResource("/imagens/fundo.jpg"));
+        ImageIcon img = new ImageIcon(getClass().getResource("/imagens/fundo.png"));
         Image imagem = img.getImage();
         fundo = new javax.swing.JDesktopPane(){
             public void paintComponent(Graphics g){
@@ -122,7 +122,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jToolBar1.setName(""); // NOI18N
         jToolBar1.setRequestFocusEnabled(false);
 
-        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logout.png"))); // NOI18N
         btnSair.setText("Logout");
         btnSair.setToolTipText("Logout do Sistema");
         btnSair.setFocusable(false);
@@ -135,7 +135,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnBD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/bd.png"))); // NOI18N
+        btnBD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/database.png"))); // NOI18N
         btnBD.setText("Banco de Dados");
         btnBD.setToolTipText("Gerêncie Informações sobre as Tabelas do Banco");
         btnBD.setFocusable(false);
@@ -149,7 +149,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnPesquisarFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/User group.png"))); // NOI18N
+        btnPesquisarFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Employee.png"))); // NOI18N
         btnPesquisarFunc.setText("Funcionarios");
         btnPesquisarFunc.setToolTipText("Gerêncie Cadastros do Setor Administrativo");
         btnPesquisarFunc.setFocusable(false);
@@ -163,7 +163,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pesqAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Text preview.png"))); // NOI18N
+        pesqAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/students.png"))); // NOI18N
         pesqAluno.setText("Alunos");
         pesqAluno.setToolTipText("Pesquise alunos");
         pesqAluno.setFocusable(false);
@@ -176,7 +176,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        addAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Female.png"))); // NOI18N
+        addAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/BTNUSER.png"))); // NOI18N
         addAluno.setText("Novo Aluno");
         addAluno.setToolTipText("Adicionar um Aluno");
         addAluno.setFocusable(false);
@@ -191,9 +191,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         lblNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblNome.setForeground(new java.awt.Color(51, 51, 255));
-        lblNome.setText("CADaster");
+        lblNome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoSmall2.png"))); // NOI18N
 
-        btnFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/quit.png"))); // NOI18N
+        btnFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/standby.png"))); // NOI18N
         btnFechar.setText("Sair");
         btnFechar.setToolTipText("Sair do Programa");
         btnFechar.setFocusable(false);
@@ -223,25 +223,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnPesquisarFunc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(pesqAluno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(pesqAluno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(addAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(lblNome)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(addAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblNome)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(addAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -254,7 +253,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jToolBar1.add(jPanel1);
@@ -262,7 +261,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         sistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Home.png"))); // NOI18N
         sistema.setText("Sistema");
 
-        gerenciaBD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/bd.png"))); // NOI18N
+        gerenciaBD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/database.png"))); // NOI18N
         gerenciaBD.setText("Gerencia Banco de dados");
         gerenciaBD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,7 +270,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         sistema.add(gerenciaBD);
 
-        temas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/tema.png"))); // NOI18N
+        temas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/displayTheme.png"))); // NOI18N
         temas.setText("Temas");
 
         temaWindows.setText("Windows");
@@ -291,6 +290,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         temas.add(temaNimbus);
 
         temaMetal.setText("Metal");
+        temaMetal.setEnabled(false);
         temaMetal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 temaMetalActionPerformed(evt);
@@ -299,6 +299,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         temas.add(temaMetal);
 
         experienceRoyale.setText("Experience Royale");
+        experienceRoyale.setEnabled(false);
         experienceRoyale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 experienceRoyaleActionPerformed(evt);
@@ -307,6 +308,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         temas.add(experienceRoyale);
 
         silver.setText("Silver");
+        silver.setEnabled(false);
         silver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 silverActionPerformed(evt);
@@ -315,6 +317,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         temas.add(silver);
 
         invertedColorTheme.setText("Cores Invertidas");
+        invertedColorTheme.setEnabled(false);
         invertedColorTheme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 invertedColorThemeActionPerformed(evt);
@@ -323,6 +326,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         temas.add(invertedColorTheme);
 
         abstractSky.setText("Abstract Sky");
+        abstractSky.setEnabled(false);
         abstractSky.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 abstractSkyActionPerformed(evt);
@@ -333,7 +337,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         sistema.add(temas);
 
         logout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
-        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
+        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logout.png"))); // NOI18N
         logout.setText("Logout");
         logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -343,7 +347,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         sistema.add(logout);
 
         exit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.CTRL_MASK));
-        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/quit.png"))); // NOI18N
+        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/standby.png"))); // NOI18N
         exit.setText("Sair");
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -354,11 +358,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         barraMenu.add(sistema);
 
-        usuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Person.png"))); // NOI18N
         usuarios.setText("Usuarios");
 
-        addUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Male.png"))); // NOI18N
-        addUser.setText("Cadastrar");
+        addUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/user.png"))); // NOI18N
+        addUser.setText("Adicionar");
         addUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addUserActionPerformed(evt);
@@ -366,7 +369,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         usuarios.add(addUser);
 
-        removeUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Trash.png"))); // NOI18N
+        removeUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/removeUser.png"))); // NOI18N
         removeUser.setText("Remover");
         removeUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -375,8 +378,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         usuarios.add(removeUser);
 
-        editUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Modify.png"))); // NOI18N
-        editUser.setText("Editar");
+        editUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/editUser.png"))); // NOI18N
+        editUser.setText("Editar registro");
         editUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editUserActionPerformed(evt);
@@ -384,7 +387,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         usuarios.add(editUser);
 
-        searchUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Find.png"))); // NOI18N
+        searchUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/searchUser.png"))); // NOI18N
         searchUser.setText("Pesquisar");
         searchUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -395,10 +398,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         barraMenu.add(usuarios);
 
-        alunos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/People.png"))); // NOI18N
         alunos.setText("Alunos");
 
-        alunoAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Female.png"))); // NOI18N
+        alunoAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/BTNUSER.png"))); // NOI18N
         alunoAdd.setText("Adicionar");
         alunoAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -407,8 +409,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         alunos.add(alunoAdd);
 
-        alunoDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
-        alunoDel.setText("Excluir");
+        alunoDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/removeStudent.png"))); // NOI18N
+        alunoDel.setText("Remover");
         alunoDel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 alunoDelActionPerformed(evt);
@@ -417,7 +419,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         alunos.add(alunoDel);
 
         alunoGeren.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Notes.png"))); // NOI18N
-        alunoGeren.setText("Gerenciar");
+        alunoGeren.setText("Editar registro");
         alunoGeren.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 alunoGerenActionPerformed(evt);
@@ -436,11 +438,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         barraMenu.add(alunos);
 
-        funcionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Boss.png"))); // NOI18N
         funcionarios.setText("Funcionarios");
 
-        addFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/teacher.png"))); // NOI18N
-        addFunc.setText("Adicionar Novo Funcionario");
+        addFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Employee2.png"))); // NOI18N
+        addFunc.setText("Adicionar");
         addFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addFuncActionPerformed(evt);
@@ -448,8 +449,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         funcionarios.add(addFunc);
 
-        removeFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/quit.png"))); // NOI18N
-        removeFunc.setText("Remover Funcionario");
+        removeFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/removeEmployee.png"))); // NOI18N
+        removeFunc.setText("Remover");
         removeFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeFuncActionPerformed(evt);
@@ -457,8 +458,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         funcionarios.add(removeFunc);
 
-        editFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/New document.png"))); // NOI18N
-        editFunc.setText("Editar Funcionario");
+        editFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Notes.png"))); // NOI18N
+        editFunc.setText("Editar registro");
         editFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editFuncActionPerformed(evt);
@@ -466,8 +467,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         funcionarios.add(editFunc);
 
-        pesqFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/User group.png"))); // NOI18N
-        pesqFunc.setText("Pesquisar Funcionarios");
+        pesqFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/searchEmployee.png"))); // NOI18N
+        pesqFunc.setText("Pesquisar");
         pesqFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pesqFuncActionPerformed(evt);
@@ -477,7 +478,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         barraMenu.add(funcionarios);
 
-        sobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/About.png"))); // NOI18N
         sobre.setText("Sobre");
 
         about.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/About.png"))); // NOI18N
@@ -498,15 +498,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
+                .addGap(1, 1, 1)
+                .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundo)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(fundo)
         );
 
         pack();
@@ -594,7 +595,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     //Chamada da tela de gerenciamento de cadastro de professor
 
     private void addFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFuncActionPerformed
-        controle.abrirJanela(true,TelaAddFunc.getAbrir());
+        controle.abrirJanela(false,TelaAddFunc.getAbrir());
         //dado boolean define se a janela vai abrir maximizada ou nao
     }//GEN-LAST:event_addFuncActionPerformed
     /*Chamada da tela de gerenciamento de casdastro de funcionarios

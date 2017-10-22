@@ -75,8 +75,8 @@ public final class TelaGerenciaBanco extends javax.swing.JFrame {
         btnCriar = new javax.swing.JButton();
         panelVerifyTables = new javax.swing.JPanel();
         panelCriarBancoLocal = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         painel1 = new javax.swing.JPanel();
-        lblInfoResposta1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         areaTextoInfoLocal = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
@@ -115,6 +115,7 @@ public final class TelaGerenciaBanco extends javax.swing.JFrame {
         setTitle("CADaster - Gerenciar Base de Dados");
         setAlwaysOnTop(true);
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.TOOLKIT_EXCLUDE);
+        setPreferredSize(new java.awt.Dimension(780, 539));
 
         fundo.setLayout(new java.awt.CardLayout());
 
@@ -260,7 +261,7 @@ public final class TelaGerenciaBanco extends javax.swing.JFrame {
         areaTextoInfoLocal.setEditable(false);
         areaTextoInfoLocal.setColumns(20);
         areaTextoInfoLocal.setRows(5);
-        areaTextoInfoLocal.setText("Banco de dados para ser criado\né necessário ter o mysql\ninstalado funcionando junto com\nservidor local.\nConsulte os sites:\nhttps://www.apachefriends.org/index.html\nou\n=========================================\nhttps://httpd.apache.org/download.cgi\ne\nhttps://www.mysql.com/downloads/\n=========================================");
+        areaTextoInfoLocal.setText("Banco de dados para ser criado\né necessário ter o mysql\ninstalado funcionando junto com\nservidor local.\nConsulte os sites:\nhttps://www.apachefriends.org/index.html\ne\nhttps://www.mysql.com/downloads/\n=========================================");
         areaTextoInfoLocal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 areaTextoInfoLocalMouseClicked(evt);
@@ -279,22 +280,16 @@ public final class TelaGerenciaBanco extends javax.swing.JFrame {
         painel1Layout.setHorizontalGroup(
             painel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblInfoResposta1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(780, 780, 780))
-            .addGroup(painel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(25, 25, 25)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         painel1Layout.setVerticalGroup(
             painel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painel1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(lblInfoResposta1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         criarBD.add(radioBtnNao1);
@@ -353,31 +348,41 @@ public final class TelaGerenciaBanco extends javax.swing.JFrame {
                     .addComponent(radioBtnNao1))
                 .addGap(42, 42, 42)
                 .addComponent(btnCriarBancoLocal)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(10, 10, 10))
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(painel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(painel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout panelCriarBancoLocalLayout = new javax.swing.GroupLayout(panelCriarBancoLocal);
         panelCriarBancoLocal.setLayout(panelCriarBancoLocalLayout);
         panelCriarBancoLocalLayout.setHorizontalGroup(
             panelCriarBancoLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCriarBancoLocalLayout.createSequentialGroup()
-                .addContainerGap(149, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(painel1, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelCriarBancoLocalLayout.setVerticalGroup(
             panelCriarBancoLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCriarBancoLocalLayout.createSequentialGroup()
-                .addGroup(panelCriarBancoLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCriarBancoLocalLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(painel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelCriarBancoLocalLayout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         fundo.add(panelCriarBancoLocal, "criarBDLocal");
@@ -385,7 +390,7 @@ public final class TelaGerenciaBanco extends javax.swing.JFrame {
         areaTextoInfoDist.setEditable(false);
         areaTextoInfoDist.setColumns(20);
         areaTextoInfoDist.setRows(5);
-        areaTextoInfoDist.setText("Banco de dados para ser criado\né necessário ter o mysql\ninstalado funcionando junto com\nservidor local.\nConsulte os sites:\nhttps://www.apachefriends.org/index.html\nou\n=========================================\nhttps://httpd.apache.org/download.cgi\ne\nhttps://www.mysql.com/downloads/\n=========================================");
+        areaTextoInfoDist.setText("Banco de dados para ser criado\né necessário ter o mysql\ninstalado funcionando junto com\nservidor local.\nConsulte os sites:\nhttps://www.apachefriends.org/index.html\ne\nhttps://www.mysql.com/downloads/\n=========================================");
         areaTextoInfoDist.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 areaTextoInfoDistMouseClicked(evt);
@@ -398,6 +403,22 @@ public final class TelaGerenciaBanco extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(areaTextoInfoDist);
+
+        javax.swing.GroupLayout painelLayout = new javax.swing.GroupLayout(painel);
+        painel.setLayout(painelLayout);
+        painelLayout.setHorizontalGroup(
+            painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelLayout.createSequentialGroup()
+                .addContainerGap(80, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        painelLayout.setVerticalGroup(
+            painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelLayout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 113, Short.MAX_VALUE))
+        );
 
         criarBD.add(radioBtnNao);
         radioBtnNao.setText("Não");
@@ -489,37 +510,24 @@ public final class TelaGerenciaBanco extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout painelLayout = new javax.swing.GroupLayout(painel);
-        painel.setLayout(painelLayout);
-        painelLayout.setHorizontalGroup(
-            painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelLayout.createSequentialGroup()
-                .addContainerGap(135, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(142, 142, 142)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
-        );
-        painelLayout.setVerticalGroup(
-            painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelLayout.createSequentialGroup()
-                .addGroup(painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 113, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout panelCriarBancoDistribuidoLayout = new javax.swing.GroupLayout(panelCriarBancoDistribuido);
         panelCriarBancoDistribuido.setLayout(panelCriarBancoDistribuidoLayout);
         panelCriarBancoDistribuidoLayout.setHorizontalGroup(
             panelCriarBancoDistribuidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCriarBancoDistribuidoLayout.createSequentialGroup()
+                .addContainerGap(90, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         panelCriarBancoDistribuidoLayout.setVerticalGroup(
             panelCriarBancoDistribuidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCriarBancoDistribuidoLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelCriarBancoDistribuidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -759,13 +767,13 @@ public final class TelaGerenciaBanco extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblEndereco;
     private javax.swing.JLabel lblInfo;
     private javax.swing.JLabel lblInfoResposta;
-    private javax.swing.JLabel lblInfoResposta1;
     private javax.swing.JLabel lblMsgCreate;
     private javax.swing.JLabel lblMsgCreate1;
     private javax.swing.JLabel lblSenha;
